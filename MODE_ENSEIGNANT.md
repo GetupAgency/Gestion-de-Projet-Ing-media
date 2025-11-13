@@ -1,17 +1,34 @@
 # 👨‍🏫 Mode Enseignant
 
-## 🔐 Activer le mode enseignant
+## 🔐 Mot de passe
 
-Pour accéder aux corrections des cas pratiques, ajoutez `?boss=true` à n'importe quelle URL :
+**Mot de passe par défaut :** `IngemediaProf2024!`
+
+⚠️ **IMPORTANT :** Changez ce mot de passe dans le fichier `lib/teacherMode.ts` avant de partager l'application !
+
+```typescript
+// Dans lib/teacherMode.ts, ligne 3
+const TEACHER_PASSWORD = 'Grosa!'
+```
+
+## 🔓 Activer le mode enseignant
+
+### Méthode 1 : Via URL avec mot de passe (Recommandé)
 
 ```
-https://votre-app.vercel.app/?boss=true
+https://votre-app.vercel.app/?key=IngemediaProf2024!
 ```
 
 Ou en local :
 ```
-http://localhost:3000/?boss=true
+http://localhost:3000/?key=IngemediaProf2024!
 ```
+
+### Méthode 2 : Via le bouton (coin bas gauche)
+
+1. Cliquez sur le bouton "🔑 Enseignant" en bas à gauche
+2. Entrez le mot de passe
+3. Le mode s'active
 
 ## ✅ Une fois activé
 

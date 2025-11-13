@@ -1,36 +1,82 @@
-// Système de mode enseignant (boss mode)
+// Système de mode enseignant avec mot de passe
+
+// ⚠️ IMPORTANT : Changez ce mot de passe avant de déployer !
+const TEACHER_PASSWORD = 'IngemediaProf2024!'
 
 export function isTeacherMode(): boolean {
   if (typeof window === 'undefined') return false
   
-  // Vérifier localStorage
+  // Vérifier localStorage avec hash du mot de passe
   const stored = localStorage.getItem('teacherMode')
-  if (stored === 'true') return true
+  const hash = localStorage.getItem('teacherHash')
   
-  // Vérifier URL
-  const params = new URLSearchParams(window.location.search)
-  return params.get('boss') === 'true'
+  if (stored === 'true' && hash === hashPassword(TEACHER_PASSWORD)) {
+    return true
+  }
+  
+  return false
 }
 
-export function enableTeacherMode(): void {
-  if (typeof window === 'undefined') return
-  localStorage.setItem('teacherMode', 'true')
+export function enableTeacherMode(password: string): boolean {
+  if (typeof window === 'undefined') return false
+  
+  if (password === TEACHER_PASSWORD) {
+    localStorage.setItem('teacherMode', 'true')
+    localStorage.setItem('teacherHash', hashPassword(password))
+    return true
+  }
+  
+  return false
 }
 
 export function disableTeacherMode(): void {
   if (typeof window === 'undefined') return
   localStorage.removeItem('teacherMode')
+  localStorage.removeItem('teacherHash')
 }
 
 export function checkAndEnableTeacherMode(): boolean {
   if (typeof window === 'undefined') return false
   
-  const params = new URLSearchParams(window.location.search)
-  if (params.get('boss') === 'true') {
-    enableTeacherMode()
+  // Si déjà en mode enseignant, vérifier la validité
+  if (isTeacherMode()) {
     return true
   }
   
-  return isTeacherMode()
+  // Vérifier URL avec mot de passe
+  const params = new URLSearchParams(window.location.search)
+  const urlPassword = params.get('key')
+  
+  if (urlPassword) {
+    return enableTeacherMode(urlPassword)
+  }
+  
+  return false
+}
+
+export function promptTeacherPassword(): boolean {
+  if (typeof window === 'undefined') return false
+  
+  const password = window.prompt('Mot de passe enseignant :')
+  if (!password) return false
+  
+  if (enableTeacherMode(password)) {
+    window.location.reload()
+    return true
+  } else {
+    alert('Mot de passe incorrect')
+    return false
+  }
+}
+
+// Hash simple (pas crypto-sécurisé mais suffisant pour ce contexte)
+function hashPassword(password: string): string {
+  let hash = 0
+  for (let i = 0; i < password.length; i++) {
+    const char = password.charCodeAt(i)
+    hash = ((hash << 5) - hash) + char
+    hash = hash & hash
+  }
+  return hash.toString()
 }
 
