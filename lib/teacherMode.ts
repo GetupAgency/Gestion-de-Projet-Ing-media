@@ -1,7 +1,7 @@
 // Système de mode enseignant avec mot de passe
 
 // ⚠️ IMPORTANT : Changez ce mot de passe avant de déployer !
-const TEACHER_PASSWORD = 'IngemediaProf2024!'
+const TEACHER_PASSWORD = 'Grosac4Ever!'
 
 export function isTeacherMode(): boolean {
   if (typeof window === 'undefined') return false
