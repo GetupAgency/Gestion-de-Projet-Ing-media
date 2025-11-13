@@ -1,0 +1,904 @@
+{
+    "sections": [
+      {
+        "id": "gestion_de_projet",
+        "label": "Gestion de projet",
+        "terms": [
+          {
+            "term": "cahier des charges",
+            "definition": "Document qui décrit les besoins, objectifs, périmètres et contraintes d’un projet.",
+            "importance": 3
+          },
+          {
+            "term": "cadrage",
+            "definition": "Phase où l’on clarifie le pourquoi, le quoi et le comment du projet avant de démarrer.",
+            "importance": 3
+          },
+          {
+            "term": "kickoff",
+            "definition": "Réunion de lancement officielle du projet avec toutes les parties prenantes.",
+            "importance": 2
+          },
+          {
+            "term": "backlog",
+            "definition": "Liste priorisée de toutes les fonctionnalités, tâches et demandes à réaliser.",
+            "importance": 3
+          },
+          {
+            "term": "user story",
+            "definition": "Formulation d’un besoin utilisateur sous la forme d’une phrase simple et actionnable.",
+            "importance": 3
+          },
+          {
+            "term": "sprint",
+            "definition": "Période de travail courte et fixe durant laquelle l’équipe réalise un ensemble de tâches.",
+            "importance": 3
+          },
+          {
+            "term": "jalon",
+            "definition": "Point clé dans le projet qui marque une étape importante ou une décision.",
+            "importance": 2
+          },
+          {
+            "term": "gantt",
+            "definition": "Diagramme qui représente le planning des tâches du projet dans le temps.",
+            "importance": 2
+          },
+          {
+            "term": "dépendances",
+            "definition": "Lien entre deux tâches où l’une ne peut commencer ou finir sans l’autre.",
+            "importance": 2
+          },
+          {
+            "term": "livrable",
+            "definition": "Élément concret produit dans le cadre du projet (document, maquette, site en ligne…).",
+            "importance": 3
+          },
+          {
+            "term": "arbitrage",
+            "definition": "Décision prise pour trancher entre plusieurs options (budget, délai, périmètre).",
+            "importance": 2
+          },
+          {
+            "term": "plan de charge",
+            "definition": "Répartition du travail à effectuer entre les membres de l’équipe sur une période donnée.",
+            "importance": 2
+          },
+          {
+            "term": "charge prévisionnelle",
+            "definition": "Temps estimé nécessaire pour réaliser une tâche ou un ensemble de tâches.",
+            "importance": 2
+          },
+          {
+            "term": "reste à faire",
+            "definition": "Temps ou travail restant à accomplir pour terminer une tâche ou le projet.",
+            "importance": 2
+          },
+          {
+            "term": "roadmap",
+            "definition": "Vision globale et planifiée de l’évolution du produit ou du projet dans le temps.",
+            "importance": 2
+          },
+          {
+            "term": "comité de pilotage",
+            "definition": "Groupe de décision qui suit l’avancement du projet et valide les grandes orientations.",
+            "importance": 2
+          },
+          {
+            "term": "conduite du changement",
+            "definition": "Actions menées pour aider les utilisateurs à adopter une nouvelle solution.",
+            "importance": 1
+          },
+          {
+            "term": "risques",
+            "definition": "Événements potentiels qui peuvent impacter négativement le projet.",
+            "importance": 3
+          },
+          {
+            "term": "matrice de risques",
+            "definition": "Tableau qui classe les risques selon leur probabilité et leur impact.",
+            "importance": 2
+          },
+          {
+            "term": "comité de priorisation",
+            "definition": "Réunion ou groupe chargé de décider ce qui doit être fait en premier.",
+            "importance": 1
+          },
+          {
+            "term": "recette",
+            "definition": "Phase où l’on vérifie que la solution livrée respecte le cahier des charges.",
+            "importance": 3
+          },
+          {
+            "term": "protocole de recette",
+            "definition": "Document qui décrit les tests à réaliser et les critères de validation.",
+            "importance": 2
+          },
+          {
+            "term": "anomalies",
+            "definition": "Écarts entre le comportement attendu et le comportement réel de la solution.",
+            "importance": 3
+          },
+          {
+            "term": "critères d’acceptation",
+            "definition": "Conditions précises qui doivent être remplies pour considérer une fonctionnalité comme validée.",
+            "importance": 3
+          },
+          {
+            "term": "production / mise en production",
+            "definition": "Action de mettre le site ou l’application en ligne pour les vrais utilisateurs.",
+            "importance": 3
+          },
+          {
+            "term": "versionning",
+            "definition": "Gestion des différentes versions d’un même code ou document dans le temps.",
+            "importance": 2
+          },
+          {
+            "term": "rollback",
+            "definition": "Retour à une version précédente en cas de problème après un déploiement.",
+            "importance": 1
+          },
+          {
+            "term": "rétroplanning",
+            "definition": "Planning construit à partir de la date de fin souhaitée en remontant vers aujourd’hui.",
+            "importance": 2
+          },
+          {
+            "term": "spec fonctionnelle",
+            "definition": "Document qui décrit ce que le système doit faire du point de vue métier et utilisateur.",
+            "importance": 3
+          },
+          {
+            "term": "spec technique",
+            "definition": "Document qui décrit comment la solution sera réalisée techniquement.",
+            "importance": 2
+          },
+          {
+            "term": "workflow",
+            "definition": "Enchaînement des étapes par lesquelles passe une tâche ou une information.",
+            "importance": 2
+          },
+          {
+            "term": "environnement de développement",
+            "definition": "Cadre technique dans lequel les développeurs travaillent et testent le code en cours.",
+            "importance": 2
+          },
+          {
+            "term": "environnement de recette",
+            "definition": "Environnement dédié aux tests et à la validation avant la mise en production.",
+            "importance": 2
+          },
+          {
+            "term": "environnement de production",
+            "definition": "Environnement où l’application est utilisée par les vrais utilisateurs.",
+            "importance": 3
+          }
+        ]
+      },
+      {
+        "id": "communication_organisation",
+        "label": "Communication et organisation",
+        "terms": [
+          {
+            "term": "compte rendu",
+            "definition": "Document ou message qui résume les décisions, actions et points vus en réunion.",
+            "importance": 3
+          },
+          {
+            "term": "plan d’action",
+            "definition": "Liste structurée de tâches à réaliser, avec responsables et échéances.",
+            "importance": 3
+          },
+          {
+            "term": "reporting",
+            "definition": "Communication régulière sur l’avancement, les risques et les résultats du projet.",
+            "importance": 2
+          },
+          {
+            "term": "communication asynchrone",
+            "definition": "Échanges qui ne nécessitent pas que tout le monde soit présent en même temps.",
+            "importance": 2
+          },
+          {
+            "term": "réunion de suivi",
+            "definition": "Réunion régulière pour faire le point sur l’avancement du projet.",
+            "importance": 2
+          },
+          {
+            "term": "atelier",
+            "definition": "Session de travail collaboratif pour produire ou clarifier un livrable.",
+            "importance": 2
+          },
+          {
+            "term": "validation client",
+            "definition": "Accord formel du client sur un livrable ou une étape du projet.",
+            "importance": 3
+          },
+          {
+            "term": "expression de besoin",
+            "definition": "Formulation claire de ce que le client veut obtenir grâce au projet.",
+            "importance": 3
+          },
+          {
+            "term": "brief",
+            "definition": "Document ou échange initial qui présente le contexte et les attentes du projet.",
+            "importance": 2
+          },
+          {
+            "term": "benchmark",
+            "definition": "Analyse des solutions ou sites existants pour s’inspirer et se positionner.",
+            "importance": 2
+          },
+          {
+            "term": "méthodologie agile",
+            "definition": "Approche de gestion de projet basée sur des cycles courts, l’adaptation et la collaboration.",
+            "importance": 3
+          },
+          {
+            "term": "cycle en v",
+            "definition": "Méthode de gestion de projet avec des phases successives très structurées et peu de retours en arrière.",
+            "importance": 2
+          },
+          {
+            "term": "kanban",
+            "definition": "Méthode visuelle de gestion des tâches via des colonnes (à faire, en cours, fait).",
+            "importance": 2
+          }
+        ]
+      },
+      {
+        "id": "ux_ui",
+        "label": "UX / UI",
+        "terms": [
+          {
+            "term": "persona",
+            "definition": "Profil utilisateur fictif qui représente un type d’utilisateur cible.",
+            "importance": 3
+          },
+          {
+            "term": "user flow",
+            "definition": "Chemin que suit un utilisateur pour atteindre un objectif dans l’interface.",
+            "importance": 3
+          },
+          {
+            "term": "wireframe",
+            "definition": "Schéma simplifié d’une page qui montre la structure sans les détails graphiques.",
+            "importance": 3
+          },
+          {
+            "term": "maquette",
+            "definition": "Représentation visuelle détaillée d’une page, plus proche du rendu final.",
+            "importance": 3
+          },
+          {
+            "term": "prototype",
+            "definition": "Version interactive d’une maquette permettant de simuler la navigation.",
+            "importance": 2
+          },
+          {
+            "term": "hiérarchie visuelle",
+            "definition": "Organisation des éléments pour guider le regard et la compréhension.",
+            "importance": 2
+          },
+          {
+            "term": "zoning",
+            "definition": "Découpage d’une page en zones principales (header, contenu, sidebar, footer).",
+            "importance": 2
+          },
+          {
+            "term": "architecture de l’information",
+            "definition": "Organisation des contenus pour qu’ils soient trouvables et compréhensibles.",
+            "importance": 2
+          },
+          {
+            "term": "parcours utilisateur",
+            "definition": "Ensemble des étapes vécues par un utilisateur avant, pendant et après l’usage du site.",
+            "importance": 3
+          },
+          {
+            "term": "composant",
+            "definition": "Élément d’interface réutilisable (bouton, carte, formulaire).",
+            "importance": 2
+          },
+          {
+            "term": "design system",
+            "definition": "Ensemble de règles, composants et styles pour garder une interface cohérente.",
+            "importance": 1
+          },
+          {
+            "term": "contrastes",
+            "definition": "Différence de luminosité ou couleur entre éléments pour améliorer la lisibilité.",
+            "importance": 2
+          },
+          {
+            "term": "responsive",
+            "definition": "Capacité d’un site à s’adapter aux différentes tailles d’écran.",
+            "importance": 3
+          },
+          {
+            "term": "ergonomie",
+            "definition": "Qualité d’un système à être efficace, simple et confortable à utiliser.",
+            "importance": 3
+          },
+          {
+            "term": "accessibilité",
+            "definition": "Capacité d’un site à être utilisable par tous, y compris les personnes en situation de handicap.",
+            "importance": 3
+          },
+          {
+            "term": "rgaa",
+            "definition": "Référentiel français qui définit les règles d’accessibilité numérique à respecter.",
+            "importance": 2
+          },
+          {
+            "term": "audit ux",
+            "definition": "Analyse critique d’une interface pour repérer les problèmes d’expérience utilisateur.",
+            "importance": 1
+          }
+        ]
+      },
+      {
+        "id": "technique",
+        "label": "Technique",
+        "terms": [
+          {
+            "term": "front-end",
+            "definition": "Partie visible du site avec laquelle l’utilisateur interagit.",
+            "importance": 3
+          },
+          {
+            "term": "back-end",
+            "definition": "Partie invisible qui gère la logique métier, les données et le serveur.",
+            "importance": 3
+          },
+          {
+            "term": "api",
+            "definition": "Interface qui permet à deux systèmes de communiquer entre eux.",
+            "importance": 3
+          },
+          {
+            "term": "base de données",
+            "definition": "Système qui stocke et organise les informations du site ou de l’application.",
+            "importance": 3
+          },
+          {
+            "term": "serveur",
+            "definition": "Machine qui héberge le site et répond aux demandes des utilisateurs.",
+            "importance": 3
+          },
+          {
+            "term": "hébergement",
+            "definition": "Service qui met à disposition un serveur pour rendre un site accessible en ligne.",
+            "importance": 3
+          },
+          {
+            "term": "dns",
+            "definition": "Système qui relie un nom de domaine à l’adresse du serveur.",
+            "importance": 2
+          },
+          {
+            "term": "ssl",
+            "definition": "Protocole qui sécurise les échanges entre le navigateur et le serveur.",
+            "importance": 2
+          },
+          {
+            "term": "certificat",
+            "definition": "Fichier qui permet d’activer le https et de sécuriser un site.",
+            "importance": 2
+          },
+          {
+            "term": "domaine",
+            "definition": "Adresse web lisible par l’humain (ex : monsite.fr).",
+            "importance": 3
+          },
+          {
+            "term": "cache",
+            "definition": "Mécanisme qui stocke temporairement des données pour accélérer l’affichage.",
+            "importance": 2
+          },
+          {
+            "term": "cdn",
+            "definition": "Réseau de serveurs qui distribue le contenu pour le charger plus vite partout dans le monde.",
+            "importance": 1
+          },
+          {
+            "term": "performances",
+            "definition": "Vitesse et fluidité d’un site ou d’une application web.",
+            "importance": 3
+          },
+          {
+            "term": "compression",
+            "definition": "Réduction de la taille des fichiers pour améliorer la vitesse de chargement.",
+            "importance": 2
+          },
+          {
+            "term": "code source",
+            "definition": "Ensemble des fichiers qui contiennent les instructions du programme.",
+            "importance": 3
+          },
+          {
+            "term": "intégration",
+            "definition": "Transformation des maquettes en pages html, css et js fonctionnelles.",
+            "importance": 3
+          },
+          {
+            "term": "déploiement",
+            "definition": "Action de mettre en ligne une nouvelle version de l’application.",
+            "importance": 3
+          },
+          {
+            "term": "framework",
+            "definition": "Ensemble d’outils et de conventions pour faciliter le développement.",
+            "importance": 2
+          },
+          {
+            "term": "librairie",
+            "definition": "Collection de fonctions ou composants réutilisables dans un projet.",
+            "importance": 2
+          },
+          {
+            "term": "serveur web",
+            "definition": "Logiciel qui répond aux requêtes http des navigateurs.",
+            "importance": 2
+          },
+          {
+            "term": "sgbd",
+            "definition": "Logiciel qui gère la base de données (stockage, accès, sécurité).",
+            "importance": 2
+          },
+          {
+            "term": "logs",
+            "definition": "Fichiers qui enregistrent les événements et erreurs d’un système.",
+            "importance": 2
+          },
+          {
+            "term": "monitoring",
+            "definition": "Surveillance en temps réel d’un système pour détecter les problèmes.",
+            "importance": 2
+          },
+          {
+            "term": "infrastructure",
+            "definition": "Ensemble des composants matériels et logiciels qui supportent une application.",
+            "importance": 2
+          }
+        ]
+      },
+      {
+        "id": "cms_outils",
+        "label": "CMS et outils",
+        "terms": [
+          {
+            "term": "wordpress",
+            "definition": "CMS très répandu pour créer des sites vitrines et des blogs.",
+            "importance": 3
+          },
+          {
+            "term": "prestashop",
+            "definition": "CMS spécialisé dans la création de boutiques en ligne.",
+            "importance": 3
+          },
+          {
+            "term": "headless",
+            "definition": "Architecture où le front et le back sont séparés et communiquent via api.",
+            "importance": 2
+          },
+          {
+            "term": "theme",
+            "definition": "Ensemble de fichiers qui définissent l’apparence d’un site sous un cms.",
+            "importance": 2
+          },
+          {
+            "term": "plugin",
+            "definition": "Extension qui ajoute des fonctionnalités à un cms.",
+            "importance": 3
+          },
+          {
+            "term": "module",
+            "definition": "Composant fonctionnel ajouté à un cms, souvent utilisé sous prestashop.",
+            "importance": 2
+          },
+          {
+            "term": "template",
+            "definition": "Modèle de page ou de contenu réutilisable.",
+            "importance": 2
+          },
+          {
+            "term": "page builder",
+            "definition": "Outil visuel pour construire des pages sans coder.",
+            "importance": 2
+          },
+          {
+            "term": "woocommerce",
+            "definition": "Extension e-commerce de wordpress pour créer une boutique en ligne.",
+            "importance": 3
+          },
+          {
+            "term": "back-office",
+            "definition": "Interface d’administration du site ou de la boutique.",
+            "importance": 3
+          },
+          {
+            "term": "front-office",
+            "definition": "Partie du site visible par les visiteurs ou clients.",
+            "importance": 3
+          },
+          {
+            "term": "figma",
+            "definition": "Outil de conception d’interface et de prototypage collaboratif.",
+            "importance": 3
+          },
+          {
+            "term": "trello",
+            "definition": "Outil de gestion de tâches en mode kanban.",
+            "importance": 2
+          },
+          {
+            "term": "notion",
+            "definition": "Outil polyvalent pour la documentation, les tâches et l’organisation.",
+            "importance": 2
+          },
+          {
+            "term": "slack",
+            "definition": "Outil de messagerie d’équipe orienté travail et projets.",
+            "importance": 2
+          },
+          {
+            "term": "monday",
+            "definition": "Outil de gestion de projet et de suivi des tâches.",
+            "importance": 1
+          },
+          {
+            "term": "github",
+            "definition": "Plateforme de gestion de code source et de collaboration autour de git.",
+            "importance": 3
+          },
+          {
+            "term": "git",
+            "definition": "Système de gestion de versions pour le code.",
+            "importance": 3
+          },
+          {
+            "term": "merge",
+            "definition": "Action de fusionner des modifications de code issues de branches différentes.",
+            "importance": 2
+          },
+          {
+            "term": "pull request",
+            "definition": "Demande de fusion de code accompagnée d’une revue par l’équipe.",
+            "importance": 2
+          }
+        ]
+      },
+      {
+        "id": "seo",
+        "label": "SEO",
+        "terms": [
+          {
+            "term": "balise title",
+            "definition": "Titre de la page qui apparaît dans l’onglet du navigateur et dans les résultats de recherche.",
+            "importance": 3
+          },
+          {
+            "term": "balises meta",
+            "definition": "Informations dans le code de la page qui aident les moteurs de recherche à comprendre le contenu.",
+            "importance": 2
+          },
+          {
+            "term": "h1 / h2 / h3",
+            "definition": "Titres et sous-titres qui structurent le contenu d’une page.",
+            "importance": 3
+          },
+          {
+            "term": "sitemap",
+            "definition": "Fichier qui liste les pages d’un site pour faciliter leur indexation par les moteurs de recherche.",
+            "importance": 2
+          },
+          {
+            "term": "robots.txt",
+            "definition": "Fichier qui indique aux moteurs de recherche quelles zones du site explorer ou ignorer.",
+            "importance": 2
+          },
+          {
+            "term": "maillage interne",
+            "definition": "Liens entre les pages d’un même site pour faciliter la navigation et le seo.",
+            "importance": 2
+          },
+          {
+            "term": "backlink",
+            "definition": "Lien provenant d’un autre site qui pointe vers le vôtre.",
+            "importance": 2
+          },
+          {
+            "term": "performance web",
+            "definition": "Vitesse de chargement et fluidité d’un site, importantes pour l’expérience utilisateur et le seo.",
+            "importance": 3
+          },
+          {
+            "term": "core web vitals",
+            "definition": "Indicateurs de Google sur la performance et la stabilité d’une page.",
+            "importance": 1
+          },
+          {
+            "term": "indexation",
+            "definition": "Processus par lequel un moteur de recherche enregistre une page dans son index.",
+            "importance": 2
+          },
+          {
+            "term": "canonical",
+            "definition": "Balise qui indique la version principale d’une page pour éviter le contenu dupliqué.",
+            "importance": 1
+          },
+          {
+            "term": "redirection 301",
+            "definition": "Redirection permanente d’une url vers une autre.",
+            "importance": 2
+          },
+          {
+            "term": "alt text",
+            "definition": "Texte alternatif d’une image, utile pour l’accessibilité et le seo.",
+            "importance": 3
+          },
+          {
+            "term": "longue traîne",
+            "definition": "Mots-clés de recherche plus longs et précis, souvent moins concurrentiels.",
+            "importance": 1
+          },
+          {
+            "term": "audit seo",
+            "definition": "Analyse du site pour identifier les points forts et faibles en référencement.",
+            "importance": 1
+          },
+          {
+            "term": "optimisation on-page",
+            "definition": "Actions d’optimisation réalisées directement sur les pages du site.",
+            "importance": 2
+          },
+          {
+            "term": "contenu evergreen",
+            "definition": "Contenu qui reste pertinent longtemps et continue à attirer du trafic.",
+            "importance": 1
+          }
+        ]
+      },
+      {
+        "id": "marketing_digital",
+        "label": "Marketing digital",
+        "terms": [
+          {
+            "term": "tunnel de conversion",
+            "definition": "Parcours qui mène un visiteur d’une première visite à une action clé (achat, inscription…).",
+            "importance": 3
+          },
+          {
+            "term": "call to action",
+            "definition": "Élément qui incite l’utilisateur à effectuer une action précise (cliquer, s’inscrire…).",
+            "importance": 3
+          },
+          {
+            "term": "taux de rebond",
+            "definition": "Pourcentage de visiteurs qui quittent le site après une seule page vue.",
+            "importance": 2
+          },
+          {
+            "term": "kpi",
+            "definition": "Indicateur chiffré qui permet de suivre la performance d’une action ou d’un projet.",
+            "importance": 3
+          },
+          {
+            "term": "cta",
+            "definition": "Abréviation de call to action.",
+            "importance": 2
+          },
+          {
+            "term": "landing page",
+            "definition": "Page d’atterrissage dédiée à un objectif précis (campagne, offre, produit).",
+            "importance": 2
+          },
+          {
+            "term": "content marketing",
+            "definition": "Stratégie qui consiste à créer du contenu utile pour attirer et fidéliser une audience.",
+            "importance": 2
+          },
+          {
+            "term": "emailing",
+            "definition": "Envoi de campagnes d’e-mails à une base de contacts.",
+            "importance": 2
+          },
+          {
+            "term": "persona marketing",
+            "definition": "Version orientée marketing du persona, centrée sur les motivations d’achat.",
+            "importance": 1
+          },
+          {
+            "term": "campagne",
+            "definition": "Ensemble d’actions de communication planifiées pour atteindre un objectif.",
+            "importance": 2
+          },
+          {
+            "term": "analytics",
+            "definition": "Données collectées sur l’usage d’un site pour analyser le comportement des visiteurs.",
+            "importance": 3
+          },
+          {
+            "term": "page de vente",
+            "definition": "Page construite pour convaincre et pousser à l’achat d’un produit ou service.",
+            "importance": 2
+          },
+          {
+            "term": "acquisition",
+            "definition": "Actions visant à attirer de nouveaux visiteurs ou clients.",
+            "importance": 2
+          },
+          {
+            "term": "engagement",
+            "definition": "Interactions des utilisateurs avec le contenu (clics, commentaires, partages…).",
+            "importance": 2
+          },
+          {
+            "term": "funnel",
+            "definition": "Autre terme pour désigner le tunnel de conversion.",
+            "importance": 1
+          },
+          {
+            "term": "tracking",
+            "definition": "Mise en place de balises et outils pour suivre le comportement des utilisateurs.",
+            "importance": 2
+          },
+          {
+            "term": "utm",
+            "definition": "Paramètres ajoutés à une url pour identifier l’origine et la campagne d’un trafic.",
+            "importance": 1
+          }
+        ]
+      },
+      {
+        "id": "maintenance_support",
+        "label": "Maintenance et support",
+        "terms": [
+          {
+            "term": "ticket",
+            "definition": "Demande ou incident enregistré dans un outil de support.",
+            "importance": 3
+          },
+          {
+            "term": "maintenance corrective",
+            "definition": "Interventions pour corriger des bugs ou dysfonctionnements.",
+            "importance": 3
+          },
+          {
+            "term": "maintenance évolutive",
+            "definition": "Ajout ou modification de fonctionnalités pour faire évoluer le produit.",
+            "importance": 3
+          },
+          {
+            "term": "maintenance applicative",
+            "definition": "Gestion globale de l’application sur la durée (mise à jour, performance, sécurité).",
+            "importance": 2
+          },
+          {
+            "term": "bug",
+            "definition": "Erreur ou comportement inattendu dans une application.",
+            "importance": 3
+          },
+          {
+            "term": "correctif",
+            "definition": "Action ou mise à jour visant à résoudre un bug.",
+            "importance": 2
+          },
+          {
+            "term": "incident",
+            "definition": "Événement qui dégrade ou interrompt le service.",
+            "importance": 2
+          },
+          {
+            "term": "feature",
+            "definition": "Fonctionnalité d’un produit ou d’une application.",
+            "importance": 2
+          },
+          {
+            "term": "SLA",
+            "definition": "Accord qui définit le niveau de service attendu (disponibilité, temps de réponse…).",
+            "importance": 1
+          },
+          {
+            "term": "support N1 / N2 / N3",
+            "definition": "Niveaux de support avec complexité croissante des problèmes traités.",
+            "importance": 1
+          },
+          {
+            "term": "backlog post-lancement",
+            "definition": "Liste des améliorations et corrections à traiter après la mise en production.",
+            "importance": 2
+          },
+          {
+            "term": "monitoring",
+            "definition": "Surveillance continue de l’application pour détecter incidents et anomalies.",
+            "importance": 2
+          },
+          {
+            "term": "patch",
+            "definition": "Petite mise à jour ciblée pour corriger un bug ou une faille.",
+            "importance": 2
+          }
+        ]
+      },
+      {
+        "id": "securite",
+        "label": "Sécurité",
+        "terms": [
+          {
+            "term": "authentification",
+            "definition": "Vérification de l’identité d’un utilisateur avant de lui donner accès au système.",
+            "importance": 3
+          },
+          {
+            "term": "autorisation",
+            "definition": "Gestion des droits d’un utilisateur sur les ressources du système.",
+            "importance": 3
+          },
+          {
+            "term": "chiffrement",
+            "definition": "Transformation des données pour les rendre illisibles sans clé.",
+            "importance": 2
+          },
+          {
+            "term": "https",
+            "definition": "Version sécurisée du protocole http qui chiffre les échanges.",
+            "importance": 3
+          },
+          {
+            "term": "injection sql",
+            "definition": "Attaque qui consiste à insérer du code sql malveillant dans une requête.",
+            "importance": 2
+          },
+          {
+            "term": "csrf",
+            "definition": "Attaque qui force un utilisateur authentifié à exécuter une action non voulue.",
+            "importance": 1
+          },
+          {
+            "term": "xss",
+            "definition": "Attaque qui injecte du script malveillant dans une page web.",
+            "importance": 1
+          },
+          {
+            "term": "firewall",
+            "definition": "Système qui filtre le trafic réseau pour bloquer les accès non autorisés.",
+            "importance": 2
+          },
+          {
+            "term": "sauvegardes",
+            "definition": "Copies de sécurité des données pour pouvoir les restaurer en cas de problème.",
+            "importance": 3
+          },
+          {
+            "term": "restauration",
+            "definition": "Action de remettre en place des données à partir d’une sauvegarde.",
+            "importance": 2
+          },
+          {
+            "term": "audit sécurité",
+            "definition": "Analyse d’un système pour identifier les failles et les risques de sécurité.",
+            "importance": 1
+          },
+          {
+            "term": "conformité RGPD",
+            "definition": "Respect des règles européennes sur la protection des données personnelles.",
+            "importance": 2
+          },
+          {
+            "term": "données personnelles",
+            "definition": "Informations qui permettent d’identifier directement ou indirectement une personne.",
+            "importance": 3
+          },
+          {
+            "term": "privacy by design",
+            "definition": "Principe qui consiste à intégrer la protection des données dès la conception du projet.",
+            "importance": 1
+          }
+        ]
+      }
+    ]
+  }
+  
