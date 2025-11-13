@@ -73,7 +73,7 @@ export default function CasPratique({ title, description, exercice, correction }
           </div>
         )}
 
-            {showCorrection && isTeacher && (
+            {showCorrection && isTeacher && correction && (
               <div className="mt-4 bg-white/90 backdrop-blur-sm rounded-xl p-5 shadow-md border-2 border-purple-300 animate-in fade-in slide-in-from-top-2 duration-300">
                 <h4 className="font-semibold text-purple-900 mb-3 text-lg flex items-center gap-2">
                   <span className="text-2xl">💡</span>
