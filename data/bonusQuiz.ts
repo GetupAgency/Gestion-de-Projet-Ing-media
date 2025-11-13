@@ -6,96 +6,96 @@ export const bonusQuizQuestions: QuizQuestion[] = [
     id: 'q-bonus-1',
     question: 'Quel est le rôle principal d\'un chef de projet ?',
     options: [
-      'Coder l\'application',
-      'Coordonner l\'équipe et gérer le projet',
+      'Tester le site',
       'Designer les maquettes',
-      'Tester le site'
+      'Coordonner l\'équipe et gérer le projet',
+      'Coder l\'application'
     ],
-    correctAnswer: 1,
+    correctAnswer: 2,
     explanation: 'Le chef de projet coordonne l\'équipe, gère le planning, le budget, les risques et fait l\'interface avec le client.'
   },
   {
     id: 'q-bonus-2',
     question: 'Qu\'est-ce que le HTTPS ?',
     options: [
-      'Un langage de programmation',
-      'La version sécurisée du protocole HTTP',
+      'Un framework',
       'Un CMS',
-      'Un framework'
+      'Un langage de programmation',
+      'La version sécurisée du protocole HTTP'
     ],
-    correctAnswer: 1,
+    correctAnswer: 3,
     explanation: 'HTTPS est la version sécurisée de HTTP qui chiffre les échanges entre le navigateur et le serveur grâce au SSL/TLS.'
   },
   {
     id: 'q-bonus-3',
     question: 'Qu\'est-ce qu\'un wireframe ?',
     options: [
-      'Un câble de connexion',
       'Un schéma simplifié d\'une page sans détails graphiques',
+      'Un type de serveur',
       'Un framework JavaScript',
-      'Un type de serveur'
+      'Un câble de connexion'
     ],
-    correctAnswer: 1,
+    correctAnswer: 0,
     explanation: 'Un wireframe est une maquette basse fidélité qui montre la structure et l\'organisation d\'une page sans les détails visuels.'
   },
   {
     id: 'q-bonus-4',
     question: 'Quel outil est principalement utilisé pour le versioning du code ?',
     options: [
-      'Photoshop',
-      'Git',
       'Excel',
-      'Word'
+      'Word',
+      'Git',
+      'Photoshop'
     ],
-    correctAnswer: 1,
+    correctAnswer: 2,
     explanation: 'Git est le système de gestion de versions le plus utilisé pour le code source, permettant de suivre les modifications et collaborer.'
   },
   {
     id: 'q-bonus-5',
     question: 'Qu\'est-ce que le SEO ?',
     options: [
-      'Un langage de programmation',
-      'Search Engine Optimization (optimisation pour les moteurs de recherche)',
+      'Un CMS',
       'Un type de serveur',
-      'Un CMS'
+      'Search Engine Optimization (optimisation pour les moteurs de recherche)',
+      'Un langage de programmation'
     ],
-    correctAnswer: 1,
+    correctAnswer: 2,
     explanation: 'Le SEO (Search Engine Optimization) regroupe les techniques pour améliorer le positionnement d\'un site dans les moteurs de recherche.'
   },
   {
     id: 'q-bonus-6',
     question: 'Quel est le temps de chargement maximum recommandé pour une page web ?',
     options: [
-      '1 seconde',
-      '3 secondes',
+      '30 secondes',
       '10 secondes',
-      '30 secondes'
+      '3 secondes',
+      '1 seconde'
     ],
-    correctAnswer: 1,
+    correctAnswer: 2,
     explanation: 'Un temps de chargement inférieur à 3 secondes est recommandé. Au-delà, le taux de rebond augmente significativement.'
   },
   {
     id: 'q-bonus-7',
     question: 'Qu\'est-ce que le responsive design ?',
     options: [
-      'Un design qui répond vite aux clics',
-      'Un design qui s\'adapte à toutes les tailles d\'écran',
+      'Un design avec animations',
       'Un design coloré',
-      'Un design avec animations'
+      'Un design qui répond vite aux clics',
+      'Un design qui s\'adapte à toutes les tailles d\'écran'
     ],
-    correctAnswer: 1,
+    correctAnswer: 3,
     explanation: 'Le responsive design permet à un site de s\'adapter automatiquement aux différentes tailles d\'écran (desktop, tablette, mobile).'
   },
   {
     id: 'q-bonus-8',
     question: 'Quelle méthodologie de gestion de projet est basée sur des cycles courts et itératifs ?',
     options: [
-      'Waterfall (Cascade)',
-      'Agile',
+      'Aucune',
+              'Waterfall (Cascade)',
       'Anarchie',
-      'Aucune'
+      'Agile'
     ],
-    correctAnswer: 1,
+    correctAnswer: 3,
     explanation: 'La méthodologie Agile est basée sur des cycles courts (sprints), l\'adaptation continue et la collaboration étroite avec le client.'
   },
   {

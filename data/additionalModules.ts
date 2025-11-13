@@ -420,72 +420,72 @@ export const additionalModules: Module[] = [
             id: 'q-planning-1',
             question: 'Qu\'est-ce qu\'un jalon (milestone) dans un projet ?',
             options: [
+              'Un outil de gestion',
               'Une tâche quotidienne',
-              'Un événement clé marquant une étape importante',
               'Une réunion d\'équipe',
-              'Un outil de gestion'
+              'Un événement clé marquant une étape importante'
             ],
-            correctAnswer: 1,
+            correctAnswer: 3,
             explanation: 'Un jalon est un événement significatif qui marque l\'achèvement d\'une phase importante du projet.'
           },
           {
             id: 'q-planning-2',
             question: 'Dans la méthode Scrum, quelle est la durée typique d\'un sprint ?',
             options: [
-              '1 journée',
-              '2 à 4 semaines',
+              '6 mois',
               '3 mois',
-              '6 mois'
+              '2 à 4 semaines',
+              '1 journée'
             ],
-            correctAnswer: 1,
+            correctAnswer: 2,
             explanation: 'Un sprint Scrum dure généralement entre 2 et 4 semaines, permettant une itération rapide.'
           },
           {
             id: 'q-planning-3',
             question: 'Qu\'est-ce qu\'un diagramme de Gantt ?',
             options: [
-              'Un outil de communication',
-              'Un graphique montrant le planning des tâches dans le temps',
+              'Un framework de développement',
               'Un type de base de données',
-              'Un framework de développement'
+              'Un outil de communication',
+              'Un graphique montrant le planning des tâches dans le temps'
             ],
-            correctAnswer: 1,
+            correctAnswer: 3,
             explanation: 'Le diagramme de Gantt est un outil de planification qui représente visuellement les tâches, leur durée et leurs dépendances dans le temps.'
           },
           {
             id: 'q-planning-4',
             question: 'Quelle part du budget d\'un projet web représentent généralement les ressources humaines ?',
             options: [
+              '90-100%',
               '10-20%',
               '30-40%',
-              '60-70%',
-              '90-100%'
+              '60-70%'
             ],
-            correctAnswer: 2,
+            correctAnswer: 3,
             explanation: 'Les ressources humaines (salaires, freelances) représentent la plus grosse part du budget, généralement 60 à 70%.'
           },
           {
             id: 'q-planning-5',
             question: 'Quelle marge de sécurité est recommandée dans un budget de projet ?',
             options: [
-              '1-2%',
-              '5-7%',
+              '30-40%',
               '10-15%',
-              '30-40%'
+              '1-2%',
+              '5-7%'
             ],
-            correctAnswer: 2,
+            correctAnswer: 1,
             explanation: 'Une marge de sécurité de 10 à 15% est recommandée pour gérer les imprévus et dépassements potentiels.'
           },
           {
             id: 'q-planning-6',
             question: 'Qu\'est-ce que le "scope creep" ?',
             options: [
-              'Un outil de gestion',
-              'Une dérive du périmètre du projet (ajout de fonctionnalités)',
               'Une méthodologie de développement',
-              'Un type de bug'
+              'Un type de bug',
+              'Une dérive du périmètre du projet (ajout de fonctionnalités)',
+              'Un outil de gestion'
             ],
-            correctAnswer: 1,
+            correctAnswer: 2,
             explanation: 'Le scope creep est la dérive du périmètre initial, souvent causée par l\'ajout de nouvelles demandes non prévues dans le CDC.'
           }
         ]

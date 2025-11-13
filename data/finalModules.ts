@@ -379,56 +379,56 @@ export const finalModules: Module[] = [
           {
             id: 'q-tech-1',
             question: 'Quel framework frontend est le plus populaire en 2024 ?',
-            options: ['Angular', 'React', 'Vue.js', 'Svelte'],
-            correctAnswer: 1,
+            options: ['Svelte', 'Vue.js', 'Angular', 'React'],
+            correctAnswer: 3,
             explanation: 'React est actuellement le framework frontend le plus populaire avec la plus grande communauté.'
           },
           {
             id: 'q-tech-2',
             question: 'Quelle est la différence entre frontend et backend ?',
             options: [
-              'Frontend = serveur, Backend = client',
-              'Frontend = partie visible, Backend = logique serveur',
+              'Frontend = base de données',
               'Aucune différence',
-              'Frontend = base de données'
+              'Frontend = partie visible, Backend = logique serveur',
+              'Frontend = serveur, Backend = client'
             ],
-            correctAnswer: 1,
+            correctAnswer: 2,
             explanation: 'Le frontend est la partie visible avec laquelle l\'utilisateur interagit, le backend gère la logique métier et les données côté serveur.'
           },
           {
             id: 'q-tech-3',
             question: 'Qu\'est-ce qu\'une API ?',
             options: [
-              'Un langage de programmation',
-              'Une interface permettant à deux systèmes de communiquer',
+              'Un framework CSS',
               'Un type de base de données',
-              'Un framework CSS'
+              'Un langage de programmation',
+              'Une interface permettant à deux systèmes de communiquer'
             ],
-            correctAnswer: 1,
+            correctAnswer: 3,
             explanation: 'Une API (Application Programming Interface) permet à différents systèmes ou applications de communiquer entre eux.'
           },
           {
             id: 'q-tech-4',
             question: 'Quel CMS est le plus utilisé au monde ?',
             options: [
+              'Shopify',
               'Drupal',
               'Joomla',
-              'WordPress',
-              'Shopify'
+              'WordPress'
             ],
-            correctAnswer: 2,
+            correctAnswer: 3,
             explanation: 'WordPress alimente environ 40% des sites web dans le monde, ce qui en fait le CMS le plus populaire.'
           },
           {
             id: 'q-tech-5',
             question: 'Pour un blog personnel avec budget limité, quelle solution est la plus adaptée ?',
             options: [
-              'Développement sur mesure en React',
               'WordPress',
+              'Blockchain',
               'Application mobile native',
-              'Blockchain'
+              'Développement sur mesure en React'
             ],
-            correctAnswer: 1,
+            correctAnswer: 0,
             explanation: 'WordPress est la solution idéale pour un blog avec budget limité : gratuit, facile à utiliser, excellent SEO et grande communauté.'
           }
         ]

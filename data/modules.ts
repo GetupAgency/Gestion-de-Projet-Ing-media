@@ -417,48 +417,48 @@ Un projet web est une initiative temporaire visant à créer un produit, service
             id: 'q-cdc-2',
             question: 'Combien de sections principales contient généralement un cahier des charges ?',
             options: [
+              'Pas de structure fixe',
               '2-3 sections',
-              '4-6 sections',
               '10-15 sections',
-              'Pas de structure fixe'
+              '4-6 sections'
             ],
-            correctAnswer: 1,
+            correctAnswer: 3,
             explanation: 'Un CDC contient généralement 4 à 6 sections principales : présentation, description fonctionnelle, contraintes techniques, design, planning/budget, maintenance.'
           },
           {
             id: 'q-cdc-3',
             question: 'Pourquoi est-il important de cartographier l\'existant avant un projet ?',
             options: [
+              'Ce n\'est pas important',
               'Pour augmenter le budget',
               'Pour identifier ce qui peut être réutilisé et mesurer l\'ampleur des changements',
-              'Pour impressionner le client',
-              'Ce n\'est pas important'
+              'Pour impressionner le client'
             ],
-            correctAnswer: 1,
+            correctAnswer: 2,
             explanation: 'La cartographie permet d\'identifier les forces/faiblesses, comprendre l\'environnement technique et évaluer ce qui peut être conservé.'
           },
           {
             id: 'q-cdc-4',
             question: 'Qu\'est-ce qu\'un persona ?',
             options: [
-              'Un employé de l\'entreprise',
-              'Un profil utilisateur fictif représentant une cible',
               'Un concurrent',
-              'Un outil de gestion'
+              'Un outil de gestion',
+              'Un employé de l\'entreprise',
+              'Un profil utilisateur fictif représentant une cible'
             ],
-            correctAnswer: 1,
+            correctAnswer: 3,
             explanation: 'Un persona est un profil type d\'utilisateur cible avec ses caractéristiques, objectifs, freins et comportements.'
           },
           {
             id: 'q-cdc-5',
             question: 'Quelle est la structure d\'une user story ?',
             options: [
-              'Titre + Description',
-              'En tant que [utilisateur], je veux [objectif] afin de [bénéfice]',
+              'Début + Milieu + Fin',
               'Problème + Solution',
-              'Début + Milieu + Fin'
+              'Titre + Description',
+              'En tant que [utilisateur], je veux [objectif] afin de [bénéfice]'
             ],
-            correctAnswer: 1,
+            correctAnswer: 3,
             explanation: 'Une user story suit toujours cette structure : "En tant que [type d\'utilisateur], je veux [objectif] afin de [bénéfice]".'
           }
         ]

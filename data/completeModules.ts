@@ -385,96 +385,96 @@ export const completeModules: Module[] = [
             id: 'q-intro-1',
             question: 'Quelle est la principale différence entre un site vitrine et une application métier ?',
             options: [
-              'Le budget',
-              'Le niveau de personnalisation et les fonctionnalités spécifiques',
               'Le nombre de pages',
-              'La technologie utilisée'
+              'La technologie utilisée',
+              'Le niveau de personnalisation et les fonctionnalités spécifiques',
+              'Le budget'
             ],
-            correctAnswer: 1,
+            correctAnswer: 2,
             explanation: 'Une application métier est développée sur mesure pour répondre à des besoins spécifiques d\'une organisation, contrairement à un site vitrine qui présente principalement de l\'information.'
           },
           {
             id: 'q-intro-2',
             question: 'Qu\'est-ce que le "taux de conversion" ?',
             options: [
-              'Le pourcentage de visiteurs qui quittent le site',
-              'Le pourcentage de visiteurs qui effectuent l\'action souhaitée',
               'Le nombre total de visiteurs',
-              'Le temps passé sur le site'
+              'Le temps passé sur le site',
+              'Le pourcentage de visiteurs qui quittent le site',
+              'Le pourcentage de visiteurs qui effectuent l\'action souhaitée'
             ],
-            correctAnswer: 1,
+            correctAnswer: 3,
             explanation: 'Le taux de conversion mesure le pourcentage de visiteurs qui accomplissent l\'objectif défini (achat, inscription, contact, etc.).'
           },
           {
             id: 'q-intro-3',
             question: 'Parmi ces éléments, lequel N\'EST PAS un livrable typique d\'un projet web ?',
             options: [
-              'Cahier des charges',
-              'Maquettes graphiques',
+              'Plan de test',
               'Facture EDF du serveur',
-              'Plan de test'
+              'Maquettes graphiques',
+              'Cahier des charges'
             ],
-            correctAnswer: 2,
+            correctAnswer: 1,
             explanation: 'Les factures d\'électricité ne sont pas des livrables de projet. Les livrables sont des documents ou produits créés spécifiquement pour le projet.'
           },
           {
             id: 'q-intro-4',
             question: 'Quel est le budget moyen typique pour un site e-commerce basique ?',
             options: [
+              '100 000€ - 200 000€',
               '1 000€ - 3 000€',
               '5 000€ - 8 000€',
-              '10 000€ - 30 000€',
-              '100 000€ - 200 000€'
+              '10 000€ - 30 000€'
             ],
-            correctAnswer: 2,
+            correctAnswer: 3,
             explanation: 'Un site e-commerce nécessite des fonctionnalités complexes (paiement, gestion stock, sécurité) et se situe généralement entre 10 000€ et 30 000€ pour une version de base.'
           },
           {
             id: 'q-intro-5',
             question: 'Quelle métrique mesure la "visibilité" d\'un site web ?',
             options: [
-              'Le taux de rebond',
-              'Le positionnement SEO et le trafic organique',
+              'Le nombre de formulaires',
               'Le temps de chargement',
-              'Le nombre de formulaires'
+              'Le taux de rebond',
+              'Le positionnement SEO et le trafic organique'
             ],
-            correctAnswer: 1,
+            correctAnswer: 3,
             explanation: 'La visibilité se mesure principalement par le positionnement dans les moteurs de recherche (SEO) et le trafic organique généré.'
           },
           {
             id: 'q-intro-6',
             question: 'Quelle est la durée typique d\'un projet de site vitrine ?',
             options: [
-              '1-2 jours',
-              '4-8 semaines',
               '6 mois',
-              '1 an'
+              '1 an',
+              '4-8 semaines',
+              '1-2 jours'
             ],
-            correctAnswer: 1,
+            correctAnswer: 2,
             explanation: 'Un site vitrine nécessite généralement 4 à 8 semaines pour la conception, le développement et la mise en ligne.'
           },
           {
             id: 'q-intro-7',
             question: 'Qu\'est-ce qu\'un projet ?',
             options: [
-              'Une activité permanente',
-              'Une initiative temporaire avec un début et une fin',
+              'Un produit fini',
               'Un département d\'une entreprise',
-              'Un produit fini'
+              'Une activité permanente',
+              'Une initiative temporaire avec un début et une fin'
             ],
-            correctAnswer: 1,
+            correctAnswer: 3,
             explanation: 'Un projet est par définition temporaire, avec un début et une fin clairement définis, contrairement aux opérations courantes.'
           },
           {
             id: 'q-intro-8',
             question: 'Quel type de valeur mesure le ROI (Return On Investment) ?',
             options: [
-              'Visibilité',
-              'Expérience utilisateur',
               'Conversion financière',
-              'Performance technique'
+              'Visibilité',
+              'Performance technique',
+              'Expérience utilisateur'
             ],
-            correctAnswer: 2,
+            correctAnswer: 0,
             explanation: 'Le ROI mesure le retour sur investissement financier, donc la valeur de conversion et le chiffre d\'affaires généré.'
           }
         ]
