@@ -1,7 +1,8 @@
 'use client'
 
-import { useState } from 'react'
-import { Eye, EyeOff, Lightbulb } from 'lucide-react'
+import { useState, useEffect } from 'react'
+import { Eye, EyeOff, Lightbulb, Lock } from 'lucide-react'
+import { checkAndEnableTeacherMode } from '@/lib/teacherMode'
 
 interface CasPratiqueProps {
   title: string
@@ -12,6 +13,11 @@ interface CasPratiqueProps {
 
 export default function CasPratique({ title, description, exercice, correction }: CasPratiqueProps) {
   const [showCorrection, setShowCorrection] = useState(false)
+  const [isTeacher, setIsTeacher] = useState(false)
+
+  useEffect(() => {
+    setIsTeacher(checkAndEnableTeacherMode())
+  }, [])
 
   return (
     <div className="mt-8 bg-gradient-to-br from-purple-50 via-pink-50 to-purple-50 rounded-2xl p-6 shadow-lg relative overflow-hidden">
@@ -37,7 +43,7 @@ export default function CasPratique({ title, description, exercice, correction }
           <div dangerouslySetInnerHTML={{ __html: exercice }} />
         </div>
 
-        {correction && (
+        {correction && isTeacher && (
           <div className="mt-4">
             <button
               onClick={() => setShowCorrection(!showCorrection)}
@@ -55,8 +61,19 @@ export default function CasPratique({ title, description, exercice, correction }
                 </>
               )}
             </button>
+          </div>
+        )}
 
-            {showCorrection && (
+        {correction && !isTeacher && (
+          <div className="mt-4">
+            <div className="flex items-center gap-2 px-5 py-2.5 bg-gray-300 text-gray-500 rounded-xl shadow-md font-medium cursor-not-allowed">
+              <Lock className="w-4 h-4" />
+              Correction réservée à l'enseignant
+            </div>
+          </div>
+        )}
+
+            {showCorrection && isTeacher && (
               <div className="mt-4 bg-white/90 backdrop-blur-sm rounded-xl p-5 shadow-md border-2 border-purple-300 animate-in fade-in slide-in-from-top-2 duration-300">
                 <h4 className="font-semibold text-purple-900 mb-3 text-lg flex items-center gap-2">
                   <span className="text-2xl">💡</span>
@@ -65,8 +82,6 @@ export default function CasPratique({ title, description, exercice, correction }
                 <div dangerouslySetInnerHTML={{ __html: correction }} />
               </div>
             )}
-          </div>
-        )}
       </div>
     </div>
   )
