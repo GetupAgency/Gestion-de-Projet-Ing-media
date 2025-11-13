@@ -2721,37 +2721,63 @@ export const finalModules: Module[] = [
         casePratique: {
           title: 'Planifier un projet complet',
           description: 'Organiser toutes les phases',
-          exercice: `**Projet** : Création d'une marketplace B2B
+          exercice: `<div class="cas-pratique-content">
+  <p><strong>Projet :</strong> Création d'une marketplace B2B</p>
 
-**Contexte** :
-- Plateforme de mise en relation professionnels
-- 3 types d'utilisateurs (acheteurs, vendeurs, admin)
-- Paiement en ligne + commissions
-- Budget : 80 000€
-- Équipe : 1 PM, 3 devs, 1 designer, 1 QA
+  <h4 class="font-semibold text-purple-900 mt-4 mb-2">Contexte :</h4>
+  <ul class="list-disc list-inside space-y-1 ml-4 text-gray-800">
+    <li>Plateforme de mise en relation professionnels</li>
+    <li>3 types d'utilisateurs (acheteurs, vendeurs, admin)</li>
+    <li>Paiement en ligne + commissions</li>
+    <li>Budget : 80 000€</li>
+    <li>Équipe : 1 PM, 3 devs, 1 designer, 1 QA</li>
+  </ul>
 
-**Votre mission complète** :
+  <h4 class="font-semibold text-purple-900 mt-6 mb-3">Votre mission complète :</h4>
 
-1. **Calendrier** :
-   - Proposez un planning global sur 6 mois
-   - Détaillez les phases et durées
-   - Identifiez les jalons critiques
+  <div class="space-y-4">
+    <div class="bg-blue-50 rounded-lg p-4">
+      <p class="font-semibold text-blue-900 mb-2">1. Calendrier :</p>
+      <ul class="list-disc list-inside space-y-1 ml-4 text-blue-800 text-sm">
+        <li>Proposez un planning global sur 6 mois</li>
+        <li>Détaillez les phases et durées</li>
+        <li>Identifiez les jalons critiques</li>
+      </ul>
+    </div>
 
-2. **Équipe** :
-   - Répartissez les rôles
-   - Estimez la charge de chacun
+    <div class="bg-green-50 rounded-lg p-4">
+      <p class="font-semibold text-green-900 mb-2">2. Équipe :</p>
+      <ul class="list-disc list-inside space-y-1 ml-4 text-green-800 text-sm">
+        <li>Répartissez les rôles</li>
+        <li>Estimez la charge de chacun</li>
+      </ul>
+    </div>
 
-3. **Livrables** :
-   - Listez tous les livrables par phase
-   - Dates de livraison
+    <div class="bg-purple-50 rounded-lg p-4">
+      <p class="font-semibold text-purple-900 mb-2">3. Livrables :</p>
+      <ul class="list-disc list-inside space-y-1 ml-4 text-purple-800 text-sm">
+        <li>Listez tous les livrables par phase</li>
+        <li>Dates de livraison</li>
+      </ul>
+    </div>
 
-4. **Risques** :
-   - Identifiez 5 risques majeurs
-   - Proposez des mesures de mitigation
+    <div class="bg-orange-50 rounded-lg p-4">
+      <p class="font-semibold text-orange-900 mb-2">4. Risques :</p>
+      <ul class="list-disc list-inside space-y-1 ml-4 text-orange-800 text-sm">
+        <li>Identifiez 5 risques majeurs</li>
+        <li>Proposez des mesures de mitigation</li>
+      </ul>
+    </div>
 
-5. **Budget** :
-   - Répartissez le budget par phase
-   - Incluez une marge de sécurité`
+    <div class="bg-pink-50 rounded-lg p-4">
+      <p class="font-semibold text-pink-900 mb-2">5. Budget :</p>
+      <ul class="list-disc list-inside space-y-1 ml-4 text-pink-800 text-sm">
+        <li>Répartissez le budget par phase</li>
+        <li>Incluez une marge de sécurité</li>
+      </ul>
+    </div>
+  </div>
+</div>`
         }
       },
       {
