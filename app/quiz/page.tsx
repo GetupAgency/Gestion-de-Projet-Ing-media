@@ -3,15 +3,16 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { ArrowLeft, Trophy } from 'lucide-react'
-import { allModules, bonusQuizQuestions, lexiqueQuizQuestions, competencesQuizQuestions } from '@/data/allModules'
+import { allModules, bonusQuizQuestions, lexiqueQuizQuestions, extendedLexiqueQuizQuestions, competencesQuizQuestions } from '@/data/allModules'
 import Quiz from '@/components/Quiz'
 import Footer from '@/components/Footer'
+import { selectRandomQuestions } from '@/lib/shuffleUtils'
 
 export default function QuizPage() {
   const [started, setStarted] = useState(false)
   const [completed, setCompleted] = useState(false)
 
-  // Collecter toutes les questions : modules + bonus + lexique + compétences
+  // Collecter toutes les questions : modules + bonus + lexique + lexique étendu + compétences
   const allQuestions = [
     ...allModules
       .flatMap(module => module.sections)
@@ -19,13 +20,14 @@ export default function QuizPage() {
       .filter(q => q !== undefined),
     ...bonusQuizQuestions,
     ...lexiqueQuizQuestions,
+    ...extendedLexiqueQuizQuestions,
     ...competencesQuizQuestions
   ]
 
-  // Mélanger et prendre exactement 20 questions aléatoires
+  // Mélanger et prendre exactement 20 questions aléatoires avec l'algorithme Fisher-Yates
+  // + mélanger aussi l'ordre des réponses pour éviter les patterns
   const [quizQuestions] = useState(() => {
-    const shuffled = [...allQuestions].sort(() => Math.random() - 0.5)
-    return shuffled.slice(0, 20)
+    return selectRandomQuestions(allQuestions, 20)
   })
 
   const handleComplete = () => {
@@ -101,7 +103,9 @@ export default function QuizPage() {
               <ul className="space-y-2 text-blue-800">
                 <li>✓ 20 questions sélectionnées aléatoirement</li>
                 <li>✓ Questions issues des modules, du lexique et des compétences</li>
-                <li>✓ Pool de plus de 110 questions disponibles</li>
+                <li>✓ Pool de plus de 230 questions disponibles</li>
+                <li>✓ Algorithme de mélange amélioré (chaque quiz est vraiment unique)</li>
+                <li>✓ Ordre des réponses mélangé pour éviter les patterns</li>
                 <li>✓ Explications détaillées pour chaque réponse</li>
                 <li>✓ Pas de limite de temps</li>
                 <li>✓ Score final à la fin du quiz</li>

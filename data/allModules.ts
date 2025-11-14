@@ -5,6 +5,7 @@ import { finalModules } from './finalModules'
 import { completeModules } from './completeModules'
 import { bonusQuizQuestions } from './bonusQuiz'
 import { lexiqueQuizQuestions } from './lexiqueQuiz'
+import { extendedLexiqueQuizQuestions } from './extendedLexiqueQuiz'
 import { competencesQuizQuestions } from './competencesQuiz'
 
 export const allModules = [
@@ -15,5 +16,5 @@ export const allModules = [
 ]
 
 // Export toutes les questions bonus pour le quiz global
-export { bonusQuizQuestions, lexiqueQuizQuestions, competencesQuizQuestions }
+export { bonusQuizQuestions, lexiqueQuizQuestions, extendedLexiqueQuizQuestions, competencesQuizQuestions }
 
