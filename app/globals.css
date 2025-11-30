@@ -32,6 +32,28 @@ body {
   }
 }
 
+/* Styles pour le markdown */
+.markdown-content strong {
+  @apply font-bold;
+  font-weight: 700;
+}
+
+.markdown-content em {
+  @apply italic;
+}
+
+.markdown-content p {
+  @apply leading-relaxed;
+}
+
+.markdown-content ul {
+  @apply list-disc list-inside space-y-2 my-3;
+}
+
+.markdown-content li {
+  @apply leading-relaxed;
+}
+
 /* Styles personnalisés pour l'application */
 .quiz-option {
   @apply border-2 border-gray-300 rounded-xl p-5 cursor-pointer transition-all duration-200;

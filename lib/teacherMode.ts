@@ -64,7 +64,7 @@ export function promptTeacherPassword(): boolean {
     window.location.reload()
     return true
   } else {
-    alert('Mot de passe incorrect')
+    alert('Bien essayé bande de loutres 🦦')
     return false
   }
 }

@@ -32,10 +32,10 @@ git init
 git add .
 
 # Créer un commit
-git commit -m "Initial commit - Application de formation"
+git commit -m "Second commit - Application de formation"
 
 # Créer un repository sur GitHub puis :
-git remote add origin https://github.com/VOTRE-USERNAME/management-projet.git
+git remote add origin https://github.com/GetupAgency/Gestion-de-Projet-Ing-media.git
 git branch -M main
 git push -u origin main
 ```

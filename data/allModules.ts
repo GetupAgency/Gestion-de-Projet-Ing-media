@@ -3,6 +3,7 @@ import { modules as introModules } from './modules'
 import { additionalModules } from './additionalModules'
 import { finalModules } from './finalModules'
 import { completeModules } from './completeModules'
+import { missionModule } from './missionModule'
 import { bonusQuizQuestions } from './bonusQuiz'
 import { lexiqueQuizQuestions } from './lexiqueQuiz'
 import { extendedLexiqueQuizQuestions } from './extendedLexiqueQuiz'
@@ -12,7 +13,8 @@ export const allModules = [
   ...completeModules,
   ...introModules.slice(1), // Skip intro car déjà dans completeModules
   ...additionalModules,
-  ...finalModules
+  ...finalModules,
+  missionModule // Mission finale individuelle
 ]
 
 // Export toutes les questions bonus pour le quiz global
