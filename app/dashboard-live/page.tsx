@@ -5,7 +5,8 @@ import Link from 'next/link'
 import { ArrowLeft, Trophy, Award, RefreshCw, TrendingUp, Users, Zap } from 'lucide-react'
 import { isTeacherMode } from '@/lib/teacherMode'
 import { getAllScoresFromSupabase, subscribeToScores } from '@/lib/syncSystem'
-import { isSupabaseConfigured } from '@/lib/supabase'
+import { isSupabaseConfigured, supabase } from '@/lib/supabase'
+import { analyzeLeaderboard, correctCheatScore } from '@/lib/antiCheat'
 import Footer from '@/components/Footer'
 import type { TeamData } from '@/lib/gameSystem'
 
@@ -15,6 +16,7 @@ export default function DashboardLivePage() {
   const [loading, setLoading] = useState(true)
   const [lastUpdate, setLastUpdate] = useState<Date>(new Date())
   const [mounted, setMounted] = useState(false)
+  const [showCheatDetection, setShowCheatDetection] = useState(false)
 
   useEffect(() => {
     setMounted(true)
@@ -88,6 +90,26 @@ export default function DashboardLivePage() {
   const totalPoints = teams.reduce((sum, t) => sum + t.points, 0)
   const totalBadges = teams.reduce((sum, t) => sum + t.badges.length, 0)
   const totalEasterEggs = teams.reduce((sum, t) => sum + t.easterEggs.length, 0)
+  
+  const cheatAnalysis = analyzeLeaderboard(teams)
+  const suspiciousTeams = cheatAnalysis.filter(a => !a.legitimate)
+  
+  const handleCorrectAll = async () => {
+    if (!confirm(`Corriger ${suspiciousTeams.length} équipes suspectes ?\n\nLeurs scores seront ajustés automatiquement.`)) {
+      return
+    }
+    
+    for (const analysis of suspiciousTeams) {
+      const correctedScore = correctCheatScore(analysis.team)
+      await supabase!
+        .from('teams')
+        .update({ points: correctedScore })
+        .eq('team_name', analysis.team.teamName)
+    }
+    
+    alert('Scores corrigés !')
+    loadScores()
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
@@ -163,11 +185,52 @@ export default function DashboardLivePage() {
 
         {/* Dernière mise à jour */}
         <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded-lg mb-8">
-          <p className="text-sm text-blue-900">
-            Dernière mise à jour : {lastUpdate.toLocaleTimeString('fr-FR')}
-            <span className="ml-2 text-blue-600">• Rafraîchissement automatique toutes les 10s</span>
-          </p>
+          <div className="flex items-center justify-between">
+            <p className="text-sm text-blue-900">
+              Dernière mise à jour : {lastUpdate.toLocaleTimeString('fr-FR')}
+              <span className="ml-2 text-blue-600">• Rafraîchissement auto 10s</span>
+            </p>
+            {suspiciousTeams.length > 0 && (
+              <button
+                onClick={() => setShowCheatDetection(!showCheatDetection)}
+                className="px-4 py-2 bg-orange-500 text-white rounded-lg text-sm font-medium hover:bg-orange-600"
+              >
+                ⚠️ {suspiciousTeams.length} suspect{suspiciousTeams.length > 1 ? 's' : ''}
+              </button>
+            )}
+          </div>
         </div>
+
+        {/* Detection triche */}
+        {showCheatDetection && suspiciousTeams.length > 0 && (
+          <div className="bg-orange-50 border-2 border-orange-500 rounded-lg p-6 mb-8">
+            <h3 className="font-bold text-orange-900 mb-4 flex items-center justify-between">
+              <span>Équipes Suspectes Détectées</span>
+              <button
+                onClick={handleCorrectAll}
+                className="px-4 py-2 bg-orange-600 text-white rounded-lg text-sm hover:bg-orange-700"
+              >
+                Corriger Automatiquement
+              </button>
+            </h3>
+            <div className="space-y-2">
+              {suspiciousTeams.map((analysis, i) => (
+                <div key={i} className="bg-white p-3 rounded border-l-4 border-orange-500">
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold text-gray-900">{analysis.team.teamName}</span>
+                    <span className="text-sm text-orange-700">
+                      {analysis.team.points} pts → Max légitime: {analysis.maxScore} pts
+                      <span className="font-bold ml-2">(+{analysis.excess} suspect)</span>
+                    </span>
+                  </div>
+                  <p className="text-xs text-gray-600 mt-1">
+                    {analysis.team.badges.length} badges, {analysis.team.easterEggs.length} énigmes
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Podium et Classement */}
         {teams.length > 0 ? (
@@ -262,7 +325,7 @@ export default function DashboardLivePage() {
                             <span className="text-gray-700">{team.badges.length}</span>
                           </td>
                           <td className="px-6 py-4 text-center">
-                            <span className="text-gray-700">{team.easterEggs.length}/10</span>
+                            <span className="text-gray-700">{team.easterEggs.length}/20</span>
                           </td>
                           <td className="px-6 py-4 text-center">
                             <span className="text-xs text-gray-600">
