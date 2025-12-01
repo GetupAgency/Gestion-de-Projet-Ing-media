@@ -16,7 +16,7 @@ export default function TeacherModeIndicator() {
   if (!mounted || !isTeacher) return null
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className="fixed bottom-16 left-4 z-[35]">
       <div className="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-4 py-2 rounded-full shadow-lg flex items-center gap-2">
         <Eye className="w-4 h-4" />
         <span className="text-sm font-semibold">Mode Enseignant</span>

@@ -7,12 +7,17 @@ import Footer from '@/components/Footer'
 import { missionProjects, MissionProject } from '@/data/missionProjects'
 import { MarkdownText } from '@/lib/markdownUtils'
 import { isTeacherMode } from '@/lib/teacherMode'
+import GamePanel from '@/components/GamePanel'
+import Leaderboard from '@/components/Leaderboard'
+import TeamSetup from '@/components/TeamSetup'
+import { initEasterEggListeners, awardBadge, addPoints, getTeamData } from '@/lib/gameSystem'
 
 export default function MissionPage() {
   const [selectedProject, setSelectedProject] = useState<MissionProject | null>(null)
   const [showProjectSelection, setShowProjectSelection] = useState(true)
   const [currentTab, setCurrentTab] = useState<string>('brief')
   const [teacherModeActive, setTeacherModeActive] = useState(false)
+  const [showTeamSetup, setShowTeamSetup] = useState(false)
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -28,13 +33,76 @@ export default function MissionPage() {
 
       // Vérifier le mode enseignant
       setTeacherModeActive(isTeacherMode())
+      
+      // Vérifier si équipe existe
+      const team = getTeamData()
+      if (!team && !showProjectSelection) {
+        setShowTeamSetup(true)
+      }
+      
+      // Initialiser les easter eggs techniques
+      initEasterEggListeners()
+      
+      // Easter egg: message caché dans le code source
+      console.log(`
+%c
+┌─────────────────────────────────────────────────┐
+│                                                 │
+│  Tiens, quelqu'un sait ouvrir la console...    │
+│                                                 │
+│  Les loutres ont caché des indices partout.    │
+│  Certains chiffres dans les briefs ne sont     │
+│  pas là par hasard.                            │
+│                                                 │
+│  Bonne chasse ! 🦦                              │
+│                                                 │
+└─────────────────────────────────────────────────┘
+`, 'color: #8b5cf6; font-weight: bold;')
+      
+      awardBadge('console-master')
+      
+      // Easter egg: triple clic sur le logo
+      let logoClickCount = 0
+      let logoClickTimeout: NodeJS.Timeout
+      
+      const handleLogoClick = () => {
+        logoClickCount++
+        clearTimeout(logoClickTimeout)
+        
+        if (logoClickCount === 3) {
+          addPoints(30, 'Triple clic découvert')
+          alert('Secret débloqué !\n\nVous avez l\'œil. Les détails comptent en gestion de projet.\n\nIndice : Pensez aux durées standard en méthode Agile.')
+          logoClickCount = 0
+        } else {
+          logoClickTimeout = setTimeout(() => {
+            logoClickCount = 0
+          }, 500)
+        }
+      }
+      
+      document.addEventListener('click', (e) => {
+        const target = e.target as HTMLElement
+        if (target.closest('h1') || target.closest('[data-logo]')) {
+          handleLogoClick()
+        }
+      })
     }
   }, [])
 
   const handleProjectSelect = (project: MissionProject) => {
     setSelectedProject(project)
-    setShowProjectSelection(false)
     localStorage.setItem('selectedMissionProject', project.id)
+    
+    // Vérifier si équipe existe
+    const team = getTeamData()
+    if (!team) {
+      // Pas d'équipe : afficher le setup
+      setShowProjectSelection(false)
+      setShowTeamSetup(true)
+    } else {
+      // Équipe existe : aller directement au contenu
+      setShowProjectSelection(false)
+    }
   }
 
   const handleReset = () => {
@@ -174,9 +242,17 @@ export default function MissionPage() {
 
   if (!selectedProject) return null
 
+  // Afficher le setup d'équipe si nécessaire
+  if (showTeamSetup) {
+    return <TeamSetup onComplete={() => {
+      setShowTeamSetup(false)
+      setShowProjectSelection(false)
+    }} />
+  }
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
-      <header className="bg-gradient-to-r from-purple-600 to-pink-600 shadow-lg sticky top-0 z-50">
+      <header className="bg-gradient-to-r from-purple-600 to-pink-600 shadow-lg sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between mb-4">
             <button 
@@ -194,13 +270,13 @@ export default function MissionPage() {
             )}
           </div>
 
-          <h1 className="text-2xl font-bold text-white">{selectedProject.title}</h1>
+          <h1 className="text-2xl font-bold text-white" data-logo>{selectedProject.title}</h1>
           <p className="text-purple-100 text-sm mt-1">Guide de réponse à l'appel d'offres</p>
         </div>
       </header>
 
       {/* Tabs */}
-      <div className="bg-white border-b sticky top-[108px] z-40 shadow-sm">
+      <div className="bg-white border-b sticky top-[108px] z-10 shadow-sm">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex gap-1 overflow-x-auto">
             {tabs.map((tab) => (
@@ -867,6 +943,12 @@ export default function MissionPage() {
           </div>
         )}
       </main>
+
+      {/* Game Panel */}
+      <GamePanel projectId={selectedProject.id} />
+
+      {/* Leaderboard */}
+      <Leaderboard />
 
       <Footer />
     </div>

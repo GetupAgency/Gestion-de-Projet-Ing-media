@@ -54,6 +54,37 @@ body {
   @apply leading-relaxed;
 }
 
+/* Animations pour les notifications */
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+.animate-slide-out {
+  animation: slide-out 0.3s ease-in;
+}
+
 /* Styles personnalisés pour l'application */
 .quiz-option {
   @apply border-2 border-gray-300 rounded-xl p-5 cursor-pointer transition-all duration-200;
