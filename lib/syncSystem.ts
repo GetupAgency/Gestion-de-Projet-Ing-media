@@ -6,7 +6,7 @@ export async function syncToSupabase(): Promise<{ success: boolean, message: str
   if (!isSupabaseConfigured()) {
     return {
       success: false,
-      message: 'Supabase non configuré. Contactez votre enseignant.'
+      message: 'Base de données non configurée. Utilisez l\'export manuel.'
     }
   }
 
@@ -14,68 +14,98 @@ export async function syncToSupabase(): Promise<{ success: boolean, message: str
   if (!teamData) {
     return {
       success: false,
-      message: 'Aucune donnée d\'équipe à synchroniser.'
+      message: 'Créez d\'abord votre équipe.'
     }
   }
 
   try {
-    // Récupérer le projet sélectionné
     const projectId = localStorage.getItem('selectedMissionProject') || 'unknown'
 
+    // Vérifier la connexion Supabase
+    const { error: testError } = await supabase!.from('teams').select('id').limit(1)
+    if (testError) {
+      console.error('Test connexion:', testError)
+      return {
+        success: false,
+        message: 'Impossible de se connecter à la base de données.'
+      }
+    }
+
     // Vérifier si l'équipe existe déjà
-    const { data: existing } = await supabase!
+    const { data: existing, error: checkError } = await supabase!
       .from('teams')
       .select('id')
       .eq('team_name', teamData.teamName)
-      .single()
+      .maybeSingle()
+
+    if (checkError) {
+      throw checkError
+    }
+
+    const dataToSync = {
+      team_name: teamData.teamName,
+      points: teamData.points,
+      badges: teamData.badges,
+      easter_eggs: teamData.easterEggs,
+      tokens: teamData.tokens,
+      project_id: projectId,
+      last_activity: new Date().toISOString()
+    }
 
     if (existing) {
       // Mettre à jour
       const { error } = await supabase!
         .from('teams')
-        .update({
-          points: teamData.points,
-          badges: teamData.badges,
-          easter_eggs: teamData.easterEggs,
-          tokens: teamData.tokens,
-          project_id: projectId,
-          last_activity: new Date().toISOString()
-        })
+        .update(dataToSync)
         .eq('team_name', teamData.teamName)
 
       if (error) throw error
 
       return {
         success: true,
-        message: `Score mis à jour : ${teamData.points} points !`
+        message: `Score synchronisé : ${teamData.points} points`
       }
     } else {
       // Créer
       const { error } = await supabase!
         .from('teams')
-        .insert({
-          team_name: teamData.teamName,
-          points: teamData.points,
-          badges: teamData.badges,
-          easter_eggs: teamData.easterEggs,
-          tokens: teamData.tokens,
-          project_id: projectId,
-          last_activity: new Date().toISOString()
-        })
+        .insert(dataToSync)
 
       if (error) throw error
 
       return {
         success: true,
-        message: `Équipe enregistrée : ${teamData.points} points !`
+        message: `Équipe créée dans la base : ${teamData.points} points`
       }
     }
   } catch (error: any) {
-    console.error('Erreur sync Supabase:', error)
+    console.error('Erreur sync:', error)
+    
+    let errorMessage = 'Erreur de synchronisation.'
+    if (error.message?.includes('violates')) {
+      errorMessage = 'Nom d\'équipe déjà pris. Choisissez un autre nom.'
+    } else if (error.message?.includes('network')) {
+      errorMessage = 'Problème de connexion internet.'
+    }
+    
     return {
       success: false,
-      message: `Erreur : ${error.message || 'Problème de connexion'}`
+      message: errorMessage
     }
+  }
+}
+
+// Tester la connexion Supabase
+export async function testSupabaseConnection(): Promise<boolean> {
+  if (!isSupabaseConfigured() || !supabase) {
+    return false
+  }
+
+  try {
+    const { error } = await supabase.from('teams').select('id').limit(1)
+    return !error
+  } catch {
+    return false
   }
 }
 

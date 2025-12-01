@@ -1,4 +1,4 @@
-const p = atob('R3Jvc2FjNEV2ZXIh')
+import { supabase } from './supabase'
 
 export function isTeacherMode(): boolean {
   if (typeof window === 'undefined') return false
@@ -6,20 +6,33 @@ export function isTeacherMode(): boolean {
   const s = localStorage.getItem('teacherMode')
   const h = localStorage.getItem('teacherHash')
   
-  if (s === 'true' && h === hashPassword(p)) {
+  if (s === 'true' && h) {
     return true
   }
   
   return false
 }
 
-export function enableTeacherMode(password: string): boolean {
+export async function enableTeacherMode(password: string): Promise<boolean> {
   if (typeof window === 'undefined') return false
   
-  if (password === p) {
-    localStorage.setItem('teacherMode', 'true')
-    localStorage.setItem('teacherHash', hashPassword(password))
-    return true
+  const hash = hashPassword(password)
+  
+  try {
+    if (supabase) {
+      const { data } = await supabase
+        .from('teacher_config')
+        .select('password_hash')
+        .single()
+      
+      if (data && data.password_hash === hash) {
+        localStorage.setItem('teacherMode', 'true')
+        localStorage.setItem('teacherHash', hash)
+        return true
+      }
+    }
+  } catch (error) {
+    console.error('Erreur vérification:', error)
   }
   
   return false
@@ -31,7 +44,7 @@ export function disableTeacherMode(): void {
   localStorage.removeItem('teacherHash')
 }
 
-export function checkAndEnableTeacherMode(): boolean {
+export async function checkAndEnableTeacherMode(): Promise<boolean> {
   if (typeof window === 'undefined') return false
   
   if (isTeacherMode()) {
@@ -42,19 +55,21 @@ export function checkAndEnableTeacherMode(): boolean {
   const k = params.get('key')
   
   if (k) {
-    return enableTeacherMode(k)
+    return await enableTeacherMode(k)
   }
   
   return false
 }
 
-export function promptTeacherPassword(): boolean {
+export async function promptTeacherPassword(): Promise<boolean> {
   if (typeof window === 'undefined') return false
   
   const password = window.prompt('Mot de passe enseignant :')
   if (!password) return false
   
-  if (enableTeacherMode(password)) {
+  const success = await enableTeacherMode(password)
+  
+  if (success) {
     window.location.reload()
     return true
   } else {

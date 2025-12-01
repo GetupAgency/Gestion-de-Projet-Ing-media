@@ -15,8 +15,8 @@ export default function TeacherModeButton() {
 
   return (
     <button
-      onClick={() => {
-        if (promptTeacherPassword()) {
+      onClick={async () => {
+        if (await promptTeacherPassword()) {
           setIsTeacher(true)
         }
       }}

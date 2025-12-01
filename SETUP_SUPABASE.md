@@ -67,6 +67,22 @@ CREATE POLICY "Enable insert for all" ON teams
 -- Politique : Une équipe peut mettre à jour ses propres données
 CREATE POLICY "Enable update for team" ON teams
   FOR UPDATE USING (true);
+
+-- Table pour la configuration enseignant (mot de passe sécurisé)
+CREATE TABLE teacher_config (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  password_hash TEXT NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
+);
+
+-- Insérer le mot de passe hashé (Grosac4Ever!)
+INSERT INTO teacher_config (password_hash) 
+VALUES ('1935027444');
+
+-- Politique : Lecture publique pour vérification
+ALTER TABLE teacher_config ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Enable read for all" ON teacher_config
+  FOR SELECT USING (true);
 ```
 
 4. Cliquer **Run** (ou F5)
