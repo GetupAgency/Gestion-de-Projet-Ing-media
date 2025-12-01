@@ -96,9 +96,31 @@ function QuickQuiz({ onClose }: { onClose: () => void }) {
     
     setTimeout(() => {
       if (isLastQuestion) {
-        // Fin du quiz
-        addPoints(score + (index === question.correct ? question.points : 0), 'Quiz rapide complété')
-        alert(`Quiz terminé ! Score : ${score + (index === question.correct ? question.points : 0)} points`)
+        const finalScore = score + (index === question.correct ? question.points : 0)
+        const maxScore = QUICK_QUIZ.reduce((sum, q) => sum + q.points, 0)
+        
+        addPoints(finalScore, 'Quiz rapide complété', 'quiz-completed')
+        
+        // Badge perfect si 100%
+        if (finalScore === maxScore) {
+          import('@/lib/gameSystem').then(({ awardBadge }) => {
+            awardBadge('perfect-quiz')
+          })
+        }
+        
+        // Badge gamer
+        import('@/lib/gameSystem').then(({ awardBadge }) => {
+          const played = JSON.parse(localStorage.getItem('gamesPlayed') || '[]')
+          if (!played.includes('quiz')) {
+            played.push('quiz')
+            localStorage.setItem('gamesPlayed', JSON.stringify(played))
+            if (played.length >= 3) {
+              awardBadge('gamer')
+            }
+          }
+        })
+        
+        alert(`Quiz terminé ! Score : ${finalScore} points`)
         onClose()
       } else {
         setCurrentQ(currentQ + 1)
@@ -336,7 +358,20 @@ function PhaseOrder({ onClose }: { onClose: () => void }) {
     const isCorrect = currentPhases.every((phase, index) => phase.order === index + 1)
     
     if (isCorrect) {
-      addPoints(70, 'Phases ordonnées correctement')
+      addPoints(70, 'Phases ordonnées correctement', 'order-completed')
+      
+      // Badge gamer
+      import('@/lib/gameSystem').then(({ awardBadge }) => {
+        const played = JSON.parse(localStorage.getItem('gamesPlayed') || '[]')
+        if (!played.includes('order')) {
+          played.push('order')
+          localStorage.setItem('gamesPlayed', JSON.stringify(played))
+          if (played.length >= 3) {
+            awardBadge('gamer')
+          }
+        }
+      })
+      
       alert('Parfait ! Les phases sont dans le bon ordre chronologique.\n+70 points')
       onClose()
     } else {

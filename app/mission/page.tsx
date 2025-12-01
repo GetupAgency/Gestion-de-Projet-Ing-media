@@ -300,7 +300,14 @@ Bravo pour ta curiosité, 50 points pour Gryffondor !`, 'color: #8b5cf6; font-we
         {/* Brief Tab */}
         {currentTab === 'brief' && (
           <div className="space-y-6">
-            <div className="bg-white rounded-lg shadow-lg p-6">
+            <div 
+              className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
+              onContextMenu={(e) => {
+                e.preventDefault()
+                addPoints(20, 'Clic droit sur le brief', 'right-click-brief')
+                alert('Clic droit sur le brief !\n\nTu cherches à tout analyser. +20 points')
+              }}
+            >
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Brief de l'appel d'offres</h2>
               
               <div className="space-y-6">
@@ -322,7 +329,17 @@ Bravo pour ta curiosité, 50 points pour Gryffondor !`, 'color: #8b5cf6; font-we
                   <MarkdownText>{selectedProject.clientDescription}</MarkdownText>
                 </div>
 
-                <div className="bg-green-50 border-l-4 border-green-600 p-6 rounded">
+                <div 
+                  className="bg-green-50 border-l-4 border-green-600 p-6 rounded hover:border-green-700 transition-all cursor-help"
+                  title="Les besoins sont la clé du projet..."
+                  onClick={() => {
+                    const needs = selectedProject.mainNeeds.length
+                    if (needs >= 6) {
+                      addPoints(30, 'Projet complexe identifié', 'complex-project-click')
+                      alert(`Ce projet a ${needs} besoins majeurs. C'est un gros projet !\n\n+30 points pour avoir remarqué la complexité.`)
+                    }
+                  }}
+                >
                   <h3 className="font-bold text-lg text-green-900 mb-3">Besoins principaux</h3>
                   <ul className="space-y-3">
                     {selectedProject.mainNeeds.map((need, index) => (
@@ -637,7 +654,15 @@ Bravo pour ta curiosité, 50 points pour Gryffondor !`, 'color: #8b5cf6; font-we
                   La sécurité doit être au cœur de votre architecture :
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-gray-700">
-                  <li><strong>Authentification :</strong> JWT, OAuth2, 2FA si données sensibles</li>
+                  <li
+                    className="cursor-pointer hover:bg-red-50 p-1 -m-1 rounded transition-colors"
+                    onClick={() => {
+                      addPoints(25, 'Expert sécurité', 'security-expert-click')
+                      alert('La sécurité n\'est pas une option !\n\nBravo de t\'y intéresser. +25 points')
+                    }}
+                  >
+                    <strong>Authentification :</strong> JWT, OAuth2, 2FA si données sensibles
+                  </li>
                   <li><strong>Encryption :</strong> HTTPS obligatoire, données sensibles chiffrées en BDD</li>
                   <li><strong>Protection :</strong> Rate limiting, validation des entrées, protection CSRF</li>
                   <li><strong>Conformité :</strong> RGPD, hébergement HDS si santé, audit sécurité</li>

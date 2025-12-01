@@ -33,7 +33,7 @@ export const BADGES: Badge[] = [
   {
     id: 'detective',
     name: 'Détective en Herbe',
-    description: 'Trouvé 3 énigmes',
+    description: 'Trouvé 5 énigmes',
     icon: '🔍',
     points: 100
   },
@@ -42,7 +42,7 @@ export const BADGES: Badge[] = [
     name: 'Sherlock Holmes',
     description: 'Toutes les énigmes résolues',
     icon: '🎩',
-    points: 200
+    points: 250
   },
   {
     id: 'konami-master',
@@ -71,6 +71,55 @@ export const BADGES: Badge[] = [
     description: 'Gestion optimale des jetons',
     icon: '🎯',
     points: 80
+  },
+  {
+    id: 'gamer',
+    name: 'Joueur Compulsif',
+    description: 'Joué aux 3 mini-jeux',
+    icon: '🎮',
+    points: 100
+  },
+  {
+    id: 'perfect-quiz',
+    name: 'Sans Faute',
+    description: 'Quiz réussi avec 100%',
+    icon: '💯',
+    points: 80
+  },
+  {
+    id: 'easter-hunter',
+    name: 'Chasseur de Pâques',
+    description: 'Trouvé 5 easter eggs techniques',
+    icon: '🥚',
+    points: 120
+  },
+  {
+    id: 'curious-cat',
+    name: 'Chat Curieux',
+    description: 'Exploré tous les onglets',
+    icon: '🐱',
+    points: 60
+  },
+  {
+    id: 'team-player',
+    name: 'Esprit d\'Équipe',
+    description: 'Utilisé intelligemment les jetons',
+    icon: '🤝',
+    points: 70
+  },
+  {
+    id: 'night-owl',
+    name: 'Oiseau de Nuit',
+    description: 'Travaillé après 22h',
+    icon: '🦉',
+    points: 50
+  },
+  {
+    id: 'early-bird',
+    name: 'Lève-Tôt',
+    description: 'Travaillé avant 7h',
+    icon: '🐦',
+    points: 50
   }
 ]
 
@@ -100,17 +149,52 @@ export const EASTER_EGGS = {
     },
     {
       id: 'eventeo-participants',
-      hint: 'Le nombre maximum de participants qui fait rêver les organisateurs... commence par 5 et finit par 000',
+      hint: 'Le nombre maximum de participants qui fait rêver... commence par 5 et finit par 000',
       solution: '5000',
       reward: 'Capacité max : 5000 participants simultanés',
       points: 25
     },
     {
       id: 'eventeo-matching',
-      hint: 'L\'algorithme qui connecte les participants intelligemment... ça "matche" bien !',
+      hint: 'L\'algorithme qui connecte les participants... ça "matche" bien !',
       solution: 'matching',
       reward: 'Feature prioritaire : Algorithme de matching intelligent',
       points: 35
+    },
+    {
+      id: 'eventeo-badge-qr',
+      hint: 'Deux lettres pour identifier quelqu\'un à un événement. C\'est rapide à scanner !',
+      solution: 'qr',
+      reward: 'Technologie badges : QR Code',
+      points: 25
+    },
+    {
+      id: 'eventeo-mvp',
+      hint: 'Trois lettres pour désigner la première version minimale d\'un produit...',
+      solution: 'mvp',
+      reward: 'Stratégie recommandée : MVP (Minimum Viable Product)',
+      points: 30
+    },
+    {
+      id: 'eventeo-persona',
+      hint: 'Le persona qui participe à 15+ événements par an est une Business... ?',
+      solution: 'developer',
+      reward: 'Persona clé identifié : Business Developer',
+      points: 35
+    },
+    {
+      id: 'eventeo-agile',
+      hint: 'La méthodologie la plus utilisée en startup, commence par S...',
+      solution: 'scrum',
+      reward: 'Méthodologie recommandée : Scrum',
+      points: 30
+    },
+    {
+      id: 'eventeo-api',
+      hint: 'Trois lettres pour connecter différents systèmes entre eux...',
+      solution: 'api',
+      reward: 'Intégration clé : API REST',
+      points: 25
     }
   ],
   mediconnect: [
@@ -148,6 +232,41 @@ export const EASTER_EGGS = {
       solution: '150000',
       reward: 'Budget minimum : 150 000€',
       points: 25
+    },
+    {
+      id: 'medi-rgpd',
+      hint: 'Quatre lettres pour la protection des données en Europe...',
+      solution: 'rgpd',
+      reward: 'Conformité obligatoire : RGPD',
+      points: 30
+    },
+    {
+      id: 'medi-https',
+      hint: 'Protocole sécurisé pour le web, le S veut dire Secure...',
+      solution: 'https',
+      reward: 'Sécurité minimale : HTTPS obligatoire',
+      points: 20
+    },
+    {
+      id: 'medi-ars',
+      hint: 'Trois lettres pour l\'Agence Régionale de... ?',
+      solution: 'ars',
+      reward: 'Organisme de validation : ARS',
+      points: 30
+    },
+    {
+      id: 'medi-jwt',
+      hint: 'Trois lettres pour sécuriser l\'authentification avec des tokens...',
+      solution: 'jwt',
+      reward: 'Authentification recommandée : JWT',
+      points: 35
+    },
+    {
+      id: 'medi-hipaa',
+      hint: 'Cinq lettres, standard américain de protection des données médicales...',
+      solution: 'hipaa',
+      reward: 'Standard international : HIPAA',
+      points: 40
     }
   ]
 }
@@ -256,14 +375,25 @@ export function unlockEasterEgg(eggId: string): void {
   // Ajouter les points
   addPoints(egg.points, `Easter egg découvert : ${egg.reward}`)
   
-  // Vérifier les badges
-  if (newEasterEggs.length >= 3 && !team.badges.includes('detective')) {
+  // Vérifier les badges basés sur énigmes
+  if (newEasterEggs.length >= 5 && !team.badges.includes('detective')) {
     awardBadge('detective')
   }
   
   const projectEggs = egg.id.startsWith('eventeo') ? EASTER_EGGS.eventeo : EASTER_EGGS.mediconnect
-  if (newEasterEggs.filter(e => e.startsWith(egg.id.split('-')[0])).length === projectEggs.length) {
+  const projectEggsCount = newEasterEggs.filter(e => e.startsWith(egg.id.split('-')[0])).length
+  if (projectEggsCount === projectEggs.length) {
     awardBadge('master-detective')
+  }
+  
+  // Badge chasseur d'easter eggs (5 easter eggs techniques)
+  const technicalEggs = ['console-open', 'loutre-typed', 'konami-code', 'triple-click-logo', 'scroll-olympic']
+  const foundTechnical = technicalEggs.filter(eggId => 
+    localStorage.getItem('triggeredEvents')?.includes(eggId)
+  ).length
+  
+  if (foundTechnical >= 5) {
+    awardBadge('easter-hunter')
   }
   
   showNotification(`🎉 Easter egg débloqué : ${egg.reward}`, 'success')
@@ -372,14 +502,11 @@ Indice : Les chiffres ronds (120, 5000, 150) sont des réponses...
     }
   })
   
-  // Scroll rapide = easter egg (une fois)
+  // Scroll rapide = easter egg
   let scrollCount = 0
   let scrollTimeout: NodeJS.Timeout
-  let scrollEggGiven = false
   
   window.addEventListener('scroll', () => {
-    if (scrollEggGiven) return
-    
     scrollCount++
     clearTimeout(scrollTimeout)
     
@@ -387,25 +514,20 @@ Indice : Les chiffres ronds (120, 5000, 150) sont des réponses...
       if (scrollCount > 50) {
         addPoints(20, 'Scroll intensif', 'scroll-olympic')
         showNotification('Défilement olympique ! +20 points', 'success')
-        scrollEggGiven = true
       }
       scrollCount = 0
     }, 2000)
   })
   
-  // Survol prolongé sur titre (une fois)
+  // Survol prolongé sur titre
   let hoverTimeout: NodeJS.Timeout
-  let hoverEggGiven = false
   
   document.addEventListener('mouseover', (e) => {
-    if (hoverEggGiven) return
-    
     const target = e.target as HTMLElement
     if (target.tagName === 'H1' || target.tagName === 'H2') {
       hoverTimeout = setTimeout(() => {
         addPoints(10, 'Patience', 'hover-patience')
         showNotification('La patience est une vertu ! +10 points', 'info')
-        hoverEggGiven = true
       }, 3000)
     }
   })
@@ -414,6 +536,71 @@ Indice : Les chiffres ronds (120, 5000, 150) sont des réponses...
     const target = e.target as HTMLElement
     if (target.tagName === 'H1' || target.tagName === 'H2') {
       clearTimeout(hoverTimeout)
+    }
+  })
+  
+  // Secouer la fenêtre (mobile ou drag)
+  let shakeCount = 0
+  let lastX = 0, lastY = 0
+  
+  window.addEventListener('devicemotion', (e) => {
+    const acc = e.accelerationIncludingGravity
+    if (acc && (Math.abs(acc.x || 0) > 15 || Math.abs(acc.y || 0) > 15)) {
+      shakeCount++
+      if (shakeCount > 3) {
+        addPoints(40, 'Secousse détectée !', 'shake-device')
+        showNotification('Tu as secoué ton téléphone ! +40 points', 'success')
+        shakeCount = 0
+      }
+    }
+  })
+  
+  // Sélectionner du texte spécifique
+  document.addEventListener('selectionchange', () => {
+    const selection = window.getSelection()?.toString().toLowerCase()
+    if (selection?.includes('gestion de projet')) {
+      addPoints(15, 'Lecture attentive', 'text-selection-gp')
+      showNotification('Tu lis attentivement ! +15 points', 'info')
+    }
+  })
+  
+  // Clic droit (contextmenu)
+  document.addEventListener('contextmenu', (e) => {
+    const target = e.target as HTMLElement
+    if (target.tagName === 'IMG') {
+      addPoints(20, 'Clic droit sur image', 'right-click-img')
+      showNotification('Curieux des images ! +20 points', 'info')
+    }
+  })
+  
+  // Rester longtemps sur la page (5 min)
+  setTimeout(() => {
+    addPoints(50, 'Endurance', 'stay-5min')
+    showNotification('5 minutes sur la page ! Bravo pour ta concentration. +50 points', 'success')
+    awardBadge('night-owl')
+  }, 300000)
+  
+  // Vérifier l'heure pour badges
+  const hour = new Date().getHours()
+  if (hour >= 22 || hour < 6) {
+    setTimeout(() => {
+      awardBadge('night-owl')
+      addPoints(50, 'Travail nocturne', 'work-night')
+    }, 60000)
+  } else if (hour < 7) {
+    setTimeout(() => {
+      awardBadge('early-bird')
+      addPoints(50, 'Lève-tôt', 'work-early')
+    }, 60000)
+  }
+  
+  // Copier du texte
+  let copyCount = 0
+  document.addEventListener('copy', () => {
+    copyCount++
+    if (copyCount === 5) {
+      addPoints(25, 'Copie stratégique', 'copy-5-times')
+      showNotification('5 copies ! Tu prends des notes. +25 points', 'info')
     }
   })
 }
