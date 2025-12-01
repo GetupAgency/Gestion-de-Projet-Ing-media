@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { Eye, EyeOff, Lightbulb, Lock } from 'lucide-react'
-import { checkAndEnableTeacherMode } from '@/lib/teacherMode'
+import { isTeacherMode } from '@/lib/teacherMode'
 
 interface CasPratiqueProps {
   title: string
@@ -16,7 +16,7 @@ export default function CasPratique({ title, description, exercice, correction }
   const [isTeacher, setIsTeacher] = useState(false)
 
   useEffect(() => {
-    setIsTeacher(checkAndEnableTeacherMode())
+    setIsTeacher(isTeacherMode())
   }, [])
 
   return (

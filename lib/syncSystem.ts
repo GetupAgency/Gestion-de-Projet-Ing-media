@@ -149,14 +149,15 @@ export function subscribeToScores(callback: (teams: TeamData[]) => void) {
     .on('postgres_changes', 
       { event: '*', schema: 'public', table: 'teams' },
       () => {
-        // Recharger les données
         getAllScoresFromSupabase().then(callback)
       }
     )
     .subscribe()
 
   return () => {
-    supabase.removeChannel(channel)
+    if (supabase) {
+      supabase.removeChannel(channel)
+    }
   }
 }
 
