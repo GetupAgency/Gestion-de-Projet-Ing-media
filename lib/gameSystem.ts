@@ -195,6 +195,76 @@ export const EASTER_EGGS = {
       solution: 'api',
       reward: 'Intégration clé : API REST',
       points: 25
+    },
+    {
+      id: 'eventeo-ux',
+      hint: 'Deux lettres pour l\'expérience utilisateur en anglais...',
+      solution: 'ux',
+      reward: 'Focus prioritaire : User Experience',
+      points: 20
+    },
+    {
+      id: 'eventeo-roi',
+      hint: 'Trois lettres qui mesurent le retour sur investissement...',
+      solution: 'roi',
+      reward: 'KPI clé : Return On Investment',
+      points: 30
+    },
+    {
+      id: 'eventeo-Sophie',
+      hint: 'Le prénom de la Business Developer qui va à 15+ événements par an...',
+      solution: 'sophie',
+      reward: 'Persona identifié : Sophie, la networkeuse',
+      points: 35
+    },
+    {
+      id: 'eventeo-calculation',
+      hint: 'Calcul : Si un sprint dure 14 jours et le projet dure 6 mois, combien de sprints ? (arrondi)',
+      solution: '13',
+      reward: 'Calcul sprint : ~13 sprints sur 6 mois',
+      points: 50
+    },
+    {
+      id: 'eventeo-stripe',
+      hint: 'Six lettres, solution de paiement en ligne très populaire, commence par S...',
+      solution: 'stripe',
+      reward: 'Solution paiement recommandée : Stripe',
+      points: 35
+    },
+    {
+      id: 'eventeo-push',
+      hint: 'Quatre lettres pour les notifications qui arrivent automatiquement sur mobile...',
+      solution: 'push',
+      reward: 'Feature importante : Push notifications',
+      points: 30
+    },
+    {
+      id: 'eventeo-reverse',
+      hint: 'Le mot "NETWORKING" à l\'envers donne... ?',
+      solution: 'gnikrowten',
+      reward: 'Tu es observateur ! Bravo',
+      points: 45
+    },
+    {
+      id: 'eventeo-postgres',
+      hint: 'Base de données relationnelle, commence par Post... 8 lettres',
+      solution: 'postgresql',
+      reward: 'Base de données recommandée : PostgreSQL',
+      points: 35
+    },
+    {
+      id: 'eventeo-aws',
+      hint: 'Trois lettres, leader du cloud computing, commence par A...',
+      solution: 'aws',
+      reward: 'Infrastructure cloud : AWS',
+      points: 30
+    },
+    {
+      id: 'eventeo-riddle',
+      hint: 'Je suis léger comme une plume mais même les meilleurs développeurs ne peuvent me tenir longtemps. Qui suis-je ? (en anglais)',
+      solution: 'breath',
+      reward: 'Énigme résolue ! (La respiration)',
+      points: 60
     }
   ],
   mediconnect: [
@@ -267,6 +337,83 @@ export const EASTER_EGGS = {
       solution: 'hipaa',
       reward: 'Standard international : HIPAA',
       points: 40
+    },
+    {
+      id: 'medi-dmp',
+      hint: 'Trois lettres pour le Dossier Médical... (français)',
+      solution: 'dmp',
+      reward: 'Intégration importante : DMP (Dossier Médical Partagé)',
+      points: 35
+    },
+    {
+      id: 'medi-teleconsult',
+      hint: 'Le mot "téléconsultation" contient combien de lettres ?',
+      solution: '16',
+      reward: 'Observation ! (Téléconsultation = 16 lettres)',
+      points: 25
+    },
+    {
+      id: 'medi-doctor',
+      hint: 'Prénom du Dr. Martin, le médecin généraliste de 48 ans...',
+      solution: 'martin',
+      reward: 'Persona médecin identifié',
+      points: 30
+    },
+    {
+      id: 'medi-2fa',
+      hint: 'Trois caractères pour l\'authentification à deux facteurs...',
+      solution: '2fa',
+      reward: 'Sécurité renforcée : 2FA',
+      points: 35
+    },
+    {
+      id: 'medi-gdpr',
+      hint: 'RGPD en anglais, quatre lettres...',
+      solution: 'gdpr',
+      reward: 'RGPD en anglais : GDPR',
+      points: 30
+    },
+    {
+      id: 'medi-webrtc',
+      hint: 'Six lettres, technologie pour la vidéo en temps réel dans le navigateur...',
+      solution: 'webrtc',
+      reward: 'Technologie vidéo : WebRTC',
+      points: 45
+    },
+    {
+      id: 'medi-calculation',
+      hint: 'Si le budget minimum est 150k et qu\'on ajoute 50k, on obtient ? (en milliers)',
+      solution: '200',
+      reward: 'Budget maximum : 200 000€',
+      points: 35
+    },
+    {
+      id: 'medi-audit',
+      hint: 'Cinq lettres, examen approfondi de la sécurité...',
+      solution: 'audit',
+      reward: 'Obligatoire : Audit de sécurité',
+      points: 30
+    },
+    {
+      id: 'medi-react',
+      hint: 'Framework frontend, cinq lettres, créé par Facebook...',
+      solution: 'react',
+      reward: 'Frontend recommandé : React',
+      points: 30
+    },
+    {
+      id: 'medi-reverse',
+      hint: 'Le mot "SANTE" à l\'envers donne... ?',
+      solution: 'etnas',
+      reward: 'Observation inversée ! Bravo',
+      points: 40
+    },
+    {
+      id: 'medi-riddle',
+      hint: 'Je peux voyager dans le monde entier en restant dans un coin. Qui suis-je ? (en anglais)',
+      solution: 'stamp',
+      reward: 'Énigme résolue ! (Un timbre)',
+      points: 60
     }
   ]
 }

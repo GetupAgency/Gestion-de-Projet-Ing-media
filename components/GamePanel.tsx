@@ -58,6 +58,7 @@ export default function GamePanel({ projectId }: { projectId: string }) {
   if (!team) return null
 
   const projectEggs = projectId === 'eventeo' ? EASTER_EGGS.eventeo : EASTER_EGGS.mediconnect
+  const totalProjectEggs = projectEggs.length
   const unlockedCount = team.easterEggs.filter(e => 
     projectEggs.some(pe => pe.id === e)
   ).length
@@ -184,8 +185,8 @@ export default function GamePanel({ projectId }: { projectId: string }) {
           <div className="p-4">
             <h4 className="font-semibold text-gray-900 mb-3 flex items-center justify-between">
               <span>Énigmes à Résoudre</span>
-              <span className="text-sm text-gray-600">
-                {unlockedCount}/{projectEggs.length}
+              <span className="text-sm font-bold text-purple-600">
+                {unlockedCount}/{totalProjectEggs}
               </span>
             </h4>
             
