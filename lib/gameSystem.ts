@@ -200,9 +200,21 @@ export function updateTeamData(updates: Partial<TeamData>): void {
   localStorage.setItem('teamData', JSON.stringify(updated))
 }
 
-export function addPoints(points: number, reason?: string): void {
+export function addPoints(points: number, reason?: string, eventId?: string): void {
   const team = getTeamData()
   if (!team) return
+  
+  // Si c'est un événement avec ID, vérifier qu'il n'a pas déjà été donné
+  if (eventId) {
+    const triggeredEvents = JSON.parse(localStorage.getItem('triggeredEvents') || '[]')
+    if (triggeredEvents.includes(eventId)) {
+      // Événement déjà déclenché, ne pas redonner les points
+      return
+    }
+    // Marquer l'événement comme déclenché
+    triggeredEvents.push(eventId)
+    localStorage.setItem('triggeredEvents', JSON.stringify(triggeredEvents))
+  }
   
   updateTeamData({ points: team.points + points })
   
@@ -261,6 +273,7 @@ export function awardBadge(badgeId: string): void {
   const team = getTeamData()
   if (!team) return
   
+  // Vérifier si déjà obtenu
   if (team.badges.includes(badgeId)) return
   
   const badge = BADGES.find(b => b.id === badgeId)
@@ -272,7 +285,7 @@ export function awardBadge(badgeId: string): void {
     points: team.points + badge.points
   })
   
-  showNotification(`🏅 Badge débloqué : ${badge.name} (+${badge.points} pts)`, 'success')
+  showNotification(`Badge débloqué : ${badge.name} (+${badge.points} pts)`, 'success')
 }
 
 export function getAllTeams(): TeamData[] {
@@ -324,7 +337,7 @@ export function initEasterEggListeners(): void {
       konamiIndex++
       if (konamiIndex === konamiCode.length) {
         awardBadge('konami-master')
-        addPoints(75, 'Code Konami')
+        addPoints(75, 'Code Konami', 'konami-code')
         showNotification('Code Konami ! Respect.', 'success')
         konamiIndex = 0
       }
@@ -344,7 +357,7 @@ export function initEasterEggListeners(): void {
 Indice : Les chiffres ronds (120, 5000, 150) sont des réponses...
 `, 'color: #3b82f6; font-size: 14px; font-weight: bold;')
       showNotification('Indice loutre ! Regarde la console.', 'success')
-      addPoints(25, 'Message loutre')
+      addPoints(25, 'Message loutre', 'loutre-typed')
       consoleSequence = ''
     }
     if (consoleSequence.length > 20) consoleSequence = ''
@@ -354,36 +367,45 @@ Indice : Les chiffres ronds (120, 5000, 150) sont des réponses...
   document.addEventListener('dblclick', (e) => {
     const target = e.target as HTMLElement
     if (target.textContent?.includes('Badge') || target.textContent?.includes('badge')) {
-      addPoints(15, 'Double-clic mystère')
+      addPoints(15, 'Double-clic mystère', 'double-click-badge')
       showNotification('Curieux ! +15 points', 'info')
     }
   })
   
-  // Scroll rapide = easter egg
+  // Scroll rapide = easter egg (une fois)
   let scrollCount = 0
   let scrollTimeout: NodeJS.Timeout
+  let scrollEggGiven = false
   
   window.addEventListener('scroll', () => {
+    if (scrollEggGiven) return
+    
     scrollCount++
     clearTimeout(scrollTimeout)
     
     scrollTimeout = setTimeout(() => {
       if (scrollCount > 50) {
-        addPoints(20, 'Scroll intensif')
+        addPoints(20, 'Scroll intensif', 'scroll-olympic')
         showNotification('Défilement olympique ! +20 points', 'success')
+        scrollEggGiven = true
       }
       scrollCount = 0
     }, 2000)
   })
   
-  // Survol prolongé sur titre
+  // Survol prolongé sur titre (une fois)
   let hoverTimeout: NodeJS.Timeout
+  let hoverEggGiven = false
+  
   document.addEventListener('mouseover', (e) => {
+    if (hoverEggGiven) return
+    
     const target = e.target as HTMLElement
     if (target.tagName === 'H1' || target.tagName === 'H2') {
       hoverTimeout = setTimeout(() => {
-        addPoints(10, 'Patience')
+        addPoints(10, 'Patience', 'hover-patience')
         showNotification('La patience est une vertu ! +10 points', 'info')
+        hoverEggGiven = true
       }, 3000)
     }
   })

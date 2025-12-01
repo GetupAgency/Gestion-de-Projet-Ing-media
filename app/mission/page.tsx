@@ -43,14 +43,17 @@ export default function MissionPage() {
       // Initialiser les easter eggs techniques
       initEasterEggListeners()
       
-      // Easter egg: message console
-      console.log(`%cTiens, quelqu'un sait ouvrir la console...
+      // Easter egg: message console (une seule fois)
+      const consoleTriggered = localStorage.getItem('console-triggered')
+      if (!consoleTriggered) {
+        console.log(`%cTiens, quelqu'un sait ouvrir la console...
 
 Bravo pour ta curiosité, 50 points pour Gryffondor !`, 'color: #8b5cf6; font-weight: bold; font-size: 16px;')
-      
-      // Attribuer les points immédiatement
-      addPoints(50, 'Console ouverte - Gryffondor !')
-      awardBadge('console-master')
+        
+        addPoints(50, 'Console - Gryffondor', 'console-open')
+        awardBadge('console-master')
+        localStorage.setItem('console-triggered', 'true')
+      }
       
       // Easter egg: triple clic sur le logo
       let logoClickCount = 0
@@ -61,7 +64,7 @@ Bravo pour ta curiosité, 50 points pour Gryffondor !`, 'color: #8b5cf6; font-we
         clearTimeout(logoClickTimeout)
         
         if (logoClickCount === 3) {
-          addPoints(30, 'Triple clic découvert')
+          addPoints(30, 'Triple clic découvert', 'triple-click-logo')
           alert('Secret débloqué !\n\nVous avez l\'œil. Les détails comptent en gestion de projet.\n\nIndice : Pensez aux durées standard en méthode Agile.')
           logoClickCount = 0
         } else {
@@ -146,7 +149,7 @@ Bravo pour ta curiosité, 50 points pour Gryffondor !`, 'color: #8b5cf6; font-we
           <div 
             className="bg-white rounded-xl shadow-xl p-8 mb-12 hover:shadow-2xl transition-shadow"
             onDoubleClick={() => {
-              addPoints(30, 'Double-clic secret')
+              addPoints(30, 'Double-clic secret', 'double-click-objectif')
               alert('Double-clic secret découvert !\n\nLes meilleurs projets naissent de l\'attention aux détails.\n+30 points')
             }}
           >
@@ -305,7 +308,7 @@ Bravo pour ta curiosité, 50 points pour Gryffondor !`, 'color: #8b5cf6; font-we
                   className="bg-purple-50 border-l-4 border-purple-600 p-6 rounded cursor-pointer hover:bg-purple-100 transition-colors"
                   onClick={() => {
                     if (Math.random() > 0.7) {
-                      addPoints(10, 'Clic chanceux')
+                      addPoints(10, 'Clic chanceux', `lucky-click-${Date.now()}`)
                       alert('Clic chanceux ! +10 points')
                     }
                   }}
@@ -564,10 +567,10 @@ Bravo pour ta curiosité, 50 points pour Gryffondor !`, 'color: #8b5cf6; font-we
                 <ul className="list-disc list-inside space-y-2 text-gray-700">
                   <li>Commencez par les écrans principaux (dashboard, actions clés)</li>
                   <li>Annotez chaque élément important (interactions, états, règles)</li>
-                  <li 
+                  <li
                     className="cursor-pointer hover:text-purple-600 transition-colors"
                     onClick={() => {
-                      addPoints(15, 'Secret wireframe')
+                      addPoints(15, 'Secret wireframe', 'wireframe-error-states')
                       alert('Tu as cliqué sur le bon conseil ! Les états d\'erreur sont cruciaux.\n+15 points')
                     }}
                   >
@@ -711,7 +714,7 @@ Bravo pour ta curiosité, 50 points pour Gryffondor !`, 'color: #8b5cf6; font-we
                     className="cursor-help hover:bg-purple-50 p-1 -m-1 rounded transition-colors"
                     title="Pssst... clique ici"
                     onClick={() => {
-                      addPoints(20, 'Outil secret trouvé')
+                      addPoints(20, 'Outil secret trouvé', 'ganttproject-click')
                       alert('GanttProject est gratuit et parfait pour débuter !\n\nTélécharge-le sur ganttproject.biz\n+20 points')
                     }}
                   >
