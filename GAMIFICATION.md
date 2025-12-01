@@ -164,21 +164,52 @@ Chaque équipe dispose de **jetons stratégiques** à utiliser intelligemment :
 - Si une équipe bloque : offrir un indice supplémentaire
 - Possibilité d'ajouter des points manuellement via la console
 
-## Commandes Console (Mode Enseignant)
+## Suivi des Scores (Mode Enseignant)
+
+### Limitation Technique
+
+Les scores sont stockés en `localStorage` dans le navigateur de chaque équipe. 
+**Vous ne pouvez pas voir les scores en temps réel depuis votre ordinateur.**
+
+### Solution : Export/Import
+
+**Chaque équipe peut exporter son score** :
+1. Bouton "Partager" dans le GamePanel
+2. Copie un résumé texte (à coller dans le chat)
+3. OU télécharge un fichier JSON
+
+**Vous récupérez les scores** :
+- Via le chat de classe (copier-coller)
+- Via les fichiers JSON envoyés par email
+- Créer un Google Sheet partagé où ils collent leur score
+
+### Alternative : Tableau Partagé
+
+Créez un Google Sheet avec colonnes :
+- Nom d'équipe
+- Points
+- Badges
+- Énigmes résolues
+- Timestamp
+
+Chaque équipe met à jour sa ligne quand elle veut.
+
+### Commandes Console (Sur Votre PC)
+
+Si vous êtes sur le même PC qu'une équipe :
 
 ```javascript
-// Voir toutes les équipes
-getAllTeams()
+// Voir les données d'une équipe
+getTeamData()
 
-// Ajouter des points à une équipe
+// Ajouter des points manuellement
 addPoints(50, 'Excellent travail !')
 
 // Débloquer un badge
 awardBadge('question-master')
-
-// Vérifier les easter eggs débloqués
-getTeamData()
 ```
+
+Mais cela ne fonctionne que sur **leur** navigateur, pas à distance.
 
 ## Personnalisation Future
 

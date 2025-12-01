@@ -11,7 +11,6 @@ export interface TeamData {
   }
   easterEggs: string[]
   lastActivity: string
-  loutreMessage: boolean
 }
 
 export interface Badge {

@@ -1,14 +1,44 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Trophy, Star, Lightbulb, Zap, HelpCircle } from 'lucide-react'
+import { Trophy, Star, Lightbulb, Zap, HelpCircle, MessageCircle } from 'lucide-react'
 import { getTeamData, initTeam, BADGES, useToken, addPoints, checkEasterEggSolution, EASTER_EGGS } from '@/lib/gameSystem'
+import { TeamScoreExport } from './TeamScoreExport'
+
+// FAQ / Questions fréquentes
+const FAQ_ITEMS = [
+  {
+    q: "Comment gagner plus de points ?",
+    a: "Résolvez les énigmes, jouez aux mini-jeux, trouvez les easter eggs cachés (clics, survols, console). Soyez curieux !"
+  },
+  {
+    q: "À quoi servent les jetons ?",
+    a: "Question = Poser une question à l'enseignant | Indice = Obtenir un conseil | Joker = Aide majeure. Utilisez-les intelligemment !"
+  },
+  {
+    q: "Comment trouver les easter eggs ?",
+    a: "Explorez ! Cliquez sur des éléments, survolez des titres, scrollez, double-cliquez, ouvrez la console, tapez 'loutre'... Soyez créatifs !"
+  },
+  {
+    q: "Le leaderboard est-il en temps réel ?",
+    a: "Non, les scores sont locaux. Utilisez le bouton 'Partager' pour envoyer votre score à l'enseignant."
+  },
+  {
+    q: "Peut-on jouer plusieurs fois aux mini-jeux ?",
+    a: "Oui ! Mais les points ne sont donnés qu'une seule fois par jeu réussi."
+  },
+  {
+    q: "Combien d'énigmes au total ?",
+    a: "5 énigmes par projet (10 au total). Elles sont toutes résolvables avec les infos du brief !"
+  }
+]
 
 export default function GamePanel({ projectId }: { projectId: string }) {
   const [team, setTeam] = useState(getTeamData())
   const [showEasterEggPanel, setShowEasterEggPanel] = useState(false)
   const [easterEggInput, setEasterEggInput] = useState('')
   const [selectedEgg, setSelectedEgg] = useState<string | null>(null)
+  const [showFAQ, setShowFAQ] = useState(false)
 
   useEffect(() => {
     // Rafraîchir les données toutes les 5 secondes
@@ -227,6 +257,34 @@ export default function GamePanel({ projectId }: { projectId: string }) {
               </div>
             </div>
           )}
+
+          {/* FAQ */}
+          <div className="p-4 border-t bg-gray-50">
+            <button
+              onClick={() => setShowFAQ(!showFAQ)}
+              className="w-full flex items-center justify-between text-left"
+            >
+              <div className="flex items-center gap-2">
+                <MessageCircle className="w-5 h-5 text-purple-600" />
+                <h4 className="font-semibold text-gray-900">Questions Fréquentes</h4>
+              </div>
+              <span className="text-gray-400">{showFAQ ? '▼' : '▶'}</span>
+            </button>
+            
+            {showFAQ && (
+              <div className="mt-4 space-y-3">
+                {FAQ_ITEMS.map((item, index) => (
+                  <div key={index} className="bg-white p-3 rounded-lg">
+                    <p className="text-sm font-semibold text-gray-900 mb-1">{item.q}</p>
+                    <p className="text-xs text-gray-600">{item.a}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          {/* Export */}
+          <TeamScoreExport />
         </div>
       )}
     </div>
