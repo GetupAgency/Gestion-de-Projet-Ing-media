@@ -1,10 +1,12 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Trophy, Star, Lightbulb, Zap, HelpCircle, MessageCircle, Gamepad2, Brain, ListOrdered } from 'lucide-react'
+import { Trophy, Star, Lightbulb, Zap, HelpCircle, MessageCircle, Gamepad2, Brain, ListOrdered, Cloud, CloudOff } from 'lucide-react'
 import { getTeamData, initTeam, BADGES, useToken, addPoints, checkEasterEggSolution, EASTER_EGGS } from '@/lib/gameSystem'
 import { TeamScoreExport } from './TeamScoreExport'
 import { MiniGame } from './MiniGames'
+import { syncToSupabase } from '@/lib/syncSystem'
+import { isSupabaseConfigured } from '@/lib/supabase'
 
 // FAQ / Questions fréquentes
 const FAQ_ITEMS = [
@@ -41,6 +43,8 @@ export default function GamePanel({ projectId }: { projectId: string }) {
   const [selectedEgg, setSelectedEgg] = useState<string | null>(null)
   const [showFAQ, setShowFAQ] = useState(false)
   const [activeGame, setActiveGame] = useState<string | null>(null)
+  const [isSyncing, setIsSyncing] = useState(false)
+  const [supabaseEnabled] = useState(isSupabaseConfigured())
 
   useEffect(() => {
     // Rafraîchir les données toutes les 5 secondes
@@ -91,6 +95,18 @@ export default function GamePanel({ projectId }: { projectId: string }) {
   }
 
   const earnedBadges = BADGES.filter(b => team.badges.includes(b.id))
+
+  const handleSync = async () => {
+    setIsSyncing(true)
+    const result = await syncToSupabase()
+    setIsSyncing(false)
+    
+    if (result.success) {
+      alert(`✅ ${result.message}\n\nVos données sont maintenant visibles sur le tableau de l'enseignant !`)
+    } else {
+      alert(`❌ ${result.message}`)
+    }
+  }
 
   return (
     <div className="fixed bottom-4 right-4 z-[30]">
@@ -315,8 +331,51 @@ export default function GamePanel({ projectId }: { projectId: string }) {
             </div>
           </div>
 
-          {/* Export */}
-          <TeamScoreExport />
+          {/* Sync Supabase */}
+          {supabaseEnabled && (
+            <div className="p-4 border-t bg-gradient-to-r from-cyan-50 to-blue-50">
+              <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
+                <Cloud className="w-5 h-5 text-blue-600" />
+                Synchronisation
+              </h4>
+              <button
+                onClick={handleSync}
+                disabled={isSyncing}
+                className="w-full px-4 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg font-semibold hover:from-blue-700 hover:to-cyan-700 disabled:opacity-50 flex items-center justify-center gap-2"
+              >
+                {isSyncing ? (
+                  <>
+                    <div className="animate-spin rounded-full h-4 w-4 border-2 border-white border-t-transparent" />
+                    Synchronisation...
+                  </>
+                ) : (
+                  <>
+                    <Cloud className="w-5 h-5" />
+                    Synchro BDD
+                  </>
+                )}
+              </button>
+              <p className="text-xs text-gray-500 mt-2 text-center">
+                Envoie ton score sur le tableau de l'enseignant
+              </p>
+            </div>
+          )}
+
+          {/* Export manuel si pas de Supabase */}
+          {!supabaseEnabled && (
+            <>
+              <div className="p-4 border-t bg-orange-50">
+                <div className="flex items-center gap-2 text-orange-700 mb-2">
+                  <CloudOff className="w-5 h-5" />
+                  <span className="text-sm font-medium">Mode hors ligne</span>
+                </div>
+                <p className="text-xs text-orange-600">
+                  Base de données non configurée. Utilisez l'export manuel ci-dessous.
+                </p>
+              </div>
+              <TeamScoreExport />
+            </>
+          )}
         </div>
       )}
 

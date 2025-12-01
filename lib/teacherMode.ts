@@ -1,29 +1,13 @@
-// Système de mode enseignant avec mot de passe dynamique
-
-// Génère le mot de passe du jour (jour de la semaine en français)
-function getDailyPassword(): string {
-  const days = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi']
-  const today = new Date().getDay()
-  return days[today]
-}
+const p = 'Grosac4Ever!'
 
 export function isTeacherMode(): boolean {
   if (typeof window === 'undefined') return false
   
-  // Vérifier localStorage avec hash du mot de passe du jour
-  const stored = localStorage.getItem('teacherMode')
-  const hash = localStorage.getItem('teacherHash')
-  const today = new Date().toDateString()
-  const storedDate = localStorage.getItem('teacherDate')
+  const s = localStorage.getItem('teacherMode')
+  const h = localStorage.getItem('teacherHash')
   
-  // Vérifier que c'est le bon jour ET le bon hash
-  if (stored === 'true' && hash === hashPassword(getDailyPassword()) && storedDate === today) {
+  if (s === 'true' && h === hashPassword(p)) {
     return true
-  }
-  
-  // Si la date a changé, désactiver le mode
-  if (storedDate && storedDate !== today) {
-    disableTeacherMode()
   }
   
   return false
@@ -32,12 +16,9 @@ export function isTeacherMode(): boolean {
 export function enableTeacherMode(password: string): boolean {
   if (typeof window === 'undefined') return false
   
-  const dailyPassword = getDailyPassword()
-  
-  if (password.toLowerCase().trim() === dailyPassword) {
+  if (password === p) {
     localStorage.setItem('teacherMode', 'true')
     localStorage.setItem('teacherHash', hashPassword(password))
-    localStorage.setItem('teacherDate', new Date().toDateString())
     return true
   }
   
@@ -48,23 +29,20 @@ export function disableTeacherMode(): void {
   if (typeof window === 'undefined') return
   localStorage.removeItem('teacherMode')
   localStorage.removeItem('teacherHash')
-  localStorage.removeItem('teacherDate')
 }
 
 export function checkAndEnableTeacherMode(): boolean {
   if (typeof window === 'undefined') return false
   
-  // Si déjà en mode enseignant, vérifier la validité
   if (isTeacherMode()) {
     return true
   }
   
-  // Vérifier URL avec mot de passe
   const params = new URLSearchParams(window.location.search)
-  const urlPassword = params.get('key')
+  const k = params.get('key')
   
-  if (urlPassword) {
-    return enableTeacherMode(urlPassword)
+  if (k) {
+    return enableTeacherMode(k)
   }
   
   return false
@@ -85,7 +63,6 @@ export function promptTeacherPassword(): boolean {
   }
 }
 
-// Hash simple (pas crypto-sécurisé mais suffisant pour ce contexte)
 function hashPassword(password: string): string {
   let hash = 0
   for (let i = 0; i < password.length; i++) {
