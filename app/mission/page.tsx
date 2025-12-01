@@ -10,6 +10,7 @@ import { isTeacherMode } from '@/lib/teacherMode'
 import GamePanel from '@/components/GamePanel'
 import Leaderboard from '@/components/Leaderboard'
 import TeamSetup from '@/components/TeamSetup'
+import { MiniGameLauncher } from '@/components/MiniGames'
 import { initEasterEggListeners, awardBadge, addPoints, getTeamData } from '@/lib/gameSystem'
 
 export default function MissionPage() {
@@ -43,15 +44,13 @@ export default function MissionPage() {
       // Initialiser les easter eggs techniques
       initEasterEggListeners()
       
-      // Easter egg: message caché dans le code source
-      console.log(`%c
-Tiens, quelqu'un sait ouvrir la console...
+      // Easter egg: message console
+      console.log(`%cTiens, quelqu'un sait ouvrir la console...
 
-Bravo pour ta curiosité, 50 points pour Gryffondor !
-`, 'color: #8b5cf6; font-weight: bold; font-size: 14px;')
+Bravo pour ta curiosité, 50 points pour Gryffondor !`, 'color: #8b5cf6; font-weight: bold; font-size: 16px;')
       
-      // Attribuer les points
-      addPoints(50, 'Ouverture de la console')
+      // Attribuer les points immédiatement
+      addPoints(50, 'Console ouverte - Gryffondor !')
       awardBadge('console-master')
       
       // Easter egg: triple clic sur le logo
@@ -145,7 +144,13 @@ Bravo pour ta curiosité, 50 points pour Gryffondor !
         </header>
 
         <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <div className="bg-white rounded-xl shadow-xl p-8 mb-12">
+          <div 
+            className="bg-white rounded-xl shadow-xl p-8 mb-12 hover:shadow-2xl transition-shadow"
+            onDoubleClick={() => {
+              addPoints(30, 'Double-clic secret')
+              alert('Double-clic secret découvert !\n\nLes meilleurs projets naissent de l\'attention aux détails.\n+30 points')
+            }}
+          >
             <h2 className="text-3xl font-bold text-gray-900 mb-6">Objectif de la mission</h2>
             <div className="prose prose-lg max-w-none">
               <p className="text-gray-700 leading-relaxed mb-4">
@@ -297,7 +302,15 @@ Bravo pour ta curiosité, 50 points pour Gryffondor !
               <h2 className="text-2xl font-bold text-gray-900 mb-4">Brief de l'appel d'offres</h2>
               
               <div className="space-y-6">
-                <div className="bg-purple-50 border-l-4 border-purple-600 p-6 rounded">
+                <div 
+                  className="bg-purple-50 border-l-4 border-purple-600 p-6 rounded cursor-pointer hover:bg-purple-100 transition-colors"
+                  onClick={() => {
+                    if (Math.random() > 0.7) {
+                      addPoints(10, 'Clic chanceux')
+                      alert('Clic chanceux ! +10 points')
+                    }
+                  }}
+                >
                   <h3 className="font-bold text-lg text-purple-900 mb-2">Contexte</h3>
                   <MarkdownText>{selectedProject.context}</MarkdownText>
                 </div>
@@ -552,7 +565,15 @@ Bravo pour ta curiosité, 50 points pour Gryffondor !
                 <ul className="list-disc list-inside space-y-2 text-gray-700">
                   <li>Commencez par les écrans principaux (dashboard, actions clés)</li>
                   <li>Annotez chaque élément important (interactions, états, règles)</li>
-                  <li>Pensez aux états d'erreur et cas limites</li>
+                  <li 
+                    className="cursor-pointer hover:text-purple-600 transition-colors"
+                    onClick={() => {
+                      addPoints(15, 'Secret wireframe')
+                      alert('Tu as cliqué sur le bon conseil ! Les états d\'erreur sont cruciaux.\n+15 points')
+                    }}
+                  >
+                    Pensez aux états d'erreur et cas limites
+                  </li>
                   <li>Gardez une cohérence visuelle (grille, espacements)</li>
                   <li>Incluez les éléments de navigation</li>
                   <li>Pensez mobile ET desktop si nécessaire</li>
@@ -687,7 +708,16 @@ Bravo pour ta curiosité, 50 points pour Gryffondor !
                   Créez un diagramme de Gantt avec :
                 </p>
                 <ul className="list-disc list-inside space-y-2 text-gray-700">
-                  <li><strong>GanttProject</strong> - Gratuit, open source</li>
+                  <li
+                    className="cursor-help hover:bg-purple-50 p-1 -m-1 rounded transition-colors"
+                    title="Pssst... clique ici"
+                    onClick={() => {
+                      addPoints(20, 'Outil secret trouvé')
+                      alert('GanttProject est gratuit et parfait pour débuter !\n\nTélécharge-le sur ganttproject.biz\n+20 points')
+                    }}
+                  >
+                    <strong>GanttProject</strong> - Gratuit, open source
+                  </li>
                   <li><strong>Excel/Google Sheets</strong> - Avec template Gantt</li>
                   <li><strong>Microsoft Project</strong> - Professionnel</li>
                   <li><strong>Monday.com / Asana</strong> - Outils en ligne</li>
@@ -942,6 +972,9 @@ Bravo pour ta curiosité, 50 points pour Gryffondor !
 
       {/* Leaderboard */}
       <Leaderboard />
+
+      {/* Mini-jeux */}
+      <MiniGameLauncher />
 
       <Footer />
     </div>

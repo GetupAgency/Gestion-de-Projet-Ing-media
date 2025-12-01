@@ -1,17 +1,29 @@
-// Système de mode enseignant avec mot de passe
+// Système de mode enseignant avec mot de passe dynamique
 
-// ⚠️ IMPORTANT : Changez ce mot de passe avant de déployer !
-const TEACHER_PASSWORD = 'Grosac4Ever!'
+// Génère le mot de passe du jour (jour de la semaine en français)
+function getDailyPassword(): string {
+  const days = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi']
+  const today = new Date().getDay()
+  return days[today]
+}
 
 export function isTeacherMode(): boolean {
   if (typeof window === 'undefined') return false
   
-  // Vérifier localStorage avec hash du mot de passe
+  // Vérifier localStorage avec hash du mot de passe du jour
   const stored = localStorage.getItem('teacherMode')
   const hash = localStorage.getItem('teacherHash')
+  const today = new Date().toDateString()
+  const storedDate = localStorage.getItem('teacherDate')
   
-  if (stored === 'true' && hash === hashPassword(TEACHER_PASSWORD)) {
+  // Vérifier que c'est le bon jour ET le bon hash
+  if (stored === 'true' && hash === hashPassword(getDailyPassword()) && storedDate === today) {
     return true
+  }
+  
+  // Si la date a changé, désactiver le mode
+  if (storedDate && storedDate !== today) {
+    disableTeacherMode()
   }
   
   return false
@@ -20,9 +32,12 @@ export function isTeacherMode(): boolean {
 export function enableTeacherMode(password: string): boolean {
   if (typeof window === 'undefined') return false
   
-  if (password === TEACHER_PASSWORD) {
+  const dailyPassword = getDailyPassword()
+  
+  if (password.toLowerCase().trim() === dailyPassword) {
     localStorage.setItem('teacherMode', 'true')
     localStorage.setItem('teacherHash', hashPassword(password))
+    localStorage.setItem('teacherDate', new Date().toDateString())
     return true
   }
   
@@ -33,6 +48,7 @@ export function disableTeacherMode(): void {
   if (typeof window === 'undefined') return
   localStorage.removeItem('teacherMode')
   localStorage.removeItem('teacherHash')
+  localStorage.removeItem('teacherDate')
 }
 
 export function checkAndEnableTeacherMode(): boolean {

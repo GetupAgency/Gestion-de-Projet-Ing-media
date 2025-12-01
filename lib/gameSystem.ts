@@ -323,9 +323,9 @@ export function initEasterEggListeners(): void {
     if (e.key === konamiCode[konamiIndex]) {
       konamiIndex++
       if (konamiIndex === konamiCode.length) {
-        unlockEasterEgg('konami-code')
         awardBadge('konami-master')
-        showNotification('Code Konami activé ! Respect pour la culture geek.', 'success')
+        addPoints(75, 'Code Konami')
+        showNotification('Code Konami ! Respect.', 'success')
         konamiIndex = 0
       }
     } else {
@@ -333,24 +333,66 @@ export function initEasterEggListeners(): void {
     }
   })
   
-  // Console easter egg  
+  // Loutre easter egg  
   let consoleSequence = ''
   document.addEventListener('keypress', (e) => {
     consoleSequence += e.key
     if (consoleSequence.includes('loutre')) {
-      console.log(`
-%c
-    🦦 Bravo ! Les loutres approuvent votre curiosité.
-    
-    Indice bonus : Regardez les chiffres ronds dans les briefs.
-    120, 5000, 150... ils ne sont pas là par hasard.
-    
+      console.log(`%c
+🦦 Les loutres vous saluent !
+
+Indice : Les chiffres ronds (120, 5000, 150) sont des réponses...
 `, 'color: #3b82f6; font-size: 14px; font-weight: bold;')
-      showNotification('Indice loutre débloqué ! Vérifiez la console.', 'success')
-      addPoints(25, 'Easter egg console')
+      showNotification('Indice loutre ! Regarde la console.', 'success')
+      addPoints(25, 'Message loutre')
       consoleSequence = ''
     }
     if (consoleSequence.length > 20) consoleSequence = ''
+  })
+  
+  // Double-clic sur les badges
+  document.addEventListener('dblclick', (e) => {
+    const target = e.target as HTMLElement
+    if (target.textContent?.includes('Badge') || target.textContent?.includes('badge')) {
+      addPoints(15, 'Double-clic mystère')
+      showNotification('Curieux ! +15 points', 'info')
+    }
+  })
+  
+  // Scroll rapide = easter egg
+  let scrollCount = 0
+  let scrollTimeout: NodeJS.Timeout
+  
+  window.addEventListener('scroll', () => {
+    scrollCount++
+    clearTimeout(scrollTimeout)
+    
+    scrollTimeout = setTimeout(() => {
+      if (scrollCount > 50) {
+        addPoints(20, 'Scroll intensif')
+        showNotification('Défilement olympique ! +20 points', 'success')
+      }
+      scrollCount = 0
+    }, 2000)
+  })
+  
+  // Survol prolongé sur titre
+  let hoverTimeout: NodeJS.Timeout
+  document.addEventListener('mouseover', (e) => {
+    const target = e.target as HTMLElement
+    if (target.tagName === 'H1' || target.tagName === 'H2') {
+      hoverTimeout = setTimeout(() => {
+        addPoints(10, 'Patience')
+        showNotification('La patience est une vertu ! +10 points', 'info')
+      }, 3000)
+    }
+  })
+  
+  document.addEventListener('mouseout', (e) => {
+    const target = e.target as HTMLElement
+    if (target.tagName === 'H1' || target.tagName === 'H2') {
+      clearTimeout(hoverTimeout)
+    }
   })
 }
 
