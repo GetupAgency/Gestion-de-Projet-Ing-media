@@ -1,9 +1,10 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Trophy, Star, Lightbulb, Zap, HelpCircle, MessageCircle } from 'lucide-react'
+import { Trophy, Star, Lightbulb, Zap, HelpCircle, MessageCircle, Gamepad2, Brain, ListOrdered } from 'lucide-react'
 import { getTeamData, initTeam, BADGES, useToken, addPoints, checkEasterEggSolution, EASTER_EGGS } from '@/lib/gameSystem'
 import { TeamScoreExport } from './TeamScoreExport'
+import { MiniGame } from './MiniGames'
 
 // FAQ / Questions fréquentes
 const FAQ_ITEMS = [
@@ -39,6 +40,7 @@ export default function GamePanel({ projectId }: { projectId: string }) {
   const [easterEggInput, setEasterEggInput] = useState('')
   const [selectedEgg, setSelectedEgg] = useState<string | null>(null)
   const [showFAQ, setShowFAQ] = useState(false)
+  const [activeGame, setActiveGame] = useState<string | null>(null)
 
   useEffect(() => {
     // Rafraîchir les données toutes les 5 secondes
@@ -283,9 +285,47 @@ export default function GamePanel({ projectId }: { projectId: string }) {
             )}
           </div>
 
+          {/* Mini-jeux */}
+          <div className="p-4 border-t bg-gradient-to-r from-green-50 to-blue-50">
+            <h4 className="font-semibold text-gray-900 mb-3">Mini-Jeux</h4>
+            <div className="grid grid-cols-3 gap-2">
+              <button
+                onClick={() => setActiveGame('quiz')}
+                className="flex flex-col items-center p-2 bg-white rounded-lg shadow hover:shadow-md transition-all"
+              >
+                <Brain className="w-5 h-5 text-blue-600 mb-1" />
+                <span className="text-xs font-medium text-gray-700">Quiz</span>
+              </button>
+              
+              <button
+                onClick={() => setActiveGame('memory')}
+                className="flex flex-col items-center p-2 bg-white rounded-lg shadow hover:shadow-md transition-all"
+              >
+                <Gamepad2 className="w-5 h-5 text-green-600 mb-1" />
+                <span className="text-xs font-medium text-gray-700">Memory</span>
+              </button>
+              
+              <button
+                onClick={() => setActiveGame('order')}
+                className="flex flex-col items-center p-2 bg-white rounded-lg shadow hover:shadow-md transition-all"
+              >
+                <ListOrdered className="w-5 h-5 text-orange-600 mb-1" />
+                <span className="text-xs font-medium text-gray-700">Ordre</span>
+              </button>
+            </div>
+          </div>
+
           {/* Export */}
           <TeamScoreExport />
         </div>
+      )}
+
+      {/* Mini-jeux modals */}
+      {activeGame && (
+        <MiniGame
+          gameType={activeGame as any}
+          onClose={() => setActiveGame(null)}
+        />
       )}
     </div>
   )

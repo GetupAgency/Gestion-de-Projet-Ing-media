@@ -10,7 +10,6 @@ import { isTeacherMode } from '@/lib/teacherMode'
 import GamePanel from '@/components/GamePanel'
 import Leaderboard from '@/components/Leaderboard'
 import TeamSetup from '@/components/TeamSetup'
-import { MiniGameLauncher } from '@/components/MiniGames'
 import { initEasterEggListeners, awardBadge, addPoints, getTeamData } from '@/lib/gameSystem'
 
 export default function MissionPage() {
@@ -972,9 +971,6 @@ Bravo pour ta curiosité, 50 points pour Gryffondor !`, 'color: #8b5cf6; font-we
 
       {/* Leaderboard */}
       <Leaderboard />
-
-      {/* Mini-jeux */}
-      <MiniGameLauncher />
 
       <Footer />
     </div>
