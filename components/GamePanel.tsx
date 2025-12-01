@@ -6,7 +6,6 @@ import { getTeamData, initTeam, BADGES, useToken, addPoints, checkEasterEggSolut
 import { TeamScoreExport } from './TeamScoreExport'
 import { MiniGame } from './MiniGames'
 import { syncToSupabase } from '@/lib/syncSystem'
-import { autoCorrectOnLoad } from '@/lib/scoreCorrection'
 
 // FAQ / Questions fréquentes
 const FAQ_ITEMS = [
@@ -46,8 +45,6 @@ export default function GamePanel({ projectId }: { projectId: string }) {
   const [isSyncing, setIsSyncing] = useState(false)
 
   useEffect(() => {
-    // Auto-correction au chargement
-    autoCorrectOnLoad()
     setTeam(getTeamData())
     
     // Rafraîchir les données toutes les 5 secondes
