@@ -176,7 +176,7 @@ export default function GamePanel({ projectId }: { projectId: string }) {
                               value={easterEggInput}
                               onChange={(e) => setEasterEggInput(e.target.value)}
                               placeholder="Votre réponse..."
-                              className="flex-1 px-3 py-2 border-2 border-purple-300 rounded-lg text-sm focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
+                              className="flex-1 px-3 py-2 border-2 border-purple-300 rounded-lg text-sm text-gray-900 placeholder-gray-400 bg-white focus:border-purple-500 focus:ring-2 focus:ring-purple-200"
                               onKeyPress={(e) => {
                                 if (e.key === 'Enter') {
                                   handleEasterEggSubmit(egg.id)

@@ -53,7 +53,7 @@ export default function TeamSetup({ onComplete }: TeamSetupProps) {
               value={teamName}
               onChange={(e) => setTeamName(e.target.value)}
               placeholder="Les Loutres Agiles, Code Warriors, Team Rocket..."
-              className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent text-gray-900 placeholder-gray-400"
+              className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg bg-white text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               autoFocus
               maxLength={30}
             />

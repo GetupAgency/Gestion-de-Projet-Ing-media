@@ -84,20 +84,19 @@ Chaque équipe dispose de **jetons stratégiques** à utiliser intelligemment :
 - Séquence : ↑↑↓↓←→←→BA
 - Récompense : Badge "Vieille École" + 75 points
 
-#### Message Console
-- Taper "loutre" n'importe où
-- Affiche un message secret dans la console
-- Récompense : 25 points
+#### Message Loutre
+- Taper "loutre" n'importe où sur la page
+- Affiche un message secret avec indice bonus
+- Récompense : 25 points supplémentaires
 
 #### Triple Clic sur le Titre
 - Cliquer 3 fois rapidement sur le titre du projet
 - Révèle un indice bonus
 - Récompense : 30 points
 
-#### Code Source
-- Message caché dans la console au chargement
-- Donne un indice pour Eventeo
-- Badge "Explorateur de Code" + 50 points
+#### Ouverture Console
+- Message affiché automatiquement : "Bravo pour ta curiosité, 50 points pour Gryffondor !"
+- Récompense : 50 points directs + Badge "Plongeur de Console"
 
 ### 4. Badges Disponibles
 

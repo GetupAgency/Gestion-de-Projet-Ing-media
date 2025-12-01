@@ -44,21 +44,14 @@ export default function MissionPage() {
       initEasterEggListeners()
       
       // Easter egg: message caché dans le code source
-      console.log(`
-%c
-┌─────────────────────────────────────────────────┐
-│                                                 │
-│  Tiens, quelqu'un sait ouvrir la console...    │
-│                                                 │
-│  Les loutres ont caché des indices partout.    │
-│  Certains chiffres dans les briefs ne sont     │
-│  pas là par hasard.                            │
-│                                                 │
-│  Bonne chasse ! 🦦                              │
-│                                                 │
-└─────────────────────────────────────────────────┘
-`, 'color: #8b5cf6; font-weight: bold;')
+      console.log(`%c
+Tiens, quelqu'un sait ouvrir la console...
+
+Bravo pour ta curiosité, 50 points pour Gryffondor !
+`, 'color: #8b5cf6; font-weight: bold; font-size: 14px;')
       
+      // Attribuer les points
+      addPoints(50, 'Ouverture de la console')
       awardBadge('console-master')
       
       // Easter egg: triple clic sur le logo
