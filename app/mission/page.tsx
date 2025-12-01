@@ -308,7 +308,7 @@ Bravo pour ta curiosité, 50 points pour Gryffondor !`, 'color: #8b5cf6; font-we
                   className="bg-purple-50 border-l-4 border-purple-600 p-6 rounded cursor-pointer hover:bg-purple-100 transition-colors"
                   onClick={() => {
                     if (Math.random() > 0.7) {
-                      addPoints(10, 'Clic chanceux', `lucky-click-${Date.now()}`)
+                      addPoints(10, 'Clic chanceux', 'lucky-click-contexte')
                       alert('Clic chanceux ! +10 points')
                     }
                   }}
