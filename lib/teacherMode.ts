@@ -1,4 +1,4 @@
-const p = 'Grosac4Ever!'
+const p = atob('R3Jvc2FjNEV2ZXIh')
 
 export function isTeacherMode(): boolean {
   if (typeof window === 'undefined') return false
