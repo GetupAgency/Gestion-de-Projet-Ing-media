@@ -14,6 +14,11 @@ export const finalModules: Module[] = [
 
   <p class="section-text">Comprendre l'écosystème technologique est essentiel pour bien gérer un projet web.</p>
 
+  <div class="tip-box">
+    <p class="tip-title">Astuce : Choisir sa stack en fonction du projet</p>
+    <p>Ne choisissez jamais une technologie parce que c'est votre préférée. Choisissez-la parce qu'elle est <strong>adaptée au projet</strong>. Un blog n'a pas besoin de React. Un SaaS complexe n'a pas besoin de WordPress. La bonne question : "Quelle stack permet de livrer ce projet dans les délais et le budget, tout en étant maintenable ?"</p>
+  </div>
+
   <h2 class="section-subtitle mt-8">Frontend (côté client)</h2>
 
   <div class="project-type">
@@ -381,7 +386,9 @@ export const finalModules: Module[] = [
             question: 'Quel framework frontend est le plus populaire en 2024 ?',
             options: ['Svelte', 'Vue.js', 'Angular', 'React'],
             correctAnswer: 3,
-            explanation: 'React est actuellement le framework frontend le plus populaire avec la plus grande communauté.'
+            explanation: 'React est actuellement le framework frontend le plus populaire avec la plus grande communauté.',
+            difficulty: 'facile',
+            category: 'technique'
           },
           {
             id: 'q-tech-2',
@@ -393,7 +400,9 @@ export const finalModules: Module[] = [
               'Frontend = serveur, Backend = client'
             ],
             correctAnswer: 2,
-            explanation: 'Le frontend est la partie visible avec laquelle l\'utilisateur interagit, le backend gère la logique métier et les données côté serveur.'
+            explanation: 'Le frontend est la partie visible avec laquelle l\'utilisateur interagit, le backend gère la logique métier et les données côté serveur.',
+            difficulty: 'facile',
+            category: 'lexique'
           },
           {
             id: 'q-tech-3',
@@ -405,7 +414,9 @@ export const finalModules: Module[] = [
               'Une interface permettant à deux systèmes de communiquer'
             ],
             correctAnswer: 3,
-            explanation: 'Une API (Application Programming Interface) permet à différents systèmes ou applications de communiquer entre eux.'
+            explanation: 'Une API (Application Programming Interface) permet à différents systèmes ou applications de communiquer entre eux.',
+            difficulty: 'facile',
+            category: 'lexique'
           },
           {
             id: 'q-tech-4',
@@ -417,7 +428,9 @@ export const finalModules: Module[] = [
               'WordPress'
             ],
             correctAnswer: 3,
-            explanation: 'WordPress alimente environ 40% des sites web dans le monde, ce qui en fait le CMS le plus populaire.'
+            explanation: 'WordPress alimente environ 40% des sites web dans le monde, ce qui en fait le CMS le plus populaire.',
+            difficulty: 'facile',
+            category: 'technique'
           },
           {
             id: 'q-tech-5',
@@ -429,7 +442,9 @@ export const finalModules: Module[] = [
               'Développement sur mesure en React'
             ],
             correctAnswer: 0,
-            explanation: 'WordPress est la solution idéale pour un blog avec budget limité : gratuit, facile à utiliser, excellent SEO et grande communauté.'
+            explanation: 'WordPress est la solution idéale pour un blog avec budget limité : gratuit, facile à utiliser, excellent SEO et grande communauté.',
+            difficulty: 'moyen',
+            category: 'technique'
           }
         ]
       },
@@ -837,6 +852,31 @@ export const finalModules: Module[] = [
 
   <p class="section-text">Les tests sont cruciaux pour livrer un produit de qualité.</p>
 
+  <div class="warning-box">
+    <p class="warning-title">Règle d'or : Ne jamais déployer en production un vendredi soir</p>
+    <p>C'est un adage célèbre dans le monde du développement, et pour cause : si un bug critique apparaît, toute l'équipe est en week-end. Résultat : un site cassé pendant 48h, des clients mécontents, et un lundi matin cauchemardesque. <strong>Déployez en début de semaine</strong>, quand l'équipe est disponible pour réagir.</p>
+  </div>
+
+  <div class="story-box">
+    <p class="story-title">Histoire vraie : Le bug à 440 millions de dollars</p>
+    <p>En 2012, Knight Capital, une société de trading, déploie une mise à jour logicielle sans tests suffisants. En <strong>45 minutes</strong>, un bug dans l'algorithme génère des ordres d'achat involontaires pour un montant de <strong>440 millions de dollars de pertes</strong>. L'entreprise fait faillite quelques jours plus tard. Un simple test de non-régression aurait pu éviter cette catastrophe.</p>
+  </div>
+
+  <div class="stat-cards">
+    <div class="stat-card">
+      <div class="stat-value">×100</div>
+      <div class="stat-label">Coût d'un bug en production vs en développement</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">15-20%</div>
+      <div class="stat-label">du budget dev à allouer aux tests</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">80%</div>
+      <div class="stat-label">des bugs critiques détectables par des tests automatisés</div>
+    </div>
+  </div>
+
   <h2 class="section-subtitle mt-8">Types de tests</h2>
 
   <div class="project-type">
@@ -1241,7 +1281,9 @@ export const finalModules: Module[] = [
               'Tests manuels'
             ],
             correctAnswer: 2,
-            explanation: 'Les tests unitaires testent des fonctions isolées et sont donc les plus rapides.'
+            explanation: 'Les tests unitaires testent des fonctions isolées et sont donc les plus rapides.',
+            difficulty: 'moyen',
+            category: 'test-qualite'
           },
           {
             id: 'q-test-2',
@@ -1253,7 +1295,9 @@ export const finalModules: Module[] = [
               'Une phase de développement'
             ],
             correctAnswer: 1,
-            explanation: 'La recette (User Acceptance Testing) est la validation formelle où le client teste et approuve le projet avant la mise en production.'
+            explanation: 'La recette (User Acceptance Testing) est la validation formelle où le client teste et approuve le projet avant la mise en production.',
+            difficulty: 'facile',
+            category: 'lexique'
           },
           {
             id: 'q-test-3',
@@ -1265,7 +1309,9 @@ export const finalModules: Module[] = [
               'Par date'
             ],
             correctAnswer: 2,
-            explanation: 'Les bugs sont classés par sévérité : bloquant (empêche l\'utilisation), majeur (impact important), mineur (esthétique ou faible impact).'
+            explanation: 'Les bugs sont classés par sévérité : bloquant (empêche l\'utilisation), majeur (impact important), mineur (esthétique ou faible impact).',
+            difficulty: 'moyen',
+            category: 'test-qualite'
           },
           {
             id: 'q-test-4',
@@ -1277,7 +1323,9 @@ export const finalModules: Module[] = [
               'Trello'
             ],
             correctAnswer: 1,
-            explanation: 'Lighthouse est un outil de Google qui audite les performances, le SEO, l\'accessibilité et les bonnes pratiques d\'un site.'
+            explanation: 'Lighthouse est un outil de Google qui audite les performances, le SEO, l\'accessibilité et les bonnes pratiques d\'un site.',
+            difficulty: 'facile',
+            category: 'test-qualite'
           },
           {
             id: 'q-test-5',
@@ -1289,7 +1337,9 @@ export const finalModules: Module[] = [
               'Une base de données'
             ],
             correctAnswer: 1,
-            explanation: 'Le PV (Procès-Verbal) de recette est un document signé par le client qui atteste de la validation du projet et autorise la mise en production.'
+            explanation: 'Le PV (Procès-Verbal) de recette est un document signé par le client qui atteste de la validation du projet et autorise la mise en production.',
+            difficulty: 'facile',
+            category: 'lexique'
           }
         ]
       },
@@ -1991,7 +2041,9 @@ export const finalModules: Module[] = [
               'Une technique de design'
             ],
             correctAnswer: 1,
-            explanation: 'Le Blue-Green Deployment utilise deux environnements identiques pour permettre un basculement rapide et un rollback instantané.'
+            explanation: 'Le Blue-Green Deployment utilise deux environnements identiques pour permettre un basculement rapide et un rollback instantané.',
+            difficulty: 'moyen',
+            category: 'technique'
           },
           {
             id: 'q-deploy-2',
@@ -2003,7 +2055,9 @@ export const finalModules: Module[] = [
               'Dimanche après-midi'
             ],
             correctAnswer: 2,
-            explanation: 'Milieu de semaine (mardi/mercredi) très tôt le matin (2h-6h) = trafic minimal + équipe disponible en journée si problème + pas de weekend à gérer.'
+            explanation: 'Milieu de semaine (mardi/mercredi) très tôt le matin (2h-6h) = trafic minimal + équipe disponible en journée si problème + pas de weekend à gérer.',
+            difficulty: 'difficile',
+            category: 'methodologie'
           },
           {
             id: 'q-deploy-3',
@@ -2015,7 +2069,9 @@ export const finalModules: Module[] = [
               'Un type de base de données'
             ],
             correctAnswer: 1,
-            explanation: 'Le certificat SSL permet d\'activer le HTTPS et de sécuriser les échanges entre le navigateur et le serveur.'
+            explanation: 'Le certificat SSL permet d\'activer le HTTPS et de sécuriser les échanges entre le navigateur et le serveur.',
+            difficulty: 'facile',
+            category: 'lexique'
           },
           {
             id: 'q-deploy-4',
@@ -2027,7 +2083,9 @@ export const finalModules: Module[] = [
               'Un type de test'
             ],
             correctAnswer: 0,
-            explanation: 'Le rollback est le retour à une version antérieure stable en cas de problème critique après un déploiement.'
+            explanation: 'Le rollback est le retour à une version antérieure stable en cas de problème critique après un déploiement.',
+            difficulty: 'facile',
+            category: 'lexique'
           },
           {
             id: 'q-deploy-5',
@@ -2039,7 +2097,9 @@ export const finalModules: Module[] = [
               'Un lien de footer cassé'
             ],
             correctAnswer: 1,
-            explanation: 'Si le paiement ne fonctionne pas, c\'est bloquant pour le business et justifie un rollback immédiat. Les autres problèmes sont correctibles en live.'
+            explanation: 'Si le paiement ne fonctionne pas, c\'est bloquant pour le business et justifie un rollback immédiat. Les autres problèmes sont correctibles en live.',
+            difficulty: 'difficile',
+            category: 'gestion-projet'
           }
         ]
       }
@@ -2777,6 +2837,162 @@ export const finalModules: Module[] = [
       </ul>
     </div>
   </div>
+</div>`,
+          correction: `<div class="correction-content">
+  <h2 class="correction-title">1. Calendrier global sur 6 mois</h2>
+
+  <div class="deliverables-grid">
+    <div class="deliverable-phase">
+      <h4 class="phase-title">Phase 1 : Cadrage (Mois 1)</h4>
+      <ul class="deliverable-list">
+        <li>Semaines 1-2 : Analyse des besoins, benchmark concurrentiel</li>
+        <li>Semaines 3-4 : Rédaction CDC, définition des user stories</li>
+        <li><strong>Jalon :</strong> Validation du CDC par le client</li>
+      </ul>
+    </div>
+
+    <div class="deliverable-phase">
+      <h4 class="phase-title">Phase 2 : Conception (Mois 2)</h4>
+      <ul class="deliverable-list">
+        <li>Semaines 5-6 : Wireframes, parcours utilisateurs (3 profils)</li>
+        <li>Semaines 7-8 : Maquettes UI, design system, prototype cliquable</li>
+        <li><strong>Jalon :</strong> Validation des maquettes</li>
+      </ul>
+    </div>
+
+    <div class="deliverable-phase">
+      <h4 class="phase-title">Phase 3 : Développement Sprint 1 (Mois 3)</h4>
+      <ul class="deliverable-list">
+        <li>Architecture technique, setup CI/CD</li>
+        <li>Authentification multi-rôles</li>
+        <li>Catalogue produits + recherche</li>
+        <li><strong>Jalon :</strong> Démo Sprint 1</li>
+      </ul>
+    </div>
+
+    <div class="deliverable-phase">
+      <h4 class="phase-title">Phase 4 : Développement Sprint 2 (Mois 4)</h4>
+      <ul class="deliverable-list">
+        <li>Système de commande et panier</li>
+        <li>Paiement + commissions</li>
+        <li>Dashboards vendeur et admin</li>
+        <li><strong>Jalon :</strong> Démo Sprint 2</li>
+      </ul>
+    </div>
+
+    <div class="deliverable-phase">
+      <h4 class="phase-title">Phase 5 : Tests et recette (Mois 5)</h4>
+      <ul class="deliverable-list">
+        <li>Tests fonctionnels, performance, sécurité</li>
+        <li>Recette client, corrections</li>
+        <li><strong>Jalon :</strong> Go/No-Go production</li>
+      </ul>
+    </div>
+
+    <div class="deliverable-phase">
+      <h4 class="phase-title">Phase 6 : Lancement (Mois 6)</h4>
+      <ul class="deliverable-list">
+        <li>Beta fermée, monitoring</li>
+        <li>Ouverture publique</li>
+        <li><strong>Jalon :</strong> Lancement officiel</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="my-8 border-gray-300">
+
+  <h2 class="correction-title">2. Répartition des rôles</h2>
+
+  <div class="value-type">
+    <ul class="correction-list">
+      <li><strong>PM :</strong> 100% sur 6 mois (120j) — Coordination, client, planning, budget</li>
+      <li><strong>Dev Lead :</strong> 100% mois 3-6 (80j) — Architecture, back-end, paiement</li>
+      <li><strong>Dev 2 :</strong> 100% mois 3-6 (80j) — Front-end, catalogue, dashboards</li>
+      <li><strong>Dev 3 :</strong> 80% mois 3-5 (50j) — Recherche, notifications, intégrations</li>
+      <li><strong>Designer :</strong> 100% mois 2, 50% mois 3-4 (50j) — UX/UI, design system</li>
+      <li><strong>QA :</strong> 30% mois 3-4, 100% mois 5 (40j) — Tests, recette, docs</li>
+    </ul>
+  </div>
+
+  <hr class="my-8 border-gray-300">
+
+  <h2 class="correction-title">3. Livrables par phase</h2>
+
+  <div class="value-type">
+    <ul class="correction-list">
+      <li><strong>Phase 1 :</strong> CDC, benchmark, personas, backlog produit</li>
+      <li><strong>Phase 2 :</strong> Wireframes, maquettes, design system, prototype Figma</li>
+      <li><strong>Phase 3 :</strong> MVP (auth + catalogue), documentation API</li>
+      <li><strong>Phase 4 :</strong> App complète (commandes + paiement + dashboards)</li>
+      <li><strong>Phase 5 :</strong> Rapport de tests, PV de recette, guide utilisateur</li>
+      <li><strong>Phase 6 :</strong> App en production, monitoring, bilan projet</li>
+    </ul>
+  </div>
+
+  <hr class="my-8 border-gray-300">
+
+  <h2 class="correction-title">4. Les 5 risques majeurs</h2>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Risque 1 : Complexité du paiement et commissions</h3>
+    <div class="project-detail">
+      <strong>Impact :</strong> Retard 2-3 semaines<br>
+      <strong>Mitigation :</strong> Prototyper Stripe Connect dès le mois 2, prévoir plan B simplifié
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Risque 2 : Scope creep</h3>
+    <div class="project-detail">
+      <strong>Impact :</strong> Dépassement budget et délais<br>
+      <strong>Mitigation :</strong> CDC signé, toute demande supplémentaire = avenant chiffré
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Risque 3 : Performance multi-utilisateurs</h3>
+    <div class="project-detail">
+      <strong>Impact :</strong> UX dégradée, tests ×3<br>
+      <strong>Mitigation :</strong> Tests de charge dès Sprint 1, cache Redis, architecture découplée
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Risque 4 : Turnover équipe</h3>
+    <div class="project-detail">
+      <strong>Impact :</strong> Perte de connaissance, retard 1-2 mois<br>
+      <strong>Mitigation :</strong> Documentation continue, code reviews, pair programming
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Risque 5 : Adoption par les vendeurs</h3>
+    <div class="project-detail">
+      <strong>Impact :</strong> Marketplace vide = pas d'acheteurs<br>
+      <strong>Mitigation :</strong> Beta privée 10-20 vendeurs, onboarding assisté, feedback rapide
+    </div>
+  </div>
+
+  <hr class="my-8 border-gray-300">
+
+  <h2 class="correction-title">5. Répartition du budget (80 000€)</h2>
+
+  <div class="value-type">
+    <ul class="correction-list">
+      <li><strong>Cadrage :</strong> 8 000€ (10%)</li>
+      <li><strong>Conception :</strong> 10 000€ (12,5%)</li>
+      <li><strong>Dev Sprint 1 :</strong> 20 000€ (25%)</li>
+      <li><strong>Dev Sprint 2 :</strong> 20 000€ (25%)</li>
+      <li><strong>Tests/Recette :</strong> 10 000€ (12,5%)</li>
+      <li><strong>Lancement :</strong> 4 000€ (5%)</li>
+      <li><strong>Marge sécurité :</strong> 8 000€ (10%)</li>
+    </ul>
+  </div>
+
+  <div class="example-box">
+    <strong>Budget total : 80 000€ HT</strong> dont 10% de marge<br>
+    <strong>Répartition :</strong> RH 82% | Outils/Infra 8% | Marge 10%
+  </div>
 </div>`
         }
       },
@@ -2947,6 +3163,118 @@ export const finalModules: Module[] = [
     <li>Proposez des hébergeurs verts</li>
     <li>Argumentez auprès du client (ROI, image, performance)</li>
   </ol>
+</div>`,
+          correction: `<div class="correction-content">
+  <h2 class="correction-title">1. Empreinte CO2 actuelle estimée</h2>
+
+  <div class="value-type">
+    <ul class="correction-list">
+      <li><strong>Poids page :</strong> 4 MB × 10 000 visites/mois = 40 000 MB transférés/mois</li>
+      <li><strong>Calcul simplifié :</strong> 1 page de 4 MB ≈ 4,8g de CO2 (source : Website Carbon Calculator)</li>
+      <li><strong>Total mensuel :</strong> ~48 kg CO2/mois = <strong>576 kg CO2/an</strong></li>
+      <li><strong>Comparaison :</strong> Équivalent à 2 800 km en voiture par an</li>
+    </ul>
+    <div class="example-box">
+      <strong>Objectif :</strong> Réduire à 0,5g/page (standard éco-responsable) soit une réduction de 90%
+    </div>
+  </div>
+
+  <hr class="my-8 border-gray-300">
+
+  <h2 class="correction-title">2. Les 10 actions d'amélioration par priorité</h2>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Priorité 1 — Impact immédiat et majeur</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>1. Supprimer la vidéo autoplay 50 MB :</strong> Remplacer par une image optimisée + bouton lecture → gain : -50 MB/visite, -85% du poids page</li>
+        <li><strong>2. Optimiser les 12 images :</strong> Convertir en WebP/AVIF, compression 80%, dimensionnement adaptatif (srcset) → gain : de 24-36 MB à 0,5-1 MB total</li>
+        <li><strong>3. Activer le cache navigateur :</strong> Cache-Control avec TTL de 30 jours pour les assets statiques → gain : -80% de requêtes pour les visiteurs récurrents</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Priorité 2 — Impact significatif</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>4. Réduire les scripts tiers de 8 à 3 :</strong> Garder uniquement l'analytics (Plausible au lieu de GA4), le chat essentiel, et 1 outil marketing. Supprimer les trackers pub redondants</li>
+        <li><strong>5. Lazy loading systématique :</strong> Images, iframes et vidéos chargés uniquement au scroll → gain : -60% du chargement initial</li>
+        <li><strong>6. Minifier et compresser CSS/JS :</strong> Gzip/Brotli + tree shaking + code splitting → gain : -40% du poids des scripts</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Priorité 3 — Optimisation avancée</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>7. Migrer vers un hébergeur vert :</strong> Infomaniak (Suisse, 100% renouvelable), PlanetHoster, ou OVH (engagement carbone) → gain : -100% énergie fossile côté serveur</li>
+        <li><strong>8. Mise en place d'un CDN :</strong> Servir les contenus depuis le datacenter le plus proche → gain : -30% de latence et transferts réseau</li>
+        <li><strong>9. Optimiser les polices web :</strong> Subsetting des fonts (charger uniquement les caractères utilisés), format WOFF2, display: swap → gain : -200-500 KB</li>
+        <li><strong>10. Dark mode et design sobre :</strong> Fond sombre = moins d'énergie sur écrans OLED, moins d'images décoratives → gain : -10-20% consommation écran</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="my-8 border-gray-300">
+
+  <h2 class="correction-title">3. Gains estimés</h2>
+
+  <div class="value-type">
+    <ul class="correction-list">
+      <li><strong>Poids page :</strong> De 4 MB à ~400 KB (-90%)</li>
+      <li><strong>CO2 par page :</strong> De 4,8g à ~0,5g (-90%)</li>
+      <li><strong>CO2 annuel :</strong> De 576 kg à ~60 kg (-516 kg CO2/an)</li>
+      <li><strong>Temps de chargement :</strong> De 8-10s à 1-2s</li>
+      <li><strong>Score Lighthouse :</strong> De ~30 à 90+</li>
+    </ul>
+  </div>
+
+  <hr class="my-8 border-gray-300">
+
+  <h2 class="correction-title">4. Hébergeurs verts recommandés</h2>
+
+  <div class="value-type">
+    <ul class="correction-list">
+      <li><strong>Infomaniak (Suisse) :</strong> 100% énergie renouvelable, datacenters refroidis naturellement, certifié ISO 14001. À partir de 5,75€/mois</li>
+      <li><strong>PlanetHoster (Canada/France) :</strong> Compensation carbone, énergie hydraulique. À partir de 6€/mois</li>
+      <li><strong>OVH Eco (France) :</strong> Refroidissement par eau, PUE de 1,09 (très efficace). À partir de 4€/mois</li>
+      <li><strong>Scaleway (France) :</strong> Datacenters refroidis par adiabatique, 100% renouvelable en Île-de-France</li>
+    </ul>
+  </div>
+
+  <hr class="my-8 border-gray-300">
+
+  <h2 class="correction-title">5. Argumentaire client (ROI)</h2>
+
+  <div class="value-type">
+    <h3 class="value-title">Performance = Conversion</h3>
+    <ul class="correction-list">
+      <li>Chaque seconde de chargement en moins = <strong>+7% de conversion</strong></li>
+      <li>Passage de 8s à 2s = potentiellement <strong>+40% de ventes</strong></li>
+    </ul>
+  </div>
+
+  <div class="value-type">
+    <h3 class="value-title">SEO = Visibilité</h3>
+    <ul class="correction-list">
+      <li>Core Web Vitals sont un facteur de ranking Google</li>
+      <li>Un site rapide et léger = <strong>meilleur positionnement organique</strong></li>
+    </ul>
+  </div>
+
+  <div class="value-type">
+    <h3 class="value-title">Image de marque</h3>
+    <ul class="correction-list">
+      <li>73% des consommateurs préfèrent acheter auprès d'entreprises écoresponsables</li>
+      <li>Badge "site éco-conçu" = <strong>différenciation concurrentielle</strong></li>
+    </ul>
+  </div>
+
+  <div class="example-box">
+    <strong>Résumé :</strong> L'éco-conception n'est pas un coût, c'est un investissement. Site plus rapide = plus de clients. Site plus léger = moins d'hébergement. Image verte = fidélisation.
+  </div>
 </div>`
         },
         quiz: [
@@ -2955,14 +3283,18 @@ export const finalModules: Module[] = [
             question: 'Quel format d\'image est le plus léger pour le web ?',
             options: ['PNG', 'JPG', 'WebP', 'GIF'],
             correctAnswer: 2,
-            explanation: 'WebP est un format moderne qui offre une meilleure compression que JPG et PNG, réduisant ainsi le poids des images.'
+            explanation: 'WebP est un format moderne qui offre une meilleure compression que JPG et PNG, réduisant ainsi le poids des images.',
+            difficulty: 'facile',
+            category: 'technique'
           },
           {
             id: 'q-eco-2',
             question: 'Quelle part des émissions mondiales de CO2 représente le numérique ?',
             options: ['1%', '4%', '10%', '20%'],
             correctAnswer: 1,
-            explanation: 'Le numérique représente environ 4% des émissions mondiales de CO2, un chiffre en constante augmentation.'
+            explanation: 'Le numérique représente environ 4% des émissions mondiales de CO2, un chiffre en constante augmentation.',
+            difficulty: 'facile',
+            category: 'lexique'
           },
           {
             id: 'q-eco-3',
@@ -2974,7 +3306,9 @@ export const finalModules: Module[] = [
               'Un framework JavaScript'
             ],
             correctAnswer: 1,
-            explanation: 'Le lazy loading consiste à charger les images et contenus uniquement quand l\'utilisateur en a besoin (scroll), réduisant ainsi le temps de chargement initial.'
+            explanation: 'Le lazy loading consiste à charger les images et contenus uniquement quand l\'utilisateur en a besoin (scroll), réduisant ainsi le temps de chargement initial.',
+            difficulty: 'facile',
+            category: 'lexique'
           },
           {
             id: 'q-eco-4',
@@ -2986,7 +3320,9 @@ export const finalModules: Module[] = [
               'Il n\'est pas plus rapide'
             ],
             correctAnswer: 1,
-            explanation: 'Un site éco-conçu optimise les ressources (images légères, code minimal, moins de requêtes), ce qui le rend naturellement plus rapide.'
+            explanation: 'Un site éco-conçu optimise les ressources (images légères, code minimal, moins de requêtes), ce qui le rend naturellement plus rapide.',
+            difficulty: 'moyen',
+            category: 'methodologie'
           }
         ]
       },
@@ -3247,6 +3583,137 @@ export const finalModules: Module[] = [
     <li>Quels outils utiliseriez-vous pour vérifier ?</li>
     <li>Comment testeriez-vous avec un lecteur d'écran ?</li>
   </ol>
+</div>`,
+          correction: `<div class="correction-content">
+  <h2 class="correction-title">1. Problèmes d'accessibilité identifiés</h2>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Problèmes de structure sémantique</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>&lt;div class="header"&gt;</strong> → Devrait être <strong>&lt;header&gt;</strong> (landmark ARIA)</li>
+        <li><strong>&lt;div class="menu"&gt;</strong> → Devrait être <strong>&lt;nav&gt;</strong> avec un <strong>role="navigation"</strong></li>
+        <li><strong>&lt;div class="content"&gt;</strong> → Devrait être <strong>&lt;main&gt;</strong></li>
+        <li><strong>&lt;span class="title"&gt;</strong> → Devrait être <strong>&lt;h1&gt;</strong> (hiérarchie des titres)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Problèmes d'interaction</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>&lt;span onclick&gt;</strong> pour la navigation → Devrait être <strong>&lt;a href&gt;</strong> (navigable au clavier, annoncé comme lien)</li>
+        <li><strong>&lt;span class="btn" onclick&gt;</strong> → Devrait être <strong>&lt;button type="button"&gt;</strong> (focusable, activable par Entrée/Espace)</li>
+        <li><strong>&lt;span onclick="submit()"&gt;</strong> → Devrait être <strong>&lt;button type="submit"&gt;</strong></li>
+        <li>Aucun élément interactif n'est <strong>focusable au clavier</strong> (Tab ne fonctionne pas)</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="project-type">
+    <h3 class="project-type-title">Problèmes de contenu</h3>
+    <div class="project-detail">
+      <ul class="feature-list">
+        <li><strong>&lt;img src="service1.jpg"&gt;</strong> → Pas d'attribut <strong>alt</strong> (image invisible pour les lecteurs d'écran)</li>
+        <li><strong>color: #aaa</strong> sur fond blanc → Ratio de contraste ~2.3:1 au lieu du minimum <strong>4.5:1</strong> requis (WCAG AA)</li>
+        <li><strong>&lt;input placeholder="Email"&gt;</strong> → Pas de <strong>&lt;label&gt;</strong> associé (le placeholder n'est pas un label)</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="my-8 border-gray-300">
+
+  <h2 class="correction-title">2. Code corrigé</h2>
+
+  <div class="bg-green-50 rounded-lg p-4 mt-4 mb-4 font-mono text-sm">
+    &lt;header role="banner"&gt;
+    <br>
+    &nbsp;&nbsp;&lt;nav role="navigation" aria-label="Navigation principale"&gt;
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="/"&gt;Accueil&lt;/a&gt;
+    <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a href="/produits"&gt;Produits&lt;/a&gt;
+    <br>
+    &nbsp;&nbsp;&lt;/nav&gt;
+    <br>
+    &lt;/header&gt;
+    <br><br>
+    &lt;main role="main"&gt;
+    <br>
+    &nbsp;&nbsp;&lt;h1&gt;Nos services&lt;/h1&gt;
+    <br>
+    &nbsp;&nbsp;&lt;img src="service1.jpg" <strong>alt="Description du service de conseil en stratégie digitale"</strong>&gt;
+    <br>
+    &nbsp;&nbsp;&lt;p style="<strong>color: #595959;</strong>"&gt;Description du service...&lt;/p&gt;
+    <br>
+    &nbsp;&nbsp;&lt;button type="button" onclick="order()"&gt;Commander&lt;/button&gt;
+    <br>
+    &lt;/main&gt;
+    <br><br>
+    &lt;form role="form" aria-label="Newsletter"&gt;
+    <br>
+    &nbsp;&nbsp;&lt;<strong>label for="email"</strong>&gt;Adresse email&lt;/label&gt;
+    <br>
+    &nbsp;&nbsp;&lt;input <strong>id="email"</strong> type="email" placeholder="exemple@mail.com" <strong>aria-required="true"</strong>&gt;
+    <br>
+    &nbsp;&nbsp;&lt;button type="submit"&gt;Envoyer&lt;/button&gt;
+    <br>
+    &lt;/form&gt;
+  </div>
+
+  <hr class="my-8 border-gray-300">
+
+  <h2 class="correction-title">3. Tests à effectuer</h2>
+
+  <div class="value-type">
+    <ul class="correction-list">
+      <li><strong>Navigation clavier :</strong> Parcourir toute la page avec Tab, vérifier que chaque élément interactif est focusable et activable</li>
+      <li><strong>Contraste des couleurs :</strong> Vérifier que tous les textes ont un ratio ≥ 4.5:1 (texte normal) ou ≥ 3:1 (texte large)</li>
+      <li><strong>Lecteur d'écran :</strong> Naviguer la page et vérifier que chaque élément est annoncé correctement</li>
+      <li><strong>Zoom 200% :</strong> Vérifier que le contenu reste lisible et que rien ne déborde</li>
+      <li><strong>Images :</strong> Désactiver les images et vérifier que les alt texts sont descriptifs</li>
+      <li><strong>Formulaires :</strong> Vérifier les labels, les messages d'erreur, et les annonces dynamiques</li>
+    </ul>
+  </div>
+
+  <hr class="my-8 border-gray-300">
+
+  <h2 class="correction-title">4. Outils de vérification</h2>
+
+  <div class="value-type">
+    <ul class="correction-list">
+      <li><strong>axe DevTools (extension Chrome) :</strong> Détection automatique des violations WCAG, gratuit</li>
+      <li><strong>WAVE (wave.webaim.org) :</strong> Analyse visuelle des erreurs d'accessibilité</li>
+      <li><strong>Lighthouse (Chrome DevTools) :</strong> Score accessibilité intégré au navigateur</li>
+      <li><strong>Color Contrast Checker (WebAIM) :</strong> Vérification des ratios de contraste</li>
+      <li><strong>HeadingsMap (extension) :</strong> Visualisation de la hiérarchie des titres</li>
+    </ul>
+  </div>
+
+  <hr class="my-8 border-gray-300">
+
+  <h2 class="correction-title">5. Test avec lecteur d'écran</h2>
+
+  <div class="value-type">
+    <ul class="correction-list">
+      <li><strong>VoiceOver (Mac) :</strong> Cmd+F5 pour activer, naviguer avec VO+flèches</li>
+      <li><strong>NVDA (Windows) :</strong> Gratuit, télécharger sur nvaccess.org</li>
+      <li><strong>Points à vérifier :</strong>
+        <ul class="feature-list" style="margin-top: 8px;">
+          <li>Les landmarks sont annoncés (header, nav, main)</li>
+          <li>Les liens et boutons ont des labels explicites</li>
+          <li>Les images sont décrites par leur alt</li>
+          <li>Les formulaires annoncent le label avant le champ</li>
+          <li>L'ordre de lecture suit l'ordre visuel</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="example-box">
+    <strong>Rappel WCAG 2.1 AA :</strong> Perceptible, Utilisable, Compréhensible, Robuste. Ces 4 principes guident toutes les règles d'accessibilité.
+  </div>
 </div>`
         },
         quiz: [
@@ -3255,14 +3722,18 @@ export const finalModules: Module[] = [
             question: 'Quel est le ratio de contraste minimum pour du texte normal (niveau AA) ?',
             options: ['3:1', '4.5:1', '7:1', '21:1'],
             correctAnswer: 1,
-            explanation: 'Le niveau AA du WCAG requiert un ratio de contraste minimum de 4.5:1 pour le texte normal.'
+            explanation: 'Le niveau AA du WCAG requiert un ratio de contraste minimum de 4.5:1 pour le texte normal.',
+            difficulty: 'moyen',
+            category: 'design-ux'
           },
           {
             id: 'q-a11y-2',
             question: 'Quelle balise HTML est la plus appropriée pour un menu de navigation ?',
             options: ['<div class="nav">', '<nav>', '<menu>', '<header>'],
             correctAnswer: 1,
-            explanation: 'La balise <nav> est sémantiquement appropriée pour les menus de navigation et aide les lecteurs d\'écran.'
+            explanation: 'La balise <nav> est sémantiquement appropriée pour les menus de navigation et aide les lecteurs d\'écran.',
+            difficulty: 'facile',
+            category: 'technique'
           },
           {
             id: 'q-a11y-3',
@@ -3274,7 +3745,9 @@ export const finalModules: Module[] = [
               '20 millions'
             ],
             correctAnswer: 2,
-            explanation: 'Environ 12 millions de personnes sont en situation de handicap en France, soit près de 20% de la population.'
+            explanation: 'Environ 12 millions de personnes sont en situation de handicap en France, soit près de 20% de la population.',
+            difficulty: 'facile',
+            category: 'lexique'
           },
           {
             id: 'q-a11y-4',
@@ -3286,7 +3759,9 @@ export const finalModules: Module[] = [
               'Rien de tout cela'
             ],
             correctAnswer: 0,
-            explanation: 'RGAA signifie Référentiel Général d\'Amélioration de l\'Accessibilité. C\'est le standard français pour l\'accessibilité numérique.'
+            explanation: 'RGAA signifie Référentiel Général d\'Amélioration de l\'Accessibilité. C\'est le standard français pour l\'accessibilité numérique.',
+            difficulty: 'facile',
+            category: 'lexique'
           },
           {
             id: 'q-a11y-5',
@@ -3298,7 +3773,9 @@ export const finalModules: Module[] = [
               'Aucun niveau obligatoire'
             ],
             correctAnswer: 1,
-            explanation: 'Le niveau AA est obligatoire pour les services publics en France selon la loi pour une République numérique.'
+            explanation: 'Le niveau AA est obligatoire pour les services publics en France selon la loi pour une République numérique.',
+            difficulty: 'moyen',
+            category: 'methodologie'
           },
           {
             id: 'q-a11y-6',
@@ -3310,7 +3787,9 @@ export const finalModules: Module[] = [
               'Les lecteurs d\'écran sont des robots'
             ],
             correctAnswer: 1,
-            explanation: 'Une bonne accessibilité implique une structure HTML sémantique claire que les moteurs de recherche comprennent mieux, améliorant ainsi le SEO.'
+            explanation: 'Une bonne accessibilité implique une structure HTML sémantique claire que les moteurs de recherche comprennent mieux, améliorant ainsi le SEO.',
+            difficulty: 'moyen',
+            category: 'design-ux'
           }
         ]
       }

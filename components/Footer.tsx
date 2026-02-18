@@ -36,7 +36,7 @@ export default function Footer() {
         
         <div className="mt-4 pt-4 border-t border-gray-600 text-center">
           <p className="text-gray-400 text-xs">
-            Version 1.1.17 - Mise à jour le 01/12/2025 à 16:48
+            Version 1.1.19 - Mise à jour le 18/02/2026 à 16:54
           </p>
         </div>
       </div>

@@ -603,8 +603,425 @@ export default function ProfGuidePage() {
         </CorrectionSection>
 
         <CorrectionSection
+          id="smart"
+          title="7. Objectifs SMART du Projet"
+          isExpanded={expandedSections.includes('smart')}
+          onToggle={() => toggleSection('smart')}
+        >
+          <div className="prose prose-sm max-w-none">
+            <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded mb-4">
+              <h4 className="font-semibold text-blue-900 mb-2">Rappel : Méthode SMART</h4>
+              <div className="text-sm text-blue-800 space-y-1">
+                <p><strong>S</strong>pécifique : Objectif clair et précis</p>
+                <p><strong>M</strong>esurable : Chiffrable, quantifiable</p>
+                <p><strong>A</strong>ccepté : Partagé par toutes les parties prenantes</p>
+                <p><strong>R</strong>éaliste : Atteignable avec les ressources disponibles</p>
+                <p><strong>T</strong>emporellement défini : Deadline claire</p>
+              </div>
+            </div>
+
+            <div className="bg-yellow-50 border-l-4 border-yellow-600 p-4 rounded mb-4">
+              <h4 className="font-semibold text-yellow-900 mb-2">Questions à leur poser :</h4>
+              <ul className="text-sm text-yellow-800 space-y-1">
+                <li>Donnez-moi un objectif SMART pour le projet Eventeo.</li>
+                <li>L'objectif "Améliorer l'expérience utilisateur" est-il SMART ? Pourquoi ?</li>
+                <li>Comment rendez-vous mesurable l'objectif "Satisfaire les organisateurs" ?</li>
+                <li>Transformez "Avoir beaucoup de participants" en objectif SMART.</li>
+              </ul>
+            </div>
+
+            <h4 className="font-semibold text-gray-900 mb-2">Exemples d'Objectifs SMART pour Eventeo :</h4>
+            <div className="bg-gray-50 p-4 rounded space-y-4">
+              <div className="border-l-4 border-green-600 pl-3 py-2">
+                <p className="font-semibold text-gray-900 mb-2">Objectif 1 : Adoption de l'App Mobile</p>
+                <p className="text-sm text-gray-700 mb-2">
+                  "Atteindre un taux d'utilisation de l'application mobile de 70% des participants inscrits 
+                  sur les 3 premiers événements pilotes d'ici la fin du mois de beta (mois 7)."
+                </p>
+                <div className="text-xs space-y-1 text-gray-600">
+                  <p><strong>S</strong> : Taux d'utilisation app mobile</p>
+                  <p><strong>M</strong> : 70% mesurable via analytics</p>
+                  <p><strong>A</strong> : Validé avec client et équipe dev</p>
+                  <p><strong>R</strong> : Benchmark montre 60-80% possible avec bon onboarding</p>
+                  <p><strong>T</strong> : Fin mois 7 (fin beta)</p>
+                </div>
+              </div>
+
+              <div className="border-l-4 border-blue-600 pl-3 py-2">
+                <p className="font-semibold text-gray-900 mb-2">Objectif 2 : Performance Technique</p>
+                <p className="text-sm text-gray-700 mb-2">
+                  "Garantir un temps de chargement inférieur à 2 secondes pour l'app mobile 
+                  et la plateforme web sur 99% des requêtes, mesuré lors des tests de charge 
+                  avec 5000 utilisateurs simultanés avant la mise en production (fin mois 7)."
+                </p>
+                <div className="text-xs space-y-1 text-gray-600">
+                  <p><strong>S</strong> : Temps de chargement</p>
+                  <p><strong>M</strong> : &lt; 2s sur 99% requêtes</p>
+                  <p><strong>A</strong> : Critère validé dans le CDC</p>
+                  <p><strong>R</strong> : Architecture optimisée + CDN</p>
+                  <p><strong>T</strong> : Validation avant prod (mois 7)</p>
+                </div>
+              </div>
+
+              <div className="border-l-4 border-purple-600 pl-3 py-2">
+                <p className="font-semibold text-gray-900 mb-2">Objectif 3 : Satisfaction Client</p>
+                <p className="text-sm text-gray-700 mb-2">
+                  "Obtenir un NPS (Net Promoter Score) supérieur à 50 auprès des organisateurs 
+                  ayant utilisé la plateforme pour au moins 2 événements, mesuré via enquête 
+                  à la fin de la période beta (mois 7)."
+                </p>
+                <div className="text-xs space-y-1 text-gray-600">
+                  <p><strong>S</strong> : NPS organisateurs</p>
+                  <p><strong>M</strong> : &gt; 50 (enquête standardisée)</p>
+                  <p><strong>A</strong> : Critère succès partagé</p>
+                  <p><strong>R</strong> : Produits similaires ont NPS 40-60</p>
+                  <p><strong>T</strong> : Fin beta (mois 7)</p>
+                </div>
+              </div>
+
+              <div className="border-l-4 border-orange-600 pl-3 py-2">
+                <p className="font-semibold text-gray-900 mb-2">Objectif 4 : Networking Efficace</p>
+                <p className="text-sm text-gray-700 mb-2">
+                  "Générer au minimum 3 mises en relation (matches) par participant actif 
+                  en moyenne lors des événements beta, avec un taux de conversion contact → rendez-vous de 40%, 
+                  mesuré via analytics de l'app."
+                </p>
+                <div className="text-xs space-y-1 text-gray-600">
+                  <p><strong>S</strong> : Nombre de mises en relation</p>
+                  <p><strong>M</strong> : 3 matches/participant + 40% conversion</p>
+                  <p><strong>A</strong> : KPI prioritaire validé</p>
+                  <p><strong>R</strong> : Algo de matching testé</p>
+                  <p><strong>T</strong> : Pendant phase beta</p>
+                </div>
+              </div>
+
+              <div className="border-l-4 border-pink-600 pl-3 py-2">
+                <p className="font-semibold text-gray-900 mb-2">Objectif 5 : Livraison MVP</p>
+                <p className="text-sm text-gray-700 mb-2">
+                  "Livrer un MVP fonctionnel comprenant les 6 features core (création événement, billetterie, 
+                  app mobile, networking, analytics basiques, QR scan) avec 0 bug bloquant, 
+                  validé en recette client avant le 15 juillet 2024."
+                </p>
+                <div className="text-xs space-y-1 text-gray-600">
+                  <p><strong>S</strong> : MVP avec 6 features core</p>
+                  <p><strong>M</strong> : 0 bug bloquant en recette</p>
+                  <p><strong>A</strong> : Périmètre MVP validé mois 1</p>
+                  <p><strong>R</strong> : Planning de 7 mois</p>
+                  <p><strong>T</strong> : 15 juillet 2024</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-green-50 border-l-4 border-green-600 p-4 rounded mt-4">
+              <h4 className="font-semibold text-green-900 mb-2">Pourquoi SMART est crucial ?</h4>
+              <ul className="text-sm text-green-800 space-y-2">
+                <li>
+                  <strong>Évite les malentendus :</strong> "Améliorer l'UX" vs "Réduire le temps de création 
+                  d'événement de 15 à 5 minutes pour 80% des cas d'ici fin mois 6" → Le 2ème est vérifiable.
+                </li>
+                <li>
+                  <strong>Permet de mesurer le succès :</strong> À la fin, on sait si l'objectif est atteint ou pas. 
+                  Pas de débat subjectif.
+                </li>
+                <li>
+                  <strong>Motive l'équipe :</strong> Objectifs clairs = équipe sait où aller. 
+                  Objectifs flous = démotivation.
+                </li>
+                <li>
+                  <strong>Facilite la gestion :</strong> Si on n'atteint pas 70% mais 55%, 
+                  on sait qu'il faut améliorer l'onboarding. Actionnable.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </CorrectionSection>
+
+        <CorrectionSection
+          id="business"
+          title="8. Business Model et Monétisation"
+          isExpanded={expandedSections.includes('business')}
+          onToggle={() => toggleSection('business')}
+        >
+          <div className="prose prose-sm max-w-none">
+            <div className="bg-blue-50 border-l-4 border-blue-600 p-4 rounded mb-4">
+              <h4 className="font-semibold text-blue-900 mb-2">Pourquoi c'est important pour les étudiants ?</h4>
+              <ul className="text-sm text-blue-800 space-y-1">
+                <li>Comprendre que la technique doit servir un modèle économique viable</li>
+                <li>Influencer l'architecture (ex: si freemium → multi-tenant nécessaire)</li>
+                <li>Prioriser les features selon leur impact business</li>
+                <li>Calculer le ROI du projet pour le client</li>
+                <li>Anticiper les coûts récurrents (hébergement, support...)</li>
+                <li>Comprendre la notion de scalabilité économique, pas que technique</li>
+              </ul>
+            </div>
+
+            <div className="bg-yellow-50 border-l-4 border-yellow-600 p-4 rounded mb-4">
+              <h4 className="font-semibold text-yellow-900 mb-2">Questions à leur poser :</h4>
+              <ul className="text-sm text-yellow-800 space-y-1">
+                <li>Comment Eventeo va gagner de l'argent concrètement ?</li>
+                <li>Combien d'événements faut-il pour être rentable selon vous ?</li>
+                <li>Si vous étiez le CEO d'Eventeo, features gratuites vs payantes : comment décidez-vous ?</li>
+                <li>L'hébergement AWS va coûter combien par mois estimé ? Qui paie ?</li>
+                <li>Comment convaincre les premiers organisateurs d'utiliser votre plateforme ?</li>
+              </ul>
+            </div>
+
+            <h4 className="font-semibold text-gray-900 mb-2">Modèle de Revenus Recommandé :</h4>
+            <div className="bg-gray-50 p-4 rounded mb-4">
+              <div className="space-y-4 text-sm">
+                <div>
+                  <p className="font-semibold text-gray-900 mb-1">Option 1 : Commission sur Billetterie (Recommandé)</p>
+                  <p className="text-gray-700 mb-2">
+                    Eventeo prend 8-12% de commission sur chaque billet vendu. 
+                    Modèle aligné avec le succès des organisateurs.
+                  </p>
+                  <div className="bg-white p-3 rounded text-xs">
+                    <p className="font-medium mb-1">Exemple :</p>
+                    <p>Événement de 500 personnes × 50€/billet = 25 000€ de billetterie</p>
+                    <p>Commission 10% = 2 500€ pour Eventeo</p>
+                    <p>Si 50 événements/mois = 125 000€/mois de revenus</p>
+                  </div>
+                </div>
+
+                <div>
+                  <p className="font-semibold text-gray-900 mb-1">Option 2 : Abonnement Organisateur</p>
+                  <p className="text-gray-700 mb-2">
+                    Freemium : Gratuit jusqu'à 100 participants, puis 99€/mois (500 participants) ou 299€/mois (illimité).
+                  </p>
+                  <div className="bg-white p-3 rounded text-xs">
+                    <p className="font-medium mb-1">Projections :</p>
+                    <p>100 organisateurs payants × 150€/mois moyen = 15 000€ MRR</p>
+                    <p>Objectif : 500 organisateurs payants en 18 mois = 75 000€ MRR</p>
+                  </div>
+                </div>
+
+                <div>
+                  <p className="font-semibold text-gray-900 mb-1">Option 3 : Mixte (Plus Robuste)</p>
+                  <p className="text-gray-700">
+                    Gratuit pour petits événements (&lt;100 personnes) + Commission réduite (5%) sur billetterie + 
+                    Features premium (analytics avancés, white-label, support prioritaire) en abonnement.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <h4 className="font-semibold text-gray-900 mb-2">Coûts Récurrents (Opex) :</h4>
+            <div className="bg-gray-50 p-4 rounded mb-4">
+              <table className="w-full text-sm">
+                <tbody className="divide-y">
+                  <tr>
+                    <td className="py-2">Hébergement AWS (scaled)</td>
+                    <td className="text-right py-2 font-semibold">2 000-5 000€/mois</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2">Services tiers (Stripe, Twilio, SendGrid)</td>
+                    <td className="text-right py-2 font-semibold">500-1 000€/mois</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2">Support client (1 personne mi-temps)</td>
+                    <td className="text-right py-2 font-semibold">2 000€/mois</td>
+                  </tr>
+                  <tr>
+                    <td className="py-2">Maintenance dev (bugs, petites évolutions)</td>
+                    <td className="text-right py-2 font-semibold">3 000€/mois</td>
+                  </tr>
+                  <tr className="bg-purple-50 font-bold">
+                    <td className="py-2">TOTAL Opex mensuel</td>
+                    <td className="text-right py-2 text-purple-600">7 500-11 000€/mois</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p className="text-xs text-gray-600 mt-3">
+                Seuil de rentabilité : ~50-60 événements/mois avec commission 10%
+              </p>
+            </div>
+
+            <h4 className="font-semibold text-gray-900 mb-2">Stratégie Go-to-Market :</h4>
+            <div className="bg-gray-50 p-4 rounded mb-4 text-sm">
+              <div className="space-y-3">
+                <div>
+                  <p className="font-semibold text-gray-900">Phase 1 : Validation (Mois 1-3)</p>
+                  <p className="text-gray-700">
+                    3-5 organisateurs pilotes (early adopters). Gratuit en échange de feedback. 
+                    Objectif : valider product-market fit.
+                  </p>
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-900">Phase 2 : Croissance Initiale (Mois 4-12)</p>
+                  <p className="text-gray-700">
+                    Acquisition directe : démarchage agences événementielles, centres de congrès. 
+                    Offre de lancement : 3 premiers mois gratuits. 
+                    Objectif : 50 organisateurs actifs.
+                  </p>
+                </div>
+                <div>
+                  <p className="font-semibold text-gray-900">Phase 3 : Scale (Mois 12-24)</p>
+                  <p className="text-gray-700">
+                    Marketing digital (SEO, Google Ads sur "logiciel gestion événement"), 
+                    partenariats avec salles de conférence. 
+                    Objectif : 200-300 organisateurs.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <h4 className="font-semibold text-gray-900 mb-2">Features vs Business Model :</h4>
+            <div className="bg-gray-50 p-4 rounded text-sm">
+              <table className="w-full">
+                <thead className="bg-gray-200">
+                  <tr>
+                    <th className="text-left p-2">Feature</th>
+                    <th className="text-center p-2">Gratuit</th>
+                    <th className="text-center p-2">Premium</th>
+                    <th className="text-left p-2">Impact Business</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y">
+                  <tr>
+                    <td className="p-2">Création événement</td>
+                    <td className="text-center p-2">✓</td>
+                    <td className="text-center p-2">✓</td>
+                    <td className="p-2 text-gray-600">Acquisition</td>
+                  </tr>
+                  <tr>
+                    <td className="p-2">Billetterie basique</td>
+                    <td className="text-center p-2">✓</td>
+                    <td className="text-center p-2">✓</td>
+                    <td className="p-2 text-gray-600">Hook principal</td>
+                  </tr>
+                  <tr>
+                    <td className="p-2">App mobile participants</td>
+                    <td className="text-center p-2">✓</td>
+                    <td className="text-center p-2">✓</td>
+                    <td className="p-2 text-gray-600">Différenciation</td>
+                  </tr>
+                  <tr>
+                    <td className="p-2">Analytics avancés</td>
+                    <td className="text-center p-2">-</td>
+                    <td className="text-center p-2">✓</td>
+                    <td className="p-2 text-purple-600 font-semibold">Monétisation</td>
+                  </tr>
+                  <tr>
+                    <td className="p-2">White-label personnalisé</td>
+                    <td className="text-center p-2">-</td>
+                    <td className="text-center p-2">✓</td>
+                    <td className="p-2 text-purple-600 font-semibold">Monétisation</td>
+                  </tr>
+                  <tr>
+                    <td className="p-2">Support prioritaire</td>
+                    <td className="text-center p-2">-</td>
+                    <td className="text-center p-2">✓</td>
+                    <td className="p-2 text-purple-600 font-semibold">Rétention</td>
+                  </tr>
+                  <tr>
+                    <td className="p-2">API ouverte</td>
+                    <td className="text-center p-2">-</td>
+                    <td className="text-center p-2">✓</td>
+                    <td className="p-2 text-purple-600 font-semibold">Lock-in</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div className="bg-green-50 border-l-4 border-green-600 p-4 rounded mt-4">
+              <h4 className="font-semibold text-green-900 mb-2">Pourquoi inclure le business model dans leur réponse ?</h4>
+              <ul className="text-sm text-green-800 space-y-2">
+                <li>
+                  <strong>Crédibilité :</strong> Montre qu'ils comprennent le métier du client, 
+                  pas juste la technique. Une agence doit être business partner, pas juste prestataire.
+                </li>
+                <li>
+                  <strong>Priorisation :</strong> Aide à justifier pourquoi certaines features sont dans le MVP 
+                  (celles qui génèrent du revenu) et d'autres en V2.
+                </li>
+                <li>
+                  <strong>Architecture :</strong> Influence les choix techniques (ex: multi-tenant pour le SaaS, 
+                  système de quotas pour le freemium, analytics pour la data).
+                </li>
+                <li>
+                  <strong>ROI :</strong> Le client investit 100k€. Quand sera-t-il rentable ? 
+                  Combien d'événements faut-il ? Cette analyse rassure le client.
+                </li>
+                <li>
+                  <strong>Différenciation :</strong> Beaucoup d'agences oublient le business. 
+                  En parler les distingue comme partenaire stratégique.
+                </li>
+              </ul>
+            </div>
+
+            <div className="bg-orange-50 border-l-4 border-orange-600 p-4 rounded mt-4">
+              <h4 className="font-semibold text-orange-900 mb-2">Ce qu'ils devraient mentionner dans leur réponse :</h4>
+              <ul className="text-sm text-orange-800 space-y-1">
+                <li>1. Modèle de revenus proposé (commission recommandée à 10%)</li>
+                <li>2. Estimation revenus : "Avec 50 événements/mois × 2000€ commission = 100k€ MRR"</li>
+                <li>3. Coûts récurrents : "~10k€/mois d'Opex à prévoir"</li>
+                <li>4. Seuil de rentabilité : "Rentable à partir de ~60 événements/mois"</li>
+                <li>5. Stratégie freemium : "Gratuit jusqu'à 100 participants pour l'acquisition"</li>
+                <li>6. Impact sur l'archi : "Architecture multi-tenant pour gérer les quotas"</li>
+              </ul>
+              <p className="text-xs text-orange-700 mt-3 italic">
+                Même 2-3 phrases sur le business model dans leur réponse montrent une maturité exceptionnelle.
+              </p>
+            </div>
+
+            <h4 className="font-semibold text-gray-900 mb-2">Projection Financière Simplifiée (à partager) :</h4>
+            <div className="bg-gray-50 p-4 rounded">
+              <table className="w-full text-sm">
+                <thead className="bg-gray-200">
+                  <tr>
+                    <th className="text-left p-2">Période</th>
+                    <th className="text-right p-2">Événements/mois</th>
+                    <th className="text-right p-2">Revenus/mois</th>
+                    <th className="text-right p-2">Coûts/mois</th>
+                    <th className="text-right p-2">Marge</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y">
+                  <tr>
+                    <td className="p-2">Mois 1-3 (Beta)</td>
+                    <td className="text-right p-2">5</td>
+                    <td className="text-right p-2">0€</td>
+                    <td className="text-right p-2">8 000€</td>
+                    <td className="text-right p-2 text-red-600">-8 000€</td>
+                  </tr>
+                  <tr>
+                    <td className="p-2">Mois 4-6</td>
+                    <td className="text-right p-2">20</td>
+                    <td className="text-right p-2">40 000€</td>
+                    <td className="text-right p-2">10 000€</td>
+                    <td className="text-right p-2 text-green-600">+30 000€</td>
+                  </tr>
+                  <tr>
+                    <td className="p-2">Mois 7-12</td>
+                    <td className="text-right p-2">50</td>
+                    <td className="text-right p-2">100 000€</td>
+                    <td className="text-right p-2">12 000€</td>
+                    <td className="text-right p-2 text-green-600">+88 000€</td>
+                  </tr>
+                  <tr>
+                    <td className="p-2">Mois 12-24</td>
+                    <td className="text-right p-2">150</td>
+                    <td className="text-right p-2">300 000€</td>
+                    <td className="text-right p-2">20 000€</td>
+                    <td className="text-right p-2 text-green-600">+280 000€</td>
+                  </tr>
+                  <tr className="bg-purple-50 font-bold">
+                    <td className="p-2">ROI Client</td>
+                    <td className="text-right p-2" colSpan={3}>Investissement initial : 100k€</td>
+                    <td className="text-right p-2 text-purple-600">Rentable mois 6-7</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p className="text-xs text-gray-600 mt-3">
+                Hypothèses : 2000€ commission moyenne par événement (500 participants × 50€ × 8%)
+              </p>
+            </div>
+          </div>
+        </CorrectionSection>
+
+        <CorrectionSection
           id="risques"
-          title="7. Analyse des Risques"
+          title="9. Analyse des Risques"
           isExpanded={expandedSections.includes('risques')}
           onToggle={() => toggleSection('risques')}
         >
@@ -672,7 +1089,7 @@ export default function ProfGuidePage() {
 
         <CorrectionSection
           id="exercices"
-          title="8. Exercices et Activités de Déblocage"
+          title="10. Exercices et Activités de Déblocage"
           isExpanded={expandedSections.includes('exercices')}
           onToggle={() => toggleSection('exercices')}
         >
@@ -818,7 +1235,7 @@ export default function ProfGuidePage() {
 
         <CorrectionSection
           id="conseils"
-          title="9. Conseils d'Accompagnement"
+          title="11. Conseils d'Accompagnement"
           isExpanded={expandedSections.includes('conseils')}
           onToggle={() => toggleSection('conseils')}
         >

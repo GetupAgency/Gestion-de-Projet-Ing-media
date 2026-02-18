@@ -100,17 +100,60 @@ const QUESTIONS_POOL = [
     ]
   },
   {
-    category: 'Mise en Situation',
+    category: 'Mises en Situation - Crises à Gérer',
     questions: [
-      "Le client vous appelle : 'Je veux ajouter un système de paiement en cryptomonnaie'. Votre réaction ?",
-      "Votre développeur principal démissionne au sprint 4. Que faites-vous ?",
-      "Les tests de charge montrent que ça rame à partir de 2000 utilisateurs. Actions ?",
-      "Le design est validé mais le client change d'avis 2 semaines après. Comment gérez-vous ?",
-      "Vous êtes à J-7 du lancement et vous découvrez un bug critique. Plan d'action ?"
+      "Sprint 3 : Votre designer tombe malade pour 3 semaines. Que faites-vous ?",
+      "Le client découvre que son concurrent direct vient de sortir une app similaire. Il panique. Votre réaction ?",
+      "Les tests montrent que l'app mobile pèse 120 MB (limite : 50 MB). Comment réduisez-vous ?",
+      "Votre hébergeur AWS a une panne de 6h un samedi. Lundi, le client vous appelle furieux. Que répondez-vous ?",
+      "Le budget est dépassé de 25% au sprint 5. Comment annoncez-vous ça au client ?",
+      "Un utilisateur beta trouve une faille de sécurité critique 2 jours avant le lancement. Actions ?",
+      "Le client veut absolument une feature qui prendra 3 semaines mais le lancement est dans 2 semaines. Réponse ?",
+      "Votre développeur backend et frontend ne s'entendent plus. Conflit ouvert. Comment gérez-vous ?",
+      "Les tests utilisateurs montrent que 80% des gens ne comprennent pas l'interface. On refait tout ?",
+      "Le CEO d'Eventeo démissionne en plein projet. Le nouveau CEO veut tout revoir. Que faites-vous ?",
+      "Vous découvrez que votre concurrent a déposé un brevet sur le système de matching. Problème ?",
+      "Le client n'a pas validé les maquettes depuis 3 semaines malgré vos relances. Actions ?",
+      "Un article de presse critique sévèrement les plateformes événementielles. Impact sur votre projet ?",
+      "Votre meilleur développeur reçoit une offre à 80k€/an et menace de partir. Budget serré. Que faites-vous ?",
+      "Les organisateurs beta disent que la commission de 10% est trop élevée. Que proposez-vous ?",
+      "Vous réalisez que vous avez sous-estimé le temps de développement de 40%. Comment rattrapez-vous ?",
+      "Le client veut lancer dans 2 pays en même temps (France + Belgique). Ça change quoi ?",
+      "Un concurrent baisse ses prix de 50%. Le client vous demande de faire pareil. Réponse ?",
+      "Les participants beta ne veulent pas donner leur numéro de téléphone (RGPD). Feature networking compromise ?",
+      "Vous êtes en retard de 3 semaines. Le client propose de réduire la qualité des tests. Acceptez-vous ?"
     ]
   },
   {
-    category: 'Questions Générales - Formation',
+    category: 'Questions Fondamentales - Bases',
+    questions: [
+      "C'est quoi un chef de projet ? Quel est son rôle exactement ?",
+      "Comment on calcule un budget de projet ? Expliquez-moi la méthode.",
+      "C'est quoi SMART et donnez-moi un exemple d'objectif SMART pour Eventeo.",
+      "Votre objectif 'Améliorer l'expérience utilisateur' est-il SMART ? Pourquoi ?",
+      "Transformez cet objectif en objectif SMART : 'Avoir beaucoup de participants'.",
+      "C'est quoi la différence entre un devis et un budget ?",
+      "Qu'est-ce qu'un jalon (milestone) dans un planning ?",
+      "C'est quoi le triangle d'or de la gestion de projet ? (Qualité/Coût/Délai)",
+      "Expliquez-moi ce qu'est un risque projet avec un exemple.",
+      "C'est quoi un Gantt et à quoi ça sert ?",
+      "Quelle est la différence entre Agile et méthode en cascade ?",
+      "C'est quoi un Product Owner et que fait-il concrètement ?",
+      "Expliquez-moi ce qu'est Scrum en 30 secondes.",
+      "C'est quoi une user story ? Donnez-moi un exemple.",
+      "Qu'est-ce qu'un backlog ?",
+      "C'est quoi la recette d'un projet ?",
+      "Pourquoi on fait des rétrospectives en Agile ?",
+      "C'est quoi un stakeholder ?",
+      "Quelle est la différence entre un client et un utilisateur final ?",
+      "C'est quoi le scope d'un projet ?",
+      "Expliquez-moi ce qu'est la méthode MoSCoW.",
+      "C'est quoi un POC (Proof of Concept) ?",
+      "Pourquoi faire un MVP plutôt que développer tout de suite la version complète ?"
+    ]
+  },
+  {
+    category: 'Questions Générales - Concepts',
     questions: [
       "Qu'est-ce qu'un projet ? Donnez-moi une définition simple.",
       "Quelle est la différence entre un projet et une opération récurrente ?",
@@ -119,14 +162,31 @@ const QUESTIONS_POOL = [
       "Pourquoi faire des tests utilisateurs avant de développer ?",
       "Quelle est la différence entre un site vitrine et une application SaaS ?",
       "C'est quoi le SEO et pourquoi c'est important ?",
-      "Expliquez-moi ce qu'est un sprint en méthode Agile.",
       "Quelle est la différence entre frontend et backend ?",
       "C'est quoi une API et donnez-moi un exemple concret.",
       "Pourquoi découper un gros projet en plusieurs phases ?",
       "Qu'est-ce qu'un livrable ? Donnez 3 exemples.",
       "C'est quoi la différence entre un bug et une feature ?",
       "Pourquoi le RGPD est important pour un projet web ?",
-      "Qu'est-ce qu'un KPI ? Donnez un exemple pour Eventeo."
+      "Qu'est-ce qu'un KPI ? Donnez un exemple pour Eventeo.",
+      "C'est quoi un wireframe et à quoi ça sert ?",
+      "Quelle est la différence entre un wireframe et une maquette ?",
+      "C'est quoi le responsive design ?",
+      "Pourquoi tester sur mobile ET desktop ?",
+      "C'est quoi un persona ? À quoi ça sert ?",
+      "Qu'est-ce que l'UX (User Experience) ?"
+    ]
+  },
+  {
+    category: 'Business Model et ROI',
+    questions: [
+      "Comment Eventeo va-t-il gagner de l'argent selon vous ?",
+      "Commission sur billetterie vs abonnement : quel modèle choisir et pourquoi ?",
+      "Combien d'événements par mois faut-il pour que le client soit rentable ?",
+      "L'hébergement va coûter environ 5000€/mois. Qui paie et comment ?",
+      "Si vous étiez investisseur d'Eventeo, vous investiriez ? Pourquoi ?",
+      "Features gratuites vs payantes : donnez-moi 2 exemples de chaque et justifiez.",
+      "Le client a investi 100k€ dans le développement. Quand sera-t-il rentable ?"
     ]
   },
   {

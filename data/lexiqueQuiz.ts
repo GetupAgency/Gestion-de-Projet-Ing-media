@@ -12,7 +12,9 @@ export const lexiqueQuizQuestions: QuizQuestion[] = [
       'Un outil de design'
     ],
     correctAnswer: 1,
-    explanation: 'Le backlog est la liste ordonnée de toutes les fonctionnalités, tâches et demandes à réaliser dans le projet.'
+    explanation: 'Le backlog est la liste ordonnée de toutes les fonctionnalités, tâches et demandes à réaliser dans le projet.',
+    difficulty: 'facile',
+    category: 'lexique'
   },
   {
     id: 'q-lex-2',
@@ -24,7 +26,9 @@ export const lexiqueQuizQuestions: QuizQuestion[] = [
       'Un planning en retard'
     ],
     correctAnswer: 1,
-    explanation: 'Le rétroplanning se construit en partant de la date de fin souhaitée et en remontant dans le temps pour définir les étapes.'
+    explanation: 'Le rétroplanning se construit en partant de la date de fin souhaitée et en remontant dans le temps pour définir les étapes.',
+    difficulty: 'facile',
+    category: 'lexique'
   },
   {
     id: 'q-lex-3',
@@ -36,7 +40,9 @@ export const lexiqueQuizQuestions: QuizQuestion[] = [
       'Un cahier des charges'
     ],
     correctAnswer: 1,
-    explanation: 'Le compte rendu documente les décisions prises, les actions à mener et les points discutés lors d\'une réunion.'
+    explanation: 'Le compte rendu documente les décisions prises, les actions à mener et les points discutés lors d\'une réunion.',
+    difficulty: 'facile',
+    category: 'lexique'
   },
   {
     id: 'q-lex-4',
@@ -48,7 +54,9 @@ export const lexiqueQuizQuestions: QuizQuestion[] = [
       'Les deux sont identiques'
     ],
     correctAnswer: 1,
-    explanation: 'Le front-office est la partie visible par les utilisateurs/clients, le back-office est l\'interface d\'administration réservée aux gestionnaires.'
+    explanation: 'Le front-office est la partie visible par les utilisateurs/clients, le back-office est l\'interface d\'administration réservée aux gestionnaires.',
+    difficulty: 'moyen',
+    category: 'lexique'
   },
   {
     id: 'q-lex-5',
@@ -60,7 +68,9 @@ export const lexiqueQuizQuestions: QuizQuestion[] = [
       'Un serveur'
     ],
     correctAnswer: 1,
-    explanation: 'Un benchmark est une analyse comparative des sites ou solutions existants pour s\'inspirer des bonnes pratiques et se positionner.'
+    explanation: 'Un benchmark est une analyse comparative des sites ou solutions existants pour s\'inspirer des bonnes pratiques et se positionner.',
+    difficulty: 'facile',
+    category: 'lexique'
   },
   {
     id: 'q-lex-6',
@@ -72,7 +82,9 @@ export const lexiqueQuizQuestions: QuizQuestion[] = [
       'Un type de serveur'
     ],
     correctAnswer: 1,
-    explanation: 'Le Kanban est une méthode de gestion visuelle avec des colonnes (à faire, en cours, fait) pour suivre l\'avancement des tâches.'
+    explanation: 'Le Kanban est une méthode de gestion visuelle avec des colonnes (à faire, en cours, fait) pour suivre l\'avancement des tâches.',
+    difficulty: 'facile',
+    category: 'methodologie'
   },
   {
     id: 'q-lex-7',
@@ -84,7 +96,9 @@ export const lexiqueQuizQuestions: QuizQuestion[] = [
       'Un document'
     ],
     correctAnswer: 1,
-    explanation: 'Une anomalie est un écart constaté entre ce qui était attendu (selon le CDC) et le comportement réel du système.'
+    explanation: 'Une anomalie est un écart constaté entre ce qui était attendu (selon le CDC) et le comportement réel du système.',
+    difficulty: 'moyen',
+    category: 'lexique'
   },
   {
     id: 'q-lex-8',
@@ -96,7 +110,9 @@ export const lexiqueQuizQuestions: QuizQuestion[] = [
       'Tester l\'application'
     ],
     correctAnswer: 1,
-    explanation: 'Le déploiement est l\'action de mettre en ligne une nouvelle version de l\'application sur le serveur de production.'
+    explanation: 'Le déploiement est l\'action de mettre en ligne une nouvelle version de l\'application sur le serveur de production.',
+    difficulty: 'facile',
+    category: 'technique'
   },
   {
     id: 'q-lex-9',
@@ -108,7 +124,9 @@ export const lexiqueQuizQuestions: QuizQuestion[] = [
       'Un type de serveur'
     ],
     correctAnswer: 1,
-    explanation: 'Un plugin est une extension logicielle qui ajoute des fonctionnalités supplémentaires à un CMS comme WordPress.'
+    explanation: 'Un plugin est une extension logicielle qui ajoute des fonctionnalités supplémentaires à un CMS comme WordPress.',
+    difficulty: 'facile',
+    category: 'technique'
   },
   {
     id: 'q-lex-10',
@@ -120,7 +138,9 @@ export const lexiqueQuizQuestions: QuizQuestion[] = [
       'Une réunion'
     ],
     correctAnswer: 1,
-    explanation: 'Le monitoring est la surveillance continue d\'un système pour détecter rapidement les erreurs, problèmes de performance ou incidents.'
+    explanation: 'Le monitoring est la surveillance continue d\'un système pour détecter rapidement les erreurs, problèmes de performance ou incidents.',
+    difficulty: 'facile',
+    category: 'technique'
   },
   {
     id: 'q-lex-11',
@@ -132,7 +152,9 @@ export const lexiqueQuizQuestions: QuizQuestion[] = [
       'Déployer en production'
     ],
     correctAnswer: 1,
-    explanation: 'Un merge (fusion) dans Git consiste à combiner les modifications de code provenant de différentes branches.'
+    explanation: 'Un merge (fusion) dans Git consiste à combiner les modifications de code provenant de différentes branches.',
+    difficulty: 'facile',
+    category: 'technique'
   },
   {
     id: 'q-lex-12',
@@ -144,7 +166,9 @@ export const lexiqueQuizQuestions: QuizQuestion[] = [
       'Un outil de design'
     ],
     correctAnswer: 1,
-    explanation: 'Le sitemap.xml liste toutes les pages importantes d\'un site pour aider les moteurs de recherche à les indexer correctement.'
+    explanation: 'Le sitemap.xml liste toutes les pages importantes d\'un site pour aider les moteurs de recherche à les indexer correctement.',
+    difficulty: 'facile',
+    category: 'technique'
   },
   {
     id: 'q-lex-13',
@@ -156,7 +180,9 @@ export const lexiqueQuizQuestions: QuizQuestion[] = [
       'Un langage de programmation'
     ],
     correctAnswer: 1,
-    explanation: 'KPI (Key Performance Indicator) est un indicateur clé de performance qui permet de mesurer l\'atteinte des objectifs.'
+    explanation: 'KPI (Key Performance Indicator) est un indicateur clé de performance qui permet de mesurer l\'atteinte des objectifs.',
+    difficulty: 'facile',
+    category: 'lexique'
   },
   {
     id: 'q-lex-14',
@@ -168,7 +194,9 @@ export const lexiqueQuizQuestions: QuizQuestion[] = [
       'Les deux sont identiques'
     ],
     correctAnswer: 1,
-    explanation: 'La maintenance corrective corrige les dysfonctionnements, la maintenance évolutive fait évoluer le produit avec de nouvelles fonctionnalités.'
+    explanation: 'La maintenance corrective corrige les dysfonctionnements, la maintenance évolutive fait évoluer le produit avec de nouvelles fonctionnalités.',
+    difficulty: 'moyen',
+    category: 'lexique'
   },
   {
     id: 'q-lex-15',
@@ -180,7 +208,9 @@ export const lexiqueQuizQuestions: QuizQuestion[] = [
       'Un outil de gestion'
     ],
     correctAnswer: 1,
-    explanation: 'Le RGPD est le règlement européen qui encadre la collecte et le traitement des données personnelles.'
+    explanation: 'Le RGPD est le règlement européen qui encadre la collecte et le traitement des données personnelles.',
+    difficulty: 'facile',
+    category: 'lexique'
   },
   {
     id: 'q-lex-16',
@@ -192,7 +222,9 @@ export const lexiqueQuizQuestions: QuizQuestion[] = [
       'Une méthode de développement'
     ],
     correctAnswer: 1,
-    explanation: 'L\'injection SQL est une attaque où du code SQL malveillant est inséré dans une requête pour accéder ou modifier illégalement la base de données.'
+    explanation: 'L\'injection SQL est une attaque où du code SQL malveillant est inséré dans une requête pour accéder ou modifier illégalement la base de données.',
+    difficulty: 'moyen',
+    category: 'technique'
   },
   {
     id: 'q-lex-17',
@@ -204,7 +236,9 @@ export const lexiqueQuizQuestions: QuizQuestion[] = [
       'Un CMS'
     ],
     correctAnswer: 1,
-    explanation: 'L\'environnement de recette est un espace technique dédié où le client peut tester l\'application avant la mise en production.'
+    explanation: 'L\'environnement de recette est un espace technique dédié où le client peut tester l\'application avant la mise en production.',
+    difficulty: 'moyen',
+    category: 'test-qualite'
   },
   {
     id: 'q-lex-18',
@@ -216,7 +250,9 @@ export const lexiqueQuizQuestions: QuizQuestion[] = [
       'Un bug'
     ],
     correctAnswer: 1,
-    explanation: 'Un CTA (Call To Action) est un élément (bouton, lien) qui incite l\'utilisateur à effectuer une action précise (acheter, s\'inscrire, télécharger...).'
+    explanation: 'Un CTA (Call To Action) est un élément (bouton, lien) qui incite l\'utilisateur à effectuer une action précise (acheter, s\'inscrire, télécharger...).',
+    difficulty: 'facile',
+    category: 'design-ux'
   },
   {
     id: 'q-lex-19',
@@ -228,7 +264,9 @@ export const lexiqueQuizQuestions: QuizQuestion[] = [
       'Un serveur'
     ],
     correctAnswer: 1,
-    explanation: 'Une Pull Request est une demande pour fusionner des modifications de code, généralement accompagnée d\'une revue par l\'équipe.'
+    explanation: 'Une Pull Request est une demande pour fusionner des modifications de code, généralement accompagnée d\'une revue par l\'équipe.',
+    difficulty: 'facile',
+    category: 'technique'
   },
   {
     id: 'q-lex-20',
@@ -240,7 +278,9 @@ export const lexiqueQuizQuestions: QuizQuestion[] = [
       'Un type de réunion technique'
     ],
     correctAnswer: 1,
-    explanation: 'Le comité de pilotage (COPIL) est une instance de décision qui réunit les parties prenantes pour suivre l\'avancement et valider les orientations.'
+    explanation: 'Le comité de pilotage (COPIL) est une instance de décision qui réunit les parties prenantes pour suivre l\'avancement et valider les orientations.',
+    difficulty: 'facile',
+    category: 'gestion-projet'
   }
 ]
 

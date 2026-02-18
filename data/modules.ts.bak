@@ -136,9 +136,7 @@ Un projet web est une initiative temporaire visant à créer un produit, service
               'Il ne nécessite pas d\'équipe'
             ],
             correctAnswer: 1,
-            explanation: 'Un projet est par définition temporaire, avec un début et une fin clairement définis, contrairement aux opérations courantes.',
-            difficulty: 'facile',
-            category: 'lexique'
+            explanation: 'Un projet est par définition temporaire, avec un début et une fin clairement définis, contrairement aux opérations courantes.'
           },
           {
             id: 'q2',
@@ -150,9 +148,7 @@ Un projet web est une initiative temporaire visant à créer un produit, service
               'Blog'
             ],
             correctAnswer: 2,
-            explanation: 'Un SaaS (Software as a Service) est une application web accessible en ligne.',
-            difficulty: 'facile',
-            category: 'lexique'
+            explanation: 'Un SaaS (Software as a Service) est une application web accessible en ligne.'
           }
         ]
       }
@@ -461,9 +457,7 @@ Un projet web est une initiative temporaire visant à créer un produit, service
               'Remplacer les réunions'
             ],
             correctAnswer: 1,
-            explanation: 'Le CDC sert à formaliser précisément les besoins et créer une base de compréhension commune entre toutes les parties prenantes.',
-            difficulty: 'facile',
-            category: 'gestion-projet'
+            explanation: 'Le CDC sert à formaliser précisément les besoins et créer une base de compréhension commune entre toutes les parties prenantes.'
           },
           {
             id: 'q-cdc-2',
@@ -475,9 +469,7 @@ Un projet web est une initiative temporaire visant à créer un produit, service
               '4-6 sections'
             ],
             correctAnswer: 3,
-            explanation: 'Un CDC contient généralement 4 à 6 sections principales : présentation, description fonctionnelle, contraintes techniques, design, planning/budget, maintenance.',
-            difficulty: 'moyen',
-            category: 'gestion-projet'
+            explanation: 'Un CDC contient généralement 4 à 6 sections principales : présentation, description fonctionnelle, contraintes techniques, design, planning/budget, maintenance.'
           },
           {
             id: 'q-cdc-3',
@@ -489,9 +481,7 @@ Un projet web est une initiative temporaire visant à créer un produit, service
               'Pour impressionner le client'
             ],
             correctAnswer: 2,
-            explanation: 'La cartographie permet d\'identifier les forces/faiblesses, comprendre l\'environnement technique et évaluer ce qui peut être conservé.',
-            difficulty: 'moyen',
-            category: 'methodologie'
+            explanation: 'La cartographie permet d\'identifier les forces/faiblesses, comprendre l\'environnement technique et évaluer ce qui peut être conservé.'
           },
           {
             id: 'q-cdc-4',
@@ -503,9 +493,7 @@ Un projet web est une initiative temporaire visant à créer un produit, service
               'Un profil utilisateur fictif représentant une cible'
             ],
             correctAnswer: 3,
-            explanation: 'Un persona est un profil type d\'utilisateur cible avec ses caractéristiques, objectifs, freins et comportements.',
-            difficulty: 'facile',
-            category: 'lexique'
+            explanation: 'Un persona est un profil type d\'utilisateur cible avec ses caractéristiques, objectifs, freins et comportements.'
           },
           {
             id: 'q-cdc-5',
@@ -517,9 +505,7 @@ Un projet web est une initiative temporaire visant à créer un produit, service
               'En tant que [utilisateur], je veux [objectif] afin de [bénéfice]'
             ],
             correctAnswer: 3,
-            explanation: 'Une user story suit toujours cette structure : "En tant que [type d\'utilisateur], je veux [objectif] afin de [bénéfice]".',
-            difficulty: 'facile',
-            category: 'methodologie'
+            explanation: 'Une user story suit toujours cette structure : "En tant que [type d\'utilisateur], je veux [objectif] afin de [bénéfice]".'
           }
         ]
       },

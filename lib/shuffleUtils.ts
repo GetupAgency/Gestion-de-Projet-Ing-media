@@ -1,4 +1,4 @@
-import { QuizQuestion } from '@/data/modules'
+import { QuizQuestion, QuizCategory, DifficultyLevel, QuestionType } from '@/data/modules'
 
 /**
  * Algorithme de Fisher-Yates pour un mélange vraiment aléatoire
@@ -47,5 +47,49 @@ export function shuffleQuestionsAndAnswers(questions: QuizQuestion[]): QuizQuest
 export function selectRandomQuestions(questions: QuizQuestion[], count: number): QuizQuestion[] {
   const shuffled = shuffleQuestionsAndAnswers(questions)
   return shuffled.slice(0, Math.min(count, questions.length))
+}
+
+/**
+ * Filtre les questions par catégorie, difficulté et type
+ */
+export function filterQuestions(
+  questions: QuizQuestion[],
+  filters: {
+    categories?: QuizCategory[]
+    difficulties?: DifficultyLevel[]
+    types?: QuestionType[]
+  }
+): QuizQuestion[] {
+  return questions.filter(q => {
+    if (filters.categories && filters.categories.length > 0) {
+      const qCategory = q.category || 'gestion-projet'
+      if (!filters.categories.includes(qCategory)) return false
+    }
+    if (filters.difficulties && filters.difficulties.length > 0) {
+      const qDifficulty = q.difficulty || 'moyen'
+      if (!filters.difficulties.includes(qDifficulty)) return false
+    }
+    if (filters.types && filters.types.length > 0) {
+      const qType = q.type || 'mcq'
+      if (!filters.types.includes(qType)) return false
+    }
+    return true
+  })
+}
+
+/**
+ * Sélectionne N questions aléatoires parmi un pool filtré
+ */
+export function selectFilteredRandomQuestions(
+  questions: QuizQuestion[],
+  count: number,
+  filters: {
+    categories?: QuizCategory[]
+    difficulties?: DifficultyLevel[]
+    types?: QuestionType[]
+  }
+): QuizQuestion[] {
+  const filtered = filterQuestions(questions, filters)
+  return selectRandomQuestions(filtered, count)
 }
 

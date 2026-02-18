@@ -446,9 +446,7 @@ export const additionalModules: Module[] = [
               'Un événement clé marquant une étape importante'
             ],
             correctAnswer: 3,
-            explanation: 'Un jalon est un événement significatif qui marque l\'achèvement d\'une phase importante du projet.',
-            difficulty: 'facile',
-            category: 'lexique'
+            explanation: 'Un jalon est un événement significatif qui marque l\'achèvement d\'une phase importante du projet.'
           },
           {
             id: 'q-planning-2',
@@ -460,9 +458,7 @@ export const additionalModules: Module[] = [
               '1 journée'
             ],
             correctAnswer: 2,
-            explanation: 'Un sprint Scrum dure généralement entre 2 et 4 semaines, permettant une itération rapide.',
-            difficulty: 'facile',
-            category: 'methodologie'
+            explanation: 'Un sprint Scrum dure généralement entre 2 et 4 semaines, permettant une itération rapide.'
           },
           {
             id: 'q-planning-3',
@@ -474,9 +470,7 @@ export const additionalModules: Module[] = [
               'Un graphique montrant le planning des tâches dans le temps'
             ],
             correctAnswer: 3,
-            explanation: 'Le diagramme de Gantt est un outil de planification qui représente visuellement les tâches, leur durée et leurs dépendances dans le temps.',
-            difficulty: 'facile',
-            category: 'lexique'
+            explanation: 'Le diagramme de Gantt est un outil de planification qui représente visuellement les tâches, leur durée et leurs dépendances dans le temps.'
           },
           {
             id: 'q-planning-4',
@@ -488,9 +482,7 @@ export const additionalModules: Module[] = [
               '60-70%'
             ],
             correctAnswer: 3,
-            explanation: 'Les ressources humaines (salaires, freelances) représentent la plus grosse part du budget, généralement 60 à 70%.',
-            difficulty: 'moyen',
-            category: 'budget'
+            explanation: 'Les ressources humaines (salaires, freelances) représentent la plus grosse part du budget, généralement 60 à 70%.'
           },
           {
             id: 'q-planning-5',
@@ -502,9 +494,7 @@ export const additionalModules: Module[] = [
               '5-7%'
             ],
             correctAnswer: 1,
-            explanation: 'Une marge de sécurité de 10 à 15% est recommandée pour gérer les imprévus et dépassements potentiels.',
-            difficulty: 'moyen',
-            category: 'budget'
+            explanation: 'Une marge de sécurité de 10 à 15% est recommandée pour gérer les imprévus et dépassements potentiels.'
           },
           {
             id: 'q-planning-6',
@@ -516,9 +506,7 @@ export const additionalModules: Module[] = [
               'Un outil de gestion'
             ],
             correctAnswer: 2,
-            explanation: 'Le scope creep est la dérive du périmètre initial, souvent causée par l\'ajout de nouvelles demandes non prévues dans le CDC.',
-            difficulty: 'facile',
-            category: 'lexique'
+            explanation: 'Le scope creep est la dérive du périmètre initial, souvent causée par l\'ajout de nouvelles demandes non prévues dans le CDC.'
           }
         ]
       },

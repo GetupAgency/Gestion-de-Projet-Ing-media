@@ -3,8 +3,9 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { BookOpen, Target, Users, Calendar, Lightbulb, Code, TestTube, Rocket, Settings, CheckCircle } from 'lucide-react'
+import { BookOpen, Target, Users, Calendar, Lightbulb, Code, TestTube, Rocket, Settings, CheckCircle, BarChart3, RefreshCw, AlertTriangle } from 'lucide-react'
 import { allModules as modules } from '@/data/allModules'
+import { getQuizProgress, getCategoryScores, getOverallScore, categoryLabels } from '@/lib/quizProgress'
 import Footer from '@/components/Footer'
 
 export default function Home() {
@@ -16,6 +17,16 @@ export default function Home() {
     return {}
   })
 
+  const [quizProgress] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return getQuizProgress()
+    }
+    return null
+  })
+
+  const overallQuizScore = typeof window !== 'undefined' ? getOverallScore() : 0
+  const categoryScores = typeof window !== 'undefined' ? getCategoryScores() : {}
+
   const getModuleIcon = (id: string) => {
     const icons: { [key: string]: any } = {
       'intro': BookOpen,
@@ -26,7 +37,8 @@ export default function Home() {
       'test': TestTube,
       'lancement-prod': Rocket,
       'suivi': Settings,
-      'conclusion': CheckCircle
+      'conclusion': CheckCircle,
+      'gestion-crise': AlertTriangle
     }
     return icons[id] || BookOpen
   }
@@ -79,6 +91,52 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* Quiz Results */}
+      {quizProgress && quizProgress.totalQuizzes > 0 && (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6">
+          <div className="bg-white rounded-lg shadow-lg p-6">
+            <div className="flex items-center justify-between mb-4">
+              <div className="flex items-center gap-3">
+                <BarChart3 className="w-6 h-6 text-ingemedia-blue" />
+                <h2 className="text-xl font-semibold text-ingemedia-blue">Vos résultats quiz</h2>
+              </div>
+              <div className="flex items-center gap-4">
+                <span className="text-sm text-gray-500">{quizProgress.totalQuizzes} quiz passé{quizProgress.totalQuizzes > 1 ? 's' : ''}</span>
+                <span className="text-2xl font-bold text-ingemedia-cyan">{overallQuizScore}%</span>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              {Object.entries(categoryScores).map(([cat, score]) => (
+                <div key={cat} className="flex items-center gap-3">
+                  <span className="text-sm text-gray-600 w-36 truncate">{categoryLabels[cat] || cat}</span>
+                  <div className="flex-1 bg-gray-200 rounded-full h-2.5">
+                    <div
+                      className="h-2.5 rounded-full transition-all"
+                      style={{
+                        width: `${score}%`,
+                        backgroundColor: score >= 80 ? '#10b981' : score >= 50 ? '#f59e0b' : '#ef4444'
+                      }}
+                    />
+                  </div>
+                  <span className="text-sm font-medium text-gray-700 w-10 text-right">{score}%</span>
+                </div>
+              ))}
+            </div>
+
+            {quizProgress.wrongQuestionIds.length > 0 && (
+              <Link
+                href="/quiz"
+                className="inline-flex items-center gap-2 text-sm font-medium text-ingemedia-blue hover:text-ingemedia-cyan transition-colors"
+              >
+                <RefreshCw className="w-4 h-4" />
+                {quizProgress.wrongQuestionIds.length} question{quizProgress.wrongQuestionIds.length > 1 ? 's' : ''} à revoir
+              </Link>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Quick Actions */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">

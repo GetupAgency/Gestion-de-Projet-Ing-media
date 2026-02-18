@@ -17,6 +17,26 @@ export const completeModules: Module[] = [
 
   <p class="section-text">Un projet web est une initiative temporaire visant à créer un produit ou service numérique accessible via Internet. Il a un début, une fin, des objectifs précis et mobilise des ressources limitées (temps, budget, équipe).</p>
 
+  <div class="story-box">
+    <p class="story-title">Histoire vraie : Le projet qui a dérapé</p>
+    <p>En 2013, le gouvernement français lance healthcare.gov, le portail d'assurance santé aux USA. Budget initial : 93 millions $. Coût final : <strong>1,7 milliard $</strong>. Le site crashe le jour du lancement — il ne supporte que 1 100 utilisateurs simultanés au lieu des 250 000 attendus. Pourquoi ? Un cahier des charges flou, 55 sous-traitants mal coordonnés, et aucun test de charge. <strong>La leçon : un projet web mal cadré, c'est un désastre garanti.</strong></p>
+  </div>
+
+  <div class="stat-cards">
+    <div class="stat-card">
+      <div class="stat-value">70%</div>
+      <div class="stat-label">des projets IT dépassent leur budget initial</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">+28%</div>
+      <div class="stat-label">de réussite avec une méthodologie Agile</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">17%</div>
+      <div class="stat-label">seulement des grands projets IT sont considérés comme réussis</div>
+    </div>
+  </div>
+
   <h2 class="section-subtitle mt-8">Les différents types de projets web</h2>
 
   <div class="project-type">
@@ -98,7 +118,21 @@ export const completeModules: Module[] = [
     </div>
   </div>
 
+  <div class="tip-box">
+    <p class="tip-title">Astuce : Comment identifier le type de projet ?</p>
+    <p>Posez-vous cette question : <strong>"Quel est l'objectif business principal du client ?"</strong><br>
+    → Informer = Site vitrine<br>
+    → Vendre = E-commerce<br>
+    → Automatiser un processus = Application métier<br>
+    → Connecter des utilisateurs = Plateforme / Réseau social</p>
+  </div>
+
   <h2 class="section-subtitle mt-8">Qu'est-ce que la valeur pour un client ?</h2>
+
+  <div class="key-concept">
+    <p class="concept-title">Concept clé : La valeur ne se mesure pas qu'en euros</p>
+    <p>La valeur d'un projet web est multidimensionnelle. Elle se mesure en <strong>conversion</strong> (ventes), en <strong>expérience utilisateur</strong> (satisfaction), en <strong>performance technique</strong> (rapidité) et en <strong>visibilité</strong> (SEO). Un bon chef de projet sait identifier et prioriser ces dimensions selon le contexte du client.</p>
+  </div>
 
   <p class="section-text">La valeur d'un projet web se mesure différemment selon les objectifs :</p>
 
@@ -391,7 +425,9 @@ export const completeModules: Module[] = [
               'Le budget'
             ],
             correctAnswer: 2,
-            explanation: 'Une application métier est développée sur mesure pour répondre à des besoins spécifiques d\'une organisation, contrairement à un site vitrine qui présente principalement de l\'information.'
+            explanation: 'Une application métier est développée sur mesure pour répondre à des besoins spécifiques d\'une organisation, contrairement à un site vitrine qui présente principalement de l\'information.',
+            difficulty: 'moyen',
+            category: 'gestion-projet'
           },
           {
             id: 'q-intro-2',
@@ -403,7 +439,9 @@ export const completeModules: Module[] = [
               'Le pourcentage de visiteurs qui effectuent l\'action souhaitée'
             ],
             correctAnswer: 3,
-            explanation: 'Le taux de conversion mesure le pourcentage de visiteurs qui accomplissent l\'objectif défini (achat, inscription, contact, etc.).'
+            explanation: 'Le taux de conversion mesure le pourcentage de visiteurs qui accomplissent l\'objectif défini (achat, inscription, contact, etc.).',
+            difficulty: 'facile',
+            category: 'lexique'
           },
           {
             id: 'q-intro-3',
@@ -415,7 +453,9 @@ export const completeModules: Module[] = [
               'Cahier des charges'
             ],
             correctAnswer: 1,
-            explanation: 'Les factures d\'électricité ne sont pas des livrables de projet. Les livrables sont des documents ou produits créés spécifiquement pour le projet.'
+            explanation: 'Les factures d\'électricité ne sont pas des livrables de projet. Les livrables sont des documents ou produits créés spécifiquement pour le projet.',
+            difficulty: 'facile',
+            category: 'gestion-projet'
           },
           {
             id: 'q-intro-4',
@@ -427,7 +467,9 @@ export const completeModules: Module[] = [
               '10 000€ - 30 000€'
             ],
             correctAnswer: 3,
-            explanation: 'Un site e-commerce nécessite des fonctionnalités complexes (paiement, gestion stock, sécurité) et se situe généralement entre 10 000€ et 30 000€ pour une version de base.'
+            explanation: 'Un site e-commerce nécessite des fonctionnalités complexes (paiement, gestion stock, sécurité) et se situe généralement entre 10 000€ et 30 000€ pour une version de base.',
+            difficulty: 'moyen',
+            category: 'budget'
           },
           {
             id: 'q-intro-5',
@@ -439,7 +481,9 @@ export const completeModules: Module[] = [
               'Le positionnement SEO et le trafic organique'
             ],
             correctAnswer: 3,
-            explanation: 'La visibilité se mesure principalement par le positionnement dans les moteurs de recherche (SEO) et le trafic organique généré.'
+            explanation: 'La visibilité se mesure principalement par le positionnement dans les moteurs de recherche (SEO) et le trafic organique généré.',
+            difficulty: 'moyen',
+            category: 'technique'
           },
           {
             id: 'q-intro-6',
@@ -451,7 +495,9 @@ export const completeModules: Module[] = [
               '1-2 jours'
             ],
             correctAnswer: 2,
-            explanation: 'Un site vitrine nécessite généralement 4 à 8 semaines pour la conception, le développement et la mise en ligne.'
+            explanation: 'Un site vitrine nécessite généralement 4 à 8 semaines pour la conception, le développement et la mise en ligne.',
+            difficulty: 'facile',
+            category: 'gestion-projet'
           },
           {
             id: 'q-intro-7',
@@ -463,7 +509,9 @@ export const completeModules: Module[] = [
               'Une initiative temporaire avec un début et une fin'
             ],
             correctAnswer: 3,
-            explanation: 'Un projet est par définition temporaire, avec un début et une fin clairement définis, contrairement aux opérations courantes.'
+            explanation: 'Un projet est par définition temporaire, avec un début et une fin clairement définis, contrairement aux opérations courantes.',
+            difficulty: 'facile',
+            category: 'lexique'
           },
           {
             id: 'q-intro-8',
@@ -475,7 +523,9 @@ export const completeModules: Module[] = [
               'Expérience utilisateur'
             ],
             correctAnswer: 0,
-            explanation: 'Le ROI mesure le retour sur investissement financier, donc la valeur de conversion et le chiffre d\'affaires généré.'
+            explanation: 'Le ROI mesure le retour sur investissement financier, donc la valeur de conversion et le chiffre d\'affaires généré.',
+            difficulty: 'moyen',
+            category: 'budget'
           }
         ]
       }
