@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { BookOpen, Target, Users, Calendar, Lightbulb, Code, TestTube, Rocket, Settings, CheckCircle, BarChart3, RefreshCw, AlertTriangle } from 'lucide-react'
+import { BookOpen, Target, Users, Calendar, Lightbulb, Code, TestTube, Rocket, Settings, CheckCircle, BarChart3, RefreshCw, AlertTriangle, ArrowRight, Sparkles } from 'lucide-react'
 import { allModules as modules } from '@/data/allModules'
 import { getQuizProgress, getCategoryScores, getOverallScore, categoryLabels } from '@/lib/quizProgress'
 import Footer from '@/components/Footer'
@@ -137,6 +137,28 @@ export default function Home() {
           </div>
         </div>
       )}
+
+      {/* Sprint Agence - Journée immersive */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
+        <Link href="/sprint-agence" className="sa-home-card block">
+          <span className="sa-home-card-eyebrow inline-flex items-center gap-1.5">
+            <Sparkles className="w-3.5 h-3.5" />
+            Journée immersive
+          </span>
+          <div className="flex flex-wrap items-baseline gap-3">
+            <h3 className="sa-home-card-title">Sprint Agence : RoadTrip Squad</h3>
+            <span className="text-sm text-stone-500">avec Gaspard Vasseur</span>
+          </div>
+          <p className="sa-home-card-pitch">
+            Une journée pour vivre la chaîne brief, cadrage, équipe, périmètre, planning. En binômes ou trinômes,
+            vous répondez à un vrai porteur de projet et vous livrez un Gantt défendable à la fin de la journée.
+          </p>
+          <span className="sa-home-card-foot">
+            Démarrer la journée
+            <ArrowRight className="w-3.5 h-3.5" />
+          </span>
+        </Link>
+      </div>
 
       {/* Quick Actions */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8">
