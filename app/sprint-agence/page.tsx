@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, Compass, Clock, Users2, FileText, Sparkles } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Compass, Clock, Users2, FileText, Sparkles, Timer } from 'lucide-react'
 import { sprintAgenceMeta, sprintSchedule, sprintSteps } from '@/data/sprintAgence'
 import Schedule from '@/components/SprintAgence/Schedule'
 import TeacherOnly from '@/components/SprintAgence/TeacherOnly'
@@ -88,19 +88,35 @@ export default function SprintAgenceLanding() {
           </p>
 
           <TeacherOnly>
-            <Link href="/sprint-agence/brainstorming" className="sa-warmup-card">
-              <div className="sa-warmup-icon">
-                <Sparkles className="w-5 h-5" />
-              </div>
-              <div className="sa-warmup-body">
-                <span className="sa-warmup-eyebrow">Échauffement · Matin · Mode enseignant</span>
-                <h3 className="sa-warmup-title">Brainstorming d'ouverture</h3>
-                <p className="sa-warmup-pitch">
-                  Une fois le brief lu en équipe : "Ça vous inspire quels mots-clés et compétences, ce projet ?". Tableau interactif à projeter au tableau, classés par thème.
-                </p>
-              </div>
-              <ArrowRight className="w-5 h-5 text-amber-700 self-center" />
-            </Link>
+            <div className="sa-warmup-stack">
+              <Link href="/sprint-agence/brainstorming" className="sa-warmup-card">
+                <div className="sa-warmup-icon">
+                  <Sparkles className="w-5 h-5" />
+                </div>
+                <div className="sa-warmup-body">
+                  <span className="sa-warmup-eyebrow">Échauffement · Matin · Mode enseignant</span>
+                  <h3 className="sa-warmup-title">Brainstorming d'ouverture</h3>
+                  <p className="sa-warmup-pitch">
+                    Une fois le brief lu en équipe : "Ça vous inspire quels mots-clés et compétences, ce projet ?". Tableau interactif à projeter au tableau, classés par thème.
+                  </p>
+                </div>
+                <ArrowRight className="w-5 h-5 text-amber-700 self-center" />
+              </Link>
+
+              <Link href="/sprint-agence/times-up" className="sa-warmup-card sa-warmup-card-game">
+                <div className="sa-warmup-icon">
+                  <Timer className="w-5 h-5" />
+                </div>
+                <div className="sa-warmup-body">
+                  <span className="sa-warmup-eyebrow">Pause détente · Mode enseignant</span>
+                  <h3 className="sa-warmup-title">Time's Up du PM</h3>
+                  <p className="sa-warmup-pitch">
+                    Quand la classe est cuite, on bascule en jeu. Trois manches sur le même paquet de cartes : libre, trois mots, mime. Deux équipes s'affrontent, le rire fait le reste.
+                  </p>
+                </div>
+                <ArrowRight className="w-5 h-5 text-amber-700 self-center" />
+              </Link>
+            </div>
           </TeacherOnly>
 
           <div className="sa-step-grid">
