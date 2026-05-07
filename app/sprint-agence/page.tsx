@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, Compass, Clock, Users2, FileText, Sparkles, Timer, FileSignature, Frame } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Compass, Clock, Users2, FileText, Sparkles, Timer, FileSignature, Frame, Layers } from 'lucide-react'
 import { sprintAgenceMeta, sprintSchedule, sprintSteps } from '@/data/sprintAgence'
 import Schedule from '@/components/SprintAgence/Schedule'
 import TeacherOnly from '@/components/SprintAgence/TeacherOnly'
@@ -160,6 +160,30 @@ export default function SprintAgenceLanding() {
               </Link>
             ))}
           </div>
+        </section>
+
+        <section className="sa-landing-section">
+          <div className="sa-landing-section-head">
+            <Layers className="w-5 h-5 text-stone-500" />
+            <h2>Suite : Jour 2</h2>
+          </div>
+          <p className="sa-prose-lede">
+            Une fois la journée du brief terminée, on enchaîne sur la construction du backlog : transformer les modules en epics, écrire les user stories, estimer en story points. Outil intégré pour vos équipes.
+          </p>
+
+          <Link href="/sprint-agence/j2" className="sa-j2-card">
+            <div className="sa-j2-icon">
+              <Layers className="w-5 h-5" />
+            </div>
+            <div className="sa-j2-body">
+              <span className="sa-j2-eyebrow">Jour 2 · Du Gantt aux User Stories</span>
+              <h3 className="sa-j2-title">Construire le backlog V1</h3>
+              <p className="sa-j2-pitch">
+                Programme de la journée, méthodo INVEST + Given/When/Then, et un Story Mapping interactif où vos équipes posent leurs jalons, epics et user stories en drag-drop.
+              </p>
+            </div>
+            <ArrowRight className="w-5 h-5 self-center" style={{ color: '#1F3463' }} />
+          </Link>
         </section>
 
         <section className="sa-landing-section">
