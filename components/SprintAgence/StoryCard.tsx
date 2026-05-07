@@ -3,25 +3,23 @@
 import { useState, useRef, useEffect } from 'react'
 import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
-import { GripVertical, Trash2, ChevronDown } from 'lucide-react'
+import { GripVertical, Trash2, UserPlus } from 'lucide-react'
 import {
   PROFILES,
   STATUSES,
   STORY_POINTS,
   type Story,
-  type Jalon,
   type StoryPoint,
 } from '@/data/storyMapping'
 
 interface StoryCardProps {
   story: Story
-  jalons: Jalon[]
   onEdit: (patch: Partial<Story>) => void
   onDelete: () => void
   isOverlay?: boolean
 }
 
-export default function StoryCard({ story, jalons, onEdit, onDelete, isOverlay }: StoryCardProps) {
+export default function StoryCard({ story, onEdit, onDelete, isOverlay }: StoryCardProps) {
   const {
     attributes,
     listeners,
@@ -40,8 +38,8 @@ export default function StoryCard({ story, jalons, onEdit, onDelete, isOverlay }
       }
 
   const profile = PROFILES.find(p => p.code === story.profileCode)
-  const jalon = jalons.find(j => j.id === story.jalonId)
   const status = STATUSES.find(s => s.id === story.statusId) ?? STATUSES[0]
+  // (jalon retiré : le jalon est désormais porté par l'epic, pas par l'US)
 
   return (
     <div
@@ -57,7 +55,7 @@ export default function StoryCard({ story, jalons, onEdit, onDelete, isOverlay }
         <EditableText
           value={story.title}
           onCommit={t => onEdit({ title: t })}
-          placeholder="Titre de la user story…"
+          placeholder="Tâche ou user story…"
           className="sm-card-title"
           multiline={false}
         />
@@ -65,17 +63,12 @@ export default function StoryCard({ story, jalons, onEdit, onDelete, isOverlay }
         <EditableText
           value={story.description ?? ''}
           onCommit={t => onEdit({ description: t })}
-          placeholder="En tant que… je veux… pour…"
+          placeholder="Détails (optionnel)"
           className="sm-card-desc"
           multiline
         />
 
         <div className="sm-card-pills">
-          <JalonPicker
-            currentId={story.jalonId}
-            jalons={jalons}
-            onPick={id => onEdit({ jalonId: id })}
-          />
           <ProfilePicker
             currentCode={story.profileCode}
             onPick={code => onEdit({ profileCode: code })}
@@ -197,68 +190,6 @@ function EditableText({ value, onCommit, placeholder, className, multiline }: Ed
 // Pickers
 // =====================================================================
 
-function JalonPicker({
-  currentId,
-  jalons,
-  onPick,
-}: {
-  currentId?: string
-  jalons: Jalon[]
-  onPick: (id: string | undefined) => void
-}) {
-  const [open, setOpen] = useState(false)
-  const ref = useRef<HTMLDivElement>(null)
-  useClickOutside(ref, () => setOpen(false))
-
-  const current = jalons.find(j => j.id === currentId)
-
-  return (
-    <div ref={ref} className="sm-picker">
-      <button
-        type="button"
-        onClick={() => setOpen(o => !o)}
-        className={`sm-pill ${current ? 'is-amber' : 'is-empty'}`}
-      >
-        {current ? current.label : '+ jalon'}
-        {current && <ChevronDown className="w-3 h-3" />}
-      </button>
-      {open && (
-        <div className="sm-picker-menu">
-          {jalons.length === 0 && (
-            <span className="sm-picker-empty">Aucun jalon créé. Ajoutez-en en haut du board.</span>
-          )}
-          {jalons.map(j => (
-            <button
-              key={j.id}
-              type="button"
-              className={`sm-picker-item ${j.id === currentId ? 'is-active' : ''}`}
-              onClick={() => {
-                onPick(j.id)
-                setOpen(false)
-              }}
-            >
-              <strong>{j.label}</strong>
-              <span>{j.title}</span>
-            </button>
-          ))}
-          {currentId && (
-            <button
-              type="button"
-              className="sm-picker-item is-clear"
-              onClick={() => {
-                onPick(undefined)
-                setOpen(false)
-              }}
-            >
-              Retirer le jalon
-            </button>
-          )}
-        </div>
-      )}
-    </div>
-  )
-}
-
 function ProfilePicker({
   currentCode,
   onPick,
@@ -277,11 +208,11 @@ function ProfilePicker({
       <button
         type="button"
         onClick={() => setOpen(o => !o)}
-        className="sm-avatar-btn"
+        className={`sm-avatar-btn ${current ? 'is-set' : 'is-empty'}`}
         style={current ? { background: current.bg, color: current.color } : undefined}
         title={current?.name ?? 'Affecter un profil'}
       >
-        {current ? current.code : '+ qui ?'}
+        {current ? current.code : <UserPlus className="w-3.5 h-3.5" />}
       </button>
       {open && (
         <div className="sm-picker-menu">
@@ -392,6 +323,7 @@ function StatusPicker({
       style={{ background: current.bg, color: current.color }}
       title="Cliquer pour changer de statut"
     >
+      <span className="sm-status-dot" style={{ background: current.color }} />
       {current.label}
     </button>
   )

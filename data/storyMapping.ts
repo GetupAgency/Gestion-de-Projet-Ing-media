@@ -51,6 +51,7 @@ export interface Jalon {
 
 export interface Epic {
   id: string
+  jalonId?: string      // jalon de rattachement (undefined = "Sans jalon")
   title: string
   description?: string
   color: string
@@ -61,8 +62,7 @@ export interface Story {
   id: string
   epicId: string
   title: string
-  description?: string  // libre, mais idéalement format "En tant que / Je veux / Pour"
-  jalonId?: string
+  description?: string
   profileCode?: string
   storyPoints?: StoryPoint
   statusId: StatusRef['id']

@@ -51,8 +51,9 @@ export function reducer(state: BoardState, action: Action): BoardState {
       return {
         ...state,
         jalons: state.jalons.filter(j => j.id !== action.id),
-        stories: state.stories.map(s =>
-          s.jalonId === action.id ? { ...s, jalonId: undefined } : s,
+        // Les epics rattachés au jalon supprimé basculent en "Sans jalon"
+        epics: state.epics.map(e =>
+          e.jalonId === action.id ? { ...e, jalonId: undefined } : e,
         ),
       }
 
