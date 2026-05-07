@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RoadTrip Squad · Gantt projet · Planning de référence</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#0b0c10;
+  --paper:#fbfaf6;
+  --surface:#f3f1ea;
+  --line:#d9d4c5;
+  --line-soft:#e9e4d6;
+  --ink:#0d0d0f;
+  --ink-soft:#3a3a3d;
+  --muted:#7a7a82;
+
+  --lot-1:#4338ca;
+  --lot-2:#be185d;
+  --lot-3:#047857;
+  --lot-4:#b45309;
+  --lot-5:#7c3aed;
+  --lot-6:#0e7490;
+  --lot-7:#be123c;
+  --lot-1-soft:#e0ddff;
+
+  --milestone:#f59e0b;
+  --milestone-deep:#b45309;
+  --critical:#dc2626;
+  --today:#dc2626;
+
+  --display:'Inter',sans-serif;
+  --serif:'Instrument Serif','Times New Roman',serif;
+  --body:'Inter',sans-serif;
+  --mono:'JetBrains Mono',monospace;
+
+  --day-width:14px;
+  --row-h:36px;
+  --sidebar-w:340px;
+  --header-h:56px;
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  font-size:13px;
+  overflow-x:hidden;
+}
+
+.app-header{background:var(--bg);color:#fff;padding:1.4rem 2rem 1.6rem;border-bottom:3px solid var(--milestone)}
+.app-header-inner{max-width:1600px;margin:0 auto}
+.app-meta{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap;margin-bottom:1.25rem}
+.app-brand{display:flex;align-items:baseline;gap:.7rem}
+.app-brand .b-mark{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:7px;background:var(--milestone);color:var(--bg);font-family:var(--mono);font-size:.78rem;font-weight:700}
+.app-brand .b-name{font-family:var(--display);font-size:1.05rem;font-weight:700;letter-spacing:-.01em}
+.app-brand .b-name .x{color:rgba(255,255,255,.45);font-weight:400;margin:0 .35rem}
+.app-brand .b-tag{font-family:var(--mono);font-size:.62rem;color:var(--milestone);letter-spacing:.18em;text-transform:uppercase;font-weight:600}
+.app-version{font-family:var(--mono);font-size:.66rem;color:rgba(255,255,255,.55);letter-spacing:.05em;text-align:right}
+.app-version strong{color:#fff;font-weight:600;display:block;margin-bottom:.15rem}
+
+.app-title{font-family:var(--serif);font-size:clamp(1.9rem,4vw,2.8rem);font-weight:400;font-style:italic;line-height:1.05;margin-bottom:.7rem;letter-spacing:-.018em;color:#fff}
+.app-title .em{color:var(--milestone);font-style:normal;font-family:var(--display);font-weight:600;letter-spacing:-.025em}
+.app-tagline{font-size:.95rem;color:rgba(255,255,255,.72);max-width:780px;line-height:1.6;font-weight:400;margin-bottom:1.5rem}
+
+.kpi-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:0;border-top:1px solid rgba(255,255,255,.08);border-bottom:1px solid rgba(255,255,255,.08)}
+.kpi{padding:.95rem 1.1rem .95rem 0;border-right:1px solid rgba(255,255,255,.08)}
+.kpi:last-child{border-right:none}
+.kpi:nth-child(n+2){padding-left:1.1rem}
+.kpi .k-v{font-family:var(--display);font-size:1.4rem;font-weight:700;line-height:1;color:#fff;letter-spacing:-.02em}
+.kpi .k-v sup{font-size:.7rem;font-weight:500;color:var(--milestone);margin-left:.1rem}
+.kpi .k-l{font-family:var(--mono);font-size:.6rem;color:rgba(255,255,255,.55);letter-spacing:.1em;text-transform:uppercase;margin-top:.4rem;font-weight:500}
+
+.toolbar{background:var(--surface);border-bottom:1px solid var(--line);padding:.7rem 2rem;display:flex;align-items:center;gap:1.1rem;flex-wrap:wrap;position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);background:rgba(243,241,234,.96)}
+.tb-group{display:flex;align-items:center;gap:.4rem}
+.tb-label{font-family:var(--mono);font-size:.62rem;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;font-weight:600;margin-right:.3rem}
+.tb-btn{font-family:var(--body);font-size:.74rem;font-weight:500;padding:.4rem .75rem;border-radius:5px;border:1px solid var(--line);background:var(--paper);color:var(--ink-soft);cursor:pointer;transition:all .15s}
+.tb-btn:hover{border-color:var(--ink);color:var(--ink)}
+.tb-btn.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tb-btn .ic{font-size:.85rem;margin-right:.25rem}
+.tb-sep{width:1px;height:18px;background:var(--line)}
+
+.legend{background:var(--paper);border-bottom:1px solid var(--line);padding:.7rem 2rem;display:flex;align-items:center;gap:1.4rem;flex-wrap:wrap}
+.lg-item{display:flex;align-items:center;gap:.45rem;font-size:.74rem;color:var(--ink-soft);font-weight:500}
+.lg-swatch{width:14px;height:14px;border-radius:3px;flex-shrink:0}
+.lg-milestone{width:14px;height:14px;flex-shrink:0;background:var(--milestone);transform:rotate(45deg);border:1.5px solid var(--milestone-deep);border-radius:1px}
+.lg-critical{width:18px;height:6px;flex-shrink:0;background:var(--critical);border-radius:1px}
+.lg-today{width:2px;height:14px;flex-shrink:0;background:var(--today)}
+
+.gantt-wrap{position:relative;background:var(--paper);overflow-x:auto;overflow-y:visible;border-bottom:1px solid var(--line)}
+.gantt-wrap.hidden{display:none}
+.gantt{display:grid;grid-template-columns:var(--sidebar-w) 1fr;position:relative;min-width:fit-content}
+.gantt-sidebar{position:sticky;left:0;background:var(--paper);border-right:1px solid var(--line);z-index:5}
+.sb-header{height:var(--header-h);display:flex;align-items:flex-end;padding:0 .9rem .55rem;font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;background:var(--surface);border-bottom:1px solid var(--line)}
+.sb-row{height:var(--row-h);display:flex;align-items:center;padding:0 .9rem;border-bottom:1px solid var(--line-soft);font-size:.78rem;color:var(--ink-soft);position:relative;background:var(--paper)}
+.sb-row.lot-head{font-family:var(--display);font-weight:700;font-size:.78rem;color:var(--ink);background:var(--surface);letter-spacing:-.005em;border-bottom:1px solid var(--line)}
+.sb-row.lot-head .lot-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;margin-right:.55rem}
+.sb-row.lot-head .lot-cnt{margin-left:auto;font-family:var(--mono);font-size:.64rem;color:var(--muted);font-weight:500;letter-spacing:.04em}
+.sb-row.task .t-mk{font-family:var(--mono);font-size:.64rem;color:var(--muted);margin-right:.5rem;width:32px;flex-shrink:0;letter-spacing:.02em}
+.sb-row.task .t-name{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-weight:500}
+.sb-row.task .t-meta{font-family:var(--mono);font-size:.62rem;color:var(--muted);font-weight:500;margin-left:.6rem;flex-shrink:0}
+.sb-row.task.is-milestone .t-name{font-weight:600;color:var(--milestone-deep)}
+.sb-row.task.is-milestone .t-mk{color:var(--milestone-deep)}
+.sb-row.task.is-critical{box-shadow:inset 3px 0 0 var(--critical)}
+
+.gantt-track{position:relative;min-width:fit-content}
+.timeline-header{position:sticky;top:0;z-index:4;background:var(--surface);border-bottom:1px solid var(--line);height:var(--header-h)}
+.tl-months{display:flex;height:24px;border-bottom:1px solid var(--line)}
+.tl-month{padding:.3rem .65rem;font-family:var(--display);font-size:.7rem;font-weight:700;color:var(--ink);letter-spacing:.02em;text-transform:uppercase;border-right:1px solid var(--line);display:flex;align-items:center;white-space:nowrap;overflow:hidden}
+.tl-weeks{display:flex;height:32px}
+.tl-week{padding:.4rem .35rem;font-family:var(--mono);font-size:.6rem;color:var(--muted);font-weight:500;letter-spacing:.02em;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;white-space:nowrap;overflow:hidden;background:var(--surface)}
+.tl-week strong{color:var(--ink);font-weight:600;font-size:.66rem}
+.tl-week.cur{background:var(--lot-1-soft)}
+
+.gantt-bars{position:relative;background:repeating-linear-gradient(90deg,transparent 0,transparent calc(var(--day-width) * 7 - 1px),var(--line-soft) calc(var(--day-width) * 7 - 1px),var(--line-soft) calc(var(--day-width) * 7))}
+.gb-row{height:var(--row-h);border-bottom:1px solid var(--line-soft);position:relative}
+.gb-row.lot-head{height:var(--row-h);background:var(--surface);border-bottom:1px solid var(--line)}
+
+.bar{position:absolute;top:6px;height:24px;border-radius:4px;cursor:pointer;display:flex;align-items:center;padding:0 .5rem;transition:transform .12s ease,box-shadow .12s ease;overflow:hidden;font-family:var(--mono);font-size:.66rem;font-weight:600;color:#fff;letter-spacing:.02em;white-space:nowrap}
+.bar:hover{transform:translateY(-1px);box-shadow:0 4px 10px rgba(0,0,0,.18);z-index:3}
+.bar .bar-progress{position:absolute;left:0;top:0;height:100%;background:rgba(255,255,255,.18);border-radius:4px 0 0 4px}
+.bar .bar-label{position:relative;z-index:1;text-overflow:ellipsis;overflow:hidden}
+.bar.critical{outline:2px solid var(--critical);outline-offset:1px}
+.bar.lot-1{background:linear-gradient(180deg,#5b50d4,var(--lot-1))}
+.bar.lot-2{background:linear-gradient(180deg,#d62a76,var(--lot-2))}
+.bar.lot-3{background:linear-gradient(180deg,#0a9367,var(--lot-3))}
+.bar.lot-4{background:linear-gradient(180deg,#cf6614,var(--lot-4))}
+.bar.lot-5{background:linear-gradient(180deg,#9258ff,var(--lot-5))}
+.bar.lot-6{background:linear-gradient(180deg,#159fb6,var(--lot-6))}
+.bar.lot-7{background:linear-gradient(180deg,#d6304a,var(--lot-7))}
+
+.milestone{position:absolute;top:6px;width:24px;height:24px;background:var(--milestone);transform:rotate(45deg);border:2px solid var(--milestone-deep);border-radius:2px;cursor:pointer;z-index:2;transition:transform .12s}
+.milestone:hover{transform:rotate(45deg) scale(1.15);box-shadow:0 0 0 4px rgba(245,158,11,.25)}
+.milestone-label{position:absolute;top:36px;font-family:var(--mono);font-size:.6rem;font-weight:600;color:var(--milestone-deep);white-space:nowrap;pointer-events:none}
+
+.today-line{position:absolute;top:0;bottom:0;width:2px;background:var(--today);z-index:6;pointer-events:none}
+.today-line::before{content:'AUJOURD’HUI';position:absolute;top:-22px;left:-32px;font-family:var(--mono);font-size:.55rem;font-weight:700;color:#fff;background:var(--today);padding:.18rem .45rem;letter-spacing:.08em;border-radius:3px;white-space:nowrap}
+
+.deps-overlay{position:absolute;top:0;left:0;pointer-events:none;z-index:1}
+.dep-line{stroke:rgba(13,13,15,.22);stroke-width:1.2;fill:none}
+.dep-line.critical{stroke:var(--critical);stroke-width:1.5}
+
+.tooltip{position:fixed;background:var(--bg);color:#fff;padding:.75rem .9rem;border-radius:6px;font-size:.72rem;line-height:1.5;max-width:300px;box-shadow:0 10px 30px rgba(0,0,0,.25);z-index:100;pointer-events:none;opacity:0;transform:translateY(4px);transition:opacity .12s,transform .12s}
+.tooltip.show{opacity:1;transform:none}
+.tooltip h5{font-family:var(--display);font-size:.82rem;font-weight:700;margin-bottom:.3rem;color:#fff;letter-spacing:-.005em}
+.tooltip .tt-row{display:flex;justify-content:space-between;gap:1rem;font-family:var(--mono);font-size:.62rem;padding:.15rem 0;color:rgba(255,255,255,.7)}
+.tooltip .tt-row strong{color:#fff;font-weight:500}
+.tooltip .tt-deliv{font-size:.72rem;color:rgba(255,255,255,.85);margin-top:.45rem;padding-top:.45rem;border-top:1px solid rgba(255,255,255,.12);font-style:italic}
+
+.resources-view{display:none;padding:2rem;background:var(--paper);border-bottom:1px solid var(--line)}
+.resources-view.active{display:block}
+.rv-title{font-family:var(--serif);font-size:1.6rem;font-style:italic;font-weight:400;margin-bottom:1rem;letter-spacing:-.012em}
+.rv-title .em{color:var(--milestone-deep);font-family:var(--display);font-weight:600;font-style:normal}
+.rv-intro{font-size:.86rem;color:var(--ink-soft);max-width:680px;margin-bottom:1.5rem;line-height:1.65}
+.rv-grid{background:var(--paper);border:1px solid var(--line);border-radius:8px;overflow:hidden;font-family:var(--mono);overflow-x:auto}
+.rv-row{display:grid;grid-template-columns:200px repeat(20,minmax(50px,1fr));border-bottom:1px solid var(--line-soft);min-width:1200px}
+.rv-row:last-child{border-bottom:none}
+.rv-row.head{background:var(--surface);font-size:.6rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
+.rv-cell{padding:.55rem .55rem;border-right:1px solid var(--line-soft);display:flex;align-items:center;justify-content:center;font-size:.65rem}
+.rv-cell:first-child{justify-content:flex-start;font-family:var(--display);font-weight:600;color:var(--ink);font-size:.78rem;padding-left:.85rem;flex-direction:column;align-items:flex-start;gap:.15rem}
+.rv-cell:last-child{border-right:none}
+.rv-cell .rv-meta{font-family:var(--mono);font-size:.58rem;color:var(--muted);font-weight:500;letter-spacing:.04em}
+.rv-load{display:inline-block;width:100%;height:18px;border-radius:3px;position:relative;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.92);font-weight:600;font-size:.6rem;letter-spacing:.02em}
+.rv-load.l0{background:var(--line-soft);color:var(--muted)}
+.rv-load.l1{background:#a8d6c2}
+.rv-load.l2{background:#5fae8a}
+.rv-load.l3{background:#2f8059;color:#fff}
+.rv-load.l4{background:#1a5a3d;color:#fff}
+
+.rv-team{margin-top:2rem;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem}
+.rv-member{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.95rem 1.1rem}
+.rv-member h4{font-family:var(--display);font-size:.92rem;font-weight:700;margin-bottom:.2rem}
+.rv-member .rm-role{font-family:var(--mono);font-size:.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem}
+.rv-member .rm-line{display:flex;justify-content:space-between;font-size:.72rem;color:var(--ink-soft);padding:.18rem 0;border-bottom:1px solid var(--line-soft)}
+.rv-member .rm-line:last-child{border-bottom:none}
+.rv-member .rm-line strong{color:var(--ink);font-family:var(--mono);font-weight:600}
+.rv-member.total{background:var(--bg);color:#fff;border-color:var(--bg)}
+.rv-member.total h4{color:#fff}
+.rv-member.total .rm-role{color:var(--milestone)}
+.rv-member.total .rm-line{color:rgba(255,255,255,.7);border-color:rgba(255,255,255,.1)}
+.rv-member.total .rm-line strong{color:#fff}
+.rv-member.total .rm-line.accent strong{color:var(--milestone)}
+
+footer{background:var(--bg);color:rgba(255,255,255,.65);padding:2rem;font-size:.75rem;text-align:center;line-height:1.6}
+footer strong{color:#fff;font-weight:500}
+footer .f-mono{font-family:var(--mono);font-size:.62rem;letter-spacing:.06em;color:rgba(255,255,255,.45);margin-top:.5rem}
+
+@media print{
+  body{background:#fff}
+  .toolbar,.tooltip,.app-version{display:none!important}
+  .app-header{break-inside:avoid;border-bottom:2px solid #000}
+  .app-title{font-size:1.5rem}
+  .legend{padding:.5rem 1rem}
+  .gantt-wrap{overflow:visible}
+  .gantt-sidebar{position:static}
+  .timeline-header{position:static}
+  .bar{box-shadow:none!important}
+  footer{background:#fff;color:#000;padding:1rem}
+  @page{size:A3 landscape;margin:1cm}
+}
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="app-header-inner">
+    <div class="app-meta">
+      <div class="app-brand">
+        <span class="b-mark">G</span>
+        <span class="b-name">Studio Vasseur<span class="x">×</span>Agence référente</span>
+        <span class="b-tag">Planning V1.0</span>
+      </div>
+      <div class="app-version">
+        <strong>Réf. RTS-PLAN-2026</strong>
+        Émis le 1er juin 2026 · Mise à jour automatique<br>
+        Format imprimable A3 paysage (Cmd/Ctrl + P)
+      </div>
+    </div>
+    <h1 class="app-title">RoadTrip Squad, du <span class="em">kick-off</span> à la mise en production publique du <span class="em">15 octobre</span>.</h1>
+    <p class="app-tagline">Planning Gantt complet du projet, généré dynamiquement à partir d'une source de données unique. Périmètre V1 resserré pour tenir l'enveloppe budgétaire de Gaspard (130 K€ HT max), avec descope assumé sur le mode hors-ligne avancé, le journal de bord enrichi et les tests perfo poussés (basculés en V2). 7 lots, 8 jalons, chemin critique identifié, vue ressources alternative et mode imprimable.</p>
+    <div class="kpi-bar" id="kpiBar"></div>
+  </div>
+</header>
+
+<div class="toolbar">
+  <div class="tb-group">
+    <span class="tb-label">Vue</span>
+    <button class="tb-btn active" data-view="gantt"><span class="ic">▦</span>Gantt</button>
+    <button class="tb-btn" data-view="resources"><span class="ic">◷</span>Ressources</button>
+  </div>
+  <div class="tb-sep"></div>
+  <div class="tb-group">
+    <span class="tb-label">Échelle</span>
+    <button class="tb-btn active" data-zoom="week">Semaine</button>
+    <button class="tb-btn" data-zoom="day">Jour</button>
+  </div>
+  <div class="tb-sep"></div>
+  <div class="tb-group">
+    <span class="tb-label">Filtres</span>
+    <button class="tb-btn active" data-filter="all">Tous</button>
+    <button class="tb-btn" data-filter="critical">Chemin critique</button>
+    <button class="tb-btn" data-filter="milestones">Jalons</button>
+  </div>
+  <div class="tb-group" style="margin-left:auto">
+    <button class="tb-btn" id="btnPrint"><span class="ic">⎙</span>Imprimer</button>
+    <button class="tb-btn" id="btnToday"><span class="ic">●</span>Aujourd’hui</button>
+  </div>
+</div>
+
+<div class="legend" id="legend"></div>
+
+<div class="gantt-wrap" id="ganttWrap">
+  <div class="gantt" id="gantt">
+    <div class="gantt-sidebar" id="sidebar"></div>
+    <div class="gantt-track" id="track">
+      <div class="timeline-header" id="tlHeader"></div>
+      <div class="gantt-bars" id="bars"></div>
+    </div>
+  </div>
+</div>
+
+<div class="resources-view" id="resourcesView">
+  <h2 class="rv-title">Vue ressources : <span class="em">qui fait quoi</span>, semaine par semaine.</h2>
+  <p class="rv-intro">Charge cumulée par membre de l'équipe sur les 20 semaines du projet, exprimée en pourcentage de leur temps. La couleur s'intensifie avec la charge. Permet d'identifier rapidement les périodes de surcharge et de vérifier que la composition d'équipe tient le délai.</p>
+  <div class="rv-grid" id="rvGrid"></div>
+  <h3 class="rv-title" style="font-size:1.2rem;margin-top:2.5rem;margin-bottom:.8rem">Composition d'équipe</h3>
+  <div class="rv-team" id="rvTeam"></div>
+</div>
+
+<div class="tooltip" id="tooltip"></div>
+
+<footer>
+  <p><strong>RoadTrip Squad</strong> · Planning généré pour Gaspard Vasseur · Document de référence interne, susceptible d'évolution selon les retours de cadrage et la composition d'équipe finale.</p>
+  <p class="f-mono">Gantt RTS-PLAN-2026 · 7 lots · 45 tâches · 8 jalons · Période 1er juin → 15 octobre 2026 · 95 jours ouvrés</p>
+</footer>
+
+<script>
+// ═══ DATA ═══
+const PROJECT = { start:'2026-06-01', end:'2026-10-15' };
+
+const LOTS = [
+  { id:1, name:'Cadrage & conception', short:'L1', color:'lot-1', cssVar:'--lot-1' },
+  { id:2, name:'Design system & UI',   short:'L2', color:'lot-2', cssVar:'--lot-2' },
+  { id:3, name:'Développement back',   short:'L3', color:'lot-3', cssVar:'--lot-3' },
+  { id:4, name:'Développement mobile', short:'L4', color:'lot-4', cssVar:'--lot-4' },
+  { id:5, name:'Recette interne',      short:'L5', color:'lot-5', cssVar:'--lot-5' },
+  { id:6, name:'Bêta fermée',          short:'L6', color:'lot-6', cssVar:'--lot-6' },
+  { id:7, name:'Mise en prod & stores',short:'L7', color:'lot-7', cssVar:'--lot-7' },
+];
+
+const TEAM = [
+  { code:'DP',  name:'Directeur de projet',   role:'Sponsor agence',         tjm:800, occ:6,  jh:6  },
+  { code:'CP',  name:'Chef de projet',        role:'Pilote opérationnel',    tjm:580, occ:22, jh:21 },
+  { code:'LT',  name:'Lead tech',             role:'Garant architecture',    tjm:680, occ:33, jh:31 },
+  { code:'DM',  name:'Dev mobile senior',     role:'React Native',           tjm:580, occ:57, jh:54 },
+  { code:'DB',  name:'Dev back confirmé',     role:'Node + PostgreSQL',      tjm:480, occ:39, jh:37 },
+  { code:'UX',  name:'UX/UI designer',        role:'Figma + design system',  tjm:520, occ:49, jh:47 },
+  { code:'QA',  name:'Ingénieur QA',          role:'Tests & recette',        tjm:480, occ:12, jh:11 },
+  { code:'OPS', name:'DevOps',                role:'Infra & CI/CD',          tjm:680, occ:15, jh:14 },
+];
+
+const TASKS = [
+  { id:'M1',  lot:1, name:'Kick-off projet',                      start:'2026-06-01', end:'2026-06-01', owner:['DP','CP','LT'], jh:2,  deps:[],          critical:true,  milestone:true,  deliv:'Note de lancement, vision produit, KPIs.' },
+  { id:'T1',  lot:1, name:'Ateliers cadrage produit',             start:'2026-06-01', end:'2026-06-05', owner:['CP','UX'],      jh:6,  deps:['M1'],      critical:true,  milestone:false, deliv:'Backlog produit V1 priorisé, user stories.' },
+  { id:'T2',  lot:1, name:'User research + benchmark',            start:'2026-06-01', end:'2026-06-05', owner:['UX'],           jh:3,  deps:['M1'],      critical:false, milestone:false, deliv:'Synthèse Polarsteps / Wanderlog, personas.' },
+  { id:'T3',  lot:1, name:'Spécifications fonctionnelles V1',     start:'2026-06-08', end:'2026-06-19', owner:['CP','LT'],      jh:10, deps:['T1','T2'], critical:true,  milestone:false, deliv:'Spec fonctionnelle V1 resserrée.' },
+  { id:'T4',  lot:1, name:'Architecture technique',               start:'2026-06-08', end:'2026-06-19', owner:['LT','OPS'],     jh:8,  deps:['T1'],      critical:true,  milestone:false, deliv:'Schéma archi, choix de stack motivés.' },
+  { id:'M2',  lot:1, name:'Validation cadrage',                   start:'2026-06-19', end:'2026-06-19', owner:['DP','CP'],      jh:1,  deps:['T3','T4'], critical:true,  milestone:true,  deliv:'PV de validation cadrage signé.' },
+
+  { id:'T5',  lot:2, name:'Wireframes basse-fi',                  start:'2026-06-08', end:'2026-06-19', owner:['UX'],           jh:6,  deps:['T1'],      critical:false, milestone:false, deliv:'Wireframes 20 écrans clés V1.' },
+  { id:'T6',  lot:2, name:'Direction artistique',                 start:'2026-06-15', end:'2026-06-26', owner:['UX'],           jh:5,  deps:['T2'],      critical:false, milestone:false, deliv:'Moodboard, 1 piste DA validée.' },
+  { id:'T7',  lot:2, name:'Design system + composants',           start:'2026-06-22', end:'2026-07-10', owner:['UX'],           jh:10, deps:['T6'],      critical:true,  milestone:false, deliv:'DS Figma : tokens, composants core.' },
+  { id:'T8',  lot:2, name:'Maquettes haute-fi V1',                start:'2026-06-29', end:'2026-07-17', owner:['UX'],           jh:10, deps:['T7','T5'], critical:true,  milestone:false, deliv:'Maquettes Figma 25 écrans, proto navigable.' },
+  { id:'M3',  lot:2, name:'Validation maquettes V1',              start:'2026-07-17', end:'2026-07-17', owner:['DP','CP','UX'], jh:1,  deps:['T8'],      critical:true,  milestone:true,  deliv:'Maquettes signées, design system gelé.' },
+  { id:'T9',  lot:2, name:'Suivi design (déclinaisons)',          start:'2026-07-20', end:'2026-09-11', owner:['UX'],           jh:3,  deps:['M3'],      critical:false, milestone:false, deliv:'Ajustements ponctuels, états manquants.' },
+
+  { id:'T10', lot:3, name:'Setup infra & CI/CD',                  start:'2026-06-22', end:'2026-06-26', owner:['OPS','LT'],     jh:4,  deps:['T4'],      critical:true,  milestone:false, deliv:'Repo Git, environnements dev/prod, CI.' },
+  { id:'T11', lot:3, name:'Modèle de données + Auth',             start:'2026-06-29', end:'2026-07-10', owner:['DB','LT'],      jh:7,  deps:['T10'],     critical:true,  milestone:false, deliv:'Schéma PostgreSQL, auth JWT + Apple/Google.' },
+  { id:'T12', lot:3, name:'API squads & trips',                   start:'2026-07-13', end:'2026-07-24', owner:['DB'],           jh:7,  deps:['T11'],     critical:true,  milestone:false, deliv:'CRUD squads, trips, invitations.' },
+  { id:'T13', lot:3, name:'API étapes & itinéraire',              start:'2026-07-27', end:'2026-08-07', owner:['DB','LT'],      jh:7,  deps:['T12'],     critical:true,  milestone:false, deliv:'CRUD étapes, vote, persistance ordre.' },
+  { id:'T14', lot:3, name:'API split dépenses',                   start:'2026-08-10', end:'2026-08-21', owner:['DB'],           jh:6,  deps:['T12'],     critical:false, milestone:false, deliv:'Algo split + soldes par membre.' },
+  { id:'T15', lot:3, name:'API journal & médias (V1 simple)',     start:'2026-08-24', end:'2026-09-04', owner:['DB','OPS'],     jh:5,  deps:['T12'],     critical:false, milestone:false, deliv:'Upload S3, EXIF basique. Modération en V2.' },
+  { id:'T16', lot:3, name:'API notifications (events critiques)', start:'2026-09-07', end:'2026-09-11', owner:['DB'],           jh:3,  deps:['T13','T14'], critical:false, milestone:false, deliv:'APN + FCM, 3 events V1. Templates en V2.' },
+  { id:'T17', lot:3, name:'Sécurisation, RGPD, audit',            start:'2026-09-14', end:'2026-09-25', owner:['LT','DB'],      jh:6,  deps:['T15','T16'], critical:true,  milestone:false, deliv:'DPIA, registre, OWASP top 10 review.' },
+  { id:'M4',  lot:3, name:'Fin développement back',               start:'2026-09-25', end:'2026-09-25', owner:['LT'],           jh:1,  deps:['T17'],     critical:true,  milestone:true,  deliv:'API freeze, doc OpenAPI, prêt recette.' },
+
+  { id:'T18', lot:4, name:'Setup React Native + builds',          start:'2026-06-29', end:'2026-07-03', owner:['DM','OPS'],     jh:4,  deps:['T10'],     critical:false, milestone:false, deliv:'Projet RN, builds iOS/Android automatisés.' },
+  { id:'T19', lot:4, name:'Onboarding & auth',                    start:'2026-07-13', end:'2026-07-24', owner:['DM'],           jh:7,  deps:['T18','M3'], critical:true, milestone:false, deliv:'Login Apple/Google, onboarding 4 écrans.' },
+  { id:'T20', lot:4, name:'Création squad / trip',                start:'2026-07-27', end:'2026-08-07', owner:['DM'],           jh:7,  deps:['T19','T12'], critical:true, milestone:false, deliv:'Création + invitations, gestion membres.' },
+  { id:'T21', lot:4, name:'Carte & étapes (MapLibre)',            start:'2026-08-03', end:'2026-08-21', owner:['DM','LT'],      jh:10, deps:['T20','T13'], critical:true, milestone:false, deliv:'Carte interactive, étapes drag-drop, vote.' },
+  { id:'T22', lot:4, name:'Mode hors-ligne basique',              start:'2026-08-10', end:'2026-08-28', owner:['DM'],           jh:6,  deps:['T21'],     critical:false, milestone:false, deliv:'Tuiles offline + dernière vue. Sync avancée en V2.' },
+  { id:'T23', lot:4, name:'Split dépenses (UI mobile)',           start:'2026-08-24', end:'2026-09-04', owner:['DM'],           jh:6,  deps:['T20','T14'], critical:false, milestone:false, deliv:'Saisie rapide, soldes par membre.' },
+  { id:'T24', lot:4, name:'Journal de bord (V1 simple)',          start:'2026-09-07', end:'2026-09-18', owner:['DM'],           jh:6,  deps:['T20','T15'], critical:false, milestone:false, deliv:'Feed timeline, upload photo unique. Anecdotes en V2.' },
+  { id:'T25', lot:4, name:'Notifications, polish, finalisation',  start:'2026-09-21', end:'2026-10-02', owner:['DM','UX'],      jh:6,  deps:['T22','T23','T24','T16'], critical:true, milestone:false, deliv:'Push, micro-interactions, perfo.' },
+  { id:'M5',  lot:4, name:'Fin développement mobile',             start:'2026-10-02', end:'2026-10-02', owner:['LT','DM'],      jh:1,  deps:['T25'],     critical:true,  milestone:true,  deliv:'Builds gold candidate iOS + Android.' },
+
+  { id:'T26', lot:5, name:'Plan de tests + cas d\'usage',         start:'2026-08-24', end:'2026-08-28', owner:['QA','CP'],      jh:3,  deps:['T8'],      critical:false, milestone:false, deliv:'Plan de tests 50 cas prioritaires.' },
+  { id:'T27', lot:5, name:'Tests fonctionnels par module',        start:'2026-08-31', end:'2026-09-25', owner:['QA','DM','DB'], jh:12, deps:['T26'],     critical:false, milestone:false, deliv:'Rapports par module, anomalies tracées.' },
+  { id:'T28', lot:5, name:'Tests perfo & charge (light)',         start:'2026-09-14', end:'2026-09-25', owner:['QA','OPS'],     jh:4,  deps:['T17'],     critical:false, milestone:false, deliv:'Benchmark API basique, profiling ciblé.' },
+  { id:'T29', lot:5, name:'Tests RGPD & sécurité',                start:'2026-09-21', end:'2026-10-02', owner:['QA','LT'],      jh:5,  deps:['T17'],     critical:true,  milestone:false, deliv:'Conformité RGPD validée, pen-test léger.' },
+  { id:'M6',  lot:5, name:'Fin recette interne',                  start:'2026-10-02', end:'2026-10-02', owner:['CP','QA'],      jh:1,  deps:['T29','T27'], critical:true,  milestone:true, deliv:'PV de recette interne signé.' },
+
+  { id:'T30', lot:6, name:'Recrutement bêta-testeurs',            start:'2026-08-31', end:'2026-09-04', owner:['CP','DP'],      jh:2,  deps:['T26'],     critical:false, milestone:false, deliv:'25 bêta-testeurs, NDA signés.' },
+  { id:'T31', lot:6, name:'Distribution TestFlight + Play Internal', start:'2026-09-07', end:'2026-09-11', owner:['DM','OPS'],   jh:2,  deps:['T18'],     critical:false, milestone:false, deliv:'Builds bêta diffusés, doc de test.' },
+  { id:'T32', lot:6, name:'Bêta active & collecte feedbacks',     start:'2026-09-14', end:'2026-10-02', owner:['CP','UX'],      jh:5,  deps:['T31'],     critical:false, milestone:false, deliv:'Synthèse feedbacks, top 15 anomalies.' },
+  { id:'T33', lot:6, name:'Corrections issues de la bêta',        start:'2026-09-21', end:'2026-10-09', owner:['DM','DB'],      jh:8,  deps:['T32'],     critical:true,  milestone:false, deliv:'Anomalies bloquantes corrigées.' },
+
+  { id:'T34', lot:7, name:'Préparation fiches stores',            start:'2026-09-21', end:'2026-09-25', owner:['CP','UX'],      jh:3,  deps:['T8'],      critical:false, milestone:false, deliv:'Captures, descriptions FR/IT/ES, mots-clés.' },
+  { id:'T35', lot:7, name:'Soumission App Store (review)',        start:'2026-09-28', end:'2026-10-09', owner:['DM','CP'],      jh:2,  deps:['M5','T34'], critical:true, milestone:false, deliv:'Build soumis, review en cours.' },
+  { id:'T36', lot:7, name:'Soumission Google Play (review)',      start:'2026-09-28', end:'2026-10-02', owner:['DM','CP'],      jh:2,  deps:['M5','T34'], critical:false, milestone:false, deliv:'Build soumis, review en cours.' },
+  { id:'T37', lot:7, name:'Communication pré-launch & presse',    start:'2026-10-05', end:'2026-10-14', owner:['DP','CP'],      jh:4,  deps:['T34'],     critical:false, milestone:false, deliv:'Dossier presse, kit invités événement Annecy.' },
+  { id:'M7',  lot:7, name:'Mise en production publique',          start:'2026-10-14', end:'2026-10-14', owner:['LT','OPS','DM'],jh:1,  deps:['T33','T35'], critical:true, milestone:true,  deliv:'Apps publiées sur les stores.' },
+  { id:'M8',  lot:7, name:'Événement Annecy · 200 invités',       start:'2026-10-15', end:'2026-10-15', owner:['DP'],           jh:1,  deps:['M7'],      critical:true,  milestone:true,  deliv:'Lancement public, presse, partenaires.' },
+];
+
+// ═══ HELPERS ═══
+const MONTHS = ['Jan','Fév','Mars','Avr','Mai','Juin','Juil','Août','Sept','Oct','Nov','Déc'];
+const MONTHS_FULL = ['Janvier','Février','Mars','Avril','Mai','Juin','Juillet','Août','Septembre','Octobre','Novembre','Décembre'];
+const SVG_NS = 'http://www.w3.org/2000/svg';
+
+function parseDate(s){ const [y,m,d] = s.split('-').map(Number); return new Date(y, m-1, d); }
+function dayDiff(a, b){ return Math.round((b - a) / 86400000); }
+function fmtDate(d){ return `${String(d.getDate()).padStart(2,'0')} ${MONTHS[d.getMonth()].toLowerCase()}`; }
+function addDays(d, n){ const x = new Date(d); x.setDate(x.getDate()+n); return x; }
+
+function el(tag, attrs, children){
+  const e = document.createElement(tag);
+  if(attrs){
+    for(const k in attrs){
+      const v = attrs[k];
+      if(v == null) continue;
+      if(k === 'class') e.className = v;
+      else if(k === 'style') e.style.cssText = v;
+      else if(k.startsWith('on')) e.addEventListener(k.slice(2).toLowerCase(), v);
+      else if(k === 'text') e.textContent = v;
+      else if(k === 'data') for(const dk in v) e.dataset[dk] = v[dk];
+      else e.setAttribute(k, v);
+    }
+  }
+  if(children){
+    if(typeof children === 'string'){
+      e.textContent = children;
+    } else if(Array.isArray(children)){
+      for(const c of children){
+        if(c == null) continue;
+        e.appendChild(typeof c === 'string' ? document.createTextNode(c) : c);
+      }
+    } else {
+      e.appendChild(children);
+    }
+  }
+  return e;
+}
+
+function svgEl(tag, attrs){
+  const e = document.createElementNS(SVG_NS, tag);
+  if(attrs){
+    for(const k in attrs){
+      const v = attrs[k];
+      if(v == null) continue;
+      if(k === 'class') e.setAttribute('class', v);
+      else e.setAttribute(k, v);
+    }
+  }
+  return e;
+}
+
+function clear(node){ while(node.firstChild) node.removeChild(node.firstChild) }
+
+// ═══ STATE ═══
+let CURRENT_VIEW = 'gantt';
+let CURRENT_FILTER = 'all';
+
+const start = parseDate(PROJECT.start);
+const end = parseDate(PROJECT.end);
+const totalDays = dayDiff(start, end) + 1;
+
+function getDayWidth(){
+  return parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--day-width'));
+}
+function getRowH(){
+  return parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--row-h'));
+}
+
+// ═══ KPI ═══
+function buildKPI(){
+  const totalJH = TEAM.reduce((s,m)=>s+m.jh, 0);
+  const totalCost = TEAM.reduce((s,m)=>s+m.jh*m.tjm, 0);
+  const milestones = TASKS.filter(t=>t.milestone).length;
+  const criticals = TASKS.filter(t=>t.critical && !t.milestone).length;
+
+  const data = [
+    { v:'19', sup:'sem', l:'Durée projet' },
+    { v:'95', sup:'j ouvrés', l:'Charge calendrier' },
+    { v:String(TEAM.length), sup:'', l:'Profils équipe' },
+    { v:String(totalJH), sup:'j-h', l:'Charge cumulée' },
+    { v:(totalCost/1000).toFixed(0), sup:'k€ HT', l:'Coût équipe' },
+    { v:String(milestones), sup:'', l:'Jalons clés' },
+    { v:String(criticals), sup:'', l:'Tâches critiques' },
+    { v:'15', sup:'oct', l:'Live cible' },
+  ];
+  const root = document.getElementById('kpiBar');
+  clear(root);
+  data.forEach(k => {
+    const v = el('div', { class:'k-v' });
+    v.appendChild(document.createTextNode(k.v));
+    if(k.sup){
+      const sup = el('sup');
+      sup.textContent = k.sup;
+      v.appendChild(sup);
+    }
+    root.appendChild(el('div', { class:'kpi' }, [
+      v,
+      el('div', { class:'k-l', text:k.l })
+    ]));
+  });
+}
+
+// ═══ LEGEND ═══
+function buildLegend(){
+  const root = document.getElementById('legend');
+  clear(root);
+  LOTS.forEach(l => {
+    root.appendChild(el('div', { class:'lg-item' }, [
+      el('span', { class:'lg-swatch', style:`background:var(${l.cssVar})` }),
+      l.name
+    ]));
+  });
+  root.appendChild(el('div', { class:'lg-item' }, [el('span',{class:'lg-milestone'}), 'Jalon clé']));
+  root.appendChild(el('div', { class:'lg-item' }, [el('span',{class:'lg-critical'}), 'Chemin critique']));
+  root.appendChild(el('div', { class:'lg-item' }, [el('span',{class:'lg-today'}), 'Aujourd’hui']));
+}
+
+// ═══ TIMELINE HEADER ═══
+function buildTimeline(){
+  const dayW = getDayWidth();
+  const root = document.getElementById('tlHeader');
+  clear(root);
+
+  // Mois
+  const months = el('div', { class:'tl-months', style:`width:${totalDays * dayW}px` });
+  let cursor = new Date(start);
+  while(cursor <= end){
+    const monthEnd = new Date(cursor.getFullYear(), cursor.getMonth()+1, 0);
+    const segmentEnd = monthEnd > end ? end : monthEnd;
+    const days = dayDiff(cursor, segmentEnd) + 1;
+    months.appendChild(el('div', {
+      class:'tl-month',
+      style:`width:${days * dayW}px`,
+      text:`${MONTHS_FULL[cursor.getMonth()]} ${cursor.getFullYear()}`
+    }));
+    cursor = new Date(cursor.getFullYear(), cursor.getMonth()+1, 1);
+  }
+  root.appendChild(months);
+
+  // Semaines
+  const weeks = el('div', { class:'tl-weeks', style:`width:${totalDays * dayW}px` });
+  cursor = new Date(start);
+  let weekNum = 1;
+  const today = new Date();
+  while(cursor <= end){
+    const wEnd = addDays(cursor, 6);
+    const segEnd = wEnd > end ? end : wEnd;
+    const days = dayDiff(cursor, segEnd) + 1;
+    const isCur = today >= cursor && today <= segEnd;
+    const w = el('div', { class:`tl-week${isCur?' cur':''}`, style:`width:${days * dayW}px` });
+    const strong = el('strong', { text:`S${weekNum}` });
+    w.appendChild(strong);
+    w.appendChild(document.createTextNode(fmtDate(cursor)));
+    weeks.appendChild(w);
+    cursor = addDays(cursor, 7);
+    weekNum++;
+  }
+  root.appendChild(weeks);
+}
+
+// ═══ FILTER ═══
+function isTaskVisible(t){
+  if(CURRENT_FILTER === 'all') return true;
+  if(CURRENT_FILTER === 'critical') return !!t.critical;
+  if(CURRENT_FILTER === 'milestones') return !!t.milestone;
+  return true;
+}
+
+// ═══ SIDEBAR ═══
+function buildSidebar(){
+  const sb = document.getElementById('sidebar');
+  clear(sb);
+  sb.appendChild(el('div', { class:'sb-header', text:'Lot · Tâche' }));
+
+  LOTS.forEach(lot => {
+    const lotTasks = TASKS.filter(t => t.lot === lot.id);
+    if(!lotTasks.length) return;
+
+    const head = el('div', { class:'sb-row lot-head' }, [
+      el('span', { class:'lot-dot', style:`background:var(${lot.cssVar})` }),
+      lot.name,
+      el('span', { class:'lot-cnt', text:`${lotTasks.length} tâches` })
+    ]);
+    sb.appendChild(head);
+
+    lotTasks.forEach(t => {
+      const visible = isTaskVisible(t);
+      const cls = `sb-row task ${t.critical?'is-critical':''} ${t.milestone?'is-milestone':''}`;
+      const row = el('div', {
+        class:cls,
+        style:visible ? '' : 'display:none',
+        data:{task:t.id}
+      }, [
+        el('span', { class:'t-mk', text:t.id }),
+        el('span', { class:'t-name', text:t.name }),
+        el('span', { class:'t-meta', text:`${t.jh}j` })
+      ]);
+      sb.appendChild(row);
+    });
+  });
+}
+
+// ═══ BARS ═══
+function buildBars(){
+  const dayW = getDayWidth();
+  const bars = document.getElementById('bars');
+  clear(bars);
+  const trackW = totalDays * dayW;
+
+  LOTS.forEach(lot => {
+    const lotTasks = TASKS.filter(t => t.lot === lot.id);
+    if(!lotTasks.length) return;
+
+    bars.appendChild(el('div', { class:'gb-row lot-head', style:`width:${trackW}px` }));
+
+    lotTasks.forEach(t => {
+      const visible = isTaskVisible(t);
+      const tStart = parseDate(t.start);
+      const tEnd = parseDate(t.end);
+      const left = dayDiff(start, tStart) * dayW;
+      const width = (dayDiff(tStart, tEnd) + 1) * dayW;
+
+      const row = el('div', {
+        class:'gb-row',
+        style:`width:${trackW}px${visible?'':';display:none'}`,
+        data:{ row:t.id }
+      });
+
+      if(t.milestone){
+        const mLeft = left + dayW/2 - 12;
+        const ms = el('div', {
+          class:'milestone',
+          data:{ task:t.id },
+          style:`left:${mLeft}px`,
+          onmouseenter:(e) => showTooltip(e, t.id),
+          onmouseleave:hideTooltip
+        });
+        row.appendChild(ms);
+        row.appendChild(el('div', {
+          class:'milestone-label',
+          style:`left:${mLeft + 30}px`,
+          text:`${t.id} · ${fmtDate(tStart)}`
+        }));
+      } else {
+        const critCls = t.critical ? ' critical' : '';
+        const bar = el('div', {
+          class:`bar ${lot.color}${critCls}`,
+          data:{ task:t.id },
+          style:`left:${left}px;width:${width}px`,
+          onmouseenter:(e) => showTooltip(e, t.id),
+          onmouseleave:hideTooltip
+        }, [
+          el('div', { class:'bar-progress', style:'width:0%' }),
+          el('span', { class:'bar-label', text:`${t.id} · ${t.name}` })
+        ]);
+        row.appendChild(bar);
+      }
+      bars.appendChild(row);
+    });
+  });
+
+  // Today line
+  const today = new Date();
+  if(today >= start && today <= end){
+    const left = dayDiff(start, today) * dayW;
+    bars.appendChild(el('div', { class:'today-line', style:`left:${left}px` }));
+  }
+
+  // Dependencies SVG
+  bars.appendChild(buildDepsOverlay(dayW));
+}
+
+function buildDepsOverlay(dayW){
+  const rowH = getRowH();
+  const positions = {};
+  let y = 0;
+
+  LOTS.forEach(lot => {
+    const lotTasks = TASKS.filter(t => t.lot === lot.id);
+    if(!lotTasks.length) return;
+    y += rowH;
+    lotTasks.forEach(t => {
+      positions[t.id] = { y: y + rowH/2, start: parseDate(t.start), end: parseDate(t.end) };
+      y += rowH;
+    });
+  });
+
+  const svg = svgEl('svg', {
+    class:'deps-overlay',
+    width: totalDays * dayW,
+    height: y + rowH
+  });
+
+  TASKS.forEach(t => {
+    if(!t.deps || !t.deps.length) return;
+    const target = positions[t.id];
+    if(!target) return;
+    t.deps.forEach(depId => {
+      const source = positions[depId];
+      if(!source) return;
+      const isCritical = t.critical && TASKS.find(x => x.id === depId)?.critical;
+      const x1 = (dayDiff(start, source.end) + 1) * dayW;
+      const y1 = source.y;
+      const x2 = dayDiff(start, target.start) * dayW;
+      const y2 = target.y;
+      const midX = x1 + 8;
+      const path = svgEl('path', {
+        class: `dep-line${isCritical?' critical':''}`,
+        d: `M${x1},${y1} L${midX},${y1} L${midX},${y2} L${x2},${y2}`
+      });
+      svg.appendChild(path);
+      const arrow = svgEl('polygon', {
+        class: `dep-line${isCritical?' critical':''}`,
+        points: `${x2-4},${y2-3} ${x2},${y2} ${x2-4},${y2+3}`,
+        fill: isCritical ? '#dc2626' : 'rgba(13,13,15,.22)',
+        stroke: 'none'
+      });
+      svg.appendChild(arrow);
+    });
+  });
+
+  return svg;
+}
+
+// ═══ TOOLTIP ═══
+const tt = document.getElementById('tooltip');
+
+function showTooltip(e, taskId){
+  const t = TASKS.find(x => x.id === taskId);
+  if(!t) return;
+  const lot = LOTS.find(l => l.id === t.lot);
+  const tStart = parseDate(t.start);
+  const tEnd = parseDate(t.end);
+  const days = dayDiff(tStart, tEnd) + 1;
+
+  clear(tt);
+  tt.appendChild(el('h5', { text:`${t.id} · ${t.name}` }));
+
+  const rows = [
+    ['Lot', lot.name],
+    ['Période', `${fmtDate(tStart)} → ${fmtDate(tEnd)}`],
+    ['Durée', `${days} j (${t.jh} j-h)`],
+    ['Responsables', t.owner.join(', ')]
+  ];
+  rows.forEach(([k, v]) => {
+    tt.appendChild(el('div', { class:'tt-row' }, [
+      el('span', { text:k }),
+      el('strong', { text:v })
+    ]));
+  });
+  if(t.critical){
+    tt.appendChild(el('div', { class:'tt-row' }, [
+      el('span', { style:'color:var(--milestone)', text:'Chemin critique' }),
+      el('strong', { text:'oui' })
+    ]));
+  }
+  if(t.milestone){
+    tt.appendChild(el('div', { class:'tt-row' }, [
+      el('span', { style:'color:var(--milestone)', text:'Jalon' }),
+      el('strong', { text:'oui' })
+    ]));
+  }
+  tt.appendChild(el('div', { class:'tt-deliv', text:t.deliv }));
+
+  const x = Math.min(e.clientX + 14, window.innerWidth - 320);
+  const y = Math.min(e.clientY + 14, window.innerHeight - 220);
+  tt.style.left = x + 'px';
+  tt.style.top = y + 'px';
+  tt.classList.add('show');
+}
+
+function hideTooltip(){ tt.classList.remove('show') }
+
+document.addEventListener('mousemove', (e) => {
+  if(!tt.classList.contains('show')) return;
+  const x = Math.min(e.clientX + 14, window.innerWidth - 320);
+  const y = Math.min(e.clientY + 14, window.innerHeight - 220);
+  tt.style.left = x + 'px';
+  tt.style.top = y + 'px';
+});
+
+// ═══ RESOURCES VIEW ═══
+function buildResourcesView(){
+  const numWeeks = 20;
+  const load = {};
+  TEAM.forEach(m => { load[m.code] = new Array(numWeeks).fill(0); });
+
+  TASKS.forEach(t => {
+    const tStart = parseDate(t.start);
+    const tEnd = parseDate(t.end);
+    const days = dayDiff(tStart, tEnd) + 1;
+    const owners = t.owner;
+    if(!owners.length) return;
+    const jhPerOwner = t.jh / owners.length;
+    const jhPerOwnerPerDay = jhPerOwner / days;
+
+    for(let i = 0; i < days; i++){
+      const d = addDays(tStart, i);
+      const weekIdx = Math.floor(dayDiff(start, d) / 7);
+      if(weekIdx < 0 || weekIdx >= numWeeks) continue;
+      owners.forEach(o => {
+        if(load[o]) load[o][weekIdx] += jhPerOwnerPerDay;
+      });
+    }
+  });
+
+  const loadPct = {};
+  TEAM.forEach(m => {
+    loadPct[m.code] = load[m.code].map(v => Math.round((v / 5) * 100));
+  });
+
+  const grid = document.getElementById('rvGrid');
+  clear(grid);
+
+  // Header row
+  const head = el('div', { class:'rv-row head' });
+  head.appendChild(el('div', { class:'rv-cell', text:'Profil' }));
+  for(let i = 1; i <= numWeeks; i++){
+    head.appendChild(el('div', { class:'rv-cell', text:`S${i}` }));
+  }
+  grid.appendChild(head);
+
+  TEAM.forEach(m => {
+    const row = el('div', { class:'rv-row' });
+    const nameCell = el('div', { class:'rv-cell' });
+    nameCell.appendChild(document.createTextNode(m.name));
+    nameCell.appendChild(el('span', { class:'rv-meta', text:`${m.code} · ${m.tjm}€/j` }));
+    row.appendChild(nameCell);
+
+    loadPct[m.code].forEach(pct => {
+      const lvl = pct >= 80 ? 4 : pct >= 50 ? 3 : pct >= 25 ? 2 : pct > 0 ? 1 : 0;
+      const cell = el('div', { class:'rv-cell' });
+      cell.appendChild(el('span', {
+        class:`rv-load l${lvl}`,
+        text: pct > 0 ? `${pct}%` : ''
+      }));
+      row.appendChild(cell);
+    });
+    grid.appendChild(row);
+  });
+
+  // Team cards
+  const teamRoot = document.getElementById('rvTeam');
+  clear(teamRoot);
+  TEAM.forEach(m => {
+    const card = el('div', { class:'rv-member' }, [
+      el('h4', { text:m.name }),
+      el('p', { class:'rm-role', text:`${m.code} · ${m.role}` })
+    ]);
+    const lines = [
+      ['TJM HT', `${m.tjm} €`],
+      ['Occupation', `${m.occ}%`],
+      ['Charge totale', `${m.jh} j-h`],
+      ['Coût', `${(m.jh*m.tjm).toLocaleString('fr-FR')} €`]
+    ];
+    lines.forEach(([k, v]) => {
+      card.appendChild(el('p', { class:'rm-line' }, [
+        el('span', { text:k }),
+        el('strong', { text:v })
+      ]));
+    });
+    teamRoot.appendChild(card);
+  });
+
+  // Total card
+  const totalCost = TEAM.reduce((s,m)=>s+m.jh*m.tjm, 0);
+  const totalJH = TEAM.reduce((s,m)=>s+m.jh,0);
+  const totalCard = el('div', { class:'rv-member total' }, [
+    el('h4', { text:'Total équipe' }),
+    el('p', { class:'rm-role', text:`${TEAM.length} profils · 95 jours ouvrés` })
+  ]);
+  const totalLines = [
+    { k:'Charge cumulée', v:`${totalJH} j-h`, accent:false },
+    { k:'Coût équipe HT', v:`${totalCost.toLocaleString('fr-FR')} €`, accent:true },
+    { k:'TJM moyen', v:`${Math.round(totalCost / totalJH)} €`, accent:false }
+  ];
+  totalLines.forEach(l => {
+    totalCard.appendChild(el('p', { class:`rm-line${l.accent?' accent':''}` }, [
+      el('span', { text:l.k }),
+      el('strong', { text:l.v })
+    ]));
+  });
+  teamRoot.appendChild(totalCard);
+}
+
+// ═══ EVENT HANDLERS ═══
+function setView(v){
+  CURRENT_VIEW = v;
+  document.querySelectorAll('[data-view]').forEach(b => b.classList.toggle('active', b.dataset.view === v));
+  document.getElementById('ganttWrap').classList.toggle('hidden', v !== 'gantt');
+  document.getElementById('resourcesView').classList.toggle('active', v === 'resources');
+}
+
+function setZoom(z){
+  document.querySelectorAll('[data-zoom]').forEach(b => b.classList.toggle('active', b.dataset.zoom === z));
+  document.documentElement.style.setProperty('--day-width', z === 'day' ? '28px' : '14px');
+  buildTimeline();
+  buildBars();
+}
+
+function setFilter(f){
+  CURRENT_FILTER = f;
+  document.querySelectorAll('[data-filter]').forEach(b => b.classList.toggle('active', b.dataset.filter === f));
+  buildSidebar();
+  buildBars();
+}
+
+function goToday(){
+  const today = new Date();
+  if(today < start || today > end){
+    alert('La date du jour est hors de la fenêtre du projet (1er juin → 15 octobre 2026).');
+    return;
+  }
+  const left = dayDiff(start, today) * getDayWidth();
+  document.getElementById('ganttWrap').scrollLeft = left - 200;
+}
+
+document.querySelectorAll('[data-view]').forEach(b => b.addEventListener('click', () => setView(b.dataset.view)));
+document.querySelectorAll('[data-zoom]').forEach(b => b.addEventListener('click', () => setZoom(b.dataset.zoom)));
+document.querySelectorAll('[data-filter]').forEach(b => b.addEventListener('click', () => setFilter(b.dataset.filter)));
+document.getElementById('btnPrint').addEventListener('click', () => window.print());
+document.getElementById('btnToday').addEventListener('click', goToday);
+
+// ═══ INIT ═══
+buildKPI();
+buildLegend();
+buildTimeline();
+buildSidebar();
+buildBars();
+buildResourcesView();
+</script>
+
+</body>
+</html>

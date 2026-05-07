@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, Compass, Clock, Users2, FileText, Sparkles, Timer } from 'lucide-react'
+import { ArrowLeft, ArrowRight, Compass, Clock, Users2, FileText, Sparkles, Timer, FileSignature, Frame } from 'lucide-react'
 import { sprintAgenceMeta, sprintSchedule, sprintSteps } from '@/data/sprintAgence'
 import Schedule from '@/components/SprintAgence/Schedule'
 import TeacherOnly from '@/components/SprintAgence/TeacherOnly'
@@ -112,6 +112,34 @@ export default function SprintAgenceLanding() {
                   <h3 className="sa-warmup-title">Time's Up du PM</h3>
                   <p className="sa-warmup-pitch">
                     Quand la classe est cuite, on bascule en jeu. Trois manches sur le même paquet de cartes : libre, trois mots, mime. Deux équipes s'affrontent, le rire fait le reste.
+                  </p>
+                </div>
+                <ArrowRight className="w-5 h-5 text-amber-700 self-center" />
+              </Link>
+
+              <Link href="/sprint-agence/offre-commerciale" className="sa-warmup-card sa-warmup-card-doc">
+                <div className="sa-warmup-icon">
+                  <FileSignature className="w-5 h-5" />
+                </div>
+                <div className="sa-warmup-body">
+                  <span className="sa-warmup-eyebrow">Annexe · Modèle de référence</span>
+                  <h3 className="sa-warmup-title">Offre commerciale modèle</h3>
+                  <p className="sa-warmup-pitch">
+                    Une réponse type carrée à projeter en débrief : chiffrage croisé profil / phase, échéancier lié aux jalons, conditions contractuelles. Cohérente avec le Gantt produit.
+                  </p>
+                </div>
+                <ArrowRight className="w-5 h-5 text-amber-700 self-center" />
+              </Link>
+
+              <Link href="/sprint-agence/wireframes" className="sa-warmup-card sa-warmup-card-doc">
+                <div className="sa-warmup-icon">
+                  <Frame className="w-5 h-5" />
+                </div>
+                <div className="sa-warmup-body">
+                  <span className="sa-warmup-eyebrow">Annexe · Modèle de référence</span>
+                  <h3 className="sa-warmup-title">Wireframes V1</h3>
+                  <p className="sa-warmup-pitch">
+                    Sept écrans mobile (onboarding, squads, trip, carte, dépenses, journal) plus trois côté back office (dashboard, utilisateurs, modération). Niveau low-fi, structure et parcours.
                   </p>
                 </div>
                 <ArrowRight className="w-5 h-5 text-amber-700 self-center" />
