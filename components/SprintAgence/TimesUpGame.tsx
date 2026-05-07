@@ -120,10 +120,8 @@ export default function TimesUpGame() {
     advanceCard(true)
   }
 
-  const advanceCard = (wasPassed = false) => {
+  const advanceCard = (_wasPassed = false) => {
     setRemaining(arr => {
-      // Si on vient de passer, la carte courante a déjà été ajoutée à la fin
-      // dans handlePass. Ici on prend juste la carte du dessus de la pile.
       if (arr.length === 0) {
         // plus aucune carte disponible : fin de manche immédiate
         finishRound()
