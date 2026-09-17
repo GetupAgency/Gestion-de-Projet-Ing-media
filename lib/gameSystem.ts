@@ -466,16 +466,16 @@ export function updateTeamData(updates: Partial<TeamData>): void {
   localStorage.setItem('teamData', JSON.stringify(updated))
 }
 
-export function addPoints(points: number, reason?: string, eventId?: string): void {
+export function addPoints(points: number, reason?: string, eventId?: string): boolean {
   const team = getTeamData()
-  if (!team) return
+  if (!team) return false
   
   // Si c'est un événement avec ID, vérifier qu'il n'a pas déjà été donné
   if (eventId) {
     const triggeredEvents = JSON.parse(localStorage.getItem('triggeredEvents') || '[]')
     if (triggeredEvents.includes(eventId)) {
-      // Événement déjà déclenché, ne pas redonner les points
-      return
+      // Événement déjà déclenché : ni points ni notification
+      return false
     }
     // Marquer l'événement comme déclenché
     triggeredEvents.push(eventId)
@@ -487,6 +487,7 @@ export function addPoints(points: number, reason?: string, eventId?: string): vo
   if (reason && typeof window !== 'undefined') {
     showNotification(`+${points} points : ${reason}`)
   }
+  return true
 }
 
 export function useToken(type: 'expertQuestions' | 'revelations' | 'joker'): boolean {
@@ -570,12 +571,19 @@ export function getAllTeams(): TeamData[] {
   
   const teams: TeamData[] = []
   
-  // Récupérer toutes les équipes (dans un vrai système, ce serait en DB)
+  // L'équipe locale est stockée sous `teamData` ; les clés `team-*` restent lues par compatibilité
   for (let i = 0; i < localStorage.length; i++) {
     const key = localStorage.key(i)
-    if (key?.startsWith('team-')) {
+    if (key === 'teamData' || key?.startsWith('team-')) {
       const data = localStorage.getItem(key)
-      if (data) teams.push(JSON.parse(data))
+      if (data) {
+        try {
+          const parsed = JSON.parse(data)
+          if (parsed?.teamName && !teams.some((t) => t.teamName === parsed.teamName)) teams.push(parsed)
+        } catch {
+          /* entrée corrompue : ignorée */
+        }
+      }
     }
   }
   
@@ -602,8 +610,13 @@ export function showNotification(message: string, type: 'info' | 'success' | 'wa
 }
 
 // Easter eggs techniques
+let easterEggsInstalled = false
+
 export function initEasterEggListeners(): void {
   if (typeof window === 'undefined') return
+  // Les écouteurs sont globaux : on ne les installe qu'une fois par chargement de page
+  if (easterEggsInstalled) return
+  easterEggsInstalled = true
   
   // Konami Code: ↑↑↓↓←→←→BA
   const konamiCode = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a']
@@ -614,8 +627,7 @@ export function initEasterEggListeners(): void {
       konamiIndex++
       if (konamiIndex === konamiCode.length) {
         awardBadge('konami-master')
-        addPoints(75, 'Code Konami', 'konami-code')
-        showNotification('Code Konami ! Respect.', 'success')
+        addPoints(75, 'Code Konami, respect', 'konami-code')
         konamiIndex = 0
       }
     } else {
@@ -633,8 +645,7 @@ export function initEasterEggListeners(): void {
 
 Indice : Les chiffres ronds (120, 5000, 150) sont des réponses...
 `, 'color: #3b82f6; font-size: 14px; font-weight: bold;')
-      showNotification('Indice loutre ! Regarde la console.', 'success')
-      addPoints(25, 'Message loutre', 'loutre-typed')
+      addPoints(25, 'Indice loutre, regarde la console', 'loutre-typed')
       consoleSequence = ''
     }
     if (consoleSequence.length > 20) consoleSequence = ''
@@ -644,8 +655,7 @@ Indice : Les chiffres ronds (120, 5000, 150) sont des réponses...
   document.addEventListener('dblclick', (e) => {
     const target = e.target as HTMLElement
     if (target.textContent?.includes('Badge') || target.textContent?.includes('badge')) {
-      addPoints(15, 'Double-clic mystère', 'double-click-badge')
-      showNotification('Curieux ! +15 points', 'info')
+      addPoints(15, 'Double-clic curieux', 'double-click-badge')
     }
   })
   
@@ -659,8 +669,7 @@ Indice : Les chiffres ronds (120, 5000, 150) sont des réponses...
     
     scrollTimeout = setTimeout(() => {
       if (scrollCount > 50) {
-        addPoints(20, 'Scroll intensif', 'scroll-olympic')
-        showNotification('Défilement olympique ! +20 points', 'success')
+        addPoints(20, 'Défilement olympique', 'scroll-olympic')
       }
       scrollCount = 0
     }, 2000)
@@ -673,8 +682,7 @@ Indice : Les chiffres ronds (120, 5000, 150) sont des réponses...
     const target = e.target as HTMLElement
     if (target.tagName === 'H1' || target.tagName === 'H2') {
       hoverTimeout = setTimeout(() => {
-        addPoints(10, 'Patience', 'hover-patience')
-        showNotification('La patience est une vertu ! +10 points', 'info')
+        addPoints(10, 'La patience est une vertu', 'hover-patience')
       }, 3000)
     }
   })
@@ -695,8 +703,7 @@ Indice : Les chiffres ronds (120, 5000, 150) sont des réponses...
     if (acc && (Math.abs(acc.x || 0) > 15 || Math.abs(acc.y || 0) > 15)) {
       shakeCount++
       if (shakeCount > 3) {
-        addPoints(40, 'Secousse détectée !', 'shake-device')
-        showNotification('Tu as secoué ton téléphone ! +40 points', 'success')
+        addPoints(40, 'Tu as secoué ton téléphone', 'shake-device')
         shakeCount = 0
       }
     }
@@ -706,8 +713,7 @@ Indice : Les chiffres ronds (120, 5000, 150) sont des réponses...
   document.addEventListener('selectionchange', () => {
     const selection = window.getSelection()?.toString().toLowerCase()
     if (selection?.includes('gestion de projet')) {
-      addPoints(15, 'Lecture attentive', 'text-selection-gp')
-      showNotification('Tu lis attentivement ! +15 points', 'info')
+      addPoints(15, 'Tu lis attentivement', 'text-selection-gp')
     }
   })
   
@@ -715,15 +721,13 @@ Indice : Les chiffres ronds (120, 5000, 150) sont des réponses...
   document.addEventListener('contextmenu', (e) => {
     const target = e.target as HTMLElement
     if (target.tagName === 'IMG') {
-      addPoints(20, 'Clic droit sur image', 'right-click-img')
-      showNotification('Curieux des images ! +20 points', 'info')
+      addPoints(20, 'Curieux des images', 'right-click-img')
     }
   })
   
   // Rester longtemps sur la page (5 min)
   setTimeout(() => {
-    addPoints(50, 'Endurance', 'stay-5min')
-    showNotification('5 minutes sur la page ! Bravo pour ta concentration. +50 points', 'success')
+    addPoints(50, '5 minutes sur la page, bravo pour ta concentration', 'stay-5min')
     awardBadge('night-owl')
   }, 300000)
   
@@ -746,8 +750,7 @@ Indice : Les chiffres ronds (120, 5000, 150) sont des réponses...
   document.addEventListener('copy', () => {
     copyCount++
     if (copyCount === 5) {
-      addPoints(25, 'Copie stratégique', 'copy-5-times')
-      showNotification('5 copies ! Tu prends des notes. +25 points', 'info')
+      addPoints(25, '5 copies, tu prends des notes', 'copy-5-times')
     }
   })
 }

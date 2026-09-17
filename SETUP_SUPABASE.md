@@ -75,9 +75,9 @@ CREATE TABLE teacher_config (
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 );
 
--- Insérer le mot de passe hashé (Grosac4Ever!)
+-- Insérer le hash du mot de passe enseignant (voir MODE_ENSEIGNANT.md ; ne pas committer le mot de passe)
 INSERT INTO teacher_config (password_hash) 
-VALUES ('1935027444');
+VALUES ('<HASH_ICI>');
 
 -- Politique : Lecture publique pour vérification
 ALTER TABLE teacher_config ENABLE ROW LEVEL SECURITY;

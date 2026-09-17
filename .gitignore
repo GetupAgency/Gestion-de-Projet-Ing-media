@@ -35,3 +35,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+
+# impeccable (captures et pages de décision locales)
+.impeccable/review/
+.impeccable/questions/
+.impeccable/build/
+
+# Dossier de réponse à appel d’offres (documents financiers, signatures) : jamais dans le dépôt
+appel-offre/

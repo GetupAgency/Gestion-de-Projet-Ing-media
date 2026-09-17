@@ -304,11 +304,11 @@ export default function OrauxPage() {
 
   if (!isTeacher) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 flex items-center justify-center">
+      <div className="min-h-screen bg-paper flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Page Réservée</h1>
-          <p className="text-gray-600 mb-6">Cette page est réservée aux enseignants.</p>
-          <Link href="/" className="text-purple-600 hover:text-purple-700 font-medium">
+          <h1 className="text-2xl font-bold text-ink mb-4">Page Réservée</h1>
+          <p className="text-ink-2 mb-6">Cette page est réservée aux enseignants.</p>
+          <Link href="/" className="text-ink hover:text-stamp font-medium">
             Retour à l'accueil
           </Link>
         </div>
@@ -323,10 +323,10 @@ export default function OrauxPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50">
-      <header className="bg-gradient-to-r from-indigo-600 to-purple-600 shadow-lg sticky top-0 z-10">
+    <div className="min-h-screen bg-paper">
+      <header className="bg-ink text-paper border border-ink sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <Link href="/" className="inline-flex items-center text-white hover:text-purple-200 mb-3 transition-colors">
+          <Link href="/" className="inline-flex items-center text-white hover:text-paper/70 mb-3 transition-colors">
             <ArrowLeft className="w-5 h-5 mr-2" />
             Retour
           </Link>
@@ -334,14 +334,14 @@ export default function OrauxPage() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-2xl font-bold text-white">Oraux Individuels - Mission Projet</h1>
-              <p className="text-purple-100 text-sm mt-1">
+              <p className="text-paper/70 text-sm mt-1">
                 16 étudiants • 10 minutes par oral
               </p>
             </div>
             
             <button
               onClick={() => setShowQuestions(!showQuestions)}
-              className="px-4 py-2 bg-white/20 hover:bg-white/30 text-white rounded-lg transition-colors"
+              className="px-4 py-2 bg-white/20 hover:bg-white/30 text-white  transition-colors"
             >
               {showQuestions ? 'Masquer' : 'Voir'} les questions
             </button>
@@ -353,8 +353,8 @@ export default function OrauxPage() {
         <div className="grid lg:grid-cols-3 gap-6">
           {/* Liste des étudiants */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-lg shadow-lg p-6 sticky top-24">
-              <h2 className="text-lg font-bold text-gray-900 mb-4">Ordre de Passage</h2>
+            <div className="bg-white  border border-ink p-6 sticky top-24">
+              <h2 className="text-lg font-bold text-ink mb-4">Ordre de Passage</h2>
               
               <div className="space-y-2 max-h-[600px] overflow-y-auto">
                 {students.map((student) => {
@@ -369,12 +369,12 @@ export default function OrauxPage() {
                         setTimer(0)
                         setIsRunning(false)
                       }}
-                      className={`w-full text-left p-3 rounded-lg transition-all ${
+                      className={`w-full text-left p-3  transition-all ${
                         isCurrent
                           ? 'bg-purple-600 text-white'
                           : isDone
-                          ? 'bg-green-50 text-green-900 border border-green-300'
-                          : 'bg-gray-50 hover:bg-gray-100 text-gray-900'
+                          ? 'bg-stamp-soft text-green-900 border border-green-300'
+                          : 'bg-paper-2 hover:bg-paper-2 text-ink'
                       }`}
                     >
                       <div className="flex items-center justify-between">
@@ -400,18 +400,18 @@ export default function OrauxPage() {
           <div className="lg:col-span-2 space-y-6">
             {/* Timer et contrôles */}
             {currentStudent && (
-              <div className="bg-white rounded-lg shadow-lg p-6">
+              <div className="bg-white  border border-ink p-6">
                 <div className="flex items-center justify-between mb-4">
-                  <h2 className="text-2xl font-bold text-gray-900">
+                  <h2 className="text-2xl font-bold text-ink">
                     {currentStudent.student_name}
                   </h2>
                   <div className="text-right">
                     <div className={`text-4xl font-bold ${
-                      timer > 600 ? 'text-red-600' : timer > 540 ? 'text-orange-600' : 'text-purple-600'
+                      timer > 600 ? 'text-red-600' : timer > 540 ? 'text-orange-600' : 'text-ink'
                     }`}>
                       {formatTime(timer)}
                     </div>
-                    <p className="text-xs text-gray-500 mt-1">
+                    <p className="text-xs text-ink-3 mt-1">
                       {timer > 600 ? 'Temps dépassé' : `${10 - Math.floor(timer / 60)} min restantes`}
                     </p>
                   </div>
@@ -421,7 +421,7 @@ export default function OrauxPage() {
                   {!isRunning ? (
                     <button
                       onClick={() => startOral(currentStudent)}
-                      className="flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 font-semibold"
+                      className="flex items-center gap-2 px-6 py-3 bg-stamp text-white  hover:bg-ink font-semibold"
                     >
                       <Play className="w-5 h-5" />
                       Démarrer l'oral
@@ -429,7 +429,7 @@ export default function OrauxPage() {
                   ) : (
                     <button
                       onClick={stopOral}
-                      className="flex items-center gap-2 px-6 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 font-semibold"
+                      className="flex items-center gap-2 px-6 py-3 bg-red-ink text-white  hover:bg-ink font-semibold"
                     >
                       <Square className="w-5 h-5" />
                       Terminer
@@ -452,43 +452,43 @@ export default function OrauxPage() {
         {/* Questions disponibles */}
         {showQuestions && (
           <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onClick={() => setShowQuestions(false)}>
-            <div className="bg-white rounded-xl shadow-2xl max-w-4xl w-full max-h-[80vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
-              <div className="sticky top-0 bg-gradient-to-r from-purple-600 to-pink-600 text-white p-6 z-10">
+            <div className="bg-white   max-w-4xl w-full max-h-[80vh] overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+              <div className="sticky top-0 bg-ink text-paper p-6 z-10">
                 <div className="flex items-center justify-between">
                   <h2 className="text-2xl font-bold">Banque de Questions</h2>
                   <button
                     onClick={() => setShowQuestions(false)}
-                    className="text-white hover:bg-white/20 rounded-full p-2"
+                    className="text-white hover:bg-white/20  p-2"
                   >
                     ✕
                   </button>
                 </div>
-                <p className="text-purple-100 text-sm mt-1">
+                <p className="text-paper/70 text-sm mt-1">
                   Questions ouvertes pour l'oral • Adaptez selon les réponses
                 </p>
               </div>
 
               <div className="p-6 space-y-4">
                 {QUESTIONS_POOL.map((category, idx) => (
-                  <div key={idx} className="border rounded-lg overflow-hidden">
+                  <div key={idx} className="border  overflow-hidden">
                     <button
                       onClick={() => toggleCategory(category.category)}
-                      className="w-full flex items-center justify-between p-4 bg-gray-50 hover:bg-gray-100 transition-colors"
+                      className="w-full flex items-center justify-between p-4 bg-paper-2 hover:bg-paper-2 transition-colors"
                     >
-                      <h3 className="font-bold text-gray-900">{category.category}</h3>
+                      <h3 className="font-bold text-ink">{category.category}</h3>
                       {expandedCategories.includes(category.category) ? (
-                        <ChevronDown className="w-5 h-5 text-gray-600" />
+                        <ChevronDown className="w-5 h-5 text-ink-2" />
                       ) : (
-                        <ChevronRight className="w-5 h-5 text-gray-600" />
+                        <ChevronRight className="w-5 h-5 text-ink-2" />
                       )}
                     </button>
                     
                     {expandedCategories.includes(category.category) && (
                       <div className="p-4 space-y-2 bg-white">
                         {category.questions.map((q, qIdx) => (
-                          <div key={qIdx} className="flex items-start gap-2 p-2 hover:bg-purple-50 rounded">
-                            <span className="text-purple-600 font-bold text-sm mt-0.5">{qIdx + 1}.</span>
-                            <p className="text-sm text-gray-800">{q}</p>
+                          <div key={qIdx} className="flex items-start gap-2 p-2 hover:bg-paper-2 ">
+                            <span className="text-ink font-bold text-sm mt-0.5">{qIdx + 1}.</span>
+                            <p className="text-sm text-ink">{q}</p>
                           </div>
                         ))}
                       </div>
@@ -537,15 +537,15 @@ function StudentEvaluation({
   const moyenne = totalNote / 4
 
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6 space-y-6">
+    <div className="bg-white  border border-ink p-6 space-y-6">
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        <label className="block text-sm font-medium text-ink-2 mb-2">
           Projet choisi
         </label>
         <select
           value={project}
           onChange={(e) => setProject(e.target.value)}
-          className="w-full px-3 py-2 border border-gray-300 rounded-lg bg-white text-gray-900"
+          className="w-full px-3 py-2 border border-rule  bg-white text-ink"
         >
           <option value="">-- Sélectionner --</option>
           <option value="eventeo">Eventeo</option>
@@ -555,7 +555,7 @@ function StudentEvaluation({
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         <div>
-          <label className="block text-xs font-medium text-gray-700 mb-1">
+          <label className="block text-xs font-medium text-ink-2 mb-1">
             Compréhension /20
           </label>
           <input
@@ -564,12 +564,12 @@ function StudentEvaluation({
             max="20"
             value={noteComprehension}
             onChange={(e) => setNoteComprehension(Number(e.target.value))}
-            className="w-full px-3 py-2 border-2 border-blue-300 rounded-lg text-center font-bold text-lg text-gray-900 bg-white"
+            className="w-full px-3 py-2 border-2 border-blue-300  text-center font-bold text-lg text-ink bg-white"
           />
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-gray-700 mb-1">
+          <label className="block text-xs font-medium text-ink-2 mb-1">
             Technique /20
           </label>
           <input
@@ -578,12 +578,12 @@ function StudentEvaluation({
             max="20"
             value={noteTechnique}
             onChange={(e) => setNoteTechnique(Number(e.target.value))}
-            className="w-full px-3 py-2 border-2 border-green-300 rounded-lg text-center font-bold text-lg text-gray-900 bg-white"
+            className="w-full px-3 py-2 border-2 border-green-300  text-center font-bold text-lg text-ink bg-white"
           />
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-gray-700 mb-1">
+          <label className="block text-xs font-medium text-ink-2 mb-1">
             Justification /20
           </label>
           <input
@@ -592,12 +592,12 @@ function StudentEvaluation({
             max="20"
             value={noteJustification}
             onChange={(e) => setNoteJustification(Number(e.target.value))}
-            className="w-full px-3 py-2 border-2 border-purple-300 rounded-lg text-center font-bold text-lg text-gray-900 bg-white"
+            className="w-full px-3 py-2 border-2 border-purple-300  text-center font-bold text-lg text-ink bg-white"
           />
         </div>
 
         <div>
-          <label className="block text-xs font-medium text-gray-700 mb-1">
+          <label className="block text-xs font-medium text-ink-2 mb-1">
             Présentation /20
           </label>
           <input
@@ -606,14 +606,14 @@ function StudentEvaluation({
             max="20"
             value={notePresentation}
             onChange={(e) => setNotePresentation(Number(e.target.value))}
-            className="w-full px-3 py-2 border-2 border-orange-300 rounded-lg text-center font-bold text-lg text-gray-900 bg-white"
+            className="w-full px-3 py-2 border-2 border-orange-300  text-center font-bold text-lg text-ink bg-white"
           />
         </div>
       </div>
 
-      <div className="bg-gradient-to-r from-purple-100 to-pink-100 p-4 rounded-lg">
+      <div className="bg-paper-2 border border-ink p-4 ">
         <div className="flex items-center justify-between">
-          <span className="font-semibold text-gray-900">Moyenne :</span>
+          <span className="font-semibold text-ink">Moyenne :</span>
           <span className={`text-3xl font-bold ${
             moyenne >= 16 ? 'text-green-600' :
             moyenne >= 12 ? 'text-blue-600' :
@@ -626,7 +626,7 @@ function StudentEvaluation({
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">
+        <label className="block text-sm font-medium text-ink-2 mb-2">
           Commentaires et observations
         </label>
         <textarea
@@ -634,16 +634,16 @@ function StudentEvaluation({
           onChange={(e) => setComments(e.target.value)}
           rows={8}
           placeholder="Points forts, axes d'amélioration, remarques..."
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg resize-none text-gray-900 bg-white placeholder-gray-400"
+          className="w-full px-4 py-3 border border-rule  resize-none text-ink bg-white placeholder-gray-400"
         />
       </div>
 
       <button
         onClick={handleSave}
-        className={`w-full px-6 py-3 rounded-lg font-semibold flex items-center justify-center gap-2 transition-all ${
+        className={`w-full px-6 py-3  font-semibold flex items-center justify-center gap-2 transition-all ${
           saved
-            ? 'bg-green-600 text-white'
-            : 'bg-gradient-to-r from-purple-600 to-pink-600 text-white hover:from-purple-700 hover:to-pink-700'
+            ? 'bg-stamp text-white'
+            : 'bg-ink text-paper hover:bg-stamp'
         }`}
       >
         <Save className="w-5 h-5" />

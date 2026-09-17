@@ -176,6 +176,12 @@ Un projet web est une initiative temporaire visant à créer un produit, service
     <p>Selon une étude PMI (Project Management Institute), <strong>37% des échecs de projets</strong> sont directement liés à un manque de clarté dans les objectifs et les exigences. Un CDC flou, c'est la porte ouverte aux malentendus, au scope creep et aux dépassements de budget.</p>
   </div>
 
+  <div class="tip-box">
+  <p class="tip-title">Analogie : le cahier des charges, c'est ta commande Uber Eats</p>
+  <p>Tu commandes « un burger » sans rien préciser : tu reçois un burger avec oignons crus, bien cuit, sans frites. Tu es déçu, et pourtant le resto a livré « un burger ». Un client qui dit « je veux un site moderne » à une agence, c'est exactement ça. Le cahier des charges, c'est le moment où tu écris : « cuisson à point, sans oignon, frites à part, sauce en plus ». Plus la commande est précise, moins il y a de déception à la livraison, et surtout : <strong>si le resto se trompe, tu as une preuve</strong>. C'est la fonction contractuelle du CDC.</p>
+  <p><strong>Mini-défi 30 secondes :</strong> prends l'app que tu as ouverte en dernier sur ton téléphone. Écris en une phrase son objectif principal, puis trois fonctionnalités indispensables. Tu viens de rédiger la première page d'un CDC.</p>
+</div>
+
   <h2 class="section-subtitle mt-8">Pourquoi un cahier des charges ?</h2>
 
   <div class="value-type">
@@ -186,6 +192,34 @@ Un projet web est une initiative temporaire visant à créer un produit, service
       <li>Servir de base contractuelle</li>
     </ul>
   </div>
+
+  <p class="section-text">Brief reçu par mail par trois agences : « On voudrait un site pour réserver des cours de surf à Hyères, avec paiement. »</p>
+<div class="comparison-grid">
+  <div class="comparison-before">
+    <h4>Sans CDC : trois lectures, trois prix</h4>
+    <ul>
+      <li>Agence A : WordPress + plugin de réservation, 4 500 €</li>
+      <li>Agence B : site sur mesure, calendrier moniteurs, Stripe, 14 000 €</li>
+      <li>Agence C : plateforme multi-écoles + appli mobile, 38 000 €</li>
+      <li>Le client compare des choses incomparables</li>
+    </ul>
+  </div>
+  <div class="comparison-after">
+    <h4>Avec CDC : un périmètre, des devis comparables</h4>
+    <ul>
+      <li>3 moniteurs, 20 créneaux/semaine, 200 élèves/saison</li>
+      <li>Paiement CB, annulation gratuite 48 h avant</li>
+      <li>Pas d'appli mobile en V1, site responsive suffisant</li>
+      <li>Les trois devis se situent entre 9 000 et 12 000 €</li>
+    </ul>
+  </div>
+</div>
+<p class="section-text"><strong>Ce qu'il faut retenir :</strong> sans CDC, l'écart de prix ne vient pas des agences mais des <em>hypothèses</em> que chacune a dû inventer à la place du client.</p>
+
+  <div class="warning-box">
+  <p class="warning-title">Erreur classique de junior : le CDC « on affinera en cours de route »</p>
+  <p>Projet tutoré de 2e année : un groupe doit livrer le site d'une association étudiante. Le brief tient en un message Discord : « un site sympa avec les événements et les adhésions ». Personne ne rédige de CDC, « on verra en avançant ». Semaine 6 : le président de l'asso découvre le site et demande une billetterie en ligne, un espace membre et une galerie photos. « C'était évident, non ? » Le groupe passe ses trois dernières semaines à rattraper des fonctionnalités jamais discutées et rend un site à moitié fini. Le CDC n'aurait pas empêché la demande, mais il aurait permis de répondre : <strong>« Ce n'est pas dans le périmètre validé le 12 octobre : on le met en V2, ou on retire autre chose. »</strong> Un CDC signé, c'est un bouclier, pas de la paperasse.</p>
+</div>
 
   <h2 class="section-subtitle mt-8">Structure type</h2>
 
@@ -541,6 +575,11 @@ Un projet web est une initiative temporaire visant à créer un produit, service
       <li>Mesurer l'ampleur des changements</li>
     </ul>
   </div>
+
+  <div class="story-box">
+  <p class="story-title">Histoire réaliste : les trois pages qui comptaient</p>
+  <p>Un club de plongée du Mourillon demande la refonte de son site « vieillot » de 40 pages. Avant de dessiner quoi que ce soit, la cheffe de projet ouvre Google Analytics. Verdict : <strong>3 pages font 82 % du trafic</strong> (tarifs, horaires des sorties, formulaire d'inscription), et 70 % des visites viennent d'un mobile, alors que le formulaire ne fonctionne pas sur téléphone. Les 37 autres pages (historique du club, comptes rendus d'AG de 2014…) font moins de 100 visites par an. Résultat de la cartographie : le devis passe d'une refonte de 40 pages à un site de 8 pages, mobile-first, avec un formulaire qui marche. <strong>Coût divisé par deux, satisfaction client maximale.</strong> Cartographier, ce n'est pas faire l'inventaire : c'est trouver ce qui compte vraiment avant de dépenser un euro.</p>
+</div>
 
   <h2 class="section-subtitle mt-8">Éléments à cartographier</h2>
 
@@ -921,6 +960,19 @@ Un projet web est une initiative temporaire visant à créer un produit, service
       </ul>
     </div>
   </div>
+<div class="example-box">
+  <strong>Exemple de persona rédigé : « Léa, 21 ans, L3 Ingémedia »</strong>
+  <br><br>
+  <strong>Contexte :</strong> vit en coloc à Toulon, budget serré, achète et revend ses vêtements sur Vinted, écoute Spotify en cours.
+  <br><strong>Objectif sur l'app de covoiturage étudiant :</strong> trouver un trajet Toulon → Marseille le vendredi soir en moins de 2 minutes, sans créer de compte compliqué.
+  <br><strong>Frustrations :</strong> les formulaires longs, les apps qui demandent une CB avant de montrer les prix, les notifications inutiles.
+  <br><strong>Phrase qui la résume :</strong> « Si je dois chercher, je ferme l'app. »
+  <br><strong>Ce que ça change pour le projet :</strong> connexion Google/Apple en un clic, prix affichés avant l'inscription, notifications désactivées par défaut.
+</div>
+<div class="tip-box">
+  <p class="tip-title">Mini-défi 30 secondes</p>
+  <p>Pense à la dernière app que tu as désinstallée. Quel persona ses concepteurs avaient-ils en tête ? Ce n'était probablement pas toi. C'est exactement ce qu'un persona sert à éviter.</p>
+</div>
 </div>`,
         casePratique: {
           title: 'Création de personas',

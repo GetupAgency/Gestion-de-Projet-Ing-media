@@ -19,6 +19,11 @@ export const finalModules: Module[] = [
     <p>Ne choisissez jamais une technologie parce que c'est votre préférée. Choisissez-la parce qu'elle est <strong>adaptée au projet</strong>. Un blog n'a pas besoin de React. Un SaaS complexe n'a pas besoin de WordPress. La bonne question : "Quelle stack permet de livrer ce projet dans les délais et le budget, tout en étant maintenable ?"</p>
   </div>
 
+  <div class="tip-box">
+  <p class="tip-title">Analogie : la stack technique, c'est un restaurant</p>
+  <p>Pas besoin d'être développeur pour piloter un projet, mais il faut comprendre qui fait quoi. Le <strong>frontend</strong> (HTML, CSS, React), c'est la salle et le menu : tout ce que le client voit et touche. Le <strong>backend</strong> (Node, PHP, Python), c'est la cuisine, où les commandes sont réellement préparées. La <strong>base de données</strong> (PostgreSQL, MongoDB), c'est la réserve et le frigo. L'<strong>API</strong>, c'est le serveur qui fait l'aller-retour entre la salle et la cuisine avec un langage codifié (« table 4, deux burgers »). L'<strong>hébergement</strong> (AWS, Vercel, OVH), c'est le local et le loyer. Un <strong>CMS</strong> comme WordPress, c'est un restaurant franchisé : cuisine et salle livrées clés en main, on personnalise la déco. Quand un dev vous dit « le bug est côté back », vous savez maintenant que le problème est en cuisine, pas en salle.</p>
+</div>
+
   <h2 class="section-subtitle mt-8">Frontend (côté client)</h2>
 
   <div class="project-type">
@@ -72,6 +77,14 @@ export const finalModules: Module[] = [
       <li><strong>Cloud :</strong> AWS, Azure, Vercel, Netlify</li>
     </ul>
   </div>
+
+  <div class="stat-cards">
+  <div class="stat-card"><div class="stat-value">Ruby on Rails</div><div class="stat-label">Vinted, Shopify et GitHub tournent dessus</div></div>
+  <div class="stat-card"><div class="stat-value">Python</div><div class="stat-label">Instagram et une grande partie de Spotify côté serveur</div></div>
+  <div class="stat-card"><div class="stat-value">PHP</div><div class="stat-label">Wikipédia, Slack à ses débuts, et 40 % du web via WordPress</div></div>
+  <div class="stat-card"><div class="stat-value">React</div><div class="stat-label">Netflix, Airbnb et Discord côté interface</div></div>
+</div>
+<p class="section-text"><strong>Ce que ça prouve :</strong> il n'y a pas de « bonne » techno dans l'absolu. Vinted vaut plusieurs milliards avec un framework que certains jugent « dépassé ». Ce qui compte, c'est l'adéquation entre l'équipe, le budget et le besoin.</p>
 
   <h2 class="section-subtitle mt-8">Choisir sa stack</h2>
 
@@ -555,6 +568,11 @@ export const finalModules: Module[] = [
     </div>
   </div>
 
+  <div class="story-box">
+  <p class="story-title">Histoire réaliste : la marque de hoodies lancée sur Instagram</p>
+  <p>Deux étudiants lancent une marque de hoodies brodés, 30 références, vendus d'abord en DM Instagram. Un ami développeur propose une boutique « sur mesure en Next.js, ce sera plus propre » : 4 mois de travail, environ 15 000 € s'il facturait. Une freelance propose <strong>Shopify</strong> : boutique en ligne en 10 jours, 1 500 € de mise en place + 36 €/mois, paiement et livraison inclus. Ils choisissent Shopify. Six mois plus tard : 400 commandes, et surtout ils ont pu <strong>vérifier que leur marque marchait</strong> avant d'investir. Le sur-mesure aurait été prêt au moment où ils auraient déjà su si le projet valait le coup. Un CMS ne fait pas « moins bien » : il permet de tester le marché avant de construire la cathédrale. Le jour où ils auront 50 000 commandes par mois et des besoins que Shopify ne couvre pas, le sur-mesure aura du sens.</p>
+</div>
+
   <h2 class="section-subtitle mt-8">CMS vs Développement sur mesure</h2>
 
   <div class="deliverables-grid">
@@ -852,15 +870,15 @@ export const finalModules: Module[] = [
 
   <p class="section-text">Les tests sont cruciaux pour livrer un produit de qualité.</p>
 
-  <div class="warning-box">
-    <p class="warning-title">Règle d'or : Ne jamais déployer en production un vendredi soir</p>
-    <p>C'est un adage célèbre dans le monde du développement, et pour cause : si un bug critique apparaît, toute l'équipe est en week-end. Résultat : un site cassé pendant 48h, des clients mécontents, et un lundi matin cauchemardesque. <strong>Déployez en début de semaine</strong>, quand l'équipe est disponible pour réagir.</p>
-  </div>
-
   <div class="story-box">
     <p class="story-title">Histoire vraie : Le bug à 440 millions de dollars</p>
     <p>En 2012, Knight Capital, une société de trading, déploie une mise à jour logicielle sans tests suffisants. En <strong>45 minutes</strong>, un bug dans l'algorithme génère des ordres d'achat involontaires pour un montant de <strong>440 millions de dollars de pertes</strong>. L'entreprise fait faillite quelques jours plus tard. Un simple test de non-régression aurait pu éviter cette catastrophe.</p>
   </div>
+
+  <div class="story-box">
+  <p class="story-title">Histoire vraie : Cyberpunk 2077, le jeu retiré du PlayStation Store</p>
+  <p>Décembre 2020 : CD Projekt sort Cyberpunk 2077 après 8 ans de développement et trois reports. Sur PS4 et Xbox One, le jeu plante, les textures ne chargent pas, les personnages traversent les murs. En une semaine, <strong>Sony retire le jeu de son store</strong> et rembourse les joueurs, une première pour un titre de cette taille. L'action de l'entreprise perd plus de 40 % de sa valeur. Les enquêtes révéleront que la direction connaissait l'état du jeu sur anciennes consoles mais a maintenu la date pour Noël, et que les testeurs n'avaient eu que quelques jours sur la version console. <strong>La leçon pour un chef de projet web :</strong> tester sur les « vieilles » configurations (Android d'entrée de gamme, Safari sur un iPhone de 2019, connexion 3G) n'est pas un luxe, c'est là que vos utilisateurs réels se trouvent. Et une date tenue avec un produit cassé coûte plus cher qu'un report.</p>
+</div>
 
   <div class="stat-cards">
     <div class="stat-card">
@@ -969,6 +987,12 @@ export const finalModules: Module[] = [
       Base : Unitaires (Beaucoup de tests - rapides)
     </div>
   </div>
+
+  <div class="tip-box">
+  <p class="tip-title">Mini-défi 30 secondes : casse ce formulaire d'inscription</p>
+  <p>Un formulaire demande un e-mail, un mot de passe et une date de naissance. Trouve cinq façons de le faire planter avant de lire la suite.</p>
+  <p>Quelques réponses de testeurs aguerris : un e-mail sans « @ » ; un mot de passe d'un seul caractère ; une date de naissance en 2031 ; un double-clic rapide sur « Valider » qui crée deux comptes ; un prénom de 500 caractères copié-collé ; l'apostrophe dans « O'Connor » qui casse une requête SQL ; le bouton « Retour » du navigateur après validation. <strong>Chaque cas devient une ligne du plan de tests.</strong> Un bon testeur ne vérifie pas que ça marche quand on fait tout bien : il vérifie que ça ne casse pas quand on fait n'importe quoi, parce que les utilisateurs feront n'importe quoi.</p>
+</div>
 
   <h2 class="section-subtitle mt-8">Checklist de tests</h2>
 
@@ -1437,6 +1461,11 @@ export const finalModules: Module[] = [
       <li>Mettre en prod sans validation formelle</li>
     </ul>
   </div>
+<div class="warning-box">
+  <p class="warning-title">Erreur classique de junior : la recette validée par WhatsApp</p>
+  <p>Vendredi 17 h, message du client : « J'ai regardé vite fait, c'est top, on peut mettre en ligne 👍 ». Le CP junior, ravi, déploie le lundi. Mercredi : « Il manque la page partenaires, le logo n'est pas le bon, et le formulaire n'envoie rien à ma collègue. Pourquoi vous avez mis en ligne un truc pas fini ? » Le client a « validé » en 4 minutes sur son téléphone, sans cahier de recette, et il ne s'en souvient plus. Sans PV signé, c'est parole contre parole, et c'est l'agence qui repart en correction gratuite.</p>
+  <p><strong>La bonne réponse au 👍 :</strong> « Super ! Je vous envoie le cahier de recette (25 points à cocher, 30 minutes) et le PV à signer ; on planifie la mise en ligne dès réception. » Ce n'est pas de la bureaucratie : c'est ce qui protège les deux parties et oblige le client à vraiment regarder.</p>
+</div>
 </div>`,
         casePratique: {
           title: 'Gérer une recette client',
@@ -1446,11 +1475,11 @@ export const finalModules: Module[] = [
 
   <h4 class="font-semibold text-purple-900 mt-4 mb-2">Retours du client :</h4>
   <ol class="list-decimal list-inside space-y-2 ml-4 text-gray-800">
-    <li>"Le formulaire de contact ne fonctionne pas" <span class="highlight">BLOQUANT</span></li>
-    <li>"La couleur des boutons ne correspond pas à la charte" <span class="bg-yellow-100 text-yellow-900 px-2 py-0.5 rounded font-bold text-xs">MINEUR</span></li>
-    <li>"Le temps de chargement des pages produits est trop long" <span class="bg-orange-100 text-orange-900 px-2 py-0.5 rounded font-bold text-xs">MAJEUR</span></li>
-    <li>"Il manque le lien vers les CGV dans le footer" <span class="bg-orange-100 text-orange-900 px-2 py-0.5 rounded font-bold text-xs">MAJEUR</span></li>
-    <li>"Je voudrais ajouter une fonctionnalité de wishlist" <span class="bg-blue-100 text-blue-900 px-2 py-0.5 rounded font-bold text-xs">HORS SCOPE</span></li>
+    <li>"Le formulaire de contact ne fonctionne pas"</li>
+    <li>"La couleur des boutons ne correspond pas à la charte"</li>
+    <li>"Le temps de chargement des pages produits est trop long"</li>
+    <li>"Il manque le lien vers les CGV dans le footer"</li>
+    <li>"Je voudrais ajouter une fonctionnalité de wishlist"</li>
   </ol>
 
   <h4 class="font-semibold text-purple-900 mt-6 mb-3">Questions :</h4>
@@ -1651,7 +1680,7 @@ export const finalModules: Module[] = [
   },
   {
     id: 'lancement-prod',
-    title: 'Phase de lancement',
+    title: 'Phase de mise en production',
     description: 'Déploiement, SEO et stratégies marketing',
     sections: [
       {
@@ -1661,6 +1690,16 @@ export const finalModules: Module[] = [
   <h1 class="section-title">Déploiement et mise en production</h1>
 
   <p class="section-text">Le moment tant attendu : mettre votre projet en ligne !</p>
+
+  <div class="story-box">
+  <p class="story-title">Histoire vraie : Pokémon GO, 50 fois plus de joueurs que prévu</p>
+  <p>Juillet 2016 : Niantic lance Pokémon GO. Les serveurs ont été dimensionnés pour un scénario « pessimiste » de 5 fois l'estimation. Le trafic réel atteint <strong>50 fois l'estimation</strong> en quelques jours. Résultat : connexions impossibles, déconnexions en pleine capture, joueurs furieux sur Twitter. Niantic doit repousser le lancement dans plusieurs pays, dont la France, le temps de renforcer l'infrastructure avec Google. La leçon n'est pas « prévoyez 50x » (personne ne peut payer ça) : c'est que le <strong>déploiement progressif</strong> (canary release, pays par pays) et le <strong>monitoring en temps réel</strong> ont sauvé le lancement. En web, la version modeste de cette histoire, c'est la billetterie du festival qui tombe à 10 h 00 pile le jour de l'ouverture des ventes. D'où la checklist : test de charge avant le jour J, et un humain devant les graphiques pendant les premières heures.</p>
+</div>
+
+  <div class="warning-box">
+    <p class="warning-title">Règle d'or : Ne jamais déployer en production un vendredi soir</p>
+    <p>C'est un adage célèbre dans le monde du développement, et pour cause : si un bug critique apparaît, toute l'équipe est en week-end. Résultat : un site cassé pendant 48h, des clients mécontents, et un lundi matin cauchemardesque. <strong>Déployez en début de semaine</strong>, quand l'équipe est disponible pour réagir.</p>
+  </div>
 
   <h2 class="section-subtitle mt-8">Checklist pré-déploiement</h2>
 
@@ -2145,14 +2184,19 @@ export const finalModules: Module[] = [
     </div>
   </div>
 
-  <div class="project-type">
-    <h3 class="project-type-title">Autre format : "What went well, What didn't"</h3>
-    <ul class="feature-list">
-      <li>Ce qui a bien fonctionné</li>
-      <li>Ce qui n'a pas fonctionné</li>
-      <li>Actions d'amélioration</li>
-    </ul>
-  </div>
+  <div class="example-box">
+  <strong>Exemple : rétrospective d'un projet de groupe étudiant (appli de covoiturage, 8 semaines)</strong>
+  <br><br>
+  <strong>Start (à commencer) :</strong> un point de 10 minutes chaque lundi, même si « tout va bien » ; les maquettes sur un Figma partagé plutôt que dans les DM.
+  <br><strong>Stop (à arrêter) :</strong> attendre la veille du rendu pour fusionner le code de tout le monde (3 h de conflits Git le dernier soir) ; laisser une seule personne détenir le compte Firebase.
+  <br><strong>Continue (à garder) :</strong> le canal Discord « décisions » où l'on note chaque choix validé ; la démo au prof à mi-parcours, qui a évité une fausse route.
+  <br><br>
+  <strong>Ce qui distingue cette rétro d'une simple discussion :</strong> chaque point est concret, daté, et devient une règle pour le projet suivant. « On aurait dû mieux communiquer » n'est pas une leçon ; « point hebdo de 10 min le lundi » en est une.
+</div>
+<div class="tip-box">
+  <p class="tip-title">Mini-défi 30 secondes</p>
+  <p>Ton dernier projet de groupe : un Start, un Stop, un Continue. Si tu trouves les trois en moins de 30 secondes, c'est que la rétro aurait valu le coup.</p>
+</div>
 
   <h2 class="section-subtitle mt-8">Document de bilan - Structure type</h2>
 
@@ -2168,7 +2212,7 @@ export const finalModules: Module[] = [
     </div>
 
     <div class="deliverable-phase">
-      <h4 class="phase-title">3. Points positifs</h4>
+      <h4 class="phase-title">2. Points positifs</h4>
       <ul class="deliverable-list">
         <li>Ce qui a bien fonctionné</li>
         <li>Succès remarquables</li>
@@ -2177,7 +2221,7 @@ export const finalModules: Module[] = [
     </div>
 
     <div class="deliverable-phase">
-      <h4 class="phase-title">4. Difficultés rencontrées</h4>
+      <h4 class="phase-title">3. Difficultés rencontrées</h4>
       <ul class="deliverable-list">
         <li>Problèmes techniques</li>
         <li>Problèmes organisationnels</li>
@@ -2186,7 +2230,7 @@ export const finalModules: Module[] = [
     </div>
 
     <div class="deliverable-phase">
-      <h4 class="phase-title">5. Leçons apprises</h4>
+      <h4 class="phase-title">4. Leçons apprises</h4>
       <ul class="deliverable-list">
         <li>Ce qu'on ferait différemment</li>
         <li>Recommandations futures</li>
@@ -2195,7 +2239,7 @@ export const finalModules: Module[] = [
     </div>
 
     <div class="deliverable-phase">
-      <h4 class="phase-title">6. Conclusion</h4>
+      <h4 class="phase-title">5. Conclusion</h4>
       <ul class="deliverable-list">
         <li>Synthèse globale</li>
         <li>Satisfaction client</li>
@@ -2563,171 +2607,7 @@ export const finalModules: Module[] = [
 
   <h2 class="section-subtitle mt-8">Les 7 phases d'un projet web</h2>
 
-  <div class="project-type">
-    <h3 class="project-type-title">1. Lancement (2-3 semaines)</h3>
-    <div class="project-detail">
-      <strong>Objectif :</strong> Cadrer le projet
-    </div>
-    <div class="project-detail">
-      <strong>Livrables :</strong>
-      <ul class="feature-list">
-        <li>Cahier des charges</li>
-        <li>Budget et planning</li>
-        <li>Équipe constituée</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Réunions clés :</strong>
-      <ul class="feature-list">
-        <li>Kick-off meeting</li>
-        <li>Ateliers de cadrage</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">2. Planification (1-2 semaines)</h3>
-    <div class="project-detail">
-      <strong>Objectif :</strong> Organiser le projet
-    </div>
-    <div class="project-detail">
-      <strong>Livrables :</strong>
-      <ul class="feature-list">
-        <li>Planning détaillé (Gantt)</li>
-        <li>Matrice des risques</li>
-        <li>Budget détaillé</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Réunions clés :</strong>
-      <ul class="feature-list">
-        <li>Sprint planning (si Agile)</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">3. Conception (3-4 semaines)</h3>
-    <div class="project-detail">
-      <strong>Objectif :</strong> Designer la solution
-    </div>
-    <div class="project-detail">
-      <strong>Livrables :</strong>
-      <ul class="feature-list">
-        <li>Wireframes</li>
-        <li>Maquettes graphiques</li>
-        <li>Prototype</li>
-        <li>Spécifications techniques</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Réunions clés :</strong>
-      <ul class="feature-list">
-        <li>Ateliers UX</li>
-        <li>Validation design</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">4. Développement (6-12 semaines)</h3>
-    <div class="project-detail">
-      <strong>Objectif :</strong> Construire le produit
-    </div>
-    <div class="project-detail">
-      <strong>Livrables :</strong>
-      <ul class="feature-list">
-        <li>Code source</li>
-        <li>Base de données</li>
-        <li>Intégrations</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Réunions clés :</strong>
-      <ul class="feature-list">
-        <li>Daily standups</li>
-        <li>Sprint reviews</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">5. Tests (2-3 semaines)</h3>
-    <div class="project-detail">
-      <strong>Objectif :</strong> Valider la qualité
-    </div>
-    <div class="project-detail">
-      <strong>Livrables :</strong>
-      <ul class="feature-list">
-        <li>Rapports de tests</li>
-        <li>Corrections de bugs</li>
-        <li>PV de recette</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Réunions clés :</strong>
-      <ul class="feature-list">
-        <li>Recette client</li>
-        <li>Comité de validation</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">6. Lancement (1 semaine)</h3>
-    <div class="project-detail">
-      <strong>Objectif :</strong> Mettre en production
-    </div>
-    <div class="project-detail">
-      <strong>Livrables :</strong>
-      <ul class="feature-list">
-        <li>Site en production</li>
-        <li>Documentation</li>
-        <li>Formation client</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Réunions clés :</strong>
-      <ul class="feature-list">
-        <li>Go/No-Go</li>
-        <li>Débriefing J+1</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">7. Suivi & Maintenance (continu)</h3>
-    <div class="project-detail">
-      <strong>Objectif :</strong> Maintenir et améliorer
-    </div>
-    <div class="project-detail">
-      <strong>Livrables :</strong>
-      <ul class="feature-list">
-        <li>Rapports de monitoring</li>
-        <li>Correctifs</li>
-        <li>Évolutions</li>
-      </ul>
-    </div>
-    <div class="project-detail">
-      <strong>Réunions clés :</strong>
-      <ul class="feature-list">
-        <li>Comité de pilotage mensuel</li>
-        <li>Retrospective projet</li>
-      </ul>
-    </div>
-  </div>
-
-  <h2 class="section-subtitle mt-8">Chronologie type (projet 4 mois)</h2>
-
-  <div class="example-box">
-    <strong>Mois 1 :</strong> [Lancement][Planification][Conception--------]
-    <br>
-    <strong>Mois 2 :</strong> [Conception][Développement-----------------]
-    <br>
-    <strong>Mois 3 :</strong> [Développement---------------------------]
-    <br>
-    <strong>Mois 4 :</strong> [Tests---------][Lancement][Suivi-------]
-  </div>
+  <p class="section-text">Vous les avez traversées module après module. La frise interactive ci-dessus les remet à l'échelle : cliquez une phase pour retrouver son objectif, ses livrables, ses réunions clés et son risque n°1. Retenez surtout les proportions : le développement occupe la moitié du calendrier, la mise en production une semaine, et le cadrage, si court soit-il, décide de tout le reste.</p>
 
   <h2 class="section-subtitle mt-8">Les rôles clés</h2>
 
@@ -3006,109 +2886,10 @@ export const finalModules: Module[] = [
     <strong>Le saviez-vous ?</strong> Le numérique représente 4% des émissions de CO2 mondiales.
   </div>
 
-  <h2 class="section-subtitle mt-8">Pourquoi l'écoconception ?</h2>
-
-  <div class="value-type">
-    <ul class="feature-list">
-      <li><strong>Impact environnemental :</strong> Réduire l'empreinte carbone</li>
-      <li><strong>Performance :</strong> Un site éco-conçu est plus rapide</li>
-      <li><strong>Accessibilité :</strong> Meilleur pour tous</li>
-      <li><strong>Coûts :</strong> Moins de ressources = moins de frais</li>
-      <li><strong>Image de marque :</strong> Engagement RSE</li>
-    </ul>
-  </div>
-
-  <h2 class="section-subtitle mt-8">Principes d'écoconception web</h2>
-
-  <div class="project-type">
-    <h3 class="project-type-title">1. Optimiser les images</h3>
-    <ul class="feature-list">
-      <li><strong>Format adapté :</strong> WebP, AVIF</li>
-      <li><strong>Compression :</strong> Réduire le poids</li>
-      <li><strong>Lazy loading :</strong> Charger à la demande</li>
-      <li><strong>Responsive images :</strong> Adapter à l'écran</li>
-    </ul>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">2. Minimiser les requêtes</h3>
-    <ul class="feature-list">
-      <li><strong>Limiter</strong> les scripts tiers</li>
-      <li><strong>Combiner</strong> CSS/JS</li>
-      <li><strong>Cache :</strong> Réutiliser les ressources</li>
-      <li><strong>CDN :</strong> Serveur proche de l'utilisateur</li>
-    </ul>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">3. Code propre et léger</h3>
-    <ul class="feature-list">
-      <li><strong>Supprimer</strong> le code inutilisé</li>
-      <li><strong>Minifier</strong> CSS, JS</li>
-      <li><strong>Optimiser</strong> les requêtes BDD</li>
-      <li><strong>Éviter</strong> les frameworks lourds si non nécessaire</li>
-    </ul>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">4. Hébergement vert</h3>
-    <ul class="feature-list">
-      <li><strong>Data centers</strong> alimentés énergies renouvelables</li>
-      <li><strong>Serveurs</strong> optimisés</li>
-      <li><strong>Location géographique</strong> proche des utilisateurs</li>
-    </ul>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">5. Fonctionnalités essentielles</h3>
-    <ul class="feature-list">
-      <li><strong>Questionner</strong> chaque fonctionnalité</li>
-      <li><strong>Simplicité</strong> avant complexité</li>
-      <li><strong>Progressive enhancement</strong></li>
-    </ul>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">6. Dark mode</h3>
-    <ul class="feature-list">
-      <li><strong>Économie d'énergie</strong> sur écrans OLED</li>
-      <li><strong>Confort visuel</strong></li>
-    </ul>
-  </div>
-
-  <h2 class="section-subtitle mt-8">Outils d'évaluation</h2>
-
-  <div class="deliverables-grid">
-    <div class="deliverable-phase">
-      <h4 class="phase-title">Website Carbon Calculator</h4>
-      <p class="text-sm text-gray-700">Empreinte CO2</p>
-    </div>
-
-    <div class="deliverable-phase">
-      <h4 class="phase-title">EcoIndex</h4>
-      <p class="text-sm text-gray-700">Score environnemental</p>
-    </div>
-
-    <div class="deliverable-phase">
-      <h4 class="phase-title">Lighthouse</h4>
-      <p class="text-sm text-gray-700">Performance générale</p>
-    </div>
-
-    <div class="deliverable-phase">
-      <h4 class="phase-title">WebPageTest</h4>
-      <p class="text-sm text-gray-700">Analyse détaillée</p>
-    </div>
-  </div>
-
-  <h2 class="section-subtitle mt-8">Labels et certifications</h2>
-
-  <div class="value-type">
-    <ul class="feature-list">
-      <li><strong>Numérique Responsable</strong> (label)</li>
-      <li><strong>B Corp</strong> (certification entreprise)</li>
-      <li><strong>GreenIT</strong> (collectif)</li>
-    </ul>
-  </div>
+  <div class="key-concept">
+  <p class="concept-title">Écoconception : ce qu'il faut retenir en 5 lignes</p>
+  <p>Un site léger est un site rapide, moins cher à héberger et mieux référencé : l'écoconception n'est pas une contrainte en plus, c'est de la performance sous un autre nom. Les trois leviers qui comptent : <strong>les images</strong> (WebP, bonne taille, lazy loading), <strong>moins de scripts tiers</strong> (chaque widget, tracker ou police externe pèse), et <strong>moins de fonctionnalités inutiles</strong> (la vidéo en fond d'accueil que personne ne regarde). Mesurez avant/après avec EcoIndex ou Website Carbon. <strong>Argument client :</strong> « votre page passe de 3 Mo à 600 Ko et se charge en 1,2 s au lieu de 4 s » convainc plus qu'un discours sur le CO2.</p>
+</div>
 
   <h2 class="section-subtitle mt-8">Exemple concret</h2>
 
@@ -3334,107 +3115,10 @@ export const finalModules: Module[] = [
 
   <p class="section-text">Rendre le web accessible à tous, y compris les personnes en situation de handicap.</p>
 
-  <h2 class="section-subtitle mt-8">Pourquoi l'accessibilité ?</h2>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Éthique</h3>
-    <ul class="feature-list">
-      <li><strong>12 millions</strong> de personnes en situation de handicap en France</li>
-      <li><strong>Droit fondamental</strong> d'accès à l'information</li>
-    </ul>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Légal</h3>
-    <ul class="feature-list">
-      <li><strong>Obligation légale</strong> pour les services publics</li>
-      <li><strong>Sanctions</strong> possibles en cas de non-conformité</li>
-    </ul>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Business</h3>
-    <ul class="feature-list">
-      <li><strong>Audience élargie :</strong> +15% de population</li>
-      <li><strong>SEO amélioré :</strong> Bonne structure = bon référencement</li>
-      <li><strong>UX pour tous :</strong> Bénéfice pour tous les utilisateurs</li>
-    </ul>
-  </div>
-
-  <h2 class="section-subtitle mt-8">Types de handicaps</h2>
-
-  <div class="deliverables-grid">
-    <div class="deliverable-phase">
-      <h4 class="phase-title">Visuel</h4>
-      <ul class="deliverable-list">
-        <li>Cécité</li>
-        <li>Malvoyance</li>
-        <li>Daltonisme</li>
-      </ul>
-    </div>
-
-    <div class="deliverable-phase">
-      <h4 class="phase-title">Auditif</h4>
-      <ul class="deliverable-list">
-        <li>Surdité</li>
-        <li>Malentendance</li>
-      </ul>
-    </div>
-
-    <div class="deliverable-phase">
-      <h4 class="phase-title">Moteur</h4>
-      <ul class="deliverable-list">
-        <li>Mobilité réduite</li>
-        <li>Impossibilité d'utiliser la souris</li>
-      </ul>
-    </div>
-
-    <div class="deliverable-phase">
-      <h4 class="phase-title">Cognitif</h4>
-      <ul class="deliverable-list">
-        <li>Dyslexie</li>
-        <li>Troubles de l'attention</li>
-        <li>Difficultés de compréhension</li>
-      </ul>
-    </div>
-  </div>
-
-  <h2 class="section-subtitle mt-8">RGAA - Les 4 principes WCAG</h2>
-
-  <div class="project-type">
-    <h3 class="project-type-title">1. Perceptible</h3>
-    <ul class="feature-list">
-      <li>Alternative textuelle aux images</li>
-      <li>Sous-titres pour vidéos</li>
-      <li>Contraste suffisant</li>
-    </ul>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">2. Utilisable</h3>
-    <ul class="feature-list">
-      <li>Navigation au clavier</li>
-      <li>Temps suffisant pour lire</li>
-      <li>Pas de clignotements (risque épilepsie)</li>
-    </ul>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">3. Compréhensible</h3>
-    <ul class="feature-list">
-      <li>Langage clair</li>
-      <li>Fonctionnement prévisible</li>
-      <li>Aide à la saisie</li>
-    </ul>
-  </div>
-
-  <div class="project-type">
-    <h3 class="project-type-title">4. Robuste</h3>
-    <ul class="feature-list">
-      <li>Code valide</li>
-      <li>Compatible technologies d'assistance</li>
-    </ul>
-  </div>
+  <div class="key-concept">
+  <p class="concept-title">Accessibilité : ce qu'un chef de projet doit retenir (et rien de plus)</p>
+  <p><strong>1.</strong> Environ 15 % des utilisateurs ont un handicap qui change leur façon d'utiliser un site (vue, audition, motricité, cognition). <strong>2.</strong> Le RGAA est la déclinaison française des règles internationales WCAG ; le niveau visé en pratique est AA. <strong>3.</strong> C'est obligatoire pour le secteur public et les grandes entreprises, et un argument commercial pour tous les autres. <strong>4.</strong> Quatre réflexes règlent 80 % des problèmes : du HTML sémantique, un texte alternatif sur chaque image utile, un contraste suffisant, tout accessible au clavier. <strong>5.</strong> Ça se prévoit dès les maquettes et se teste avec Lighthouse ou axe : corriger après la mise en ligne coûte cinq fois plus cher. <strong>Ce que vous devez savoir dire au client :</strong> « Nous visons le niveau AA, voici ce que ça implique dans le devis. » Le détail des 106 critères du RGAA, c'est le travail de l'intégrateur et de l'auditeur, pas le vôtre.</p>
+</div>
 
   <h2 class="section-subtitle mt-8">Bonnes pratiques</h2>
 
@@ -3506,39 +3190,7 @@ export const finalModules: Module[] = [
     </div>
   </div>
 
-  <h2 class="section-subtitle mt-8">Niveaux de conformité</h2>
-
-  <div class="deliverables-grid">
-    <div class="deliverable-phase">
-      <h4 class="phase-title">Niveau A</h4>
-      <p class="text-sm text-gray-700">Minimum</p>
-    </div>
-
-    <div class="deliverable-phase">
-      <h4 class="phase-title">Niveau AA</h4>
-      <p class="text-sm text-gray-700">Recommandé (obligatoire secteur public)</p>
-    </div>
-
-    <div class="deliverable-phase">
-      <h4 class="phase-title">Niveau AAA</h4>
-      <p class="text-sm text-gray-700">Optimal</p>
-    </div>
-  </div>
-
-  <h2 class="section-subtitle mt-8">Démarche d'accessibilité</h2>
-
-  <div class="value-type">
-    <ul class="feature-list">
-      <li><strong>1. Sensibilisation</strong> de l'équipe</li>
-      <li><strong>2. Audit</strong> de l'existant</li>
-      <li><strong>3. Priorisation</strong> des corrections</li>
-      <li><strong>4. Corrections</strong> itératives</li>
-      <li><strong>5. Tests</strong> avec utilisateurs</li>
-      <li><strong>6. Documentation</strong></li>
-      <li><strong>7. Maintenance</strong> continue</li>
-    </ul>
-  </div>
-</div>`,
+  </div>`,
         casePratique: {
           title: 'Audit d\'accessibilité',
           description: 'Identifier et corriger les problèmes',

@@ -1,89 +1,138 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { Eye, EyeOff, Lightbulb, Lock } from 'lucide-react'
+import { useEffect, useState } from 'react'
+import { Eye, EyeOff, Lock, Save } from 'lucide-react'
 import { isTeacherMode } from '@/lib/teacherMode'
+import { toHtml } from '@/lib/htmlLite'
 
 interface CasPratiqueProps {
+  moduleId: string
+  sectionId: string
   title: string
   description: string
   exercice: string
-  correction?: string
+  hasCorrection: boolean
+  caseIndex?: number
 }
 
-export default function CasPratique({ title, description, exercice, correction }: CasPratiqueProps) {
-  const [showCorrection, setShowCorrection] = useState(false)
+/**
+ * Feuillet jaune : l'exercice. Feuillet rose : la correction, servie par l'API
+ * uniquement à un enseignant authentifié (jamais présente dans le bundle).
+ * Le HTML injecté provient exclusivement des fichiers data/*.ts du dépôt.
+ */
+export default function CasPratique({ moduleId, sectionId, title, description, exercice, hasCorrection, caseIndex = 0 }: CasPratiqueProps) {
   const [isTeacher, setIsTeacher] = useState(false)
+  const [correction, setCorrection] = useState<string | null>(null)
+  const [showCorrection, setShowCorrection] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+  const [answer, setAnswer] = useState('')
+  const [savedAt, setSavedAt] = useState<string | null>(null)
+
+  const storageKey = `answer:${moduleId}:${sectionId}:${caseIndex}`
 
   useEffect(() => {
     setIsTeacher(isTeacherMode())
-  }, [])
+    try {
+      const saved = localStorage.getItem(storageKey)
+      if (saved) setAnswer(saved)
+    } catch {
+      /* stockage indisponible */
+    }
+  }, [storageKey])
+
+  const saveAnswer = () => {
+    try {
+      localStorage.setItem(storageKey, answer)
+      setSavedAt(new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }))
+    } catch {
+      setSavedAt(null)
+    }
+  }
+
+  const toggleCorrection = async () => {
+    if (showCorrection) {
+      setShowCorrection(false)
+      return
+    }
+    if (correction) {
+      setShowCorrection(true)
+      return
+    }
+    setLoading(true)
+    setError(null)
+    try {
+      const res = await fetch(`/api/correction?module=${encodeURIComponent(moduleId)}&section=${encodeURIComponent(sectionId)}&case=${caseIndex}`)
+      const data = await res.json()
+      if (!res.ok || !data.ok) throw new Error(data.error || 'Correction indisponible')
+      setCorrection(data.html)
+      setShowCorrection(true)
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Correction indisponible')
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
-    <div className="mt-8 bg-gradient-to-br from-purple-50 via-pink-50 to-purple-50 rounded-2xl p-6 shadow-lg relative overflow-hidden">
-      {/* Effet décoratif */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-purple-200 rounded-full opacity-20 -mr-16 -mt-16" />
-      <div className="absolute bottom-0 left-0 w-24 h-24 bg-pink-200 rounded-full opacity-20 -ml-12 -mb-12" />
-      
-      <div className="relative">
-        <div className="flex items-start gap-3 mb-3">
-          <div className="bg-purple-600 p-2 rounded-lg shadow-md">
-            <Lightbulb className="w-5 h-5 text-white" />
-          </div>
-          <div>
-            <h3 className="text-xl font-bold text-purple-900">
-              Cas pratique : {title}
-            </h3>
-            <p className="text-purple-700 text-sm mt-1">{description}</p>
-          </div>
-        </div>
+    <section aria-labelledby={`cas-${sectionId}-${caseIndex}`}>
+      <div className="sheet sheet--yellow perforated">
+        <span className="sheet__tab">Copie jaune · Cas pratique{caseIndex > 0 ? ` ${caseIndex + 1}` : ''}</span>
+        <div className="sheet__body">
+          <h3 id={`cas-${sectionId}-${caseIndex}`} className="display-narrow text-2xl">
+            {title}
+          </h3>
+          <p className="mt-2 text-[1.02rem] text-ink-2">{description}</p>
 
-        <div className="bg-white/80 backdrop-blur-sm rounded-xl p-5 mt-4 shadow-md">
-          <h4 className="font-semibold text-purple-900 mb-3 text-lg">Énoncé</h4>
-          <div dangerouslySetInnerHTML={{ __html: exercice }} />
-        </div>
+          <div className="doc mt-6 border-t border-copy-yellow-ink/40 pt-5" dangerouslySetInnerHTML={{ __html: toHtml(exercice) }} />
 
-        {correction && isTeacher && (
-          <div className="mt-4">
-            <button
-              onClick={() => setShowCorrection(!showCorrection)}
-              className="flex items-center gap-2 px-5 py-2.5 bg-purple-600 hover:bg-purple-700 text-white rounded-xl shadow-md hover:shadow-lg transition-all duration-200 font-medium"
-            >
-              {showCorrection ? (
-                <>
-                  <EyeOff className="w-4 h-4" />
-                  Masquer la correction
-                </>
-              ) : (
-                <>
-                  <Eye className="w-4 h-4" />
-                  Voir la correction proposée
-                </>
-              )}
-            </button>
-          </div>
-        )}
-
-        {correction && !isTeacher && (
-          <div className="mt-4">
-            <div className="flex items-center gap-2 px-5 py-2.5 bg-gray-300 text-gray-500 rounded-xl shadow-md font-medium cursor-not-allowed">
-              <Lock className="w-4 h-4" />
-              Correction réservée à l'enseignant
+          <div className="mt-6 border-t border-copy-yellow-ink/40 pt-5">
+            <label htmlFor={`answer-${sectionId}-${caseIndex}`} className="label text-copy-yellow-ink">
+              Votre réponse (brouillon, gardé sur cet appareil)
+            </label>
+            <textarea
+              id={`answer-${sectionId}-${caseIndex}`}
+              className="field mt-2 bg-white/70"
+              placeholder="Notez vos idées, votre plan, vos questions au client…"
+              value={answer}
+              onChange={(e) => setAnswer(e.target.value)}
+            />
+            <div className="mt-2 flex flex-wrap items-center gap-3">
+              <button type="button" className="btn btn--sm" onClick={saveAnswer}>
+                <Save className="h-3.5 w-3.5" aria-hidden="true" />
+                Enregistrer le brouillon
+              </button>
+              {savedAt && <span className="num text-xs text-ink-2">Enregistré à {savedAt}</span>}
             </div>
           </div>
-        )}
 
-            {showCorrection && isTeacher && correction && (
-              <div className="mt-4 bg-white/90 backdrop-blur-sm rounded-xl p-5 shadow-md border-2 border-purple-300 animate-in fade-in slide-in-from-top-2 duration-300">
-                <h4 className="font-semibold text-purple-900 mb-3 text-lg flex items-center gap-2">
-                  <span className="text-2xl">💡</span>
-                  Proposition de correction
-                </h4>
-                <div dangerouslySetInnerHTML={{ __html: correction }} />
-              </div>
-            )}
+          {hasCorrection && (
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              {isTeacher ? (
+                <button type="button" className="btn btn--sm btn--primary" onClick={toggleCorrection} disabled={loading}>
+                  {showCorrection ? <EyeOff className="h-3.5 w-3.5" aria-hidden="true" /> : <Eye className="h-3.5 w-3.5" aria-hidden="true" />}
+                  {loading ? 'Chargement…' : showCorrection ? 'Masquer la correction' : 'Voir la correction proposée'}
+                </button>
+              ) : (
+                <span className="inline-flex items-center gap-2 text-sm text-copy-yellow-ink">
+                  <Lock className="h-3.5 w-3.5" aria-hidden="true" />
+                  Correction sur le feuillet rose, réservée à l’enseignant. Elle sera commentée en cours.
+                </span>
+              )}
+              {error && <span className="text-sm text-red-ink">{error}</span>}
+            </div>
+          )}
+        </div>
       </div>
-    </div>
+
+      {showCorrection && correction && (
+        <div className="sheet sheet--pink perforated animate-in" role="region" aria-label="Correction proposée">
+          <span className="sheet__tab">Copie rose · Correction enseignant</span>
+          <div className="sheet__body">
+            <div className="doc" dangerouslySetInnerHTML={{ __html: correction }} />
+          </div>
+        </div>
+      )}
+    </section>
   )
 }
-

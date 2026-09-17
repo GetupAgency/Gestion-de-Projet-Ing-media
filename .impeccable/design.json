@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-15T00:00:00Z",
+  "title": "Design System: Gestion de projet web · Ingémedia",
+  "extensions": {
+    "colorMeta": {
+      "paper": { "role": "neutral", "displayName": "Papier blanc froid", "canonical": "#f9fafc", "tonalRamp": ["#16161a", "#2c2c33", "#45454d", "#6d6d77", "#9a9aa3", "#c4c6cc", "#e4e7eb", "#f9fafc"] },
+      "paper-2": { "role": "neutral", "displayName": "Papier 2", "canonical": "#eff1f4", "tonalRamp": ["#16161a", "#2c2c33", "#45454d", "#6d6d77", "#9a9aa3", "#c4c6cc", "#e4e7eb", "#eff1f4"] },
+      "white": { "role": "neutral", "displayName": "Blanc posé", "canonical": "#ffffff", "tonalRamp": ["#16161a", "#2c2c33", "#45454d", "#6d6d77", "#9a9aa3", "#c4c6cc", "#eff1f4", "#ffffff"] },
+      "ink": { "role": "neutral", "displayName": "Encre", "canonical": "#16161a", "tonalRamp": ["#16161a", "#2c2c33", "#45454d", "#6d6d77", "#9a9aa3", "#c4c6cc", "#e4e7eb", "#f9fafc"] },
+      "ink-2": { "role": "neutral", "displayName": "Encre 2", "canonical": "#45454d", "tonalRamp": ["#16161a", "#2c2c33", "#45454d", "#6d6d77", "#9a9aa3", "#c4c6cc", "#e4e7eb", "#f9fafc"] },
+      "ink-3": { "role": "neutral", "displayName": "Encre 3", "canonical": "#6d6d77", "tonalRamp": ["#16161a", "#2c2c33", "#45454d", "#6d6d77", "#9a9aa3", "#c4c6cc", "#e4e7eb", "#f9fafc"] },
+      "rule": { "role": "neutral", "displayName": "Réglure (encre à 18 %)", "canonical": "rgba(22, 22, 26, 0.18)", "tonalRamp": ["rgba(22,22,26,1)", "rgba(22,22,26,0.8)", "rgba(22,22,26,0.6)", "rgba(22,22,26,0.4)", "rgba(22,22,26,0.18)", "rgba(22,22,26,0.09)", "rgba(22,22,26,0.05)", "rgba(22,22,26,0.02)"] },
+      "rule-soft": { "role": "neutral", "displayName": "Réglure douce (encre à 9 %)", "canonical": "rgba(22, 22, 26, 0.09)", "tonalRamp": ["rgba(22,22,26,1)", "rgba(22,22,26,0.8)", "rgba(22,22,26,0.6)", "rgba(22,22,26,0.4)", "rgba(22,22,26,0.18)", "rgba(22,22,26,0.09)", "rgba(22,22,26,0.05)", "rgba(22,22,26,0.02)"] },
+      "stamp": { "role": "primary", "displayName": "Encre de tampon", "canonical": "#2b41e5", "tonalRamp": ["#0b1257", "#141f8c", "#1c2db8", "#2b41e5", "#5a6cec", "#8a97f2", "#bcc3f8", "#e6e9fd"] },
+      "stamp-soft": { "role": "primary", "displayName": "Encre légère", "canonical": "rgba(43, 65, 229, 0.08)", "tonalRamp": ["#0b1257", "#141f8c", "#1c2db8", "#2b41e5", "#5a6cec", "#8a97f2", "#bcc3f8", "#eef0fd"] },
+      "red": { "role": "secondary", "displayName": "Rouge de correction", "canonical": "#c8321e", "tonalRamp": ["#3d0e08", "#6a1a0f", "#962515", "#c8321e", "#d9604f", "#e68e82", "#f1bdb5", "#fae6e3"] },
+      "red-soft": { "role": "secondary", "displayName": "Rouge léger", "canonical": "rgba(200, 50, 30, 0.07)", "tonalRamp": ["#3d0e08", "#6a1a0f", "#962515", "#c8321e", "#d9604f", "#e68e82", "#f1bdb5", "#fbeeec"] },
+      "yellow": { "role": "tertiary", "displayName": "Copie jaune", "canonical": "#f6e38f", "tonalRamp": ["#2e2500", "#5d4a00", "#8c7000", "#bb9700", "#e5cd55", "#f6e38f", "#faedb8", "#fdf7e0"] },
+      "yellow-ink": { "role": "tertiary", "displayName": "Encre de la copie jaune", "canonical": "#5d4a00", "tonalRamp": ["#2e2500", "#5d4a00", "#8c7000", "#bb9700", "#e5cd55", "#f6e38f", "#faedb8", "#fdf7e0"] },
+      "pink": { "role": "tertiary", "displayName": "Copie rose", "canonical": "#f2c4cf", "tonalRamp": ["#350f19", "#6a1e33", "#9b2d4c", "#c65a78", "#dc94a6", "#f2c4cf", "#f8dde4", "#fcf0f3"] },
+      "pink-ink": { "role": "tertiary", "displayName": "Encre de la copie rose", "canonical": "#6a1e33", "tonalRamp": ["#350f19", "#6a1e33", "#9b2d4c", "#c65a78", "#dc94a6", "#f2c4cf", "#f8dde4", "#fcf0f3"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Titre de page dans le cartouche. Archivo wdth 88." },
+      "display-narrow": { "displayName": "Display étroit", "purpose": "Titres de section, de cadre et de feuillet. Archivo wdth 75." },
+      "headline": { "displayName": "Headline (doc h1)", "purpose": "Titre du poste dans le contenu pédagogique, fermé par un trait 2 px. Archivo wdth 84." },
+      "title": { "displayName": "Title (doc h2)", "purpose": "Sous-titres de contenu, précédés d'un tiret d'encre de 2rem." },
+      "body": { "displayName": "Body", "purpose": "Corps de page, 17px / 1.6." },
+      "doc": { "displayName": "Doc", "purpose": "Contenu pédagogique injecté, borné à 46rem." },
+      "label": { "displayName": "Label", "purpose": "Libellés de champ, en-têtes de colonne, onglets de feuillet, notes en marge d'un titre. Capitales espacées 0.14em, encre 3. Jamais un chapeau au-dessus d'un titre." },
+      "num": { "displayName": "Num", "purpose": "Tout chiffre, date, référence, compteur, champ. JetBrains Mono tabulaire." },
+      "stamp": { "displayName": "Tampon", "purpose": "Texte des tampons uniquement. Archivo wdth 80, 800, capitales 0.16em." }
+    },
+    "shadows": [
+      { "name": "double-border-inset", "value": "inset 0 0 0 1px var(--stamp)", "purpose": "Épaissit la bordure d'une option sélectionnée ou correcte sans changer sa boîte ; var(--red) pour incorrecte ; 2px sur Vrai / Faux. Seul box-shadow du système ; aucune ombre externe." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Unique courbe d'easing du système." },
+      { "name": "duration-control", "value": "140ms", "purpose": "Boutons et champs (background, color, border-color)." },
+      { "name": "duration-option", "value": "120ms", "purpose": "Options de quiz, chips, cases à cocher, cellules de dépôt." },
+      { "name": "duration-enter", "value": "250ms", "purpose": "Apparition d'un bloc (animate-in, fade-in)." },
+      { "name": "stamp-press", "value": "0.5s var(--ease-out) both ; 0% opacity 0 scale(1.9) ; 55% scale(0.94) ; 100% scale(1)", "purpose": "L'impression du tampon quand un module est clôturé ou une correction révélée." },
+      { "name": "score-popup", "value": "0.9s var(--ease-out) forwards ; monte de 36px en s'effaçant", "purpose": "Le +N mono bleu au-dessus d'une bonne réponse dans le quiz global." },
+      { "name": "reduced-motion", "value": "animation-duration: 0.001ms ; transition-duration: 0.001ms", "purpose": "prefers-reduced-motion : tout est coupé." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "page", "value": "80rem" },
+      { "name": "measure", "value": "46rem" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Bouton",
+      "kind": "button",
+      "refersTo": "button",
+      "description": "Case de formulaire à bordure d'encre ; hover encre pleine.",
+      "html": "<button class=\"ds-btn\">Poste précédent</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 2.75rem; padding: 0.55rem 1.1rem; border: 1px solid var(--ink, #16161a); border-radius: 0; background: var(--paper, #f9fafc); color: var(--ink, #16161a); font-family: var(--font-sans, Archivo, Arial, sans-serif); font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1; cursor: pointer; transition: background-color 140ms cubic-bezier(0.16,1,0.3,1), color 140ms cubic-bezier(0.16,1,0.3,1); } .ds-btn:hover { background: var(--ink, #16161a); color: var(--paper, #f9fafc); } .ds-btn:focus-visible { outline: 2px solid var(--stamp, #2b41e5); outline-offset: 2px; } .ds-btn:disabled { border-style: dashed; border-color: var(--ink-3, #6d6d77); color: var(--ink-3, #6d6d77); cursor: not-allowed; }"
+    },
+    {
+      "name": "Bouton primaire",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Encre pleine ; le hover est la seule apparition du bleu sur un bouton. Un seul par vue.",
+      "html": "<button class=\"ds-btn-primary\">Clôturer le module <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 2.75rem; padding: 0.55rem 1.1rem; border: 1px solid var(--ink, #16161a); border-radius: 0; background: var(--ink, #16161a); color: var(--paper, #f9fafc); font-family: var(--font-sans, Archivo, Arial, sans-serif); font-size: 0.8125rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1; cursor: pointer; transition: background-color 140ms cubic-bezier(0.16,1,0.3,1), border-color 140ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-primary:hover { background: var(--stamp, #2b41e5); border-color: var(--stamp, #2b41e5); color: #fff; } .ds-btn-primary:focus-visible { outline: 2px solid var(--stamp, #2b41e5); outline-offset: 2px; }"
+    },
+    {
+      "name": "Bouton tampon",
+      "kind": "button",
+      "refersTo": "button-stamp",
+      "description": "Bordure et texte bleus ; réservé à l'action « Reprendre » sur la ligne en cours.",
+      "html": "<button class=\"ds-btn-stamp\">Reprendre 3.2</button>",
+      "css": ".ds-btn-stamp { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 2.25rem; padding: 0.4rem 0.8rem; border: 1px solid var(--stamp, #2b41e5); border-radius: 0; background: var(--paper, #f9fafc); color: var(--stamp, #2b41e5); font-family: var(--font-sans, Archivo, Arial, sans-serif); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1; cursor: pointer; transition: background-color 140ms cubic-bezier(0.16,1,0.3,1), color 140ms cubic-bezier(0.16,1,0.3,1); } .ds-btn-stamp:hover { background: var(--stamp, #2b41e5); color: #fff; } .ds-btn-stamp:focus-visible { outline: 2px solid var(--stamp, #2b41e5); outline-offset: 2px; }"
+    },
+    {
+      "name": "Champ",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Ligne de formulaire carbone : hairline sur trois côtés, encre pleine en bas, mono ; focus bleu.",
+      "html": "<input class=\"ds-field\" type=\"text\" placeholder=\"Notez vos idées, votre plan, vos questions au client…\">",
+      "css": ".ds-field { width: 100%; min-height: 2.75rem; padding: 0.55rem 0.75rem; border: 1px solid var(--rule, rgba(22,22,26,0.18)); border-bottom-color: var(--ink, #16161a); border-radius: 0; background: #fff; color: var(--ink, #16161a); font-family: var(--font-mono, 'JetBrains Mono', Menlo, monospace); font-size: 0.95rem; caret-color: var(--stamp, #2b41e5); transition: border-color 140ms cubic-bezier(0.16,1,0.3,1); } .ds-field::placeholder { color: var(--ink-3, #6d6d77); } .ds-field:focus { outline: none; border-color: var(--stamp, #2b41e5); }"
+    },
+    {
+      "name": "Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Filtre ou élément à placer ; pressé = encre pleine.",
+      "html": "<button class=\"ds-chip\" aria-pressed=\"false\">Budget</button> <button class=\"ds-chip\" aria-pressed=\"true\">Technique</button>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; gap: 0.4rem; min-height: 2.25rem; padding: 0.35rem 0.7rem; border: 1px solid var(--ink, #16161a); border-radius: 0; background: #fff; color: var(--ink, #16161a); font-family: var(--font-sans, Archivo, Arial, sans-serif); font-size: 0.85rem; font-weight: 600; line-height: 1.2; cursor: pointer; transition: background-color 120ms cubic-bezier(0.16,1,0.3,1), color 120ms cubic-bezier(0.16,1,0.3,1); } .ds-chip:hover { background: var(--paper-2, #eff1f4); } .ds-chip[aria-pressed='true'] { background: var(--ink, #16161a); color: var(--paper, #f9fafc); } .ds-chip:focus-visible { outline: 2px solid var(--stamp, #2b41e5); outline-offset: 2px; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Cellules pleine hauteur à bordure gauche hairline ; l'actif en encre pleine ; le header est fermé par 2 px d'encre.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Index du dossier\"><a class=\"ds-nav__link\" href=\"#\" aria-current=\"page\">Dossier</a><a class=\"ds-nav__link\" href=\"#\">Quiz</a><a class=\"ds-nav__link\" href=\"#\">Mission</a><a class=\"ds-nav__link\" href=\"#\">Lexique</a></nav>",
+      "css": ".ds-nav { display: flex; align-items: stretch; height: 3.75rem; border-bottom: 2px solid var(--ink, #16161a); background: var(--paper, #f9fafc); } .ds-nav__link { display: flex; align-items: center; padding: 0 1.25rem; border-left: 1px solid var(--rule, rgba(22,22,26,0.18)); color: var(--ink, #16161a); font-family: var(--font-sans, Archivo, Arial, sans-serif); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; transition: background-color 140ms cubic-bezier(0.16,1,0.3,1); } .ds-nav__link:hover { background: var(--paper-2, #eff1f4); } .ds-nav__link[aria-current='page'] { background: var(--ink, #16161a); color: var(--paper, #f9fafc); } .ds-nav__link:focus-visible { outline: 2px solid var(--stamp, #2b41e5); outline-offset: -2px; }"
+    },
+    {
+      "name": "Tampon",
+      "kind": "custom",
+      "refersTo": "stamp",
+      "description": "L'état est une matière : bordure currentColor, incliné, en multiply. Taille lg pour table et cartouche.",
+      "html": "<span class=\"ds-stamp ds-stamp--lg\" style=\"--tilt:-7deg\">Validé</span> <span class=\"ds-stamp ds-stamp--lg\" style=\"--tilt:4deg\">En cours</span> <span class=\"ds-stamp ds-stamp--red\" style=\"--tilt:3deg\">Faux</span>",
+      "css": ".ds-stamp { --tilt: -5deg; display: inline-block; margin: 0.5rem; padding: 0.28em 0.55em 0.22em; border: 2px solid currentColor; border-radius: 2px; font-family: var(--font-sans, Archivo, Arial, sans-serif); font-variation-settings: 'wdth' 80; font-size: 0.72rem; font-weight: 800; letter-spacing: 0.16em; line-height: 1; text-transform: uppercase; white-space: nowrap; color: var(--stamp, #2b41e5); transform: rotate(var(--tilt)); transform-origin: 50% 50%; mix-blend-mode: multiply; } .ds-stamp--lg { font-size: 1.1rem; padding: 0.34em 0.7em 0.28em; border-width: 3px; } .ds-stamp--red { color: var(--red, #c8321e); } .ds-stamp--ink { color: var(--ink, #16161a); }"
+    },
+    {
+      "name": "Feuillet jaune (cas pratique)",
+      "kind": "card",
+      "refersTo": "sheet-yellow",
+      "description": "Copie carbone de l'exercice : fond jaune, bordure encre jaune, onglet collé, bande perforée à gauche.",
+      "html": "<div class=\"ds-sheet ds-sheet--yellow\"><span class=\"ds-sheet__tab\">Copie jaune · Cas pratique</span><div class=\"ds-sheet__body\"><h3 class=\"ds-sheet__title\">Identifier les risques d'un projet</h3><p class=\"ds-sheet__lead\">Analyser et anticiper les risques potentiels avant qu'ils ne surviennent.</p></div></div>",
+      "css": ".ds-sheet { position: relative; border: 1px solid var(--yellow-ink, #5d4a00); border-radius: 0; padding: 1.75rem 1.75rem 1.75rem 3rem; background: var(--yellow, #f6e38f); color: var(--ink, #16161a); font-family: var(--font-sans, Archivo, Arial, sans-serif); } .ds-sheet::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 1.5rem; border-right: 1px dashed rgba(93,74,0,0.35); background-image: radial-gradient(circle at 50% 50%, var(--yellow, #f6e38f) 0 3.5px, transparent 4px); background-size: 1.5rem 1.5rem; background-position: 0 0.4rem; pointer-events: none; } .ds-sheet__tab { position: absolute; top: -1px; left: -1px; padding: 0.45rem 0.8rem 0.4rem; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1; background: var(--yellow-ink, #5d4a00); color: var(--yellow, #f6e38f); } .ds-sheet__body { padding-top: 1rem; } .ds-sheet__title { margin: 0; font-variation-settings: 'wdth' 75; font-weight: 700; font-size: 1.5rem; letter-spacing: -0.01em; line-height: 1; } .ds-sheet__lead { margin: 0.5rem 0 0; font-size: 1.02rem; line-height: 1.6; color: var(--ink-2, #45454d); }"
+    },
+    {
+      "name": "Feuillet rose (correction enseignant)",
+      "kind": "card",
+      "refersTo": "sheet-pink",
+      "description": "Copie carbone de la correction, servie uniquement à un enseignant authentifié.",
+      "html": "<div class=\"ds-sheet-pink\"><span class=\"ds-sheet-pink__tab\">Copie rose · Correction enseignant</span><div class=\"ds-sheet-pink__body\"><p>Le scope creep est le risque n°1 : probable et coûteux.</p></div></div>",
+      "css": ".ds-sheet-pink { position: relative; border: 1px solid var(--pink-ink, #6a1e33); border-radius: 0; padding: 1.75rem 1.75rem 1.75rem 3rem; background: var(--pink, #f2c4cf); color: var(--ink, #16161a); font-family: var(--font-sans, Archivo, Arial, sans-serif); font-size: 0.98rem; line-height: 1.6; } .ds-sheet-pink::before { content: ''; position: absolute; inset: 0 auto 0 0; width: 1.5rem; border-right: 1px dashed rgba(106,30,51,0.35); background-image: radial-gradient(circle at 50% 50%, var(--pink, #f2c4cf) 0 3.5px, transparent 4px); background-size: 1.5rem 1.5rem; background-position: 0 0.4rem; pointer-events: none; } .ds-sheet-pink__tab { position: absolute; top: -1px; left: -1px; padding: 0.45rem 0.8rem 0.4rem; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1; background: var(--pink-ink, #6a1e33); color: var(--pink, #f2c4cf); } .ds-sheet-pink__body { padding-top: 1rem; } .ds-sheet-pink__body p { margin: 0; }"
+    },
+    {
+      "name": "Table réglée",
+      "kind": "custom",
+      "refersTo": "ledger-head",
+      "description": "La ligne de devis : 2 px d'encre en haut, en-têtes en capitales, réglure hairline, chiffres mono à droite.",
+      "html": "<table class=\"ds-ledger\"><thead><tr><th>N°</th><th>Désignation</th><th class=\"ds-num ds-right\">Postes</th><th>État</th></tr></thead><tbody><tr><td class=\"ds-num ds-muted\">01</td><td><strong>Introduction à la gestion de projet web</strong></td><td class=\"ds-num ds-right\">1</td><td><span class=\"ds-ledger-stamp\" style=\"--tilt:-7deg\">Validé</span></td></tr><tr class=\"ds-current\"><td class=\"ds-num ds-muted\">02</td><td><strong>Phase de lancement</strong></td><td class=\"ds-num ds-right\">3</td><td><span class=\"ds-ledger-stamp\" style=\"--tilt:4deg\">En cours</span></td></tr><tr><td class=\"ds-num ds-muted\">03</td><td><strong>Phase de planification</strong></td><td class=\"ds-num ds-right\">3</td><td class=\"ds-num ds-muted\">—</td></tr></tbody></table>",
+      "css": ".ds-ledger { width: 100%; border-collapse: collapse; border-top: 2px solid var(--ink, #16161a); font-family: var(--font-sans, Archivo, Arial, sans-serif); font-size: 1rem; color: var(--ink, #16161a); } .ds-ledger th { padding: 0.55rem 0.75rem; text-align: left; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3, #6d6d77); border-bottom: 1px solid var(--ink, #16161a); white-space: nowrap; } .ds-ledger td { padding: 0.9rem 0.75rem; border-bottom: 1px solid var(--rule, rgba(22,22,26,0.18)); vertical-align: middle; } .ds-ledger tr:last-child td { border-bottom: 1px solid var(--ink, #16161a); } .ds-ledger .ds-current { background: rgba(246,227,143,0.4); } .ds-num { font-family: var(--font-mono, 'JetBrains Mono', Menlo, monospace); font-variant-numeric: tabular-nums; font-size: 0.875rem; } .ds-right { text-align: right; } .ds-muted { color: var(--ink-3, #6d6d77); } .ds-ledger-stamp { --tilt: -5deg; display: inline-block; padding: 0.34em 0.7em 0.28em; border: 3px solid currentColor; border-radius: 2px; font-variation-settings: 'wdth' 80; font-size: 1.1rem; font-weight: 800; letter-spacing: 0.16em; line-height: 1; text-transform: uppercase; white-space: nowrap; color: var(--stamp, #2b41e5); transform: rotate(var(--tilt)); mix-blend-mode: multiply; }"
+    },
+    {
+      "name": "Option de quiz",
+      "kind": "custom",
+      "refersTo": "quiz-option",
+      "description": "Ligne blanche à bordure d'encre, index mono carré ; sélection en bleu, erreur barrée en rouge.",
+      "html": "<div class=\"ds-quiz\"><button class=\"ds-option\"><span class=\"ds-option__index\">A</span><span>Il n'y a pas de différence, ce sont des synonymes</span></button><button class=\"ds-option ds-option--correct\"><span class=\"ds-option__index\">B</span><span>Un risque est potentiel, une crise est un risque matérialisé</span></button><button class=\"ds-option ds-option--incorrect\"><span class=\"ds-option__index\">C</span><span class=\"ds-option__text\">Une crise peut être anticipée, un risque non</span></button></div>",
+      "css": ".ds-quiz { max-width: 40rem; font-family: var(--font-sans, Archivo, Arial, sans-serif); } .ds-option { position: relative; display: flex; align-items: center; width: 100%; min-height: 3.5rem; padding: 0.85rem 1rem; border: 1px solid var(--ink, #16161a); border-radius: 0; background: #fff; color: var(--ink, #16161a); font-size: 1rem; line-height: 1.45; text-align: left; cursor: pointer; transition: background-color 120ms cubic-bezier(0.16,1,0.3,1), border-color 120ms cubic-bezier(0.16,1,0.3,1); } .ds-option + .ds-option { margin-top: -1px; } .ds-option:hover { background: var(--paper-2, #eff1f4); } .ds-option:focus-visible { outline: 2px solid var(--stamp, #2b41e5); outline-offset: 2px; z-index: 2; } .ds-option__index { display: inline-grid; place-items: center; flex-shrink: 0; width: 2rem; height: 2rem; margin-right: 0.9rem; border: 1px solid var(--ink, #16161a); font-family: var(--font-mono, 'JetBrains Mono', Menlo, monospace); font-size: 0.85rem; font-weight: 700; } .ds-option--correct { background: var(--stamp-soft, rgba(43,65,229,0.08)); border-color: var(--stamp, #2b41e5); box-shadow: inset 0 0 0 1px var(--stamp, #2b41e5); z-index: 1; } .ds-option--correct .ds-option__index { background: var(--stamp, #2b41e5); border-color: var(--stamp, #2b41e5); color: #fff; } .ds-option--incorrect { background: var(--red-soft, rgba(200,50,30,0.07)); border-color: var(--red, #c8321e); box-shadow: inset 0 0 0 1px var(--red, #c8321e); z-index: 1; } .ds-option--incorrect .ds-option__index { background: var(--red, #c8321e); border-color: var(--red, #c8321e); color: #fff; } .ds-option--incorrect .ds-option__text { text-decoration: line-through; text-decoration-color: var(--red, #c8321e); text-decoration-thickness: 2px; }"
+    },
+    {
+      "name": "Cartouche",
+      "kind": "custom",
+      "refersTo": "nav-link",
+      "description": "En-tête de devis : bloc titre à gauche, champs de référence mono à droite derrière un trait vertical, fermé par 2 px d'encre.",
+      "html": "<section class=\"ds-cartouche\"><div class=\"ds-cartouche__title\"><h1>Gestion de crise projet</h1><p>Savoir réagir face aux imprévus : coupes budgétaires, perte d'équipe, retards et dérives</p></div><dl class=\"ds-cartouche__meta\"><div><dt>Réf.</dt><dd>Module 10 / 11</dd></div><div><dt>Postes</dt><dd>0 / 5 terminés</dd></div><div><dt>Contrôle</dt><dd>25 questions</dd></div></dl></section>",
+      "css": ".ds-cartouche { display: grid; grid-template-columns: 1fr auto; border-bottom: 2px solid var(--ink, #16161a); background: var(--paper, #f9fafc); color: var(--ink, #16161a); font-family: var(--font-sans, Archivo, Arial, sans-serif); } .ds-cartouche__title { padding: 2.5rem 2rem; } .ds-cartouche__title h1 { margin: 0; font-variation-settings: 'wdth' 88; font-weight: 700; font-size: clamp(2rem, 1.4rem + 2.4vw, 3.4rem); letter-spacing: -0.02em; line-height: 1.02; text-wrap: balance; } .ds-cartouche__title p { margin: 1rem 0 0; max-width: 46rem; font-size: 1.05rem; line-height: 1.625; color: var(--ink-2, #45454d); } .ds-cartouche__meta { margin: 0; min-width: 22rem; border-left: 1px solid var(--ink, #16161a); } .ds-cartouche__meta > div { padding: 1rem 1.5rem; } .ds-cartouche__meta > div + div { border-top: 1px solid var(--rule, rgba(22,22,26,0.18)); } .ds-cartouche__meta dt { font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3, #6d6d77); line-height: 1; } .ds-cartouche__meta dd { margin: 0.375rem 0 0; font-family: var(--font-mono, 'JetBrains Mono', Menlo, monospace); font-variant-numeric: tabular-nums; font-size: 0.95rem; font-weight: 600; line-height: 1.375; } @media (max-width: 1023px) { .ds-cartouche { grid-template-columns: 1fr; } .ds-cartouche__meta { min-width: 0; border-left: 0; border-top: 1px solid var(--ink, #16161a); } }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Le dossier d'agence",
+    "overview": "Le cours n'est pas un LMS : c'est un dossier de devis qu'on ouvre. Chaque module est une ligne numérotée d'une table réglée, chaque section un « poste », la progression un total en gros chiffres mono aligné à droite en pied de table. Le matériau est un papier blanc froid (bleuté, jamais crème), l'encre est noire, et un seul accent existe : l'encre de tampon bleue, qui n'apparaît que pour dire un état (validé, en cours, juste, sélectionné, focus). Les feuillets de couleur sont des copies carbone au sens propre : jaune pour l'exercice, rose pour la correction réservée à l'enseignant.\n\nLa densité est celle d'un document administratif bien tenu : réglure hairline entre les lignes, traits d'encre de 2 px pour ouvrir une table ou clore un cartouche, angles vifs partout, zéro ombre douce. Les titres sont en Archivo condensé (axe de chasse wdth), les libellés en capitales espacées, tous les chiffres en JetBrains Mono tabulaire. La page se lit de loin (projection en salle) et se manipule de près (laptop) sans changer de composants.\n\nLe système refuse trois choses que l'implémentation ne contient nulle part dans les surfaces refaites : la grille de cartes icône + titre + texte, les dégradés, et les coins arrondis. L'état n'est jamais une pastille de couleur : c'est un tampon incliné, une ligne barrée, une perforation, ou un tiret mono quand il n'y a rien à dire.",
+    "keyCharacteristics": [
+      "Papier blanc froid (#f9fafc) et encre noire (#16161a) ; un seul accent, le bleu tampon (#2b41e5), réservé aux états.",
+      "Feuillet jaune = exercice, feuillet rose = correction enseignant ; les deux sont perforés à gauche.",
+      "Hiérarchie par la réglure : 2 px d'encre pour la structure, 1 px pour les sous-structures, hairline à 18 % pour les lignes.",
+      "Archivo variable (chasse 75 à 88) pour les titres et libellés ; JetBrains Mono tabulaire pour tout chiffre et tout champ.",
+      "Angles vifs (rayon 0) ; la seule exception est le tampon (2 px, bavure d'encre) ; aucune ombre portée.",
+      "Le moment signature : le tampon VALIDÉ qui s'imprime (stamp-press, 0,5 s) sur la ligne du module clôturé."
+    ],
+    "rules": [
+      { "name": "La règle de l'encre de tampon", "body": "Le bleu (#2b41e5) dit un état ou une validation, jamais un décor : tampons, focus, sélection, correct, progression, hover du primaire. Un fond de section, un titre ou une icône décorative en bleu est une faute.", "section": "colors" },
+      { "name": "La règle des copies carbone", "body": "Jaune = exercice de l'étudiant, rose = correction et outillage enseignant. Aucune autre surface ne prend ces fonds. Le rouge n'est ni un feuillet ni un accent : il dit « faux » ou « attention ».", "section": "colors" },
+      { "name": "La règle du blanc posé", "body": "Une surface manipulable (champ, option, chip, cadre) est en blanc pur sur le papier froid ; c'est ce contraste de 1 à 2 % qui la détache, pas une ombre.", "section": "colors" },
+      { "name": "La règle des chiffres mono", "body": "Tout ce qui se compte, se date ou se référence est en JetBrains Mono tabulaire (.num). Un chiffre en Archivo dans une table ou un cartouche est une faute.", "section": "typography" },
+      { "name": "La règle du libellé de champ", "body": "Un .label nomme un champ, une colonne ou un groupe (avec sa valeur dessous ou à côté), ou s'aligne à droite d'un titre de section sur la même ligne de base. Il ne se pose jamais seul au-dessus d'un titre comme chapeau ; l'identifiant d'une page vit dans le champ « Réf. » du cartouche.", "section": "typography" },
+      { "name": "La règle de la chasse", "body": "La hiérarchie des titres se joue sur l'axe wdth d'Archivo (75 → 88) et la taille, pas sur une seconde famille ni sur des graisses légères. Une seule graisse de titrage : 700 (800 pour les tampons).", "section": "typography" },
+      { "name": "La règle de la réglure", "body": "La hiérarchie se dit par l'épaisseur du trait, pas par l'espace ou la couleur : 2 px d'encre pour ouvrir ou fermer un ensemble (table, cartouche, pied, navigation de poste), 1 px d'encre sous un en-tête ou autour d'une surface posée, hairline à 18 % entre les lignes. Une bordure de 3 px ou une couleur de bordure autre qu'encre / réglure / tampon / rouge / encre du feuillet est hors système.", "section": "layout" },
+      { "name": "La règle de la mesure", "body": "Rien qui se lit ne dépasse 46rem de large ; les tables et les cartouches, eux, prennent toute la largeur de page.", "section": "layout" },
+      { "name": "La règle zéro ombre", "body": "Aucun box-shadow externe, aucun flou, aucun dégradé de fond. Ce qui doit se détacher passe en blanc pur, en encre pleine, ou derrière un trait plus épais.", "section": "elevation" },
+      { "name": "La règle de l'angle vif", "body": "border-radius: 0 sur toute surface, sauf 2 px sur .stamp. Une pastille ronde ou une pilule est hors système ; l'état se dit par un tampon, un texte barré, une bordure, un fond encre ou un tiret mono.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do ouvrir chaque page par un Cartouche (titre display à gauche, dl de champs mono à droite, trait 2 px en bas) et mettre l'identifiant de la page dans le champ « Réf. ».",
+      "Do dire un état par un Stamp incliné (done / progress en bleu, red pour faux, ink pour « à revoir »), en lg dans une table ou un cartouche, et un tiret mono — en encre 3 pour « rien encore ».",
+      "Do mettre tout chiffre, date, référence, compteur et champ de saisie en .num (JetBrains Mono tabulaire).",
+      "Do structurer par la réglure : 2 px d'encre pour ouvrir/fermer, 1 px sous un en-tête, hairline (18 %) entre les lignes ; séparer les groupes par divide-y, pas par de l'espace.",
+      "Do poser les surfaces manipulables en blanc pur (#fff) sur le papier froid, avec une bordure d'encre 1 px et un rayon 0.",
+      "Do réserver le jaune au cas pratique (sheet--yellow perforated) et le rose à ce qui est enseignant (sheet--pink, cartouche tone=\"pink\", barre du mode enseignant).",
+      "Do borner ce qui se lit à 46rem (max-w-measure) et laisser tables et cartouches prendre les 80rem de page.",
+      "Do utiliser un seul .btn--primary par vue, en encre pleine ; le hover bleu est sa seule couleur.",
+      "Do garder le logo Ingémedia à 2.25rem de haut dans le header, suivi de sa barre verticale."
+    ],
+    "donts": [
+      "Don't arrondir : aucun rounded-* hors des 2 px du tampon ; pas de pastille, pas de pilule, pas d'avatar rond.",
+      "Don't ombrer ni dégrader : pas de shadow-*, pas de bg-gradient-*, pas de flou ; seul inset 0 0 0 1px existe, comme double bordure d'état.",
+      "Don't poser une grille de cartes icône + titre + texte ; les annexes sont des cellules réglées, les modules des lignes de table.",
+      "Don't utiliser le bleu tampon en fond de section, en titre ou en icône décorative : il ne dit que l'état, la sélection, le focus et la progression.",
+      "Don't poser un .label seul au-dessus d'un titre comme chapeau ; il nomme un champ ou une colonne, ou s'aligne à droite d'un titre sur sa ligne de base.",
+      "Don't introduire une seconde famille de titrage ni une graisse légère : la hiérarchie se fait par la chasse d'Archivo (75 à 88) et la taille.",
+      "Don't utiliser une couleur de bordure hors encre / réglure / bleu / rouge / encre des feuillets, ni une épaisseur autre que hairline, 1 px ou 2 px (3 et 4 px n'existent que sur les tampons lg / xl).",
+      "Don't afficher le rose ou une correction à un étudiant : le feuillet rose n'existe que servi par l'API à un enseignant authentifié."
+    ]
+  }
+}

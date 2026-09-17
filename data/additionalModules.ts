@@ -20,6 +20,11 @@ export const additionalModules: Module[] = [
     <p>Tout projet se gère selon 3 contraintes interdépendantes : la <strong>qualité</strong> (scope), le <strong>coût</strong> (budget) et le <strong>délai</strong> (temps). Modifier l'une impacte forcément les deux autres. Si le client veut plus de fonctionnalités (qualité), il faudra soit plus de temps, soit plus de budget. Un bon chef de projet fait comprendre ce triangle dès le cadrage.</p>
   </div>
 
+  <div class="key-concept">
+  <p class="concept-title">Le triangle Qualité-Coût-Délai, version « rendu de projet à J-3 »</p>
+  <p>Tu as déjà vécu le triangle sans le savoir. Un rendu de groupe est prévu vendredi (délai fixe). Mercredi soir, il reste la moitié du travail. Trois options, et seulement trois : <strong>1)</strong> demander un report au prof (bouger le délai) ; <strong>2)</strong> recruter un pote pour aider, ou passer une nuit blanche (augmenter le coût, en euros ou en sommeil) ; <strong>3)</strong> livrer une version sans la partie animation (réduire le périmètre). Il n'existe pas de quatrième option où tout tient sans rien sacrifier. Un client qui exige « toutes les fonctionnalités, pour la même date, au même prix » demande précisément cette quatrième option. Le travail du chef de projet, c'est de lui montrer le triangle et de lui faire choisir le côté qu'il accepte de bouger.</p>
+</div>
+
   <div class="stat-cards">
     <div class="stat-card">
       <div class="stat-value">2-4 sem.</div>
@@ -30,8 +35,8 @@ export const additionalModules: Module[] = [
       <div class="stat-label">Durée d'un daily standup</div>
     </div>
     <div class="stat-card">
-      <div class="stat-value">10-15%</div>
-      <div class="stat-label">Marge de sécurité recommandée</div>
+      <div class="stat-value">5 j</div>
+      <div class="stat-label">Délai de validation client à prévoir à chaque jalon</div>
     </div>
   </div>
 
@@ -65,6 +70,32 @@ export const additionalModules: Module[] = [
       <li>Moins flexible mais plus prévisible</li>
     </ul>
   </div>
+
+  <p class="section-text">Pour visualiser la différence entre les deux approches, pensez à deux produits que vous utilisez :</p>
+<div class="comparison-grid">
+  <div class="comparison-before">
+    <h4>Cascade : un jeu vidéo AAA en boîte (années 2000)</h4>
+    <ul>
+      <li>3 ans de développement, une seule sortie</li>
+      <li>Tout est spécifié avant de coder</li>
+      <li>Un bug découvert après la sortie reste sur le disque</li>
+      <li>Adapté quand le besoin est stable et connu</li>
+    </ul>
+  </div>
+  <div class="comparison-after">
+    <h4>Agile : Spotify ou Fortnite aujourd'hui</h4>
+    <ul>
+      <li>Nouvelle version toutes les 2 semaines</li>
+      <li>On livre une petite partie, on mesure, on ajuste</li>
+      <li>Une fonctionnalité qui ne plaît pas est retirée à la saison suivante</li>
+      <li>Adapté quand le besoin évolue ou est incertain</li>
+    </ul>
+  </div>
+</div>
+<div class="tip-box">
+  <p class="tip-title">En agence web, on fait souvent les deux</p>
+  <p>Cadrage et devis en cascade (le client veut un prix ferme), puis développement en sprints de 2 semaines avec démo au client à chaque fin de sprint. C'est ce qu'on appelle une approche hybride.</p>
+</div>
 
   <h2 class="section-subtitle mt-8">Estimation des tâches</h2>
 
@@ -116,6 +147,10 @@ export const additionalModules: Module[] = [
       <p class="text-sm text-gray-700">Clôture du projet</p>
     </div>
   </div>
+<div class="warning-box">
+  <p class="warning-title">Erreur classique de junior : planifier comme si le client répondait dans l'heure</p>
+  <p>Planning initial d'une refonte de site pour un restaurant : maquettes livrées le lundi 4, développement lancé le mardi 5. Dans la réalité : le gérant est en plein service, il regarde les maquettes le samedi, les montre à son associée le dimanche, demande deux changements le mercredi suivant, valide le vendredi 15. <strong>Onze jours de trou</strong> dans un planning de huit semaines, pendant lesquels l'agence n'a rien pu développer. Multipliez par 4 jalons de validation (CDC, wireframes, maquettes, recette) : un mois de retard sans que personne n'ait mal travaillé. La parade : inscrire dans le planning une tâche « validation client : 5 jours ouvrés » à chaque jalon, et l'écrire dans le CDC (« passé ce délai, la version est réputée validée »).</p>
+</div>
 </div>`,
         casePratique: {
           title: 'Planifier un projet e-commerce',
@@ -706,7 +741,7 @@ Justifiez chaque choix en fonction du contexte.`,
 
   <div class="tip-box">
     <p class="tip-title">Astuce : La règle d'or du budget</p>
-    <p>Toujours prévoir <strong>10-15% de réserve</strong> pour les imprévus. En 20 ans de projets web, aucun projet n'a jamais coûté exactement ce qui était prévu. Les causes : changements de scope, bugs inattendus, absences, changements technologiques. Un budget sans marge, c'est un budget déjà en dépassement.</p>
+    <p>Toujours prévoir <strong>10-15% de réserve</strong> pour les imprévus. Dans la pratique, aucun projet n'a jamais coûté exactement ce qui était prévu. Les causes : changements de scope, bugs inattendus, absences, changements technologiques. Un budget sans marge, c'est un budget déjà en dépassement.</p>
   </div>
 
   <h2 class="section-subtitle mt-8">Composantes du budget</h2>
@@ -765,6 +800,23 @@ Justifiez chaque choix en fonction du contexte.`,
     </div>
   </div>
 
+  <div class="example-box">
+  <strong>Exemple chiffré : le devis d'un site vitrine pour un studio de tatouage à Toulon</strong>
+  <br><br>
+  TJM (taux journalier moyen) de l'agence : 450 €
+  <br>• Cadrage et cahier des charges : 2 j = 900 €
+  <br>• UX/UI (wireframes + maquettes de 5 pages) : 4 j = 1 800 €
+  <br>• Intégration WordPress + galerie + prise de RDV : 6 j = 2 700 €
+  <br>• Tests et recette : 1,5 j = 675 €
+  <br>• Gestion de projet et réunions : 2 j = 900 €
+  <br>• Sous-total main-d'œuvre : 15,5 j = <strong>6 975 €</strong>
+  <br>• Thème premium + plugin RDV + hébergement 1 an : 350 €
+  <br>• Réserve 12 % : 880 €
+  <br><strong>Total devis : 8 205 € HT</strong>
+  <br><br>
+  Remarquez la ligne « gestion de projet et réunions » : c'est celle que les juniors et les freelances oublient, et elle représente 10 à 15 % du temps. Remarquez aussi que la réserve n'est pas cachée : elle est assumée et expliquée au client.
+</div>
+
   <h2 class="section-subtitle mt-8">Modèles de facturation</h2>
 
   <div class="deliverables-grid">
@@ -799,6 +851,12 @@ Justifiez chaque choix en fonction du contexte.`,
       <p class="project-detail"><strong>+</strong> Meilleur compromis risque/flexibilité</p>
     </div>
   </div>
+
+  <div class="tip-box">
+  <p class="tip-title">Forfait ou régie ? Netflix ou taxi ?</p>
+  <p>Le <strong>forfait</strong>, c'est l'abonnement Netflix : un prix fixe, que tu regardes trois séries ou aucune. Confortable pour le client, mais si tu veux un film qui n'est pas au catalogue, ce n'est pas inclus : c'est le fameux « hors périmètre ». La <strong>régie</strong>, c'est le taxi au compteur : tu paies le temps réel, tu peux changer de destination en route, mais tu ne sais pas exactement combien tu paieras à l'arrivée. Le <strong>freelance débutant</strong> se fait piéger en vendant un forfait Netflix… puis en acceptant gratuitement chaque « film » supplémentaire.</p>
+  <p><strong>Mini-défi 30 secondes :</strong> un client veut « un site vitrine, on ajustera le contenu au fil de l'eau ». Tu proposes quoi ? (Réponse conseillée : forfait pour le socle, pack d'heures en régie pour les ajustements.)</p>
+</div>
 
   <h2 class="section-subtitle mt-8">Suivi budgétaire</h2>
 
@@ -1011,6 +1069,18 @@ Justifiez chaque choix en fonction du contexte.`,
     • Les filtres sont cumulables
   </div>
 
+  <div class="warning-box">
+  <p class="warning-title">Erreur classique de junior : « le site doit être rapide et intuitif »</p>
+  <p>Ces deux mots figurent dans 90 % des cahiers des charges étudiants, et ils ne veulent rien dire : rapide pour qui, sur quel réseau, sur quelle page ? Une spécification qu'on ne peut pas tester n'est pas une spécification. Comparez :</p>
+  <ul>
+    <li><strong>Flou :</strong> « Le site doit être rapide. »</li>
+    <li><strong>Testable :</strong> « La page d'accueil s'affiche en moins de 2,5 s sur mobile en 4G ; score Lighthouse performance supérieur à 85. »</li>
+    <li><strong>Flou :</strong> « L'ajout au panier doit être intuitif. »</li>
+    <li><strong>Testable :</strong> « Depuis une fiche produit, l'article est ajouté au panier en 1 clic, le compteur se met à jour sans rechargement, et 8 testeurs sur 10 y parviennent sans aide. »</li>
+  </ul>
+  <p>Règle simple : si un testeur ne peut pas répondre « oui » ou « non » à la question « c'est conforme ? », réécrivez la phrase.</p>
+</div>
+
   <h2 class="section-subtitle mt-8">CDC Technique</h2>
 
   <div class="value-type">
@@ -1071,39 +1141,7 @@ Justifiez chaque choix en fonction du contexte.`,
     <p class="project-detail">URLs, meta tags, sitemap</p>
   </div>
 
-  <div class="example-box mt-8">
-    <strong>Exemple : Stack technique moderne</strong>
-    <br><br>
-    <strong>Frontend:</strong>
-    <br>
-    • React 18+ avec TypeScript
-    <br>
-    • Next.js pour le SSR
-    <br>
-    • TailwindCSS pour les styles
-    <br>
-    • Zustand pour le state management
-    <br><br>
-    <strong>Backend:</strong>
-    <br>
-    • Node.js + Express
-    <br>
-    • PostgreSQL
-    <br>
-    • Prisma ORM
-    <br>
-    • Redis pour le cache
-    <br><br>
-    <strong>Infrastructure:</strong>
-    <br>
-    • Vercel pour le frontend
-    <br>
-    • AWS EC2 pour le backend
-    <br>
-    • AWS RDS pour la BDD
-    <br>
-    • Cloudflare pour le CDN
-  </div>
+  <p class="section-text">Le choix de la stack (langages, frameworks, hébergement) est traité en détail dans le module Développement : ici, le CDC technique se contente de fixer les contraintes (performance, sécurité, compatibilité) que la stack devra respecter.</p>
 </div>`,
         casePratique: {
           title: 'Rédiger des spécifications',

@@ -57,7 +57,7 @@ const PROJECT_PHASES = [
 
 interface MiniGameProps {
   onClose: () => void
-  gameType: 'quiz' | 'memory' | 'order' | 'speed'
+  gameType: 'quiz' | 'memory' | 'order'
 }
 
 export function MiniGame({ onClose, gameType }: MiniGameProps) {
@@ -67,8 +67,6 @@ export function MiniGame({ onClose, gameType }: MiniGameProps) {
     return <TechMemory onClose={onClose} />
   } else if (gameType === 'order') {
     return <PhaseOrder onClose={onClose} />
-  } else if (gameType === 'speed') {
-    return <SpeedClick onClose={onClose} />
   }
   
   return null
@@ -180,10 +178,13 @@ function TechMemory({ onClose }: { onClose: () => void }) {
   const [matched, setMatched] = useState<number[]>([])
   const [score, setScore] = useState(0)
 
-  const allItems = [
-    ...TECH_PAIRS.map(p => ({ ...p, type: 'tech' as const })),
-    ...TECH_PAIRS.map(p => ({ id: p.id + 100, name: p.match, type: 'category' as const }))
-  ].sort(() => Math.random() - 0.5)
+  // Mélangé une seule fois au montage : les cartes ne bougent plus à chaque clic
+  const [allItems] = useState(() =>
+    [
+      ...TECH_PAIRS.map(p => ({ ...p, type: 'tech' as const })),
+      ...TECH_PAIRS.map(p => ({ id: p.id + 100, name: p.match, type: 'category' as const }))
+    ].sort(() => Math.random() - 0.5)
+  )
 
   const handleSelect = (item: any) => {
     if (matched.includes(item.id)) return
@@ -211,7 +212,12 @@ function TechMemory({ onClose }: { onClose: () => void }) {
         
         if (newMatched.length === allItems.length) {
           setTimeout(() => {
-            addPoints(80, 'Memory game réussi !')
+            addPoints(80, 'Memory game réussi !', 'memory-completed')
+            const played = JSON.parse(localStorage.getItem('gamesPlayed') || '[]')
+            if (!played.includes('memory')) {
+              played.push('memory')
+              localStorage.setItem('gamesPlayed', JSON.stringify(played))
+            }
             alert('Bravo ! Toutes les paires trouvées ! +80 points')
             onClose()
           }, 500)
@@ -263,80 +269,6 @@ function TechMemory({ onClose }: { onClose: () => void }) {
   )
 }
 
-// Speed click challenge
-function SpeedClick({ onClose }: { onClose: () => void }) {
-  const [clicks, setClicks] = useState(0)
-  const [timeLeft, setTimeLeft] = useState(10)
-  const [started, setStarted] = useState(false)
-
-  const startGame = () => {
-    setStarted(true)
-    setClicks(0)
-    setTimeLeft(10)
-    
-    const interval = setInterval(() => {
-      setTimeLeft(prev => {
-        if (prev <= 1) {
-          clearInterval(interval)
-          // Calcul des points selon performance
-          const points = Math.floor(clicks * 2)
-          addPoints(points, `${clicks} clics en 10 secondes`)
-          setTimeout(() => {
-            alert(`Terminé ! ${clicks} clics en 10 secondes.\n+${points} points`)
-            onClose()
-          }, 100)
-          return 0
-        }
-        return prev - 1
-      })
-    }, 1000)
-  }
-
-  return (
-    <div className="fixed inset-0 z-[55] bg-black/70 flex items-center justify-center p-4">
-      <div className="bg-white rounded-xl shadow-2xl max-w-md w-full p-8">
-        <div className="flex items-center justify-between mb-6">
-          <h3 className="text-2xl font-bold text-gray-900">Speed Click</h3>
-          <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
-            <X className="w-6 h-6" />
-          </button>
-        </div>
-
-        {!started ? (
-          <div className="text-center">
-            <p className="text-gray-600 mb-6">
-              Clique le plus vite possible pendant 10 secondes !
-            </p>
-            <button
-              onClick={startGame}
-              className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-bold text-lg hover:from-purple-700 hover:to-pink-700"
-            >
-              Démarrer
-            </button>
-          </div>
-        ) : (
-          <div className="text-center">
-            <div className="mb-6">
-              <div className="text-6xl font-bold text-purple-600 mb-2">{timeLeft}</div>
-              <div className="text-gray-600">secondes restantes</div>
-            </div>
-            
-            <button
-              onClick={() => setClicks(clicks + 1)}
-              className="w-full h-32 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg text-4xl font-bold hover:from-purple-700 hover:to-pink-700 active:scale-95 transition-transform"
-            >
-              CLIC !
-            </button>
-            
-            <div className="mt-6 text-3xl font-bold text-gray-900">
-              {clicks} clics
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
-  )
-}
 
 // Phase Order
 function PhaseOrder({ onClose }: { onClose: () => void }) {
@@ -425,51 +357,6 @@ function PhaseOrder({ onClose }: { onClose: () => void }) {
         </button>
       </div>
     </div>
-  )
-}
-
-// Bouton pour lancer les mini-jeux
-export function MiniGameLauncher() {
-  const [activeGame, setActiveGame] = useState<string | null>(null)
-
-  return (
-    <>
-      <div className="fixed left-4 top-20 z-[25] space-y-2">
-        <button
-          onClick={() => setActiveGame('quiz')}
-          className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded-lg text-sm font-medium shadow-lg transition-all hover:scale-105 flex items-center gap-2"
-          title="Quiz Express"
-        >
-          <Zap className="w-4 h-4" />
-          Quiz
-        </button>
-        
-        <button
-          onClick={() => setActiveGame('memory')}
-          className="bg-green-500 hover:bg-green-600 text-white px-3 py-2 rounded-lg text-sm font-medium shadow-lg transition-all hover:scale-105 flex items-center gap-2"
-          title="Memory Tech"
-        >
-          <Trophy className="w-4 h-4" />
-          Memory
-        </button>
-        
-        <button
-          onClick={() => setActiveGame('order')}
-          className="bg-orange-500 hover:bg-orange-600 text-white px-3 py-2 rounded-lg text-sm font-medium shadow-lg transition-all hover:scale-105 flex items-center gap-2"
-          title="Ordre des Phases"
-        >
-          <Timer className="w-4 h-4" />
-          Ordre
-        </button>
-      </div>
-
-      {activeGame && (
-        <MiniGame
-          gameType={activeGame as any}
-          onClose={() => setActiveGame(null)}
-        />
-      )}
-    </>
   )
 }
 

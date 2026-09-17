@@ -1,98 +1,30 @@
-# 👨‍🏫 Mode Enseignant
+# Mode enseignant
 
-## 🔐 Mot de passe
+Le mode enseignant donne accès aux corrections des cas pratiques (feuillets roses), au guide de correction de la mission (`/prof-guide`), aux oraux, au tableau de scores live et à l'import des scores.
 
-**Mot de passe par défaut :** `IngemediaProf2024!`
+## Fonctionnement (depuis la refonte)
 
-⚠️ **IMPORTANT :** Changez ce mot de passe dans le fichier `lib/teacherMode.ts` avant de partager l'application !
+1. L'enseignant clique sur **Enseignant** (bas gauche) et saisit le mot de passe, ou ouvre n'importe quelle page avec `?key=<mot de passe>`.
+2. Le navigateur envoie le mot de passe à `POST /api/teacher/login`. **La vérification se fait côté serveur.**
+3. Si le mot de passe est bon, le serveur pose deux cookies :
+   - `teacher_token` : jeton signé (HMAC), `httpOnly`, 30 jours. C'est lui qui autorise l'accès aux corrections.
+   - `teacher_ui` : simple drapeau lisible par le navigateur, pour afficher l'interface enseignant.
+4. Les corrections sont servies par `GET /api/correction?module=…&section=…&case=…` uniquement si le jeton est valide. **Elles ne sont jamais présentes dans le bundle JavaScript envoyé aux étudiants** (`lib/content.ts` les retire avant l'envoi).
+5. Le guide de correction (`/prof-guide`) est rendu côté serveur uniquement pour un enseignant authentifié.
 
-```typescript
-// Dans lib/teacherMode.ts, ligne 3
-const TEACHER_PASSWORD = 'Grosa!'
-```
+Quitter le mode : bouton **Quitter** → `POST /api/teacher/logout` efface les cookies.
 
-## 🔓 Activer le mode enseignant
+## Configuration (Vercel → Environment Variables)
 
-### Méthode 1 : Via URL avec mot de passe (Recommandé)
+| Variable | Rôle |
+|---|---|
+| `TEACHER_PASSWORD` | Mot de passe enseignant. **Recommandé.** S'il est défini, Supabase n'est plus consulté pour l'authentification. |
+| `TEACHER_SECRET` | Clé de signature des jetons (une chaîne aléatoire longue). Recommandé ; sinon dérivée du mot de passe. |
 
-```
-https://votre-app.vercel.app/?key=IngemediaProf2024!
-```
+Sans `TEACHER_PASSWORD`, le serveur retombe sur l'ancien mécanisme : comparaison avec le hash stocké dans la table Supabase `teacher_config` (voir `supabase-teacher-password.sql`). Ce mode est conservé pour compatibilité mais il est plus faible (hash 32 bits, lisible publiquement) : définissez les deux variables dès que possible.
 
-Ou en local :
-```
-http://localhost:3000/?key=IngemediaProf2024!
-```
+Après avoir défini les variables, redéployez, puis **changez le mot de passe** si l'ancien a déjà circulé.
 
-### Méthode 2 : Via le bouton (coin bas gauche)
+## Ce qui reste côté client
 
-1. Cliquez sur le bouton "🔑 Enseignant" en bas à gauche
-2. Entrez le mot de passe
-3. Le mode s'active
-
-## ✅ Une fois activé
-
-Le mode enseignant reste actif même en naviguant sur les autres pages (stocké en localStorage).
-
-### Ce qui change :
-- ✅ Bouton "Voir la correction proposée" visible sur tous les cas pratiques
-- ✅ Accès à toutes les corrections détaillées
-- ✅ Badge "Mode Enseignant" en bas à droite de l'écran
-
-## 👁️ Indicateur visuel
-
-Un badge violet/rose apparaît en bas à droite avec :
-- 👁️ "Mode Enseignant"
-- Bouton pour désactiver le mode
-
-## ❌ Désactiver le mode enseignant
-
-### Méthode 1 : Via le badge
-Cliquez sur l'icône ❌ dans le badge en bas à droite
-
-### Méthode 2 : Via la console
-```javascript
-localStorage.removeItem('teacherMode')
-window.location.reload()
-```
-
-### Méthode 3 : Mode navigation privée
-Le mode enseignant ne persiste pas en navigation privée
-
-## 👨‍🎓 Pour les étudiants
-
-Sans le paramètre `?boss=true`, les étudiants verront :
-- 🔒 Bouton grisé "Correction réservée à l'enseignant"
-- ❌ Impossible d'afficher les corrections
-- ✅ Peuvent toujours faire les exercices
-
-## 🎯 Cas d'usage
-
-### Préparation de cours
-```
-http://localhost:3000/?boss=true
-```
-Préparez vos cours avec accès aux corrections
-
-### Correction des travaux
-Activez le mode pour comparer les réponses des étudiants avec les corrections proposées
-
-### Démonstration en classe
-Montrez les corrections aux étudiants pendant le cours
-
-## 🔒 Sécurité
-
-**Note :** Ce système n'est pas une sécurité absolue (les étudiants malins peuvent trouver le paramètre). 
-C'est une "sécurité par l'obscurité" suffisante pour un contexte pédagogique.
-
-Si vous voulez une vraie protection, il faudrait :
-- Un système d'authentification
-- Les corrections stockées côté serveur
-- API protégée par mot de passe
-
-Mais pour une formation, le système actuel est amplement suffisant ! 😊
-
-## 💡 Astuce
-
-Partagez l'URL avec `?boss=true` uniquement entre enseignants, jamais aux étudiants !
-
+Les pages `/oraux`, `/dashboard-live` et `/scores-enseignant` vérifient le drapeau `teacher_ui` pour s'afficher. Les données de scores sont dans Supabase avec la clé anonyme : ce n'est pas une barrière de sécurité, seulement un confort d'interface. Ne stockez rien de sensible dans les tables de scores.

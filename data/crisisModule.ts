@@ -107,7 +107,7 @@ export const crisisModule: Module = {
     <p>
       La tentation est grande de minimiser un problème en espérant le résoudre discrètement.
       C'est <strong>toujours</strong> une erreur. Un retard de 2 jours caché devient un retard de 2 semaines découvert trop tard.
-      Une faille de sécurité tue peut devenir une violation de données publique.
+      Une faille de sécurité passée sous silence tue peut devenir une violation de données publique.
       <strong>La transparence précoce est le meilleur antidote à la crise.</strong>
     </p>
   </div>
@@ -643,6 +643,12 @@ export const crisisModule: Module = {
     </p>
   </div>
 
+  <div class="tip-box">
+  <p class="tip-title">Le bus factor, version équipe de LoL et compte Insta de l'asso</p>
+  <p>Dans une équipe de League of Legends à cinq, si un seul joueur sait jouer support et qu'il ne se connecte pas ce soir, la partie classée n'a pas lieu : bus factor = 1. Dans une association étudiante, si le seul qui connaît le mot de passe du compte Instagram part en Erasmus, l'asso disparaît des réseaux pendant six mois : bus factor = 1. Un projet web n'est pas différent : la personne qui a configuré le serveur, celle qui a le compte Stripe, celle qui « sait comment marche le module de paiement ».</p>
+  <p><strong>Mini-défi 30 secondes :</strong> dans ton projet de groupe actuel, liste les accès (hébergement, dépôt Git, Figma, nom de domaine, base de données). Combien ne sont connus que d'une seule personne ? Chaque « un » est une crise en attente.</p>
+</div>
+
   <h2 class="section-subtitle">Types de perte d'équipe</h2>
 
   <div class="deliverables-grid" style="grid-template-columns: repeat(2, 1fr);">
@@ -1028,6 +1034,18 @@ export const crisisModule: Module = {
     </p>
   </div>
 
+  <div class="example-box">
+  <strong>La loi de Brooks en chiffres : pourquoi « on ajoute deux potes » ne sauve pas le rendu</strong>
+  <br><br>
+  Canaux de communication = n × (n − 1) / 2
+  <br>• 3 personnes = 3 canaux (tout le monde se parle facilement)
+  <br>• 5 personnes = 10 canaux
+  <br>• 8 personnes = 28 canaux
+  <br>• 12 personnes = 66 canaux
+  <br><br>
+  Scénario : groupe de 3, projet en retard de 2 semaines, rendu dans 3 semaines. On ajoute 2 personnes « pour aller plus vite ». Semaine 1 : les nouveaux lisent le code et posent des questions, les anciens répondent au lieu de coder ; productivité de l'équipe <strong>inférieure</strong> à celle du groupe de 3. Semaine 2 : les nouveaux deviennent productifs, mais les 10 canaux génèrent des malentendus (deux personnes codent la même fonctionnalité). Semaine 3 : gain net de peut-être 3 jours sur les 10 espérés. <strong>Ajouter des gens ne fonctionne</strong> que si le travail est découpable en blocs indépendants et si l'onboarding a été préparé (documentation, tâches isolées prêtes à prendre).
+</div>
+
   <div class="tip-box">
     <p class="tip-title">Astuce : La technique des 3 estimations (PERT)</p>
     <p>
@@ -1290,6 +1308,29 @@ export const crisisModule: Module = {
       <li><strong>7. Les prochaines étapes :</strong> planning de suivi, prochaine réunion, engagements</li>
     </ul>
   </div>
+
+  <div class="example-box">
+  <strong>Modèle de mail : annoncer un retard au client (à adapter, pas à copier-coller)</strong>
+  <br><br>
+  <em>Objet : Projet [Nom] – point d'avancement et ajustement du planning</em>
+  <br><br>
+  Bonjour [Prénom],
+  <br><br>
+  Point factuel à ce jour : 14 fonctionnalités sur 20 sont livrées et testées, le module de paiement est en cours d'intégration.
+  <br><br>
+  Nous rencontrons un retard estimé à <strong>8 jours ouvrés</strong> sur la date du 24 mai. Cause principale : l'API de la banque a changé de version le 2 mai, ce qui a imposé une réintégration complète.
+  <br><br>
+  Trois options pour la suite :
+  <br>• A – Livraison complète le 5 juin (sans surcoût)
+  <br>• B – Livraison le 24 mai sans le programme de fidélité, livré en V2 le 12 juin
+  <br>• C – Renfort d'un développeur, livraison le 29 mai (+ 2 400 € HT)
+  <br><br>
+  Notre recommandation : l'option B, qui préserve votre date d'ouverture sans compromettre la qualité du paiement.
+  <br><br>
+  Je vous propose un appel de 20 minutes jeudi pour décider ensemble. D'ici là, vous recevrez un point d'avancement chaque lundi.
+  <br><br>
+  [Signature]
+</div>
 
   <h2 class="section-subtitle">Postures du chef de projet en crise</h2>
 

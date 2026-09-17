@@ -19,8 +19,13 @@ export const completeModules: Module[] = [
 
   <div class="story-box">
     <p class="story-title">Histoire vraie : Le projet qui a dérapé</p>
-    <p>En 2013, le gouvernement français lance healthcare.gov, le portail d'assurance santé aux USA. Budget initial : 93 millions $. Coût final : <strong>1,7 milliard $</strong>. Le site crashe le jour du lancement — il ne supporte que 1 100 utilisateurs simultanés au lieu des 250 000 attendus. Pourquoi ? Un cahier des charges flou, 55 sous-traitants mal coordonnés, et aucun test de charge. <strong>La leçon : un projet web mal cadré, c'est un désastre garanti.</strong></p>
+    <p>En 2013, le gouvernement américain lance healthcare.gov, le portail d'assurance santé aux USA. Budget initial : 93 millions $. Coût final : <strong>1,7 milliard $</strong>. Le site crashe le jour du lancement — il ne supporte que 1 100 utilisateurs simultanés au lieu des 250 000 attendus. Pourquoi ? Un cahier des charges flou, 55 sous-traitants mal coordonnés, et aucun test de charge. <strong>La leçon : un projet web mal cadré, c'est un désastre garanti.</strong></p>
   </div>
+
+  <div class="key-concept">
+  <p class="concept-title">Concept clé : projet ou opération ? Le test Netflix</p>
+  <p>Chez Netflix, diffuser des séries à 260 millions d'abonnés tous les jours n'est pas un projet : c'est une <strong>opération</strong>, répétitive, sans date de fin. En revanche, créer la fonctionnalité « profils multiples » en 2013, ou lancer l'offre avec publicité en 2022, sont des <strong>projets</strong> : un début, une fin, un objectif, une équipe dédiée, puis on passe à autre chose. Même logique à votre échelle : maintenir le compte Instagram de votre asso, c'est de l'opération ; refondre son site avant le forum des associations de septembre, c'est un projet. Pourquoi cette distinction compte : un projet a besoin d'un cadrage, d'un planning et d'un bilan ; une opération a besoin de procédures et d'indicateurs de routine. <strong>La plupart des « projets qui n'en finissent jamais » sont en réalité des opérations déguisées.</strong></p>
+</div>
 
   <div class="stat-cards">
     <div class="stat-card">

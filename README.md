@@ -5,10 +5,11 @@ Application web interactive pour l'enseignement de la gestion de projet web, dé
 ## ✨ Fonctionnalités
 
 ### 📚 Modules de cours
-- **9 modules complets** couvrant toutes les phases d'un projet web
-- Contenu théorique détaillé avec exemples concrets
-- Cas pratiques basés sur des situations réelles d'agence
-- Quiz interactifs pour valider les connaissances
+- **11 modules** couvrant toutes les phases d'un projet web, plus la gestion de crise et la mission
+- Contenu théorique avec histoires vraies, analogies, erreurs classiques de junior et mini-défis
+- **18 ateliers interactifs** (triangle qualité-coût-délai, devis express, MoSCoW, matrice des risques, mail du client furieux, jour J…)
+- Cas pratiques avec zone de brouillon ; corrections réservées à l'enseignant
+- Contrôle de poste à chaque section, quiz global filtrable
 
 ### 🎯 Mission Projet
 - Élaboration d'un cahier des charges complet
@@ -57,28 +58,47 @@ L'application sera accessible sur [http://localhost:3000](http://localhost:3000)
 
 \`\`\`
 management-projet/
-├── app/                      # Pages Next.js
-│   ├── page.tsx             # Page d'accueil
-│   ├── module/[id]/         # Pages des modules
-│   ├── mission/             # Mission cahier des charges
-│   ├── quiz/                # Quiz global
-│   ├── evaluation/          # Guide d'évaluation
-│   ├── lexique/             # Lexique interactif
-│   └── competences/         # Compétences du chef de projet
+├── app/                        # Pages Next.js (App Router)
+│   ├── page.tsx               # Accueil : le « dossier » (composant serveur)
+│   ├── module/[id]/           # Pages module (serveur, SSG) → components/ModuleClient
+│   ├── quiz/                  # Quiz global (serveur) → components/QuizClient
+│   ├── mission/               # Mission cahier des charges + jeux d'équipe
+│   ├── evaluation/ lexique/ competences/
+│   ├── prof-guide/            # Guide enseignant, rendu uniquement si authentifié
+│   └── api/
+│       ├── teacher/login|logout   # Authentification enseignant (cookie signé)
+│       └── correction             # Corrections des cas pratiques (enseignant seulement)
 │
-├── components/              # Composants réutilisables
-│   └── Quiz.tsx            # Système de quiz
+├── components/
+│   ├── AppNav, Cartouche, Stamp, Footer   # Squelette visuel « dossier d'agence »
+│   ├── HomeClient, ModuleClient, QuizClient
+│   ├── CasPratique (feuillets jaune/rose), QuizWithCorrection, EnhancedQuiz
+│   └── interactive/           # Ateliers interactifs par section (registry.tsx)
 │
-├── data/                    # Données de contenu
-│   ├── modules.ts          # Modules de base
-│   ├── additionalModules.ts
-│   ├── finalModules.ts
-│   ├── completeModules.ts
-│   ├── allModules.ts       # Agrégation de tous les modules
-│   └── lexique.json        # Base de données du lexique
+├── lib/
+│   ├── content.ts             # Accès serveur au contenu ; retire les corrections du bundle
+│   ├── teacherAuth.ts         # Vérification du mot de passe et jetons, côté serveur
+│   └── teacherMode.ts         # Drapeau d'affichage côté navigateur
 │
-└── public/                 # Assets statiques
+├── data/                      # Contenu pédagogique (HTML dans des template literals)
+│   ├── modules.ts, additionalModules.ts, finalModules.ts, completeModules.ts, crisisModule.ts
+│   ├── newQuestions.ts        # Questions ajoutées après l'audit (scénarios, trous, vrai/faux)
+│   ├── newCases.ts            # Cas pratiques ajoutés après l'audit
+│   ├── allModules.ts          # Agrégation
+│   └── lexique.json
+│
+├── PRODUCT.md                 # Vérité produit (impeccable)
+├── DESIGN.md                  # Système visuel documenté
+└── public/
 \`\`\`
+
+## 🎨 Système visuel : « le dossier d'agence »
+
+Chaque module est une ligne numérotée d'un devis, chaque section un poste, l'avancement un total. Papier blanc, encre noire, encre de tampon bleue ; feuillet jaune = exercice, feuillet rose = correction enseignant ; tampons inclinés pour les états (À faire / En cours / Validé), réglure hairline, angles vifs. Typographie : Archivo (variable, largeur) + JetBrains Mono pour les chiffres. Voir DESIGN.md.
+
+## 🔐 Mode enseignant
+
+Voir MODE_ENSEIGNANT.md : le mot de passe est vérifié côté serveur (`TEACHER_PASSWORD`), les corrections sont servies par une API protégée et ne sont jamais dans le bundle étudiant.
 
 ## 📋 Modules de formation
 
@@ -136,7 +156,8 @@ management-projet/
 - **UI** : React 18 + TypeScript
 - **Styling** : TailwindCSS
 - **Icons** : Lucide React
-- **Storage** : LocalStorage (progression utilisateur)
+- **Storage** : LocalStorage (progression, brouillons) + Supabase (scores d'équipe)
+- **Polices** : Archivo + JetBrains Mono via next/font
 
 ## 📦 Déploiement
 
