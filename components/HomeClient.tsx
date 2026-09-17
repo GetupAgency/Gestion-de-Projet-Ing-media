@@ -13,6 +13,7 @@ type Status = 'not-started' | 'in-progress' | 'completed'
 
 const annexes = [
   { href: '/quiz', title: 'Quiz global', detail: 'Toutes les questions du cours, filtrables par thème, difficulté et format.' },
+  { href: '/sprint-agence', title: 'Sprint Agence : RoadTrip Squad', detail: 'Journée immersive avec Gaspard Vasseur : brief, cadrage, équipe, périmètre, planning, et un Gantt défendable le soir.' },
   { href: '/entrainement', title: 'Terrain d’entraînement', detail: 'Vingt-six ateliers sur de vrais artefacts : mails, comptes rendus, données, devis, Slack, Discord.' },
   { href: '/mission', title: 'Mission cahier des charges', detail: 'Répondre à un appel d’offres complet, en équipe, avec jeux et scores.' },
   { href: '/evaluation', title: 'Évaluation orale', detail: 'Format de l’entretien, thèmes, critères et conseils de préparation.' },
