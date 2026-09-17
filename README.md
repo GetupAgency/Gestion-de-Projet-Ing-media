@@ -37,7 +37,7 @@ Application web interactive pour l'enseignement de la gestion de projet web, dé
 ## 🚀 Installation
 
 ### Prérequis
-- Node.js 18+ 
+- Node.js 22.13+ (le module natif `node:sqlite` est requis)
 - npm ou yarn
 
 ### Installation des dépendances
@@ -156,7 +156,7 @@ Voir MODE_ENSEIGNANT.md : le mot de passe est vérifié côté serveur (`TEACHER
 - **UI** : React 18 + TypeScript
 - **Styling** : TailwindCSS
 - **Icons** : Lucide React
-- **Storage** : LocalStorage (progression, brouillons) + Supabase (scores d'équipe)
+- **Storage** : LocalStorage (progression, brouillons) + SQLite intégrée via `node:sqlite` (scores d'équipe, oraux) dans `data/app.db`
 - **Polices** : Archivo + JetBrains Mono via next/font
 
 ## 📦 Déploiement

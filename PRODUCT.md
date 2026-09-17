@@ -22,14 +22,14 @@ Pas un LMS générique : un cours d'agence web incarné, écrit par un praticien
 
 - Projection en salle (grand écran, distance de lecture élevée, lumière ambiante variable) : la lisibilité à distance et le scan rapide priment.
 - Laptop étudiant en parallèle du cours, puis révisions à la maison ; mobile occasionnel.
-- Sessions de TD avec équipes, mini-jeux, tableau de scores live (Supabase).
+- Sessions de TD avec équipes, mini-jeux, tableau de scores live (SQLite locale).
 - Contenu pédagogique rédigé en HTML dans des fichiers TypeScript (`data/*.ts`), rendu tel quel dans la page module.
 
 ## Capabilities and Constraints
 
-- Next.js 14 App Router, React 18, TypeScript, Tailwind, lucide-react, Supabase (clé anon publique).
-- Progression et scores quiz stockés en localStorage ; scores d'équipe synchronisés via Supabase.
-- Mode enseignant : mot de passe vérifié contre Supabase, état en localStorage ; les corrections des cas pratiques sont masquées aux étudiants. Ce mécanisme et ce verrouillage doivent être préservés (confirmé).
+- Next.js 14 App Router, React 18, TypeScript, Tailwind, lucide-react, SQLite via `node:sqlite` (Node ≥ 22.13).
+- Progression et scores quiz stockés en localStorage ; scores d'équipe synchronisés dans la base SQLite du serveur (`/api/teams`).
+- Mode enseignant : mot de passe vérifié côté serveur (TEACHER_PASSWORD), jeton en cookie httpOnly ; les corrections des cas pratiques sont masquées aux étudiants. Ce mécanisme et ce verrouillage doivent être préservés (confirmé).
 - Le reste de la structure (pages, navigation, regroupements) peut être restructuré librement tant que les fonctions restent (confirmé).
 - Langue : français uniquement.
 

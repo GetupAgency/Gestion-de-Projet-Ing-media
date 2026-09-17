@@ -43,3 +43,7 @@ next-env.d.ts
 
 # Dossier de réponse à appel d’offres (documents financiers, signatures) : jamais dans le dépôt
 appel-offre/
+
+# Base SQLite locale
+data/*.db
+data/*.db-*

@@ -7,3 +7,5 @@ appel-offre
 !README.md
 .env*
 .DS_Store
+data/*.db
+data/*.db-*

@@ -56,70 +56,11 @@ Vous ne pouvez pas voir les scores en temps réel depuis votre ordinateur.
 
 ---
 
-## 🚀 Option 2 : Supabase (Base de données temps réel)
+## 🚀 Option 2 : base SQLite intégrée (en place)
 
-### Ce qu'il faut faire :
+C'est l'option retenue. Les scores sont envoyés par le bouton **Synchroniser** du panneau de jeu vers `/api/teams`, stockés dans `data/app.db` (module natif `node:sqlite`, aucune dépendance ni service externe) et affichés en direct sur `/dashboard-live` (rafraîchissement toutes les 5 s).
 
-**1. Setup Supabase (15 min)** :
-- Créer compte gratuit sur supabase.com
-- Créer projet
-- Créer table `teams` :
-  ```sql
-  - id (uuid, primary key)
-  - team_name (text)
-  - points (integer)
-  - badges (jsonb)
-  - easter_eggs (jsonb)
-  - tokens (jsonb)
-  - last_activity (timestamp)
-  - project_id (text)
-  ```
-
-**2. Code à ajouter** :
-- Installer `@supabase/supabase-js`
-- Créer client Supabase
-- Remplacer localStorage par appels API
-- Sync automatique toutes les 10s
-
-**3. Dashboard Enseignant** :
-- Page temps réel qui lit la table
-- Refresh auto toutes les 5s
-- Graphiques de progression
-
-### Avantages :
-- ✅ Vraiment temps réel
-- ✅ Suivi de l'évolution
-- ✅ Historique complet
-- ✅ Dashboard live pour vous
-- ✅ Pas de triche (contrôle serveur)
-- ✅ Multi-session (travail à distance)
-
-### Inconvénients :
-- ⚠️ Setup initial (15-30 min)
-- ⚠️ Dépendance externe (Supabase)
-- ⚠️ Quota gratuit (500 Mo, largement suffisant)
-- ⚠️ Besoin d'une connexion internet
-
----
-
-## 💡 Ma Recommandation
-
-### Pour ce semestre (démarrage rapide) :
-→ **Google Sheet partagé**
-
-Simple, rapide, fonctionne immédiatement.
-
-### Pour le semestre prochain (temps réel) :
-→ **Supabase**
-
-Si tu veux un vrai dashboard live avec graphiques et suivi.
-
----
-
-## 🎯 Quelle Option Préfères-Tu ?
-
-**Option A** : Je garde le système simple (export/import + Google Sheet)
-**Option B** : Je développe l'intégration Supabase (20-30 min de dev)
-
-Dis-moi et je le fais ! 🚀
-
+- ✅ Aucune inscription, aucun quota, aucune clé publique
+- ✅ Dashboard live pour l'enseignant, correction des scores en un clic
+- ✅ Données sur votre serveur (volume Docker `/app/data`)
+- ⚠️ Pensez à sauvegarder le fichier `app.db` en fin de semestre

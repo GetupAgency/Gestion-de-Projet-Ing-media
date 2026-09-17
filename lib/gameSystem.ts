@@ -1,17 +1,7 @@
 // Système de gamification pour la mission
 
-export interface TeamData {
-  teamName: string
-  points: number
-  badges: string[]
-  tokens: {
-    expertQuestions: number
-    revelations: number
-    joker: number
-  }
-  easterEggs: string[]
-  lastActivity: string
-}
+import type { TeamData } from '@/data/teamTypes'
+export type { TeamData }
 
 export interface Badge {
   id: string

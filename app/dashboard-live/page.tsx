@@ -4,8 +4,7 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowLeft, Trophy, Award, RefreshCw, TrendingUp, Users, Zap } from 'lucide-react'
 import { isTeacherMode } from '@/lib/teacherMode'
-import { getAllScoresFromSupabase, subscribeToScores } from '@/lib/syncSystem'
-import { isSupabaseConfigured, supabase } from '@/lib/supabase'
+import { getAllScores, subscribeToScores, setTeamPointsOnServer } from '@/lib/syncSystem'
 import { analyzeLeaderboard, correctCheatScore } from '@/lib/antiCheat'
 import Footer from '@/components/Footer'
 import type { TeamData } from '@/lib/gameSystem'
@@ -46,7 +45,7 @@ export default function DashboardLivePage() {
 
   const loadScores = async () => {
     setLoading(true)
-    const scores = await getAllScoresFromSupabase()
+    const scores = await getAllScores()
     setTeams(scores)
     setLastUpdate(new Date())
     setLoading(false)
@@ -54,23 +53,6 @@ export default function DashboardLivePage() {
 
   if (!mounted) {
     return <div>Chargement...</div>
-  }
-
-  if (!isSupabaseConfigured()) {
-    return (
-      <div className="min-h-screen bg-paper flex items-center justify-center p-4">
-        <div className="bg-white  border border-ink p-8 max-w-md text-center">
-          <h1 className="text-2xl font-bold text-ink mb-4">Supabase Non Configuré</h1>
-          <p className="text-ink-2 mb-6">
-            Le dashboard live nécessite Supabase. 
-            Consultez le fichier <code className="bg-paper-2 px-2 py-1 ">SETUP_SUPABASE.md</code> pour la configuration.
-          </p>
-          <Link href="/" className="text-ink hover:text-stamp font-medium">
-            Retour à l'accueil
-          </Link>
-        </div>
-      </div>
-    )
   }
 
   if (!isTeacher) {
@@ -101,10 +83,7 @@ export default function DashboardLivePage() {
     
     for (const analysis of suspiciousTeams) {
       const correctedScore = correctCheatScore(analysis.team)
-      await supabase!
-        .from('teams')
-        .update({ points: correctedScore })
-        .eq('team_name', analysis.team.teamName)
+      await setTeamPointsOnServer(analysis.team.teamName, correctedScore)
     }
     
     alert('Scores corrigés !')

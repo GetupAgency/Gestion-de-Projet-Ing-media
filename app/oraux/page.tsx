@@ -4,11 +4,10 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { ArrowLeft, Clock, Play, Square, Save, ChevronDown, ChevronRight } from 'lucide-react'
 import { isTeacherMode } from '@/lib/teacherMode'
-import { supabase } from '@/lib/supabase'
 import Footer from '@/components/Footer'
 
 interface OralData {
-  id: string
+  id: string | number
   student_name: string
   passage_order: number
   project_chosen: string | null
@@ -238,16 +237,19 @@ export default function OrauxPage() {
   }, [isRunning])
 
   const loadStudents = async () => {
-    if (!supabase) return
-    
-    const { data, error } = await supabase
-      .from('oraux')
-      .select('*')
-      .order('passage_order')
-    
-    if (data) {
-      setStudents(data)
+    try {
+      const res = await fetch('/api/oraux', { cache: 'no-store' })
+      const data = await res.json()
+      if (data.oraux) setStudents(data.oraux)
+    } catch (e) {
+      console.error('Chargement des oraux :', e)
     }
+  }
+
+  const patchOral = async (id: string | number, patch: Record<string, unknown>) => {
+    const res = await fetch(`/api/oraux/${id}`, { method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(patch) })
+    if (!res.ok) alert('Enregistrement refusé : êtes-vous bien en mode enseignant ?')
+    return res.ok
   }
 
   const startOral = async (student: OralData) => {
@@ -255,41 +257,21 @@ export default function OrauxPage() {
     setTimer(0)
     setIsRunning(true)
     
-    if (supabase) {
-      await supabase
-        .from('oraux')
-        .update({ oral_started_at: new Date().toISOString() })
-        .eq('id', student.id)
-    }
+    await patchOral(student.id, { oral_started_at: new Date().toISOString() })
   }
 
   const stopOral = async () => {
-    if (!currentStudent || !supabase) return
+    if (!currentStudent) return
     
     setIsRunning(false)
     
-    await supabase
-      .from('oraux')
-      .update({ 
-        oral_ended_at: new Date().toISOString(),
-        duration_minutes: Math.floor(timer / 60)
-      })
-      .eq('id', currentStudent.id)
+    await patchOral(currentStudent.id, { oral_ended_at: new Date().toISOString(), duration_minutes: Math.floor(timer / 60) })
     
     loadStudents()
   }
 
-  const saveComments = async (studentId: string, comments: string, notes: any) => {
-    if (!supabase) return
-    
-    await supabase
-      .from('oraux')
-      .update({ 
-        comments,
-        ...notes,
-        updated_at: new Date().toISOString()
-      })
-      .eq('id', studentId)
+  const saveComments = async (studentId: string | number, comments: string, notes: any) => {
+    await patchOral(studentId, { comments, ...notes })
     
     loadStudents()
   }

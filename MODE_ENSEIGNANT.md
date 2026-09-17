@@ -14,17 +14,17 @@ Le mode enseignant donne accès aux corrections des cas pratiques (feuillets ros
 
 Quitter le mode : bouton **Quitter** → `POST /api/teacher/logout` efface les cookies.
 
-## Configuration (Vercel → Environment Variables)
+## Configuration (variables d'environnement : Dokploy, Vercel ou `.env.local`)
 
 | Variable | Rôle |
 |---|---|
-| `TEACHER_PASSWORD` | Mot de passe enseignant. **Recommandé.** S'il est défini, Supabase n'est plus consulté pour l'authentification. |
+| `TEACHER_PASSWORD` | Mot de passe enseignant. **Obligatoire** : sans lui, la connexion enseignant est refusée. |
 | `TEACHER_SECRET` | Clé de signature des jetons (une chaîne aléatoire longue). Recommandé ; sinon dérivée du mot de passe. |
 
-Sans `TEACHER_PASSWORD`, le serveur retombe sur l'ancien mécanisme : comparaison avec le hash stocké dans la table Supabase `teacher_config` (voir `supabase-teacher-password.sql`). Ce mode est conservé pour compatibilité mais il est plus faible (hash 32 bits, lisible publiquement) : définissez les deux variables dès que possible.
+Il n'y a plus de mécanisme de secours : le mot de passe vit uniquement côté serveur, jamais dans une base ni dans le bundle.
 
 Après avoir défini les variables, redéployez, puis **changez le mot de passe** si l'ancien a déjà circulé.
 
 ## Ce qui reste côté client
 
-Les pages `/oraux`, `/dashboard-live` et `/scores-enseignant` vérifient le drapeau `teacher_ui` pour s'afficher. Les données de scores sont dans Supabase avec la clé anonyme : ce n'est pas une barrière de sécurité, seulement un confort d'interface. Ne stockez rien de sensible dans les tables de scores.
+Les pages `/oraux`, `/dashboard-live` et `/scores-enseignant` vérifient le drapeau `teacher_ui` pour s'afficher. Les données (scores d'équipe, oraux) sont dans une base SQLite locale (`data/app.db`, ou `DATA_DIR`), servie par `/api/teams` et `/api/oraux`. La lecture est ouverte à tous, comme avant ; les écritures sensibles (correction d'un score, chrono et notes des oraux) exigent le cookie enseignant côté serveur. Ne stockez rien de confidentiel dans ces tables.

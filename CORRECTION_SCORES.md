@@ -74,23 +74,20 @@ location.reload()
 
 ## 🎯 Pour l'Enseignant
 
-### Corriger les Scores dans Supabase
+### Corriger les Scores dans la base
 
-Si des équipes ont déjà synchronisé des scores gonflés :
+Si des équipes ont déjà synchronisé des scores gonflés, le plus simple est le bouton **Corriger** du `/dashboard-live` (mode enseignant). En ligne de commande, sur le serveur (fichier `data/app.db`, ou `$DATA_DIR/app.db` ; `/app/data/app.db` dans le conteneur Docker) :
 
-**Dans le Supabase SQL Editor** :
 ```sql
+-- sqlite3 data/app.db
 -- Voir tous les scores
 SELECT team_name, points FROM teams ORDER BY points DESC;
 
 -- Corriger un score spécifique
-UPDATE teams 
-SET points = 250 
-WHERE team_name = 'Les Loutres';
+UPDATE teams SET points = 250 WHERE team_name = 'Les Loutres';
 
 -- Diviser tous les scores par 2 (si tous sont gonflés)
-UPDATE teams 
-SET points = FLOOR(points / 2);
+UPDATE teams SET points = points / 2;
 
 -- Reset complet de toutes les équipes
 DELETE FROM teams;
