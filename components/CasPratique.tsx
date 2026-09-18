@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect, useState } from 'react'
-import { Eye, EyeOff, Lock, Save } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
+import { Check, Copy, Eye, EyeOff, Lock, Save } from 'lucide-react'
 import { isTeacherMode } from '@/lib/teacherMode'
 import { toHtml } from '@/lib/htmlLite'
 
@@ -28,6 +28,8 @@ export default function CasPratique({ moduleId, sectionId, title, description, e
   const [error, setError] = useState<string | null>(null)
   const [answer, setAnswer] = useState('')
   const [savedAt, setSavedAt] = useState<string | null>(null)
+  const [copied, setCopied] = useState(false)
+  const bodyRef = useRef<HTMLDivElement>(null)
 
   const storageKey = `answer:${moduleId}:${sectionId}:${caseIndex}`
 
@@ -40,6 +42,24 @@ export default function CasPratique({ moduleId, sectionId, title, description, e
       /* stockage indisponible */
     }
   }, [storageKey])
+
+  /** Copie l'énoncé en texte brut (mail, consignes…) pour le retravailler dans un traitement de texte. */
+  const copyExercise = async () => {
+    const el = bodyRef.current
+    const text = el?.innerText?.trim()
+    if (!el || !text) return
+    try {
+      await navigator.clipboard.writeText(`${title}\n\n${text}`)
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2500)
+    } catch {
+      const range = document.createRange()
+      range.selectNodeContents(el)
+      const sel = window.getSelection()
+      sel?.removeAllRanges()
+      sel?.addRange(range)
+    }
+  }
 
   const saveAnswer = () => {
     try {
@@ -78,13 +98,24 @@ export default function CasPratique({ moduleId, sectionId, title, description, e
     <section aria-labelledby={`cas-${sectionId}-${caseIndex}`}>
       <div className="sheet sheet--yellow perforated">
         <span className="sheet__tab">Copie jaune · Cas pratique{caseIndex > 0 ? ` ${caseIndex + 1}` : ''}</span>
+        <button
+          type="button"
+          className="sheet__copy"
+          onClick={copyExercise}
+          title={copied ? 'Énoncé copié' : 'Copier l’énoncé (texte brut)'}
+          aria-label={copied ? 'Énoncé copié' : 'Copier l’énoncé en texte brut'}
+        >
+          {copied ? <Check className="h-4 w-4" aria-hidden="true" /> : <Copy className="h-4 w-4" aria-hidden="true" />}
+          <span className="sheet__copy-label">{copied ? 'Copié' : 'Copier'}</span>
+        </button>
         <div className="sheet__body">
           <h3 id={`cas-${sectionId}-${caseIndex}`} className="display-narrow text-2xl">
             {title}
           </h3>
           <p className="mt-2 text-[1.02rem] text-ink-2">{description}</p>
 
-          <div className="doc mt-6 border-t border-copy-yellow-ink/40 pt-5" dangerouslySetInnerHTML={{ __html: toHtml(exercice) }} />
+          <div ref={bodyRef} className="doc mt-6 border-t border-copy-yellow-ink/40 pt-5" dangerouslySetInnerHTML={{ __html: toHtml(exercice) }} />
+
 
           <div className="mt-6 border-t border-copy-yellow-ink/40 pt-5">
             <label htmlFor={`answer-${sectionId}-${caseIndex}`} className="label text-copy-yellow-ink">

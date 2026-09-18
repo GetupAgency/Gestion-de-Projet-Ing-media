@@ -189,6 +189,23 @@ hr {
   pointer-events: none;
 }
 
+/* Le contenu de cours, les feuillets et les ateliers restent sélectionnables et copiables */
+.doc,
+.sheet,
+.lab,
+.doc *,
+.sheet *,
+.lab * {
+  -webkit-user-select: text;
+  user-select: text;
+}
+.doc button,
+.sheet button,
+.lab button {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 /* ---------- Tampon encreur ---------- */
 
 .stamp {
@@ -502,6 +519,45 @@ textarea.field {
 }
 .sheet__body {
   padding-top: 1rem;
+}
+.sheet__copy {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid currentColor;
+  border-top: 0;
+  border-right: 0;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1;
+  cursor: pointer;
+}
+.sheet__copy:hover,
+.sheet__copy:focus-visible {
+  background: var(--ink);
+  color: var(--paper);
+  outline: none;
+}
+.sheet--yellow .sheet__copy {
+  color: var(--yellow-ink);
+}
+.sheet--yellow .sheet__copy:hover,
+.sheet--yellow .sheet__copy:focus-visible {
+  background: var(--yellow-ink);
+  color: var(--yellow);
+}
+@media (max-width: 640px) {
+  .sheet__copy-label {
+    display: none;
+  }
 }
 .sheet--yellow {
   background: var(--yellow);
