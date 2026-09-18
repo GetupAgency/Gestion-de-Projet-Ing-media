@@ -279,6 +279,81 @@ Un projet web est une initiative temporaire visant à créer un produit, service
       </ul>
     </div>
   </div>
+
+  <h2 class="section-subtitle mt-8">Des objectifs SMART, pas des vœux</h2>
+
+  <p class="section-text">La rubrique « Objectifs » est celle que les clients remplissent le plus mal : « être visible », « vendre plus », « moderniser notre image ». Ce ne sont pas des objectifs, ce sont des souhaits. On ne peut ni les chiffrer, ni les planifier, ni dire à la fin si le projet a réussi. La méthode SMART est une grille de cinq questions qui transforme un souhait en objectif exploitable.</p>
+
+  <div class="deliverables-grid">
+    <div class="deliverable-phase">
+      <h4 class="phase-title">S — Spécifique</h4>
+      <ul class="deliverable-list">
+        <li>Quoi, pour qui, sur quel périmètre ?</li>
+        <li>« Vendre en ligne » → « vendre nos 120 références de sneakers reconditionnées aux 18-30 ans en France »</li>
+      </ul>
+    </div>
+    <div class="deliverable-phase">
+      <h4 class="phase-title">M — Mesurable</h4>
+      <ul class="deliverable-list">
+        <li>Quel chiffre, mesuré comment, avec quel outil ?</li>
+        <li>« Plus de ventes » → « 300 commandes par mois, suivies dans le back-office et GA4 »</li>
+      </ul>
+    </div>
+    <div class="deliverable-phase">
+      <h4 class="phase-title">A — Atteignable</h4>
+      <ul class="deliverable-list">
+        <li>Avec ce budget, cette équipe, ce trafic actuel ?</li>
+        <li>« 1 M€ la première année » avec 800 visiteurs/mois et 2 % de conversion : non. « 30 k€ en 6 mois » : oui</li>
+      </ul>
+    </div>
+    <div class="deliverable-phase">
+      <h4 class="phase-title">R — Réaliste (pertinent)</h4>
+      <ul class="deliverable-list">
+        <li>Sert-il vraiment la stratégie de l'entreprise ?</li>
+        <li>Une app native pour une boutique qui vend 10 paires par jour ne sert pas l'objectif, elle sert l'ego</li>
+      </ul>
+    </div>
+    <div class="deliverable-phase">
+      <h4 class="phase-title">T — Temporel</h4>
+      <ul class="deliverable-list">
+        <li>Pour quand, et pourquoi cette date ?</li>
+        <li>« Vite » → « mise en ligne le 3 novembre 2026, six semaines avant le pic de Noël »</li>
+      </ul>
+    </div>
+    <div class="deliverable-phase">
+      <h4 class="phase-title">Le test final</h4>
+      <ul class="deliverable-list">
+        <li>Lisez l'objectif à voix haute et demandez : « Le 1er juin, saura-t-on dire oui ou non ? »</li>
+        <li>Si la réponse est « ça dépend », ce n'est pas encore SMART</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="section-text">Avant / après sur un vrai brief reçu par une agence :</p>
+
+  <table>
+    <thead>
+      <tr><th>Ce que dit le client</th><th>Ce que vous écrivez dans le CDC</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>« On veut être numéro 1 sur Google. »</td><td>Positionner le site en première page sur 10 requêtes ciblées (liste en annexe) dans les 6 mois suivant la mise en ligne, mesuré via Search Console.</td></tr>
+      <tr><td>« Le site doit être moderne et rapide. »</td><td>Score Lighthouse mobile ≥ 85 en performance et accessibilité sur les pages accueil, catégorie et produit, vérifié en recette.</td></tr>
+      <tr><td>« On veut vendre partout. »</td><td>Ouvrir la vente en France métropolitaine à la mise en ligne, puis Belgique et Suisse en phase 2 (T2 2027), sous réserve des résultats de la phase 1.</td></tr>
+      <tr><td>« Il faut que ça marche pour Noël. »</td><td>Mise en production le 3 novembre 2026, recette terminée le 27 octobre, gel des développements du 15 novembre au 5 janvier.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warning-box">
+    <p class="warning-title">Trois pièges classiques</p>
+    <p><strong>Le chiffre sorti du chapeau :</strong> « 10 000 visiteurs par mois » sans savoir d'où ils viendront n'est pas mesurable, c'est décoratif. Demandez toujours le trafic actuel et la source prévue (SEO, pub, réseaux, base clients).</p>
+    <p><strong>L'objectif qui décrit une fonctionnalité :</strong> « Avoir un tunnel de paiement Stripe » n'est pas un objectif, c'est un moyen. L'objectif est « 2,5 % de taux de conversion panier → commande ».</p>
+    <p><strong>L'objectif de l'agence déguisé :</strong> « Livrer le site en 8 semaines » est un objectif de projet, pas un objectif du client. Les deux existent, mais on ne les mélange pas dans la même liste.</p>
+  </div>
+
+  <div class="tip-box">
+    <p class="tip-title">Pourquoi c'est votre meilleure protection</p>
+    <p>Des objectifs SMART écrits noir sur blanc servent trois fois : au devis (on chiffre ce qui sert l'objectif, on écarte le reste), pendant le projet (chaque demande nouvelle est testée : « en quoi ça sert l'objectif 2 ? ») et à la fin (le bilan compare des chiffres, pas des impressions). Un client qui dit « je ne suis pas satisfait » face à un objectif SMART atteint, c'est une conversation courte. Face à « un site moderne », c'est un litige.</p>
+  </div>
 </div>`,
         casePratique: {
           title: 'Rédaction CDC',

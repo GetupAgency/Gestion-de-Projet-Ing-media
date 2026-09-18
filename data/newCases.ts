@@ -7,6 +7,121 @@ export type CasePratique = NonNullable<Section['casePratique']>
  * rendus en feuillets jaunes supplémentaires. Les corrections restent côté serveur.
  */
 export const newCases: Record<string, CasePratique[]> = {
+  cdc: [
+  {
+    title: 'Le mail du dirigeant : réécrire le brief en SMART',
+    description: 'Atelier en groupe, une heure. Transformer un e-mail de dirigeant enthousiaste et flou en brief à objectifs SMART.',
+    exercice: `<div class="cas-pratique-content">
+    <p><strong>Format :</strong> groupes de 3 ou 4 · 55 minutes · un livrable d'une page par groupe. L'enseignant joue le dirigeant : il répond à vos questions, mais seulement à celles que vous posez.</p>
+
+    <p><strong>Contexte :</strong> vous êtes chef·fe de projet chez Getup Agency. Lundi 8 h 12, ce mail arrive dans votre boîte.</p>
+
+    <blockquote>
+      <p><strong>De :</strong> Karim Benali &lt;karim@nordsud-store.fr&gt;<br><strong>Objet :</strong> Notre site e-commerce !!!</p>
+      <p>Bonjour,</p>
+      <p>Je dirige NORD SUD, marque de streetwear toulonnaise : 3 boutiques (Toulon, Marseille, Montpellier), 12 salariés, on cartonne sur Instagram (41 k abonnés) et TikTok. Les clients nous réclament un site depuis des années et là on y va, c'est décidé.</p>
+      <p>On veut un site e-commerce complet, moderne, qui claque, avec tout ce qu'il faut : le catalogue, les paiements, les avis, un programme de fidélité, le click &amp; collect dans nos boutiques, une appli aussi si possible, et il faut qu'on vende partout, l'Europe au minimum. L'idée c'est de devenir la référence du streetwear dans le Sud puis d'attaquer Paris, et à terme d'être numéro 1 sur Google.</p>
+      <p>Il faut que ça marche vite parce que Noël arrive et qu'on a raté celui de l'an dernier. On aimerait faire au moins autant de ventes en ligne qu'en boutique dès la première année, ça paraît logique vu notre communauté.</p>
+      <p>Pour le budget, faites-moi une proposition, on verra, mais soyez raisonnables, on est une PME. Je veux que le site soit facile à gérer parce que c'est Inès (ma responsable com, 24 ans) qui s'en occupera en plus d'Instagram.</p>
+      <p>Vous pouvez me faire un devis pour vendredi ?</p>
+      <p>Karim</p>
+    </blockquote>
+
+    <h4>Étape 1 — Autopsie du mail (10 min)</h4>
+    <ol>
+      <li>Surlignez chaque phrase qui ressemble à un objectif. Pour chacune, cochez les lettres qu'elle valide : S, M, A, R, T. Vous devriez trouver au moins 7 « objectifs » et aucun ne coche les cinq lettres.</li>
+      <li>Repérez les demandes qui sont en réalité des fonctionnalités déguisées en objectifs (indice : appli, fidélité, click &amp; collect).</li>
+    </ol>
+
+    <h4>Étape 2 — Interview du dirigeant (15 min)</h4>
+    <ol>
+      <li>Préparez 8 questions maximum, classées : chiffres actuels, clients, logistique, argent, calendrier. Une question par ligne, précise, dont la réponse est un chiffre ou un fait.</li>
+      <li>Posez-les à l'enseignant-dirigeant à tour de rôle entre groupes. Notez tout : ces réponses sont votre seule source pour l'étape 3.</li>
+    </ol>
+
+    <h4>Étape 3 — Réécriture du brief (25 min)</h4>
+    <p>Rédigez sur une page :</p>
+    <ol>
+      <li><strong>Le besoin en deux phrases</strong> (le problème, pour qui).</li>
+      <li><strong>Cinq objectifs SMART</strong>, numérotés O1 à O5, un par ligne, chacun avec sa mesure et son outil de mesure. Au moins un objectif business, un objectif d'usage, un objectif de délai.</li>
+      <li><strong>Le périmètre de la phase 1</strong> qui sert ces objectifs, et la liste explicite de ce qui est reporté en phase 2 avec la raison (« ne sert aucun objectif de phase 1 » ou « dépend des résultats de O2 »).</li>
+      <li><strong>Une réponse de 5 lignes à Karim</strong> : ce que vous lui proposez pour vendredi à la place du devis.</li>
+    </ol>
+
+    <h4>Étape 4 — Revue croisée (5 min)</h4>
+    <p>Échangez votre page avec le groupe voisin. Pour chacun de leurs objectifs, faites le test : « Le 1er juillet 2027, peut-on répondre oui ou non ? » Barrez ceux qui échouent. Le groupe qui a le plus d'objectifs survivants gagne, à condition qu'ils soient aussi atteignables au regard des chiffres obtenus en interview.</p>
+  </div>`,
+    correction: `<div class="correction-content">
+    <h2 class="correction-title">Correction : le brief SMART de NORD SUD</h2>
+
+    <h3 class="correction-subtitle">Fiche du dirigeant (à ne révéler qu'aux questions posées)</h3>
+    <ul class="correction-list">
+      <li><strong>Chiffres actuels :</strong> CA 2025 : 1,1 M€ HT sur les 3 boutiques, soit environ 92 k€/mois ; panier moyen en boutique 68 € ; 1 300 tickets par mois. Aucune vente en ligne aujourd'hui, sauf quelques DM Instagram traités à la main (une dizaine par semaine).</li>
+      <li><strong>Communauté :</strong> 41 k abonnés Instagram dont 70 % en région PACA/Occitanie, 18-28 ans à 80 %. Taux d'engagement 3,5 %. TikTok : 12 k, très volatil. Newsletter : aucune base e-mail.</li>
+      <li><strong>Catalogue :</strong> 180 références actives, 2 collections par an, photos produit faites par Inès sur fond blanc, pas de fiches produit rédigées. Stock géré dans un logiciel de caisse (Hiboutik) avec export CSV.</li>
+      <li><strong>Logistique :</strong> pas d'entrepôt, le stock est en boutique. Personne n'a réfléchi aux retours. Karim pense que « La Poste fera ».</li>
+      <li><strong>Argent :</strong> en insistant, Karim lâche une enveloppe de 25 à 30 k€ pour le site, hors pub. Aucun budget marketing en ligne prévu. Pas de pub payante à ce jour.</li>
+      <li><strong>Calendrier :</strong> « Noël » veut dire pour lui « le Black Friday », soit le 27 novembre 2026. Nous sommes mi-septembre. Il n'a pas encore choisi de prestataire.</li>
+      <li><strong>Europe :</strong> il a reçu trois commandes de Belges en DM et en a déduit « l'Europe ». Il ne sait pas ce qu'est l'OSS TVA.</li>
+      <li><strong>Inès :</strong> 24 ans, à l'aise avec Canva et Instagram, jamais touché à un back-office e-commerce, 1 jour par semaine disponible pour le site.</li>
+      <li><strong>Pourquoi maintenant :</strong> un concurrent marseillais a lancé son site en juin et a « pris » des clients ; Karim a peur de rater le train.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Étape 1 — ce qu'il fallait voir dans le mail</h3>
+    <ul class="correction-list">
+      <li>« Complet, moderne, qui claque » : ni S, ni M. C'est un ressenti.</li>
+      <li>« Vendre partout, l'Europe au minimum » : pas A (pas de logistique, pas de TVA intra-UE), pas R (70 % de la communauté est régionale).</li>
+      <li>« Devenir la référence du streetwear dans le Sud » : pas M. Référence pour qui, mesurée comment ?</li>
+      <li>« Numéro 1 sur Google » : pas S (sur quelles requêtes ?), pas T, et « numéro 1 » n'est pas un objectif d'entreprise.</li>
+      <li>« Vite, pour Noël » : T flou. Noël, Black Friday ou la semaine avant ? Six semaines de différence.</li>
+      <li>« Autant de ventes en ligne qu'en boutique dès la première année » : 1,1 M€ en ligne la première année sans budget pub ni base e-mail : pas A. Le ratio réaliste pour une marque de cette taille est 10 à 20 % du CA physique.</li>
+      <li>« Facile à gérer pour Inès » : bon signal, mais pas M. Il faut le transformer en critère d'acceptation (« Inès ajoute un produit avec 5 photos en moins de 10 minutes, sans aide »).</li>
+      <li><strong>Fonctionnalités déguisées :</strong> appli, programme de fidélité, avis clients, click &amp; collect. Aucune n'est un objectif ; chacune doit être rattachée à un objectif ou reportée.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Étape 2 — les questions qui rapportent</h3>
+    <ul class="correction-list">
+      <li>Quel est votre CA mensuel et votre panier moyen aujourd'hui ? (calibre tout le reste)</li>
+      <li>D'où viendront les visiteurs du site le premier mois ? Avez-vous une base e-mail, un budget pub ? (teste « A »)</li>
+      <li>Qui prépare et expédie les colis, depuis où, et qui gère les retours ?</li>
+      <li>Qu'est-ce que « Noël » veut dire pour vous : une date précise ? Que se passe-t-il si on livre le 15 décembre ?</li>
+      <li>Combien de commandes venues de l'étranger avez-vous eues ? (dégonfle « l'Europe »)</li>
+      <li>Combien de temps par semaine Inès peut-elle consacrer au site ? A-t-elle déjà utilisé un back-office ?</li>
+      <li>Quelle enveloppe avez-vous en tête ? Et pour la publicité ?</li>
+      <li>Pourquoi maintenant ? (révèle le concurrent, donc la vraie motivation)</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Étape 3 — un brief possible</h3>
+    <ul class="correction-list">
+      <li><strong>Besoin :</strong> NORD SUD veut convertir sa communauté Instagram régionale en clients en ligne et arrêter de traiter des ventes en DM. Le site doit être tenu par une personne non technique, un jour par semaine.</li>
+      <li><strong>O1 (business) :</strong> réaliser 12 000 € HT de ventes en ligne par mois en moyenne sur avril-juin 2027, soit 13 % du CA boutique, mesuré dans le back-office.</li>
+      <li><strong>O2 (usage) :</strong> atteindre un taux de conversion de 1,5 % (visites → commandes) sur les trois mois suivant le lancement, mesuré dans GA4.</li>
+      <li><strong>O3 (acquisition) :</strong> convertir 5 % des abonnés Instagram en comptes clients ou inscrits newsletter avant le 31 mars 2027, soit 2 000 contacts, mesuré dans l'outil d'e-mailing.</li>
+      <li><strong>O4 (exploitation) :</strong> permettre à Inès de publier une nouvelle collection de 30 références en une journée, sans intervention de l'agence, validé lors de la recette par un test chronométré.</li>
+      <li><strong>O5 (délai) :</strong> site en production le 12 novembre 2026, recette terminée le 5 novembre, pour être stable avant le Black Friday du 27 novembre ; gel des évolutions jusqu'au 5 janvier 2027.</li>
+      <li><strong>Périmètre phase 1 :</strong> boutique en ligne sur Shopify ou WooCommerce (le budget interdit du sur-mesure), 180 références importées depuis Hiboutik, paiement CB et Apple Pay, livraison France métropolitaine avec Colissimo, retours sous 14 jours depuis une boutique, capture e-mail à l'inscription, click &amp; collect simple (retrait en boutique comme mode de livraison, pas de synchronisation de stock temps réel).</li>
+      <li><strong>Reporté en phase 2 :</strong> application mobile (ne sert aucun objectif, le site responsive suffit à 18-28 ans qui viennent d'Instagram) ; programme de fidélité (dépend du résultat de O3) ; avis clients (utile après 300 commandes, pas avant) ; Europe (dépend de O1 et nécessite OSS TVA, transporteur international, CGV multilingues) ; SEO ambitieux (une marque de streetwear vit d'Instagram, pas de Google la première année).</li>
+      <li><strong>Réponse à Karim :</strong> « Merci Karim, votre projet est mûr et votre communauté est un vrai atout. Je ne vous enverrai pas de devis vendredi : chiffrer aujourd'hui reviendrait à chiffrer trois projets différents. Je vous propose un atelier de cadrage de deux heures mardi avec Inès, à l'issue duquel vous recevrez un cahier des charges d'une dizaine de pages et un devis ferme sous 5 jours. Pour le Black Friday, c'est jouable si nous démarrons avant le 1er octobre sur une solution éprouvée, et en gardant l'appli et l'Europe pour 2027. »</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Grille d'évaluation du livrable (sur 20)</h3>
+    <ul class="correction-list">
+      <li><strong>Objectifs SMART (10 pts) :</strong> 2 points par objectif qui passe le test « oui ou non le 1er juillet 2027 » ET qui est cohérent avec les chiffres de l'interview. Un objectif à 1 M€ en ligne vaut 0.</li>
+      <li><strong>Interview (4 pts) :</strong> au moins une question sur chaque thème : chiffres, trafic, logistique, argent, calendrier.</li>
+      <li><strong>Périmètre (4 pts) :</strong> chaque fonctionnalité gardée est rattachée à un objectif ; chaque report a une raison écrite.</li>
+      <li><strong>Réponse au client (2 pts) :</strong> refuse le devis à l'aveugle sans froisser, propose une étape suivante datée.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Erreurs vues chaque année</h3>
+    <ul class="correction-list">
+      <li>Garder « numéro 1 sur Google » en le rendant « mesurable » avec un chiffre inventé. Un objectif SMART peut aussi être un objectif abandonné.</li>
+      <li>Cinq objectifs qui sont tous des objectifs de délai ou de livraison (« site livré », « fiches produit rédigées »). Ce sont des jalons, pas des objectifs client.</li>
+      <li>Ne poser aucune question sur la logistique. Un e-commerce sans réponse à « qui met le colis dans le carton ? » n'existe pas.</li>
+      <li>Accepter « l'Europe » parce que le client y tient, sans avoir demandé combien de commandes étrangères il reçoit.</li>
+    </ul>
+  </div>`,
+  },
+  ],
   cibles: [
   {
     title: 'Un Uber pour les chiens',
