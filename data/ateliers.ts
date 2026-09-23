@@ -4,7 +4,7 @@ import { newCases } from './newCases'
  * Ateliers en groupe du terrain d'entraînement : 30 min à 1 h, un artefact réaliste,
  * un livrable par groupe, une correction réservée à l'enseignant (jamais dans le bundle).
  * Les secteurs sont choisis pour parler aux étudiants : streetwear, matcha, rap, covoiturage,
- * sneakers, créateurs food, e-sport.
+ * bubble tea, tatouage, sneakers, créateurs food, e-sport.
  */
 export interface Atelier {
   id: string
@@ -340,6 +340,220 @@ export const ateliers: Atelier[] = [
       <li>Ne pas parler du dérapage de 5 jours antérieur : il ressortira au pire moment.</li>
       <li>Proposer de décaler la date sans dire ce que ça coûte à Yasmine (4 000 étudiants prévenus).</li>
       <li>Un plan sans marge, ou une marge « réservée » qu'on dépense aussitôt en fonctionnalité.</li>
+    </ul>
+  </div>`,
+  },
+
+  {
+    id: 'crise-v1',
+    title: 'Le mail de 7 h 12 de Boba Bros',
+    pitch: 'Une V1 en retard, des points de fidélité doublés, des notifications à 3 h du matin, et l’ouverture d’une boutique samedi. Préparer et jouer la réunion de crise.',
+    sector: 'Bubble tea · BOBA BROS',
+    duration: '50 min',
+    format: 'Groupes de 4, puis jeu de rôle',
+    skill: 'Triage de bugs, réunion de crise, réponse écrite sous pression',
+    artefact: 'E-mail + liste de bugs',
+    module: 'gestion-crise',
+    description: 'Un client stressé écrit tout en même temps : les faits, la peur, les exigences. L\'atelier apprend à séparer les trois, à trier les bugs par gravité réelle, à répondre dans l\'heure sans promettre l\'impossible, et à tenir la réunion qui suit.',
+    exercice: `<div class="cas-pratique-content">
+    <p><strong>Format :</strong> groupes de 4 · 50 minutes · deux livrables écrits (un triage, un mail) puis un jeu de rôle de 10 minutes.</p>
+    <p><strong>Contexte :</strong> Boba Bros, 6 boutiques de bubble tea entre Toulon et Nice, 22 salariés, 85 k abonnés Instagram. Votre agence a livré il y a 12 jours la V1 de leur application de commande à emporter avec programme de fidélité, avec 3 semaines de retard sur la date promise. La 7e boutique ouvre à Nice samedi, dans 4 jours, et la campagne « commandez sur l'app, 1 boisson offerte » est déjà partie. Ce matin, ce mail.</p>
+
+    <blockquote>
+      <p><strong>De :</strong> Mehdi Aouad, fondateur Boba Bros · <strong>À :</strong> vous · <strong>Cc :</strong> les 6 responsables de boutique, votre directeur d'agence<br><strong>Objet :</strong> URGENT — ça ne peut plus continuer<br><strong>Reçu :</strong> mardi, 7 h 12</p>
+      <p>Bonjour,</p>
+      <p>Je ne sais plus par où commencer. Hier soir la responsable de Marseille m'appelle : des commandes passées pour Marseille arrivent sur l'écran d'Aix, les clients attendent 20 minutes devant le comptoir pour rien. Ce matin j'ouvre l'app : des clients ont leurs points de fidélité doublés, certains ont commandé GRATUITEMENT hier, on parle de vraies boissons données. Une cliente m'a montré l'app EN CHINOIS sur son téléphone, je ne sais même pas comment c'est possible. Apple Pay marche une fois sur deux, les gens abandonnent. Et cette nuit, plusieurs clients ont reçu une notification « votre commande est prête » à 3 h 14 du matin. À 3 h 14.</p>
+      <p>On avait déjà 3 semaines de retard. On a fait la com pour Nice samedi, 1 boisson offerte via l'app, il y aura 300 personnes. Si l'app fait ça samedi, c'est mort.</p>
+      <p>Je veux tout corrigé avant samedi. Je veux un geste commercial sérieux. Et je veux parler directement au développeur, pas à un intermédiaire, parce que là je commence à me demander si on a choisi la bonne agence.</p>
+      <p>Mehdi</p>
+    </blockquote>
+
+    <p><strong>Ce que vous savez à 7 h 30, après un coup de fil au développeur principal :</strong></p>
+    <ul>
+      <li>La boutique de Nice a été ajoutée en base vendredi par le client lui-même depuis le back-office. Le développeur soupçonne que l'ordre des boutiques a changé et que l'app affecte les commandes par position, pas par identifiant.</li>
+      <li>Les points doublés viennent probablement du webhook de paiement reçu deux fois par Stripe les soirs de forte affluence ; rien n'empêche de le traiter deux fois.</li>
+      <li>La notification de 3 h 14 : une file d'attente de notifications a rejoué des messages en échec après un redémarrage du serveur cette nuit.</li>
+      <li>Le chinois : l'app prend la langue du téléphone et n'a pas de langue par défaut ; la cliente a un téléphone configuré en chinois.</li>
+      <li>Apple Pay : le domaine de la boutique Nice n'est pas vérifié chez Stripe ; le développeur n'est pas sûr que ce soit la seule cause.</li>
+      <li>Le retard de 3 semaines : deux semaines viennent de l'attente des visuels et des menus du client, une semaine de l'agence (le développeur back a été malade et personne ne l'a remplacé).</li>
+    </ul>
+
+    <h4>Étape 1 — Lire le mail en trois colonnes (10 min)</h4>
+    <ol>
+      <li>Séparez tout ce que dit Mehdi en trois colonnes : les faits vérifiables, les émotions, les exigences. Chaque phrase va dans une colonne, parfois deux.</li>
+      <li>Repérez le vrai danger : ce n'est pas un bug, c'est une date. Dites en une phrase ce qui doit être vrai samedi à 11 h.</li>
+    </ol>
+
+    <h4>Étape 2 — Le triage (15 min)</h4>
+    <p>Un tableau, une ligne par bug : gravité (P1 bloque l'argent ou l'exploitation, P2 dégrade, P3 gêne), impact concret, cause probable, correction envisagée, qui, quand, comment on vérifie. Puis décidez : que gèle-t-on jusqu'à samedi ? Que fait-on des 300 boissons offertes si l'app n'est pas sûre ?</p>
+
+    <h4>Étape 3 — Le mail de 8 h et la réunion (15 min)</h4>
+    <ol>
+      <li><strong>Le mail</strong>, envoyé avant 8 h 30, 12 lignes maximum : il ne s'excuse pas dix fois, ne promet pas « tout avant samedi », dit ce qui est déjà en cours, propose une réunion de crise à une heure précise aujourd'hui, et répond aux trois exigences (samedi, geste commercial, parler au développeur) sans en accepter aucune telle quelle. Décidez à qui vous répondez : à tous les destinataires en copie, ou non ?</li>
+      <li><strong>La réunion</strong> : participants, durée, ordre du jour minuté, ce que vous dites dans les deux premières minutes, ce que vous refusez de promettre, ce que vous obtenez de Mehdi.</li>
+    </ol>
+
+    <h4>Étape 4 — Jeu de rôle (10 min)</h4>
+    <p>Un groupe joue l'agence (chef·fe de projet et développeur principal), un autre joue Mehdi et la responsable de Marseille. Cinq minutes de réunion, à partir de l'ordre du jour du groupe agence. Le reste de la classe note : à quel moment l'agence a-t-elle promis quelque chose qu'elle ne tiendra pas ? À quel moment Mehdi s'est-il calmé, et pourquoi ?</p>
+  </div>`,
+    correction: `<div class="correction-content">
+    <h2 class="correction-title">Correction : la réunion de crise Boba Bros</h2>
+
+    <h3 class="correction-subtitle">Étape 1 — les trois colonnes</h3>
+    <ul class="correction-list">
+      <li><strong>Faits :</strong> commandes Marseille affichées à Aix ; points doublés et boissons gratuites ; app en chinois chez une cliente ; Apple Pay aléatoire ; notifications à 3 h 14 ; 3 semaines de retard ; ouverture Nice samedi avec 300 personnes attendues et une boisson offerte via l'app.</li>
+      <li><strong>Émotions :</strong> « je ne sais plus par où commencer », « c'est mort », « la bonne agence ». Mehdi a été appelé la veille au soir par une responsable, il a mal dormi, il écrit à 7 h 12 en mettant ses six responsables en copie : il a besoin de montrer à son équipe qu'il agit.</li>
+      <li><strong>Exigences :</strong> tout corrigé avant samedi ; un geste commercial ; parler au développeur directement.</li>
+      <li><strong>Le vrai danger :</strong> samedi 11 h, 300 personnes doivent pouvoir commander une boisson offerte sur l'app de Nice sans que la commande parte ailleurs, sans que le paiement échoue, sans point fantôme. Tout le reste peut attendre lundi.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Étape 2 — le triage</h3>
+    <ul class="correction-list">
+      <li><strong>P1 · Commandes routées vers la mauvaise boutique :</strong> exploitation cassée dans deux boutiques, et Nice va aggraver le problème. Cause probable : affectation par position au lieu de l'identifiant. Correctif ciblé aujourd'hui, test avec une commande réelle dans chaque boutique ce soir, avec les responsables. Vérification : 7 commandes de 1 €, 7 écrans.</li>
+      <li><strong>P1 · Points doublés et commandes gratuites :</strong> c'est de l'argent qui sort. Cause probable : webhook Stripe traité deux fois, sans clé d'idempotence. Correctif aujourd'hui ; en attendant, désactiver le paiement en points jusqu'à jeudi (les clients gardent leurs points, ils ne peuvent juste pas les dépenser 48 h) et lister les comptes touchés pour un recalcul.</li>
+      <li><strong>P1 · Apple Pay aléatoire :</strong> chaque échec est une vente perdue, et samedi ce sera le premier geste de 300 personnes. Vérification du domaine Nice chez Stripe ce matin (10 minutes), puis 20 paiements de test sur 5 téléphones différents jeudi. Si la cause n'est pas seulement le domaine, le dire jeudi soir et prévoir la carte bancaire classique comme parcours de repli mis en avant.</li>
+      <li><strong>P2 · Notifications nocturnes :</strong> image dégradée, pas d'argent perdu. Correctif : ne pas rejouer les notifications de plus de 30 minutes, et fenêtre de silence 22 h-7 h. Vendredi.</li>
+      <li><strong>P3 · App en chinois :</strong> une cliente, aucune perte. Langue par défaut français. Lundi prochain, avec la V1.1.</li>
+      <li><strong>Gel :</strong> aucune nouvelle fonctionnalité ni modification du back-office par le client jusqu'à lundi ; c'est l'ajout de Nice par le client qui a déclenché le routage. Ce point se dit sans accuser : « le back-office vous a laissé faire quelque chose que l'app ne savait pas gérer, c'est à nous de le verrouiller ».</li>
+      <li><strong>Les 300 boissons :</strong> plan B écrit dès aujourd'hui : un code à montrer au comptoir si l'app tombe samedi, et une personne de l'agence joignable de 10 h à 16 h.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Étape 3 — le mail de 8 h</h3>
+    <ul class="correction-list">
+      <li><strong>À qui :</strong> à Mehdi, avec votre directeur en copie, sans les six responsables. On ne débat pas d'un incident devant l'équipe du client ; on lui propose en revanche un message qu'il pourra leur transmettre. Répondre à tous avec le détail technique donnerait à six personnes une raison de s'inquiéter davantage.</li>
+      <li>« Mehdi, j'ai lu votre mail et j'ai eu le développeur principal à 7 h 30. Voilà où nous en sommes. Deux problèmes sont graves et sont pris en main dès maintenant : les commandes qui arrivent dans la mauvaise boutique (cause identifiée, correctif aujourd'hui, test réel dans chaque boutique ce soir avec vos responsables) et les points doublés (le paiement en points est suspendu 48 h pour arrêter l'hémorragie, les comptes touchés seront recalculés). Apple Pay est vérifié ce matin. Les notifications de nuit et l'affichage en chinois sont moins urgents et seront corrigés cette semaine. Je vous propose une réunion de crise aujourd'hui à 14 h, 45 minutes, avec le développeur principal à mes côtés : vous aurez ses réponses en direct, et un seul interlocuteur ensuite pour que rien ne se perde. Nous y fixerons ensemble ce qui sera garanti samedi à Nice et le plan B au comptoir. Pour le geste commercial, mon directeur en discutera avec vous une fois la situation stabilisée ; ce n'est pas le sujet de ce matin. Si vous le souhaitez, je vous envoie d'ici 9 h un court message que vous pourrez transmettre à vos responsables. [Prénom] »</li>
+      <li>Ce mail répond aux trois exigences sans en accepter aucune telle quelle : pas « tout avant samedi » mais les P1 avec des tests ; le développeur est présent mais pas en contact direct permanent ; le geste commercial est reconnu et déplacé vers la bonne personne et le bon moment.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">La réunion de 14 h (45 min)</h3>
+    <ul class="correction-list">
+      <li><strong>Participants :</strong> Mehdi, la responsable de Marseille (elle a vu les faits, sa présence rassure Mehdi), vous, le développeur principal, votre directeur les 10 dernières minutes. Pas les six responsables.</li>
+      <li><strong>0-2 min :</strong> vous parlez en premier, deux phrases : « Ce que vous avez vécu hier soir est inacceptable pour vos équipes et vos clients, et une partie du retard est de notre fait. Voici ce qui est réglé depuis ce matin, et ce qu'on décide ensemble maintenant. » Pas de « mais », pas d'excuse liée au client à ce stade.</li>
+      <li><strong>2-17 min :</strong> les cinq bugs, un par un : impact, cause en une phrase compréhensible, correctif, date, preuve. Le développeur parle sur la cause, vous sur la date. La responsable de Marseille valide le test du soir.</li>
+      <li><strong>17-27 min :</strong> samedi à Nice : ce qui sera garanti (routage, paiement), ce qui sera dégradé volontairement (points suspendus jusqu'à jeudi), le plan B au comptoir, la personne d'astreinte. Vous obtenez de Mehdi : plus de modification du back-office jusqu'à lundi, un test réel jeudi dans la boutique de Nice avec lui.</li>
+      <li><strong>27-37 min :</strong> le retard : les faits datés, deux semaines d'attente des contenus, une semaine de l'agence assumée nommément, et ce qui change pour que ça n'arrive plus (un remplaçant identifié, un point de 10 minutes chaque matin jusqu'à lundi).</li>
+      <li><strong>37-45 min :</strong> le directeur entre : le geste commercial sera proposé lundi, une fois la V1 stable, sous la forme d'un avoir sur la maintenance ou de la V1.1 offerte ; on ne négocie pas un montant aujourd'hui. Relecture des décisions à voix haute, compte rendu envoyé avant 16 h.</li>
+      <li><strong>Ce qu'on ne promet pas :</strong> « tout corrigé avant samedi », « ça n'arrivera plus jamais », un montant.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Grille (sur 20)</h3>
+    <ul class="correction-list">
+      <li><strong>Lecture (4) :</strong> les trois colonnes sont justes (2), le danger est formulé comme une date et un état, pas comme un bug (2).</li>
+      <li><strong>Triage (6) :</strong> les trois P1 sont les bons (3), chaque ligne a une vérification (1), le gel et le plan B samedi sont là (2).</li>
+      <li><strong>Mail (6) :</strong> répond aux trois exigences sans les accepter telles quelles (3), pas de promesse intenable (1), choix des destinataires argumenté (1), 12 lignes (1).</li>
+      <li><strong>Réunion (4) :</strong> ordre du jour minuté, le développeur présent mais cadré, le retard assumé avec sa part client dite sans accuser, le geste commercial déplacé.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Ce qu'on voit dans le jeu de rôle</h3>
+    <ul class="correction-list">
+      <li>L'agence commence par les causes techniques : Mehdi n'écoute pas, il attend qu'on reconnaisse ce que ses équipes ont vécu.</li>
+      <li>L'agence promet « tout avant samedi » à la troisième relance : la classe le note, c'est la promesse qui sera reprochée lundi.</li>
+      <li>Mehdi se calme au moment où quelqu'un lui donne une date, une preuve et un plan B pour samedi, pas au moment où on s'excuse.</li>
+      <li>Répondre à tous les destinataires : les six responsables lisent le détail des bugs et deux d'entre elles appellent Mehdi dans l'heure. Le mail au client seul, avec un message transmissible, évite cet effet.</li>
+    </ul>
+  </div>`,
+  },
+
+  {
+    id: 'scope-encre',
+    title: 'Le fil WhatsApp de Léo, tatoueur',
+    pitch: 'Dix messages en douze jours, tous « tout petits », aucun dans le devis. Trier, chiffrer, répondre sans perdre le client ni la marge.',
+    sector: 'Tatouage · ENCRE LIBRE',
+    duration: '45 min',
+    format: 'Groupes de 3-4, puis appel joué',
+    skill: 'Scope creep, avenant, dire non en gardant le client',
+    artefact: 'Devis signé + fil WhatsApp',
+    module: 'planification',
+    description: 'Le scope creep n\'arrive jamais d\'un coup : il arrive par petits messages sympathiques. L\'atelier entraîne à distinguer ce qui est dans le devis, ce qui est une interprétation et ce qui est une évolution, puis à répondre en une seule fois, chiffres à l\'appui.',
+    exercice: `<div class="cas-pratique-content">
+    <p><strong>Format :</strong> groupes de 3 ou 4 · 45 minutes · un tableau de tri, une réponse écrite, un appel joué.</p>
+    <p><strong>Contexte :</strong> Encre Libre est un studio de tatouage à Toulon tenu par Léo, 29 ans, 38 k abonnés Instagram, agenda plein deux mois à l'avance. Vous êtes en semaine 4 sur 7 du projet : les maquettes sont validées, le développement a commencé lundi. Léo communique par WhatsApp, toujours gentiment, toujours entre deux clients.</p>
+
+    <blockquote>
+      <p><strong>Extrait du devis signé n° 2026-097 — 9 800 € HT — 7 semaines</strong></p>
+      <p><strong>Inclus :</strong> 1. site de 5 pages (accueil, artistes, flashs, projets personnalisés, infos pratiques) · 2. galerie de flashs gérée dans le back-office, statut disponible / réservé · 3. prise de rendez-vous en ligne sur des créneaux définis par le studio, confirmation par e-mail · 4. formulaire de projet personnalisé avec envoi de photos · 5. mentions légales et RGPD · hébergement 12 mois.</p>
+      <p><strong>Non inclus :</strong> paiement en ligne, espace client, version multilingue, production des contenus (photos, textes).</p>
+    </blockquote>
+
+    <blockquote>
+      <p><strong>WhatsApp · Léo Encre Libre</strong></p>
+      <p><strong>Lun. 9 h 41 :</strong> Hey ! Trop bien les maquettes 🔥 Petite idée : un compte à rebours pour les drops de flashs, comme les marques de fringues ? On sort 20 flashs le 1er de chaque mois, ça ferait un événement.</p>
+      <p><strong>Lun. 22 h 15 :</strong> Pour les rdv il faut un acompte de 50 €, sinon les gens viennent pas. Tu branches Stripe ? Vous l'avez fait pour d'autres non ?</p>
+      <p><strong>Mar. 13 h 02 :</strong> Les photos des flashs je les poste déjà sur Insta, ça peut pas se synchroniser tout seul ? Je vais pas tout mettre deux fois 😩</p>
+      <p><strong>Mer. 19 h 30 :</strong> Ah et Yuna arrive au studio en janvier, il faudra son agenda aussi, elle bosse pas les mêmes jours que moi.</p>
+      <p><strong>Jeu. 11 h 10 :</strong> Le formulaire projet, tu peux ajouter une case « budget » et une case « zone du corps » ? Ça m'éviterait 3 messages à chaque fois.</p>
+      <p><strong>Ven. 8 h 55 :</strong> Une version anglaise c'est possible ? L'été on a plein de touristes, ils écrivent en anglais sur Insta.</p>
+      <p><strong>Lun. 10 h 20 :</strong> Je réfléchis : plutôt qu'une page « artistes », on fait une page par artiste avec sa bio et ses flashs ? Plus logique avec Yuna.</p>
+      <p><strong>Mar. 17 h 45 :</strong> Un truc qui me rend fou : quand un rdv est annulé je perds le créneau. On peut prévenir automatiquement les gens en liste d'attente ?</p>
+      <p><strong>Mer. 12 h 08 :</strong> CARTE CADEAU pour Noël 🎁🎁 les gens m'en demandent tout le temps</p>
+      <p><strong>Ven. 9 h 12 :</strong> Au fait on est toujours bons pour la mise en ligne le 20 ? J'ai posté la date en story 😅</p>
+    </blockquote>
+
+    <h4>Étape 1 — Le tri (15 min)</h4>
+    <p>Un tableau, une ligne par message. Colonnes : ce qu'il demande vraiment ; catégorie (<strong>inclus</strong> dans le devis, <strong>interprétation</strong> d'une ligne du devis, <strong>évolution</strong> hors devis) ; estimation en jours ; impact sur la date du 20 ; ce que vous proposez (oui, oui contre quelque chose, plus tard, non). Faites le total des jours d'évolutions et comparez au projet signé (environ 24 jours).</p>
+
+    <h4>Étape 2 — La règle et la réponse (20 min)</h4>
+    <ol>
+      <li>Écrivez en deux phrases la règle que vous appliquez pour trancher entre interprétation et évolution. Elle doit pouvoir être dite à Léo sans qu'il se sente piégé.</li>
+      <li>Décidez du canal : répondez-vous message par message sur WhatsApp ? Rédigez ce que vous envoyez réellement : un message WhatsApp court (5 lignes maximum) et, si vous le jugez utile, un mail structuré avec une proposition d'avenant (ce qui est fait gratuitement, ce qui est chiffré en phase 2 avec un prix, ce qui est refusé et pourquoi).</li>
+      <li>Répondez à la question de la date : tenue, ou non, et à quelle condition.</li>
+    </ol>
+
+    <h4>Étape 3 — L'appel (10 min)</h4>
+    <p>Léo appelle après avoir lu votre mail : « Mais l'acompte c'est la base, sans ça le site sert à rien ! » Un groupe joue le chef de projet, un autre joue Léo. Trois minutes. La classe note la phrase qui fait accepter Léo, ou celle qui le fait raccrocher.</p>
+  </div>`,
+    correction: `<div class="correction-content">
+    <h2 class="correction-title">Correction : le fil WhatsApp de Léo</h2>
+
+    <h3 class="correction-subtitle">Étape 1 — le tri</h3>
+    <ul class="correction-list">
+      <li><strong>Compte à rebours des drops :</strong> évolution. 1,5 jour. Bonne idée commerciale, à vendre en phase 2. Moyen pauvre gratuit : une bannière « prochains flashs le 1er » éditable dans le back-office (0,25 jour, offert).</li>
+      <li><strong>Acompte Stripe :</strong> évolution, explicitement exclue (« paiement en ligne »). 3,5 jours plus les CGV d'annulation et le remboursement. La vraie demande est « les gens ne viennent pas » : proposer d'abord un rappel automatique par SMS ou e-mail 24 h avant (0,5 jour) et un bouton d'annulation, puis l'acompte en phase 2 si les absences persistent.</li>
+      <li><strong>Synchronisation Instagram :</strong> évolution. 2 jours, et une dépendance fragile à l'API Meta qui casse régulièrement. Alternative : un flux Instagram embarqué sur la page d'accueil (0,5 jour) ; la galerie de flashs reste gérée à la main, car elle porte le statut réservé / disponible qu'Instagram ne connaît pas.</li>
+      <li><strong>L'agenda de Yuna :</strong> interprétation à trancher. Le devis dit « créneaux définis par le studio », pas « par artiste ». Un second agenda avec ses propres jours est une évolution (2 jours), mais c'est la demande la plus légitime : Yuna arrive en janvier, le site serait obsolète dès son arrivée. Proposition : chiffré, mais à prix coûtant, ou intégré si Léo renonce à autre chose.</li>
+      <li><strong>Cases « budget » et « zone du corps » :</strong> inclus. 0,2 jour. Oui tout de suite, et le dire clairement : un oui rapide et visible rend les non suivants audibles.</li>
+      <li><strong>Version anglaise :</strong> évolution explicitement exclue. 3 jours plus la traduction. Non pour cette phase ; en attendant, une ligne en anglais sur la page projets (« Write to us in English, we answer ») coûte 5 minutes.</li>
+      <li><strong>Une page par artiste :</strong> interprétation. Les maquettes sont validées et le développement a commencé lundi : c'est un changement de structure. 1 jour si décidé cette semaine, 2 jours dans quinze jours. Oui, si Léo valide sous 48 h et accepte que la page « artistes » validée disparaisse.</li>
+      <li><strong>Liste d'attente sur annulation :</strong> évolution. 2 jours. Vraie valeur pour Léo (des créneaux perdus, c'est du chiffre), à mettre en tête de la phase 2.</li>
+      <li><strong>Carte cadeau :</strong> évolution, paiement exclu. 3 jours. Phase 2, avec l'acompte : les deux partagent la même brique de paiement, ce qui rend le lot plus cohérent à vendre.</li>
+      <li><strong>Total des évolutions :</strong> 1,5 + 3,5 + 2 + 2 + 3 + 2 + 3 = 17 jours, pour un projet signé de 24 jours. Accepter en souriant reviendrait à faire 70 % du projet gratuitement et à rater le 20.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Étape 2 — la règle</h3>
+    <ul class="correction-list">
+      <li>« Ce que le devis décrit, on le fait, et on l'interprète dans le sens qui vous sert. Ce qu'il exclut ou ne mentionne pas, on le chiffre à part, pour que vous choisissiez en connaissance de cause. » Cette règle protège les deux : Léo sait que rien ne sera fait à moitié en douce, l'agence sait que rien ne sera fait gratuitement en douce.</li>
+      <li><strong>Le canal :</strong> ne pas répondre message par message sur WhatsApp. Chaque « ok je regarde » sur WhatsApp vaut un oui pour le client. Un seul message WhatsApp, chaleureux, qui renvoie vers un mail : le mail est le document sur lequel on pourra s'appuyer.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Ce qu'on envoie</h3>
+    <ul class="correction-list">
+      <li><strong>WhatsApp :</strong> « Salut Léo ! Merci pour toutes ces idées, il y en a de très bonnes (la liste d'attente surtout). J'ai tout repris dans un mail pour qu'on ne perde rien : ce qu'on ajoute tout de suite, ce que je te propose de chiffrer pour une phase 2, et un point sur le 20. Tu me dis si on s'appelle 10 minutes demain ? »</li>
+      <li><strong>Mail, partie 1, fait dans le cadre du devis :</strong> les deux cases du formulaire ; la bannière « prochains flashs » ; une page par artiste si validation sous 48 h ; le rappel automatique 24 h avant le rendez-vous, offert parce qu'il répond à son vrai problème et coûte peu.</li>
+      <li><strong>Mail, partie 2, phase 2 chiffrée :</strong> agenda de Yuna 2 jours (700 € HT, prix coûtant, livrable pour janvier) ; liste d'attente 2 jours (900 € HT) ; lot paiement : acompte + carte cadeau 6,5 jours (2 900 € HT), à décider après un mois d'exploitation avec les rappels ; compte à rebours des drops 1,5 jour (650 € HT). Total phase 2 : 5 150 € HT, à démarrer après la mise en ligne.</li>
+      <li><strong>Mail, partie 3, non pour cette phase :</strong> synchronisation Instagram (fragile, remplacée par le flux embarqué) ; version anglaise (à revoir avant l'été avec les textes).</li>
+      <li><strong>Mail, partie 4, la date :</strong> « Le 20 tient si nous figeons le périmètre ci-dessus vendredi. Chaque ajout après vendredi décale la mise en ligne d'autant, et je préfère te le dire maintenant que la veille. » Le fait que la date soit en story n'est pas un argument pour ajouter du travail : c'est un argument pour figer.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Étape 3 — l'appel</h3>
+    <ul class="correction-list">
+      <li>Léo : « Sans acompte le site sert à rien. » Réponse qui marche : « Je comprends, c'est ton chiffre d'affaires. On a exclu le paiement au devis parce que c'est un chantier à part : CGV, remboursements, litiges. Ce que je te propose, c'est de mesurer un mois les absences avec les rappels automatiques, offerts. Si tu perds encore des créneaux, on lance l'acompte en phase 2, chiffré, et on aura les chiffres pour le justifier. » On reconnaît le problème, on rappelle le contrat sans le brandir, on donne une étape mesurable.</li>
+      <li>Phrase qui fait raccrocher : « C'est pas dans le devis. » Vraie, inutile. Le client n'entend pas « non », il entend « débrouille-toi ».</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Grille (sur 20)</h3>
+    <ul class="correction-list">
+      <li><strong>Tri (8) :</strong> catégories justes sur les dix messages (5), estimations plausibles et total comparé au projet (2), le vrai besoin derrière l'acompte repéré (1).</li>
+      <li><strong>Règle et canal (4) :</strong> une règle dicible au client (2), un seul message WhatsApp qui renvoie vers un écrit (2).</li>
+      <li><strong>Réponse (6) :</strong> des oui rapides et visibles (1), une phase 2 chiffrée par lots (3), la date conditionnée au gel (2).</li>
+      <li><strong>Appel (2) :</strong> le problème du client reconnu avant le rappel du contrat, une étape mesurable proposée.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Erreurs fréquentes</h3>
+    <ul class="correction-list">
+      <li>Tout classer en évolution, y compris les cases du formulaire : le client conclut que l'agence facture le moindre clic.</li>
+      <li>Tout accepter « parce que c'est petit » : 17 jours, le 20 sauté, et une marge négative.</li>
+      <li>Répondre « ok » sur WhatsApp à la liste d'attente le mardi soir, puis la chiffrer le vendredi : le client a une capture d'écran.</li>
+      <li>Oublier Yuna : c'est la seule demande qui rend le site faux dès janvier, elle mérite un traitement à part.</li>
     </ul>
   </div>`,
   },

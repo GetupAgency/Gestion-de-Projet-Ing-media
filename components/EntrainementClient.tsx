@@ -67,7 +67,7 @@ export default function EntrainementClient({ ateliers }: { ateliers: PublicAteli
         meta={[
           { label: 'Réf.', value: `Annexe A6 · ${ateliers.length} ateliers en groupe · ${soloCatalog.length} exercices en solo` },
           { label: 'Format', value: 'Groupes de 3-4 · 30 min à 1 h' },
-          { label: 'Secteurs', value: 'Streetwear, matcha, rap, covoiturage, sneakers, créateurs, e-sport' },
+          { label: 'Secteurs', value: 'Streetwear, matcha, rap, covoiturage, bubble tea, tatouage, sneakers, créateurs, e-sport' },
           { label: 'Solo joués', value: mounted ? `${soloDone} / ${soloCatalog.length}` : '—' },
         ]}
       />

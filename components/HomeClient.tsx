@@ -14,7 +14,7 @@ type Status = 'not-started' | 'in-progress' | 'completed'
 const annexes = [
   { href: '/quiz', title: 'Quiz global', detail: 'Toutes les questions du cours, filtrables par thème, difficulté et format.' },
   { href: '/sprint-agence', title: 'Sprint Agence : RoadTrip Squad', detail: 'Journée immersive avec Gaspard Vasseur : brief, cadrage, équipe, périmètre, planning, et un Gantt défendable le soir.' },
-  { href: '/entrainement', title: 'Terrain d’entraînement', detail: 'Sept ateliers en groupe de 30 min à 1 h (brief SMART, note d’intention, crise budgétaire, devis, kick-off, jalons) et treize exercices en solo.' },
+  { href: '/entrainement', title: 'Terrain d’entraînement', detail: 'Neuf ateliers en groupe de 30 min à 1 h (brief SMART, note d’intention, crises, scope creep, devis, kick-off, jalons) et treize exercices en solo.' },
   { href: '/mission', title: 'Mission cahier des charges', detail: 'Répondre à un appel d’offres complet, en équipe, avec jeux et scores.' },
   { href: '/evaluation', title: 'Évaluation orale', detail: 'Format de l’entretien, thèmes, critères et conseils de préparation.' },
   { href: '/lexique', title: 'Lexique', detail: 'Les termes du métier, avec recherche et filtre par importance.' },
