@@ -559,6 +559,104 @@ export const ateliers: Atelier[] = [
   },
 
   {
+    id: 'dojo-du-non',
+    title: 'Le dojo du non',
+    pitch: 'Six situations, quatre minutes chacune, en binôme. Dire non, repréciser le périmètre, et trouver le oui malin sans jamais devenir garant de ce qu’on ne maîtrise pas.',
+    sector: 'Six clients · cosmétiques, SEO, streaming, photo, RGPD, juridique',
+    duration: '45 min',
+    format: 'Binômes, puis débrief collectif',
+    skill: 'Dire non, compromis, périmètre, obligation de moyens',
+    artefact: 'Six cartes situation',
+    module: 'planification',
+    description: 'Un chef de projet qui ne sait pas dire non finit par travailler gratuitement et par garantir des résultats qu\'il ne contrôle pas. L\'atelier entraîne une formule en trois temps et deux tests, sur six situations à jouer à voix haute.',
+    exercice: `<div class="cas-pratique-content">
+    <p><strong>Format :</strong> binômes · 45 minutes · six situations jouées, une phrase écrite par situation, un débrief.</p>
+
+    <h4>La formule et les deux tests (10 min, lecture collective)</h4>
+    <p>Un bon non tient en trois temps, dans cet ordre : <strong>1. je reconnais</strong> le besoin réel derrière la demande ; <strong>2. je dis ce que je ne ferai pas</strong>, et pourquoi, en une phrase sans « mais » ; <strong>3. je propose un chemin</strong> : ce que je peux faire, à quelles conditions (prix, délai, périmètre), ou qui peut le faire à ma place.</p>
+    <p>Avant de dire oui à quoi que ce soit, deux tests :</p>
+    <ul>
+      <li><strong>Le test du contrôle :</strong> est-ce que je maîtrise ce que je promets ? Un délai sur mon équipe, oui. Un classement Google, le comportement d'un fournisseur, une décision d'Apple, non. On ne se porte jamais garant de ce qu'on ne contrôle pas : on s'engage sur des moyens, pas sur le résultat.</li>
+      <li><strong>Le test de la contrepartie :</strong> qu'est-ce que j'obtiens en échange ? Un oui sans contrepartie écrite (un prix, un jour de plus, une fonctionnalité retirée, une validation plus rapide) n'est pas un compromis, c'est un cadeau. Un cadeau de temps en temps est un choix ; un cadeau à chaque demande est une exploitation.</li>
+    </ul>
+    <p>Le oui malin passe les deux tests. Le faux oui en rate au moins un.</p>
+
+    <h4>Les six situations (25 min, 4 min chacune, on échange les rôles à chaque carte)</h4>
+    <p>L'un joue le demandeur et insiste au moins deux fois. L'autre répond avec la formule. À la fin des quatre minutes, celui qui a répondu écrit sa réponse finale en une phrase.</p>
+    <ol>
+      <li><strong>Glow Lab, marque de cosmétiques TikTok.</strong> La fondatrice : « Pendant le lancement du site, vous répondez aux commentaires Instagram, c'est lié au site de toute façon, et vous connaissez le produit maintenant. » Vous avez livré un site, pas de community management.</li>
+      <li><strong>La clause SEO.</strong> Le directeur d'une auto-école en ligne veut ajouter au contrat : « L'agence garantit un positionnement dans les trois premiers résultats Google sur "code de la route en ligne" sous trois mois. » Il ne signe pas sans.</li>
+      <li><strong>Votre propre directeur.</strong> « Le client veut la mise en ligne dans trois semaines, sinon il va voir ailleurs. Dis-lui oui, on s'arrangera. » L'équipe a estimé six semaines.</li>
+      <li><strong>Zyko, streamer Twitch à 200 k abonnés.</strong> « Il faut que vous soyez joignables le week-end pendant mes lives, au cas où le site de merch plante. C'est là que je vends. »</li>
+      <li><strong>La responsabilité RGPD.</strong> Le client, une salle d'escalade, envoie un document à signer : « L'agence est responsable de la conformité RGPD de l'ensemble des traitements de données de la société. » Vous avez fait le site ; ils ont aussi un logiciel de caisse, une newsletter et un CRM que vous n'avez jamais vus.</li>
+      <li><strong>Sans les CGV.</strong> Veille de mise en ligne d'une boutique de vêtements de padel. L'avocat du client n'a pas livré les CGV ni la politique de retour. Le client : « On met en ligne quand même, on ajoutera ça la semaine prochaine, personne ne lit. »</li>
+    </ol>
+
+    <h4>Débrief (10 min)</h4>
+    <ol>
+      <li>Chaque binôme lit deux de ses phrases finales. La classe vote : oui malin, faux oui, ou non sec (le non sans chemin, qui perd le client).</li>
+      <li>Quelle situation a été la plus dure à refuser ? En général, c'est la 3 : dire non à son propre directeur. Pourquoi est-ce pourtant celle où le non protège le plus le client ?</li>
+    </ol>
+  </div>`,
+    correction: `<div class="correction-content">
+    <h2 class="correction-title">Correction : le dojo du non</h2>
+
+    <h3 class="correction-subtitle">1. Glow Lab, les commentaires Instagram</h3>
+    <ul class="correction-list">
+      <li><strong>Faux oui :</strong> « Ok pour la semaine du lancement. » Sans contrepartie, sans fin définie : dans un mois vous gérez encore les commentaires.</li>
+      <li><strong>Non sec :</strong> « Ce n'est pas dans le devis. »</li>
+      <li><strong>Oui malin :</strong> « Je comprends, les commentaires vont exploser au lancement et vous ne pouvez pas être partout. Nous ne prenons pas la modération : ce n'est pas notre métier et vous seriez mal servie. Ce que je vous propose : une fiche de dix réponses types sur le site (commande, livraison, bug) livrée jeudi, incluse, et je vous mets en relation avec deux community managers freelance qui font ça très bien. » Contrôle : oui, une fiche. Contrepartie : le périmètre reste fermé.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">2. La clause SEO</h3>
+    <ul class="correction-list">
+      <li><strong>Faux oui :</strong> signer en se disant que « ça devrait passer ». C'est le test du contrôle raté : Google décide, pas vous. Un jour, cette clause sert de base à une demande de remboursement.</li>
+      <li><strong>Oui malin :</strong> « Vous voulez être sûr que le site vous apporte des élèves, c'est légitime. Aucune agence sérieuse ne garantit un classement Google, parce qu'aucune ne le contrôle ; celles qui signent ça ne comptent pas tenir. Ce que je peux garantir par écrit, ce sont des moyens vérifiables : site conforme aux critères techniques de Google (score mesuré), dix pages optimisées sur les requêtes listées en annexe, un rapport de positions chaque mois pendant six mois, et une clause de sortie si le suivi n'est pas fait. » Le client n'obtient pas sa garantie de résultat, il obtient une garantie de moyens contrôlable, et de quoi vous tenir responsable de ce que vous maîtrisez.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">3. Votre directeur</h3>
+    <ul class="correction-list">
+      <li><strong>Faux oui :</strong> « D'accord, on va essayer. » Trois semaines plus tard, l'équipe a fait des nuits, le site est bâclé, le client est furieux, et c'est vous qui portez le retard.</li>
+      <li><strong>Oui malin :</strong> « Je comprends que la signature se joue sur la date. Je ne peux pas dire oui à six semaines de travail en trois : ce serait mentir au client, et c'est lui qui découvrira le mensonge. Ce que je peux proposer et défendre devant lui : une première mise en ligne dans trois semaines avec les pages qui font vendre, la suite deux semaines après. Si vous préférez tenir tout le périmètre en trois semaines, il faut un renfort et un budget en face, et je l'écris dans le devis. » Le non interne est le plus difficile et le plus important : c'est là que se décide si l'agence promet ce qu'elle tient.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">4. Zyko, les week-ends</h3>
+    <ul class="correction-list">
+      <li><strong>Faux oui :</strong> « Envoie-moi un message si ça plante. » Vous venez de créer une astreinte gratuite, illimitée, sur votre téléphone personnel.</li>
+      <li><strong>Oui malin :</strong> « Tes lives, c'est ton chiffre d'affaires, je comprends que tu veuilles quelqu'un derrière. Je ne peux pas être joignable tous les week-ends sans que ce soit organisé, sinon je ne le serai pas vraiment le jour où ça compte. Ce que je propose : une astreinte chiffrée sur les dates que tu me donnes à l'avance, avec un numéro dédié et un délai d'intervention écrit, plus une surveillance automatique du site qui nous alerte avant toi. Et pour la boutique, un plan B affiché en une minute si elle tombe : un lien de commande de secours. » Contrôle : oui, des dates et un délai. Contrepartie : un prix.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">5. La responsabilité RGPD</h3>
+    <ul class="correction-list">
+      <li><strong>Faux oui :</strong> signer pour ne pas compliquer la relation. Vous devenez garant d'un logiciel de caisse et d'un CRM que vous n'avez jamais vus. Test du contrôle raté, et c'est un risque juridique réel.</li>
+      <li><strong>Oui malin :</strong> « Vous voulez être en règle, et c'est le bon moment pour le faire. Nous ne pouvons pas être responsables de traitements que nous ne connaissons pas ; personne ne le peut honnêtement. Nous signons volontiers pour ce que nous avons fait : le site est conforme (bandeau, formulaires, durées de conservation, sous-traitants listés), et nous vous livrons la documentation qui le prouve. Pour le reste, je vous prépare une liste des points à vérifier sur votre caisse, votre newsletter et votre CRM, et je vous recommande un prestataire spécialisé si vous voulez un audit complet. » Périmètre reprécisé noir sur blanc, chemin proposé pour le reste.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">6. Sans les CGV</h3>
+    <ul class="correction-list">
+      <li><strong>Faux oui :</strong> mettre en ligne « comme il demande ». Le site vend sans conditions de retour ni mentions obligatoires ; en cas de problème, l'agence qui a appuyé sur le bouton est dans la boucle.</li>
+      <li><strong>Non sec :</strong> « On ne met pas en ligne. » Vrai, mais il perd sa date et vous perdez le client.</li>
+      <li><strong>Oui malin :</strong> « Je sais que la date compte, on l'a préparée ensemble. Une boutique qui encaisse sans CGV ni politique de retour, c'est une infraction et un risque pour vous dès la première commande ; je ne publierai pas le paiement dans cet état. Deux chemins, au choix, dès ce soir : le site en ligne intégralement, catalogue et panier compris, avec le paiement activé à la seconde où votre avocat livre, ou bien des CGV provisoires à partir d'un modèle, signalées comme telles, que vous validez par écrit en assumant leur contenu. Dans les deux cas la date est tenue. » Le client choisit, vous restez dans ce que vous contrôlez, et une trace écrite existe.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Ce qui se répète dans les six</h3>
+    <ul class="correction-list">
+      <li>Le premier temps est toujours une reconnaissance du besoin réel, jamais une excuse. « Je comprends que » n'est pas une faiblesse, c'est ce qui rend le non audible.</li>
+      <li>Le non porte sur une chose précise (la modération, la garantie, les six semaines, l'astreinte gratuite, les traitements inconnus, le paiement sans CGV), jamais sur la personne ni sur le projet.</li>
+      <li>Le chemin proposé est toujours dans ce qu'on contrôle, et toujours avec une contrepartie : un prix, une date, une validation écrite, un périmètre fermé.</li>
+      <li>Le non le plus rentable est le non interne (situation 3). Un chef de projet qui ne sait pas le dire à son directeur ne saura jamais le dire à un client.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Grille du débrief</h3>
+    <ul class="correction-list">
+      <li><strong>Oui malin :</strong> reconnaît le besoin, refuse une chose précise, propose un chemin qui passe le test du contrôle et celui de la contrepartie.</li>
+      <li><strong>Faux oui :</strong> accepte sans contrepartie, ou promet un résultat hors de contrôle, souvent avec « on va essayer ».</li>
+      <li><strong>Non sec :</strong> refus exact mais sans chemin. Le demandeur repart sans solution, et souvent chez un concurrent qui dira un faux oui.</li>
+    </ul>
+  </div>`,
+  },
+
+  {
     id: 'devis-kickz',
     title: 'Le devis Kickz Lab part dans 30 minutes',
     pitch: 'Un devis de 22 165 € pour un e-shop de sneakers custom, rédigé par un stagiaire. Trouver les huit erreurs avant l’envoi.',
