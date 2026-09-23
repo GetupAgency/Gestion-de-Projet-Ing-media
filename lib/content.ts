@@ -3,6 +3,7 @@ import { allModules } from '@/data/allModules'
 import type { Module, Section, QuizQuestion } from '@/data/modules'
 import { newQuestions, sectionForQuestion } from '@/data/newQuestions'
 import { newCases, type CasePratique } from '@/data/newCases'
+import { ateliers, type Atelier } from '@/data/ateliers'
 
 /**
  * Accès serveur au contenu pédagogique.
@@ -87,8 +88,24 @@ export function getPublicModule(id: string): PublicModule | null {
   }
 }
 
-/** Correction d'un cas : index 0 = cas historique de la section, 1+ = cas ajoutés. */
+/** Ateliers en groupe du terrain d'entraînement, sans leur correction. */
+export type PublicAtelier = Omit<Atelier, 'correction'> & { hasCorrection: boolean }
+
+export function getPublicAteliers(): PublicAtelier[] {
+  return ateliers.map(({ correction, ...rest }) => ({ ...rest, hasCorrection: Boolean(correction) }))
+}
+
+export function getPublicAtelier(id: string): PublicAtelier | null {
+  return getPublicAteliers().find((a) => a.id === id) ?? null
+}
+
+export function getAtelierIds(): string[] {
+  return ateliers.map((a) => a.id)
+}
+
+/** Correction d'un cas : index 0 = cas historique de la section, 1+ = cas ajoutés. Module « atelier » = terrain d'entraînement. */
 export function getCorrection(moduleId: string, sectionId: string, caseIndex = 0): string | null {
+  if (moduleId === 'atelier') return ateliers.find((a) => a.id === sectionId)?.correction ?? null
   const mod = mergedModules.find((m) => m.id === moduleId)
   const section = mod?.sections.find((s) => s.id === sectionId)
   if (!section) return null

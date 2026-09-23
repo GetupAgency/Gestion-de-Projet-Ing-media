@@ -101,3 +101,7 @@ export const labCatalog: LabEntry[] = [
   { id: 'post-mortem', title: 'Post-mortem d’un projet de groupe', level: 3, artefact: 'Serveur Discord', section: 'bilan', module: 'suivi', Component: PostMortemDiscord },
   { id: 'frise', title: 'Les 7 phases, à l’échelle', level: 1, artefact: 'Frise', section: 'vision-ensemble', module: 'conclusion', Component: PhaseTimeline },
 ]
+
+/** Sélection courte pour la section « En solo » du terrain d'entraînement (les autres restent dans les modules). */
+const soloIds = ['mail-president', 'phase-order', 'cdc-errors', 'analytics', 'compte-rendu', 'devis-mystere', 'qcd', 'recette', 'scope', 'slack', 'moscow', 'jour-j', 'post-mortem']
+export const soloCatalog: LabEntry[] = soloIds.map((id) => labCatalog.find((l) => l.id === id)).filter((l): l is LabEntry => Boolean(l))
