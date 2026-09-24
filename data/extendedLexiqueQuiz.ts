@@ -8,9 +8,9 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-1',
     question: 'Qu\'est-ce qu\'un cahier des charges ?',
     options: [
-      'Document décrivant les besoins, objectifs et contraintes d\'un projet',
-      'Document financier récapitulant les coûts du projet',
-      'Planning détaillé des ressources humaines allouées',
+      'Document décrivant besoins, objectifs et contraintes d’un projet',
+      'Document financier récapitulant les coûts et la marge du projet',
+      'Planning détaillé des ressources humaines allouées à chaque phase',
       'Compte-rendu de réunion validé par toutes les parties prenantes'
     ],
     correctAnswer: 0,
@@ -22,8 +22,8 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-2',
     question: 'Que signifie "cadrage" dans un projet ?',
     options: [
-      'Répartition des responsabilités entre les membres de l\'équipe',
-      'Phase où l\'on clarifie le pourquoi, le quoi et le comment du projet',
+      'Répartition des responsabilités entre les membres de l’équipe projet',
+      'Phase où l’on clarifie le pourquoi, le quoi et le comment',
       'Validation finale du budget par le comité de direction',
       'Processus de sélection des outils et technologies du projet'
     ],
@@ -36,10 +36,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-3',
     question: 'Qu\'est-ce qu\'un kickoff ?',
     options: [
-      'Phase de clôture d\'un projet avec bilan des résultats',
+      'Phase de clôture d’un projet avec bilan des résultats obtenus',
       'Réunion de lancement officielle avec toutes les parties prenantes',
-      'Document de synthèse présentant les risques identifiés',
-      'Processus d\'évaluation des performances de l\'équipe'
+      'Document de synthèse présentant les risques identifiés au cadrage',
+      'Processus d’évaluation des performances de l’équipe en fin de projet'
     ],
     correctAnswer: 1,
     explanation: 'Le kickoff est la réunion de lancement officielle qui rassemble toutes les parties prenantes pour démarrer le projet.',
@@ -50,10 +50,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-4',
     question: 'Qu\'est-ce qu\'une user story ?',
     options: [
-      'Documentation technique détaillant l\'architecture du système',
-      'Formulation d\'un besoin utilisateur sous forme simple et actionnable',
-      'Rapport d\'analyse des comportements utilisateurs sur le site',
-      'Scénario de test validant le bon fonctionnement d\'une feature'
+      'Documentation technique détaillant l’architecture du système',
+      'Formulation courte et actionnable d’un besoin utilisateur final',
+      'Rapport d’analyse des comportements des utilisateurs sur le site',
+      'Scénario de test validant le bon fonctionnement d’une fonctionnalité'
     ],
     correctAnswer: 1,
     explanation: 'Une user story décrit un besoin utilisateur de manière simple, généralement sous la forme "En tant que... je veux... afin de...".',
@@ -64,10 +64,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-5',
     question: 'Qu\'est-ce qu\'un sprint en Agile ?',
     options: [
-      'Réunion quotidienne de synchronisation de l\'équipe',
+      'Réunion quotidienne de synchronisation de l’équipe de développement',
       'Période de travail courte et fixe pour réaliser des tâches',
       'Phase de tests intensifs avant la mise en production',
-      'Méthodologie de priorisation des fonctionnalités'
+      'Méthodologie de priorisation des fonctionnalités du backlog'
     ],
     correctAnswer: 1,
     explanation: 'Un sprint est une période de travail courte (généralement 2 à 4 semaines) durant laquelle l\'équipe réalise un ensemble de tâches.',
@@ -78,10 +78,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-6',
     question: 'Qu\'est-ce qu\'un jalon dans un projet ?',
     options: [
-      'Indicateur de performance mesurant l\'avancement',
+      'Indicateur de performance mesurant l’avancement du projet',
       'Point clé marquant une étape importante ou une décision',
       'Ressource humaine critique pour la réussite du projet',
-      'Document contractuel définissant les responsabilités'
+      'Document contractuel définissant les responsabilités de chacun'
     ],
     correctAnswer: 1,
     explanation: 'Un jalon est un point de repère important dans le projet qui marque l\'achèvement d\'une phase ou une décision clé.',
@@ -106,10 +106,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-8',
     question: 'Que sont les dépendances entre tâches ?',
     options: [
-      'Ressources partagées nécessaires à plusieurs tâches',
-      'Liens où une tâche ne peut commencer ou finir sans l\'autre',
-      'Contraintes budgétaires limitant l\'exécution des tâches',
-      'Compétences requises pour réaliser plusieurs tâches'
+      'Ressources partagées nécessaires à plusieurs tâches en parallèle',
+      'Liens où une tâche ne peut commencer ou finir sans l’autre',
+      'Contraintes budgétaires limitant l’exécution des tâches',
+      'Compétences requises pour réaliser plusieurs tâches successives'
     ],
     correctAnswer: 1,
     explanation: 'Les dépendances sont des liens logiques entre tâches : certaines tâches doivent être terminées avant que d\'autres puissent commencer.',
@@ -135,7 +135,7 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     question: 'Qu\'est-ce qu\'un arbitrage en gestion de projet ?',
     options: [
       'Processus de médiation entre parties prenantes en désaccord',
-      'Décision pour trancher entre plusieurs options',
+      'Décision prise pour trancher entre plusieurs options',
       'Audit indépendant vérifiant la conformité du projet',
       'Validation juridique des contrats et engagements'
     ],
@@ -190,10 +190,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-14',
     question: 'Qu\'est-ce qu\'une roadmap ?',
     options: [
-      'Diagramme de Gantt détaillant toutes les micro-tâches',
-      'Vision globale de l\'évolution du produit dans le temps',
-      'Plan d\'action opérationnel pour le sprint en cours',
-      'Documentation technique sur l\'architecture du système'
+      'Diagramme de Gantt détaillant toutes les micro-tâches du projet',
+      'Vision globale de l’évolution du produit dans le temps',
+      'Plan d’action opérationnel pour le sprint en cours',
+      'Documentation technique sur l’architecture du système'
     ],
     correctAnswer: 1,
     explanation: 'La roadmap est une vision stratégique et planifiée de l\'évolution du produit ou du projet à moyen et long terme.',
@@ -218,10 +218,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-16',
     question: 'Qu\'est-ce qu\'une matrice de risques ?',
     options: [
-      'Document contractuel définissant les responsabilités',
+      'Document contractuel définissant les responsabilités de chaque partie',
       'Tableau classant les risques selon probabilité et impact',
-      'Grille d\'évaluation des compétences de l\'équipe',
-      'Liste chronologique des incidents survenus'
+      'Grille d’évaluation des compétences de l’équipe projet',
+      'Liste chronologique des incidents survenus pendant le projet'
     ],
     correctAnswer: 1,
     explanation: 'La matrice de risques classe les risques identifiés selon deux axes : leur probabilité d\'occurrence et leur impact sur le projet.',
@@ -232,9 +232,9 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-17',
     question: 'Qu\'est-ce que la recette dans un projet ?',
     options: [
-      'Document financier détaillant les revenus générés',
-      'Phase où l\'on vérifie que la solution respecte le cahier des charges',
-      'Procédure d\'acceptation du devis par le client',
+      'Document financier détaillant les revenus générés par le site',
+      'Phase de vérification de la conformité au cahier des charges',
+      'Procédure d’acceptation du devis par le client avant démarrage',
       'Compilation des retours utilisateurs après la mise en ligne'
     ],
     correctAnswer: 1,
@@ -260,9 +260,9 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-19',
     question: 'Que sont les critères d\'acceptation ?',
     options: [
-      'Normes de qualité imposées par les réglementations',
+      'Normes de qualité imposées par les réglementations du secteur',
       'Conditions pour considérer une fonctionnalité validée',
-      'Standards de codage définis par l\'équipe technique',
+      'Standards de codage définis par l’équipe technique',
       'Métriques de performance à atteindre en production'
     ],
     correctAnswer: 1,
@@ -288,8 +288,8 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-21',
     question: 'Qu\'est-ce que le versionning ?',
     options: [
-      'Traduction du contenu en plusieurs langues',
-      'Gestion des différentes versions d\'un code dans le temps',
+      'Traduction du contenu en plusieurs langues et versions locales',
+      'Gestion des versions successives d’un code dans le temps',
       'Vérification de la conformité du code aux standards',
       'Processus de validation des modifications par les pairs'
     ],
@@ -317,7 +317,7 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     question: 'Qu\'est-ce qu\'une spec fonctionnelle ?',
     options: [
       'Guide d\'utilisation destiné aux utilisateurs finaux',
-      'Document décrivant ce que le système doit faire',
+      'Document décrivant ce que le système doit permettre de faire',
       'Scénarios de tests automatisés pour valider les features',
       'Liste des compétences requises pour l\'équipe projet'
     ],
@@ -330,9 +330,9 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-24',
     question: 'Qu\'est-ce qu\'une spec technique ?',
     options: [
-      'Liste des compétences techniques de l\'équipe',
+      'Liste des compétences techniques requises dans l’équipe',
       'Document décrivant comment la solution sera réalisée',
-      'Catalogue des outils et logiciels utilisés',
+      'Catalogue des outils et logiciels utilisés sur le projet',
       'Référentiel des normes de codage à respecter'
     ],
     correctAnswer: 1,
@@ -359,9 +359,9 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     question: 'Qu\'est-ce qu\'un environnement de développement ?',
     options: [
       'Espace de travail physique aménagé pour les développeurs',
-      'Cadre technique où les développeurs travaillent et testent',
-      'Méthodologie favorisant l\'innovation et la créativité',
-      'Plateforme de formation continue pour l\'équipe technique'
+      'Cadre technique où les développeurs écrivent et testent le code',
+      'Méthodologie favorisant l’innovation et la créativité technique',
+      'Plateforme de formation continue pour l’équipe technique'
     ],
     correctAnswer: 1,
     explanation: 'L\'environnement de développement est l\'espace technique où les développeurs codent et testent en local, isolé de la production.',
@@ -372,10 +372,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-27',
     question: 'Pourquoi a-t-on un environnement de production séparé ?',
     options: [
-      'Pour optimiser les coûts d\'infrastructure serveur',
-      'Car c\'est là que l\'application est utilisée par les vrais utilisateurs',
-      'Pour faciliter la collaboration entre développeurs',
-      'Pour respecter les normes de sécurité informatique'
+      'Pour optimiser les coûts d’infrastructure serveur sur la durée',
+      'Car c’est là que les vrais utilisateurs utilisent l’application',
+      'Pour faciliter la collaboration entre développeurs et testeurs',
+      'Pour respecter les normes de sécurité informatique en vigueur'
     ],
     correctAnswer: 1,
     explanation: 'L\'environnement de production héberge l\'application utilisée par les vrais utilisateurs. Il doit être stable et sécurisé.',
@@ -388,9 +388,9 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-28',
     question: 'Qu\'est-ce qu\'un plan d\'action ?',
     options: [
-      'Stratégie marketing définissant les campagnes à mener',
+      'Stratégie marketing définissant les campagnes à mener sur l’année',
       'Liste structurée de tâches avec responsables et échéances',
-      'Planning global du projet avec toutes les phases',
+      'Planning global du projet avec toutes les phases et jalons',
       'Document de cadrage validé par le comité de pilotage'
     ],
     correctAnswer: 1,
@@ -402,10 +402,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-29',
     question: 'Qu\'est-ce que le reporting ?',
     options: [
-      'Documentation technique destinée aux développeurs',
-      'Communication régulière sur l\'avancement du projet',
-      'Archivage des documents liés au projet',
-      'Synthèse financière des dépenses engagées'
+      'Documentation technique destinée aux développeurs du projet',
+      'Communication régulière sur l’avancement et les alertes',
+      'Archivage des documents liés au projet en fin de mission',
+      'Synthèse financière des dépenses engagées chaque mois'
     ],
     correctAnswer: 1,
     explanation: 'Le reporting est la communication régulière (souvent hebdomadaire) sur l\'avancement, les risques et les résultats du projet.',
@@ -416,10 +416,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-30',
     question: 'Qu\'est-ce que la communication asynchrone ?',
     options: [
-      'Communication multilingue traduite en temps réel',
+      'Communication multilingue traduite en temps réel par un outil',
       'Échanges ne nécessitant pas la présence simultanée de tous',
-      'Système de notifications push automatiques',
-      'Visioconférence avec plusieurs fuseaux horaires'
+      'Système de notifications push automatiques vers l’équipe',
+      'Visioconférence organisée sur plusieurs fuseaux horaires'
     ],
     correctAnswer: 1,
     explanation: 'La communication asynchrone (emails, messages, documents) ne nécessite pas que tout le monde soit présent en même temps.',
@@ -430,10 +430,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-31',
     question: 'Qu\'est-ce qu\'une réunion de suivi ?',
     options: [
-      'Audit de conformité réalisé par un organisme externe',
-      'Réunion régulière pour faire le point sur l\'avancement',
-      'Session de formation continue pour l\'équipe',
-      'Débriefing organisé à la fin d\'un projet'
+      'Audit de conformité réalisé par un organisme externe au projet',
+      'Réunion régulière pour faire le point sur l’avancement',
+      'Session de formation continue pour l’équipe technique',
+      'Débriefing organisé à la fin d’un projet avec le client'
     ],
     correctAnswer: 1,
     explanation: 'La réunion de suivi (ou comité de suivi) permet de faire régulièrement le point sur l\'avancement et les problèmes rencontrés.',
@@ -444,10 +444,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-32',
     question: 'Qu\'est-ce qu\'un atelier dans un projet ?',
     options: [
-      'Espace de coworking réservé pour l\'équipe projet',
-      'Session de travail collaboratif pour produire un livrable',
-      'Formation pratique sur les outils du projet',
-      'Réunion de brainstorming pour générer des idées'
+      'Espace de coworking réservé pour l’équipe projet pendant la mission',
+      'Session de travail collaboratif pour produire un livrable précis',
+      'Formation pratique sur les outils du projet pour le client',
+      'Réunion de brainstorming pour générer des idées de fonctionnalités'
     ],
     correctAnswer: 1,
     explanation: 'Un atelier est une session de travail collaborative où l\'équipe et/ou le client produisent ensemble un livrable (maquettes, user stories, etc.).',
@@ -486,10 +486,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-35',
     question: 'Qu\'est-ce qu\'un brief ?',
     options: [
-      'Synthèse exécutive destinée à la direction générale',
-      'Document initial présentant le contexte et les attentes',
-      'Compte-rendu détaillé d\'une réunion importante',
-      'Rapport final de clôture de projet'
+      'Synthèse exécutive destinée à la direction générale du client',
+      'Document initial posant le contexte et les attentes du client',
+      'Compte-rendu détaillé d’une réunion importante avec le client',
+      'Rapport final de clôture de projet remis avec la facture'
     ],
     correctAnswer: 1,
     explanation: 'Le brief est un document ou échange initial qui présente le contexte, les objectifs et les attentes du projet de manière concise.',
@@ -500,10 +500,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-36',
     question: 'Qu\'est-ce que le cycle en V ?',
     options: [
-      'Processus itératif permettant des retours fréquents',
-      'Méthode de projet avec phases successives structurées',
-      'Diagramme visualisant les dépendances entre tâches',
-      'Framework agile basé sur des cycles courts'
+      'Processus itératif permettant des retours fréquents du client',
+      'Méthode de projet à phases successives, chacune validée',
+      'Diagramme visualisant les dépendances entre les tâches',
+      'Framework agile basé sur des cycles courts de deux semaines'
     ],
     correctAnswer: 1,
     explanation: 'Le cycle en V est une méthode de gestion de projet séquentielle avec des phases bien définies et peu de retours en arrière.',
@@ -530,10 +530,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-38',
     question: 'Qu\'est-ce qu\'un user flow ?',
     options: [
-      'Nombre d\'utilisateurs actifs sur le site',
+      'Nombre d’utilisateurs actifs sur le site au même moment',
       'Chemin suivi par un utilisateur pour atteindre un objectif',
-      'Processus d\'inscription et d\'authentification',
-      'Système de navigation principale d\'un site'
+      'Processus d’inscription et d’authentification des visiteurs',
+      'Système de navigation principale d’un site et ses menus'
     ],
     correctAnswer: 1,
     explanation: 'Le user flow représente le parcours qu\'un utilisateur suit dans l\'interface pour accomplir une action ou atteindre un objectif.',
@@ -558,10 +558,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-40',
     question: 'Qu\'est-ce qu\'un prototype ?',
     options: [
-      'Première version de développement du produit',
-      'Version interactive d\'une maquette simulant la navigation',
-      'Document de spécifications fonctionnelles détaillées',
-      'Modèle 3D d\'un produit physique avant fabrication'
+      'Première version de développement du produit livrée au client',
+      'Version interactive d’une maquette simulant navigation et clics',
+      'Document de spécifications fonctionnelles détaillées et validées',
+      'Modèle 3D d’un produit physique avant sa fabrication en série'
     ],
     correctAnswer: 1,
     explanation: 'Le prototype est une version interactive d\'une maquette qui permet de simuler la navigation et tester l\'expérience utilisateur.',
@@ -572,9 +572,9 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-41',
     question: 'Qu\'est-ce que la hiérarchie visuelle ?',
     options: [
-      'Structure organisationnelle de l\'équipe design',
+      'Structure organisationnelle de l’équipe design et ses rôles',
       'Organisation des éléments pour guider le regard',
-      'Classification des pages par ordre d\'importance',
+      'Classification des pages par ordre d’importance dans le menu',
       'Système de navigation multi-niveaux du site'
     ],
     correctAnswer: 1,
@@ -587,7 +587,7 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     question: 'Qu\'est-ce que le zoning ?',
     options: [
       'Segmentation géographique des utilisateurs cibles',
-      'Découpage d\'une page en zones principales',
+      'Découpage d’une page en grandes zones, sans détail',
       'Répartition des tâches par équipe ou département',
       'Classification des contenus par thématique'
     ],
@@ -644,8 +644,8 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     options: [
       'Logiciel de création graphique utilisé par les designers',
       'Ensemble de règles et composants pour une interface cohérente',
-      'Méthodologie de travail pour les équipes design',
-      'Plateforme en ligne centralisant les maquettes du projet'
+      'Méthodologie de travail pour les équipes design et produit',
+      'Plateforme en ligne centralisant les maquettes validées du projet'
     ],
     correctAnswer: 1,
     explanation: 'Le design system est une bibliothèque de composants, styles et règles qui garantit la cohérence de l\'interface sur tout le produit.',
@@ -698,10 +698,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-50',
     question: 'Qu\'est-ce qu\'un audit UX ?',
     options: [
-      'Enquête de satisfaction auprès des utilisateurs finaux',
-      'Analyse critique d\'une interface pour repérer les problèmes',
-      'Test de performance technique du site web',
-      'Vérification de conformité aux normes d\'accessibilité'
+      'Enquête de satisfaction menée auprès des utilisateurs finaux',
+      'Analyse critique d’une interface pour repérer les problèmes',
+      'Test de performance technique du site web sur mobile',
+      'Vérification de conformité aux normes d’accessibilité en vigueur'
     ],
     correctAnswer: 1,
     explanation: 'L\'audit UX est une analyse systématique d\'une interface pour identifier les problèmes d\'expérience utilisateur et proposer des améliorations.',
@@ -728,10 +728,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-52',
     question: 'Qu\'est-ce qu\'une API ?',
     options: [
-      'Application mobile dédiée aux développeurs',
-      'Interface permettant à deux systèmes de communiquer',
-      'Langage de programmation pour créer des sites web',
-      'Protocole de sécurité pour protéger les données'
+      'Application mobile dédiée aux développeurs et aux tests',
+      'Interface permettant à deux systèmes d’échanger des données',
+      'Langage de programmation pour créer des sites web dynamiques',
+      'Protocole de sécurité pour protéger les données échangées'
     ],
     correctAnswer: 1,
     explanation: 'Une API (Application Programming Interface) permet à deux systèmes de communiquer et d\'échanger des données de manière standardisée.',
@@ -756,10 +756,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-54',
     question: 'Qu\'est-ce qu\'un serveur ?',
     options: [
-      'Logiciel permettant de développer des sites web',
-      'Machine qui héberge le site et répond aux requêtes',
-      'Interface d\'administration pour gérer le contenu',
-      'Système de sauvegarde automatique des données'
+      'Logiciel permettant de développer des sites web en local',
+      'Machine qui héberge le site et répond aux requêtes reçues',
+      'Interface d’administration pour gérer le contenu du site',
+      'Système de sauvegarde automatique des données du site'
     ],
     correctAnswer: 1,
     explanation: 'Un serveur est une machine (physique ou virtuelle) qui héberge l\'application et répond aux requêtes des utilisateurs.',
@@ -770,9 +770,9 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-55',
     question: 'Qu\'est-ce que l\'hébergement web ?',
     options: [
-      'Processus de création d\'un nom de domaine',
-      'Service mettant à disposition un serveur pour le site',
-      'Plateforme de développement en ligne pour coder',
+      'Processus de création et de réservation d’un nom de domaine',
+      'Service mettant un serveur à disposition pour le site',
+      'Plateforme de développement en ligne pour coder à plusieurs',
       'Système de sauvegarde cloud des fichiers du site'
     ],
     correctAnswer: 1,
@@ -799,7 +799,7 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     question: 'Qu\'est-ce que le SSL ?',
     options: [
       'Langage de programmation pour créer des sites sécurisés',
-      'Protocole qui sécurise les échanges',
+      'Protocole qui chiffre les échanges avec le serveur',
       'Framework JavaScript pour développer des applications',
       'Système de gestion de contenu orienté sécurité'
     ],
@@ -813,7 +813,7 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     question: 'À quoi sert un certificat SSL ?',
     options: [
       'À optimiser la vitesse de chargement du site',
-      'À activer le HTTPS et sécuriser un site',
+      'À activer le HTTPS pour sécuriser les échanges',
       'À améliorer le référencement naturel sur Google',
       'À authentifier l\'identité des utilisateurs'
     ],
@@ -827,7 +827,7 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     question: 'Qu\'est-ce qu\'un nom de domaine ?',
     options: [
       'Identifiant unique d\'un utilisateur sur un site',
-      'Adresse web lisible (ex: monsite.fr)',
+      'Adresse web lisible (par exemple monsite.fr)',
       'Titre SEO affiché dans les résultats Google',
       'Nom du serveur hébergeant l\'application'
     ],
@@ -840,10 +840,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-60',
     question: 'À quoi sert le cache ?',
     options: [
-      'À sauvegarder définitivement les données utilisateurs',
-      'À stocker temporairement des données pour accélérer l\'affichage',
-      'À masquer certaines pages aux moteurs de recherche',
-      'À compresser automatiquement les images du site'
+      'À sauvegarder définitivement les données des utilisateurs',
+      'À stocker temporairement des données pour accélérer l’affichage',
+      'À masquer certaines pages aux moteurs de recherche pendant les tests',
+      'À compresser automatiquement les images du site à l’envoi'
     ],
     correctAnswer: 1,
     explanation: 'Le cache stocke temporairement des données fréquemment utilisées pour réduire le temps de chargement et améliorer les performances.',
@@ -854,10 +854,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-61',
     question: 'Qu\'est-ce que la compression de fichiers ?',
     options: [
-      'Archivage des anciennes versions de fichiers',
-      'Réduction de la taille pour améliorer la vitesse',
-      'Suppression automatique des fichiers inutilisés',
-      'Chiffrement des données sensibles avant envoi'
+      'Archivage des anciennes versions de fichiers sur un serveur distant',
+      'Réduction de la taille des fichiers pour gagner en vitesse',
+      'Suppression automatique des fichiers inutilisés du serveur',
+      'Chiffrement des données sensibles avant leur envoi'
     ],
     correctAnswer: 1,
     explanation: 'La compression réduit la taille des fichiers (images, CSS, JS) pour diminuer le temps de chargement et la bande passante utilisée.',
@@ -868,10 +868,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-62',
     question: 'Qu\'est-ce que le code source ?',
     options: [
-      'Documentation technique expliquant le fonctionnement',
+      'Documentation technique expliquant le fonctionnement du programme',
       'Ensemble des fichiers contenant les instructions du programme',
-      'Version originale non modifiée d\'un logiciel open-source',
-      'Référentiel de bonnes pratiques de développement'
+      'Version originale non modifiée d’un logiciel open source',
+      'Référentiel de bonnes pratiques de développement de l’équipe'
     ],
     correctAnswer: 1,
     explanation: 'Le code source est l\'ensemble des fichiers texte contenant les instructions écrites par les développeurs pour créer l\'application.',
@@ -911,7 +911,7 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     question: 'Qu\'est-ce qu\'une librairie en programmation ?',
     options: [
       'Plateforme en ligne regroupant des ressources de formation',
-      'Collection de fonctions réutilisables',
+      'Collection de fonctions prêtes à l’emploi et réutilisables',
       'Catalogue de plugins et extensions disponibles',
       'Documentation technique d\'un langage de programmation'
     ],
@@ -925,7 +925,7 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     question: 'Qu\'est-ce qu\'un SGBD ?',
     options: [
       'Standard de gouvernance des bases de données',
-      'Logiciel qui gère la base de données',
+      'Logiciel qui gère et interroge la base de données',
       'Système de génération automatique de documentation',
       'Service cloud pour héberger des données'
     ],
@@ -938,10 +938,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-67',
     question: 'Que sont les logs ?',
     options: [
-      'Logiciels de suivi des performances d\'un site',
-      'Fichiers enregistrant les événements et erreurs',
-      'Identifiants de connexion des utilisateurs',
-      'Archives compressées des anciennes versions'
+      'Logiciels de suivi des performances d’un site en production',
+      'Fichiers enregistrant les événements et les erreurs',
+      'Identifiants de connexion des utilisateurs au back-office',
+      'Archives compressées des anciennes versions du code'
     ],
     correctAnswer: 1,
     explanation: 'Les logs sont des fichiers qui enregistrent chronologiquement les événements, actions et erreurs d\'un système pour faciliter le débogage.',
@@ -969,7 +969,7 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     question: 'Qu\'est-ce que WordPress ?',
     options: [
       'Logiciel de traitement de texte pour rédiger du contenu',
-      'CMS très répandu pour sites vitrines et blogs',
+      'CMS très répandu pour les sites vitrines et les blogs',
       'Framework JavaScript pour applications web modernes',
       'Plateforme d\'hébergement spécialisée pour les blogs'
     ],
@@ -1010,10 +1010,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-72',
     question: 'Qu\'est-ce qu\'un theme dans un CMS ?',
     options: [
-      'Catégorie thématique organisant les contenus',
-      'Ensemble de fichiers définissant l\'apparence du site',
-      'Module fonctionnel ajoutant des fonctionnalités',
-      'Palette de couleurs principale du site'
+      'Catégorie thématique organisant les contenus du site',
+      'Ensemble de fichiers définissant l’apparence du site',
+      'Module fonctionnel ajoutant des fonctionnalités au CMS',
+      'Palette de couleurs principale définie dans le back-office'
     ],
     correctAnswer: 1,
     explanation: 'Un theme (ou thème) dans un CMS est un ensemble de fichiers qui définissent l\'apparence visuelle et la structure du site.',
@@ -1053,7 +1053,7 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     question: 'Qu\'est-ce que WooCommerce ?',
     options: [
       'Plateforme de paiement en ligne pour sites marchands',
-      'Extension e-commerce de WordPress',
+      'Extension e-commerce ajoutée à WordPress',
       'Service de dropshipping automatisé',
       'Logiciel de gestion de stock et d\'inventaire'
     ],
@@ -1067,7 +1067,7 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     question: 'Qu\'est-ce que Trello ?',
     options: [
       'Application de prise de notes collaborative',
-      'Outil de gestion de tâches en mode kanban',
+      'Outil de tâches en mode kanban avec des cartes',
       'Logiciel de diagramme de Gantt pour planifier',
       'Plateforme de communication asynchrone d\'équipe'
     ],
@@ -1080,10 +1080,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-77',
     question: 'Qu\'est-ce que Notion ?',
     options: [
-      'Application de mindmapping et de brainstorming',
-      'Outil polyvalent pour documentation et organisation',
-      'Logiciel de gestion de projet avec diagrammes Gantt',
-      'Plateforme de communication vidéo pour équipes'
+      'Application de mindmapping et de brainstorming pour les équipes',
+      'Outil polyvalent de documentation, notes et organisation',
+      'Logiciel de gestion de projet avec diagrammes de Gantt',
+      'Plateforme de communication vidéo pour les équipes distantes'
     ],
     correctAnswer: 1,
     explanation: 'Notion est un outil tout-en-un pour la documentation, la gestion de tâches, les bases de données et la collaboration d\'équipe.',
@@ -1095,7 +1095,7 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     question: 'Qu\'est-ce que Slack ?',
     options: [
       'Outil de gestion de projet avec suivi des tâches',
-      'Outil de messagerie d\'équipe',
+      'Outil de messagerie d’équipe organisé en canaux',
       'Plateforme de visioconférence professionnelle',
       'Application de partage de fichiers cloud'
     ],
@@ -1109,7 +1109,7 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     question: 'Qu\'est-ce que GitHub ?',
     options: [
       'Réseau social professionnel pour développeurs',
-      'Plateforme de gestion de code source',
+      'Plateforme de gestion du code source en équipe',
       'Forum d\'entraide technique pour programmeurs',
       'Marketplace d\'applications et de plugins'
     ],
@@ -1124,10 +1124,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-80',
     question: 'À quoi sert la balise title ?',
     options: [
-      'À définir le thème graphique principal du site',
-      'Titre apparaissant dans l\'onglet et les résultats Google',
-      'À marquer les sections importantes du contenu',
-      'À indiquer le nom du propriétaire du site'
+      'À définir le thème graphique principal du site dans le CMS',
+      'Titre affiché dans l’onglet du navigateur et dans Google',
+      'À marquer les sections importantes du contenu de la page',
+      'À indiquer le nom du propriétaire du site dans le pied de page'
     ],
     correctAnswer: 1,
     explanation: 'La balise title définit le titre de la page qui apparaît dans l\'onglet du navigateur et comme titre dans les résultats de recherche.',
@@ -1152,10 +1152,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-82',
     question: 'Pourquoi utiliser les balises H1, H2, H3 ?',
     options: [
-      'Pour appliquer des styles de police différents',
-      'Pour structurer le contenu de manière hiérarchique',
-      'Pour créer automatiquement un sommaire cliquable',
-      'Pour définir les zones de texte modifiables'
+      'Pour appliquer des styles de police différents à chaque niveau',
+      'Pour structurer le contenu de manière hiérarchique et lisible',
+      'Pour créer automatiquement un sommaire cliquable en haut de page',
+      'Pour définir les zones de texte modifiables dans le CMS'
     ],
     correctAnswer: 1,
     explanation: 'Les balises H1 à H6 structurent hiérarchiquement le contenu, aidant les lecteurs et les moteurs de recherche à comprendre l\'organisation.',
@@ -1180,10 +1180,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-84',
     question: 'Qu\'est-ce que le fichier robots.txt ?',
     options: [
-      'Script automatisant certaines tâches du site',
+      'Script automatisant certaines tâches de maintenance du site',
       'Fichier indiquant aux moteurs quelles zones explorer',
-      'Programme détectant les utilisateurs malveillants',
-      'Configuration des chatbots du site'
+      'Programme détectant les utilisateurs malveillants et les bots',
+      'Configuration des chatbots et assistants du site'
     ],
     correctAnswer: 1,
     explanation: 'Le robots.txt indique aux robots des moteurs de recherche quelles parties du site ils peuvent explorer ou doivent ignorer.',
@@ -1195,7 +1195,7 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     question: 'Qu\'est-ce que le maillage interne ?',
     options: [
       'Réseau de sites interconnectés d\'une même entreprise',
-      'Liens entre les pages d\'un même site',
+      'Liens entre les pages d’un même site, pour guider',
       'Structure technique de l\'architecture serveur',
       'Système de navigation breadcrumb (fil d\'Ariane)'
     ],
@@ -1236,10 +1236,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-88',
     question: 'Qu\'est-ce que l\'indexation ?',
     options: [
-      'Création d\'un sommaire automatique des contenus',
-      'Enregistrement d\'une page dans l\'index d\'un moteur',
-      'Numérotation automatique des pages du site',
-      'Organisation thématique des articles par catégorie'
+      'Création d’un sommaire automatique des contenus du site',
+      'Ajout d’une page dans l’index d’un moteur, après exploration',
+      'Numérotation automatique des pages du site dans le CMS',
+      'Organisation thématique des articles par catégorie et par tag'
     ],
     correctAnswer: 1,
     explanation: 'L\'indexation est le processus par lequel un moteur de recherche découvre, analyse et enregistre une page dans son index.',
@@ -1264,10 +1264,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-90',
     question: 'Qu\'est-ce qu\'une redirection 301 ?',
     options: [
-      'Code d\'erreur indiquant une page introuvable',
-      'Redirection permanente d\'une URL vers une autre',
-      'Redirection temporaire pour maintenance du site',
-      'Type de lien ouvrant une nouvelle fenêtre'
+      'Code d’erreur indiquant une page introuvable sur le serveur',
+      'Redirection permanente d’une ancienne URL vers une nouvelle',
+      'Redirection temporaire pendant une maintenance du site',
+      'Type de lien ouvrant une nouvelle fenêtre du navigateur'
     ],
     correctAnswer: 1,
     explanation: 'La redirection 301 est une redirection permanente qui transfère le "jus SEO" d\'une ancienne URL vers une nouvelle.',
@@ -1292,10 +1292,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-92',
     question: 'Qu\'est-ce que la longue traîne en SEO ?',
     options: [
-      'Ancienneté d\'un site influençant son autorité',
-      'Mots-clés longs et précis, moins concurrentiels',
-      'Durée moyenne de visite sur un site web',
-      'Pages ayant un taux de rebond très faible'
+      'Ancienneté d’un site influençant son autorité auprès de Google',
+      'Mots-clés longs et précis, moins concurrentiels mais ciblés',
+      'Durée moyenne de visite sur un site web mesurée par Analytics',
+      'Pages ayant un taux de rebond très faible sur la durée'
     ],
     correctAnswer: 1,
     explanation: 'La longue traîne désigne les requêtes de recherche longues et spécifiques, moins recherchées mais plus qualifiées et moins concurrentielles.',
@@ -1321,7 +1321,7 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     question: 'Qu\'est-ce qu\'un contenu evergreen ?',
     options: [
       'Contenu régulièrement mis à jour avec l\'actualité',
-      'Contenu restant pertinent longtemps',
+      'Contenu restant pertinent pendant des années',
       'Article traitant de développement durable',
       'Publication saisonnière revenant chaque année'
     ],
@@ -1350,10 +1350,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-96',
     question: 'Qu\'est-ce que le taux de rebond ?',
     options: [
-      'Pourcentage d\'emails non délivrés dans une campagne',
-      'Pourcentage de visiteurs quittant après une seule page',
-      'Taux de retour des visiteurs sur le site',
-      'Proportion de visiteurs revenant plusieurs fois'
+      'Pourcentage d’e-mails non délivrés dans une campagne d’emailing',
+      'Part des visiteurs partis après avoir vu une seule page',
+      'Taux de retour des visiteurs sur le site dans le mois',
+      'Proportion de visiteurs revenant plusieurs fois par semaine'
     ],
     correctAnswer: 1,
     explanation: 'Le taux de rebond mesure le pourcentage de visiteurs qui quittent le site après avoir consulté une seule page sans interaction.',
@@ -1364,10 +1364,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-97',
     question: 'Qu\'est-ce qu\'une landing page ?',
     options: [
-      'Page d\'accueil principale du site web',
-      'Page d\'atterrissage dédiée à un objectif précis',
-      'Première page vue lors d\'une visite',
-      'Page de destination après connexion utilisateur'
+      'Page d’accueil principale du site web et de ses rubriques',
+      'Page d’atterrissage conçue pour un objectif précis de campagne',
+      'Première page vue lors d’une visite, quelle qu’elle soit',
+      'Page de destination affichée après la connexion de l’utilisateur'
     ],
     correctAnswer: 1,
     explanation: 'Une landing page est une page d\'atterrissage spécialement conçue pour convertir les visiteurs venant d\'une campagne marketing.',
@@ -1378,10 +1378,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-98',
     question: 'Qu\'est-ce que le content marketing ?',
     options: [
-      'Vente d\'espaces publicitaires sur les contenus',
-      'Stratégie de création de contenu utile pour attirer',
-      'Rédaction de descriptions produits pour e-commerce',
-      'Achat de contenus auprès de rédacteurs externes'
+      'Vente d’espaces publicitaires sur les contenus du site',
+      'Stratégie de création de contenu utile pour attirer du public',
+      'Rédaction de descriptions produits pour un site e-commerce',
+      'Achat de contenus auprès de rédacteurs externes spécialisés'
     ],
     correctAnswer: 1,
     explanation: 'Le content marketing consiste à créer et diffuser du contenu utile et pertinent pour attirer, engager et fidéliser une audience.',
@@ -1420,10 +1420,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-101',
     question: 'Que sont les analytics ?',
     options: [
-      'Outils d\'intelligence artificielle prédictive',
-      'Données sur l\'usage d\'un site pour analyser le comportement',
-      'Rapports financiers de performance commerciale',
-      'Méthodes statistiques de traitement des données'
+      'Outils d’intelligence artificielle prédictive appliqués au marketing',
+      'Données sur l’usage d’un site pour analyser le comportement',
+      'Rapports financiers de performance commerciale du trimestre',
+      'Méthodes statistiques de traitement des données clients'
     ],
     correctAnswer: 1,
     explanation: 'Les analytics sont les données collectées sur l\'utilisation d\'un site (visites, pages vues, conversions) permettant d\'analyser les comportements.',
@@ -1434,10 +1434,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-102',
     question: 'Qu\'est-ce que l\'acquisition en marketing ?',
     options: [
-      'Rachat d\'entreprises concurrentes sur le marché',
+      'Rachat d’entreprises concurrentes sur le même marché',
       'Actions pour attirer de nouveaux visiteurs ou clients',
-      'Obtention de licences et droits d\'exploitation',
-      'Achat d\'espaces publicitaires premium'
+      'Obtention de licences et de droits d’exploitation de contenus',
+      'Achat d’espaces publicitaires premium sur les réseaux sociaux'
     ],
     correctAnswer: 1,
     explanation: 'L\'acquisition regroupe toutes les actions visant à attirer de nouveaux visiteurs ou clients (SEO, publicité, réseaux sociaux, etc.).',
@@ -1476,10 +1476,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-105',
     question: 'Que sont les paramètres UTM ?',
     options: [
-      'Codes de suivi des colis pour les e-commerces',
-      'Paramètres ajoutés à une URL pour identifier le trafic',
-      'Identifiants uniques générés pour chaque utilisateur',
-      'Balises techniques optimisant le référencement'
+      'Codes de suivi des colis pour les sites e-commerce et leurs clients',
+      'Paramètres ajoutés à une URL pour identifier l’origine du trafic',
+      'Identifiants uniques générés pour chaque utilisateur connecté',
+      'Balises techniques optimisant le référencement d’une page'
     ],
     correctAnswer: 1,
     explanation: 'Les paramètres UTM sont ajoutés à une URL pour identifier précisément la source, le support et la campagne d\'origine du trafic.',
@@ -1506,10 +1506,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-107',
     question: 'Qu\'est-ce qu\'un bug ?',
     options: [
-      'Fonctionnalité non documentée du logiciel',
+      'Fonctionnalité non documentée du logiciel découverte par hasard',
       'Erreur ou comportement inattendu dans une application',
-      'Ralentissement des performances du système',
-      'Incompatibilité entre deux technologies'
+      'Ralentissement des performances du système aux heures de pointe',
+      'Incompatibilité entre deux technologies utilisées sur le projet'
     ],
     correctAnswer: 1,
     explanation: 'Un bug est une erreur dans le code qui provoque un comportement inattendu ou incorrect de l\'application.',
@@ -1576,10 +1576,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-112',
     question: 'Qu\'est-ce qu\'un patch logiciel ?',
     options: [
-      'Extension ajoutant de nouvelles fonctionnalités',
-      'Petite mise à jour pour corriger un bug ou une faille',
-      'Version bêta testant de nouvelles features',
-      'Module de personnalisation de l\'interface'
+      'Extension ajoutant de nouvelles fonctionnalités à un logiciel',
+      'Petite mise à jour corrigeant un bug ou une faille de sécurité',
+      'Version bêta testant de nouvelles fonctionnalités avant sortie',
+      'Module de personnalisation de l’interface pour les utilisateurs'
     ],
     correctAnswer: 1,
     explanation: 'Un patch est une petite mise à jour ciblée qui corrige rapidement un bug, une faille de sécurité ou un problème spécifique.',
@@ -1606,10 +1606,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-114',
     question: 'Qu\'est-ce que l\'autorisation ?',
     options: [
-      'Approbation légale pour exploiter un service',
-      'Gestion des droits d\'un utilisateur sur les ressources',
-      'Validation d\'une transaction financière',
-      'Consentement utilisateur pour traiter ses données'
+      'Approbation légale pour exploiter un service en ligne',
+      'Gestion des droits d’un utilisateur sur les ressources',
+      'Validation d’une transaction financière par la banque',
+      'Consentement de l’utilisateur pour le traitement de ses données'
     ],
     correctAnswer: 1,
     explanation: 'L\'autorisation détermine ce qu\'un utilisateur authentifié a le droit de faire : consulter, modifier, supprimer certaines ressources.',
@@ -1620,10 +1620,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-115',
     question: 'Qu\'est-ce que le chiffrement ?',
     options: [
-      'Conversion des données en format numérique',
-      'Transformation des données pour les rendre illisibles',
-      'Comptage des tentatives d\'accès au système',
-      'Compression des fichiers pour gagner de l\'espace'
+      'Conversion des données analogiques en format numérique',
+      'Transformation rendant les données illisibles sans la clé',
+      'Comptage des tentatives d’accès au système par utilisateur',
+      'Compression des fichiers pour gagner de l’espace disque'
     ],
     correctAnswer: 1,
     explanation: 'Le chiffrement transforme les données en un format illisible sans la clé de déchiffrement, protégeant ainsi la confidentialité.',
@@ -1635,7 +1635,7 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     question: 'Qu\'est-ce qu\'un firewall ?',
     options: [
       'Protocole de protection contre les incendies serveur',
-      'Système filtrant le trafic réseau',
+      'Système qui filtre le trafic réseau selon des règles',
       'Logiciel détectant les logiciels malveillants',
       'Mécanisme empêchant la surchauffe des composants'
     ],
@@ -1662,10 +1662,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-118',
     question: 'Qu\'est-ce que la restauration de données ?',
     options: [
-      'Réparation de fichiers corrompus ou endommagés',
-      'Remettre en place des données depuis une sauvegarde',
-      'Nettoyage et optimisation de la base de données',
-      'Récupération de fichiers supprimés accidentellement'
+      'Réparation de fichiers corrompus ou endommagés par un outil',
+      'Remise en place des données depuis une sauvegarde antérieure',
+      'Nettoyage et optimisation de la base de données en production',
+      'Récupération de fichiers supprimés accidentellement par un utilisateur'
     ],
     correctAnswer: 1,
     explanation: 'La restauration est l\'action de remettre en place des données à partir d\'une sauvegarde après une perte ou corruption.',
@@ -1676,10 +1676,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-119',
     question: 'Qu\'est-ce que la conformité RGPD ?',
     options: [
-      'Respect des normes d\'accessibilité numérique',
-      'Respecter les règles sur la protection des données',
-      'Conformité aux standards de qualité logicielle',
-      'Adhésion aux bonnes pratiques de développement'
+      'Respect des normes d’accessibilité numérique pour les sites publics',
+      'Respecter les règles sur la protection des données personnelles',
+      'Conformité aux standards de qualité logicielle du secteur',
+      'Adhésion aux bonnes pratiques de développement sécurisé'
     ],
     correctAnswer: 1,
     explanation: 'La conformité RGPD signifie respecter le règlement européen sur la protection des données personnelles dans toutes les pratiques.',
@@ -1690,10 +1690,10 @@ export const extendedLexiqueQuizQuestions: QuizQuestion[] = [
     id: 'q-lex-ext-120',
     question: 'Que sont les données personnelles ?',
     options: [
-      'Informations confidentielles d\'une entreprise',
-      'Informations permettant d\'identifier une personne',
-      'Préférences personnalisées d\'un utilisateur',
-      'Contenus privés non partagés publiquement'
+      'Informations confidentielles d’une entreprise et de ses clients',
+      'Informations permettant d’identifier une personne physique',
+      'Préférences personnalisées d’un utilisateur sur le site',
+      'Contenus privés non partagés publiquement par leur auteur'
     ],
     correctAnswer: 1,
     explanation: 'Les données personnelles sont toutes informations permettant d\'identifier directement ou indirectement une personne physique.',

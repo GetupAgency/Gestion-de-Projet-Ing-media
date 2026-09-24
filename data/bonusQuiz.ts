@@ -6,10 +6,10 @@ export const bonusQuizQuestions: QuizQuestion[] = [
     id: 'q-bonus-1',
     question: 'Quel est le rôle principal d\'un chef de projet ?',
     options: [
-      'Tester le site',
-      'Designer les maquettes',
-      'Coordonner l\'équipe et gérer le projet',
-      'Coder l\'application'
+      'Tester le site avant chaque mise en production',
+      'Designer les maquettes et la charte graphique',
+      'Coordonner l’équipe et piloter le projet',
+      'Coder l’application de bout en bout'
     ],
     correctAnswer: 2,
     explanation: 'Le chef de projet coordonne l\'équipe, gère le planning, le budget, les risques et fait l\'interface avec le client.',
@@ -20,9 +20,9 @@ export const bonusQuizQuestions: QuizQuestion[] = [
     id: 'q-bonus-2',
     question: 'Qu\'est-ce que le HTTPS ?',
     options: [
-      'Un framework',
-      'Un CMS',
-      'Un langage de programmation',
+      'Un framework de développement web sécurisé',
+      'Un CMS orienté sécurité des données',
+      'Un langage de programmation pour le chiffrement',
       'La version sécurisée du protocole HTTP'
     ],
     correctAnswer: 3,
@@ -34,10 +34,10 @@ export const bonusQuizQuestions: QuizQuestion[] = [
     id: 'q-bonus-3',
     question: 'Qu\'est-ce qu\'un wireframe ?',
     options: [
-      'Un schéma simplifié d\'une page sans détails graphiques',
-      'Un type de serveur',
-      'Un framework JavaScript',
-      'Un câble de connexion'
+      'Un schéma simplifié d’une page sans détails graphiques',
+      'Un type de serveur dédié à l’hébergement des maquettes',
+      'Un framework JavaScript pour le prototypage rapide',
+      'Un câble de connexion entre le serveur et le réseau'
     ],
     correctAnswer: 0,
     explanation: 'Un wireframe est une maquette basse fidélité qui montre la structure et l\'organisation d\'une page sans les détails visuels.',
@@ -62,10 +62,10 @@ export const bonusQuizQuestions: QuizQuestion[] = [
     id: 'q-bonus-5',
     question: 'Qu\'est-ce que le SEO ?',
     options: [
-      'Un CMS',
-      'Un type de serveur',
-      'Search Engine Optimization (optimisation pour les moteurs de recherche)',
-      'Un langage de programmation'
+      'Un CMS spécialisé dans les sites de contenu',
+      'Un type de serveur optimisé pour la vitesse',
+      'L’optimisation pour les moteurs de recherche',
+      'Un langage de programmation pour les balises'
     ],
     correctAnswer: 2,
     explanation: 'Le SEO (Search Engine Optimization) regroupe les techniques pour améliorer le positionnement d\'un site dans les moteurs de recherche.',
@@ -90,10 +90,10 @@ export const bonusQuizQuestions: QuizQuestion[] = [
     id: 'q-bonus-7',
     question: 'Qu\'est-ce que le responsive design ?',
     options: [
-      'Un design avec animations',
-      'Un design coloré',
+      'Un design avec animations au défilement',
+      'Un design coloré qui attire l’attention',
       'Un design qui répond vite aux clics',
-      'Un design qui s\'adapte à toutes les tailles d\'écran'
+      'Un design adapté à toutes les tailles d’écran'
     ],
     correctAnswer: 3,
     explanation: 'Le responsive design permet à un site de s\'adapter automatiquement aux différentes tailles d\'écran (desktop, tablette, mobile).',
@@ -118,10 +118,10 @@ export const bonusQuizQuestions: QuizQuestion[] = [
     id: 'q-bonus-9',
     question: 'Qu\'est-ce qu\'un backlog ?',
     options: [
-      'Un bug dans le code',
-      'Une liste priorisée de fonctionnalités et tâches à réaliser',
-      'Un type de base de données',
-      'Un outil de design'
+      'Un bug enregistré mais pas encore corrigé',
+      'Une liste priorisée de tâches à réaliser',
+      'Un type de base de données non relationnelle',
+      'Un outil de design collaboratif en ligne'
     ],
     correctAnswer: 1,
     explanation: 'Le backlog est la liste ordonnée par priorité de toutes les fonctionnalités, tâches et user stories à développer.',
@@ -132,10 +132,10 @@ export const bonusQuizQuestions: QuizQuestion[] = [
     id: 'q-bonus-10',
     question: 'Qu\'est-ce que le RGPD ?',
     options: [
-      'Un CMS français',
-      'Le règlement européen sur la protection des données personnelles',
-      'Un langage de programmation',
-      'Un outil de gestion de projet'
+      'Un CMS français dédié aux sites publics',
+      'Le règlement européen sur les données personnelles',
+      'Un langage de programmation pour les formulaires',
+      'Un outil de gestion de projet certifié par l’État'
     ],
     correctAnswer: 1,
     explanation: 'Le RGPD (Règlement Général sur la Protection des Données) est la loi européenne qui encadre la collecte et le traitement des données personnelles.',
@@ -146,10 +146,10 @@ export const bonusQuizQuestions: QuizQuestion[] = [
     id: 'q-bonus-11',
     question: 'Qu\'est-ce qu\'un MVP (Minimum Viable Product) ?',
     options: [
-      'La version la plus complète possible',
-      'La version minimale fonctionnelle pour tester le marché',
-      'Un outil de développement',
-      'Un type de serveur'
+      'La version la plus complète possible du produit',
+      'La version minimale viable pour tester le marché',
+      'Un outil de développement de prototypes',
+      'Un type de serveur de préproduction'
     ],
     correctAnswer: 1,
     explanation: 'Le MVP est la version minimale d\'un produit qui contient juste assez de fonctionnalités pour être utilisable et tester le marché.',
@@ -160,10 +160,10 @@ export const bonusQuizQuestions: QuizQuestion[] = [
     id: 'q-bonus-12',
     question: 'Quel est l\'objectif d\'un Daily Standup en méthode Agile ?',
     options: [
-      'Faire du sport',
-      'Synchroniser l\'équipe quotidiennement (15 min max)',
-      'Valider le budget',
-      'Tester le produit'
+      'Faire du sport ensemble pour souder l’équipe',
+      'Synchroniser l’équipe chaque jour en 15 minutes',
+      'Valider le budget de la journée avec le client',
+      'Tester le produit livré la veille au soir'
     ],
     correctAnswer: 1,
     explanation: 'Le Daily Standup est une réunion quotidienne courte (15 min) où chacun partage ce qu\'il a fait, ce qu\'il va faire et ses blocages.',
@@ -174,10 +174,10 @@ export const bonusQuizQuestions: QuizQuestion[] = [
     id: 'q-bonus-13',
     question: 'Qu\'est-ce qu\'un CDN ?',
     options: [
-      'Un Content Delivery Network (réseau de distribution de contenu)',
-      'Un CMS français',
-      'Un langage de programmation',
-      'Un type de base de données'
+      'Un réseau de distribution de contenu',
+      'Un CMS français pour les collectivités',
+      'Un langage de programmation orienté contenu',
+      'Un type de base de données distribuée'
     ],
     correctAnswer: 0,
     explanation: 'Un CDN est un réseau de serveurs répartis géographiquement qui distribue le contenu pour améliorer la vitesse de chargement partout dans le monde.',
@@ -188,10 +188,10 @@ export const bonusQuizQuestions: QuizQuestion[] = [
     id: 'q-bonus-14',
     question: 'Qu\'est-ce que le taux de rebond ?',
     options: [
-      'Le pourcentage de visiteurs qui reviennent',
-      'Le pourcentage de visiteurs qui quittent après une seule page',
-      'Le nombre de clics par visiteur',
-      'La vitesse de chargement'
+      'Le pourcentage de visiteurs qui reviennent dans le mois',
+      'La part des visiteurs partis après une seule page',
+      'Le nombre de clics par visiteur sur une session',
+      'La vitesse de chargement ressentie par les visiteurs'
     ],
     correctAnswer: 1,
     explanation: 'Le taux de rebond mesure le pourcentage de visiteurs qui quittent le site après avoir consulté une seule page sans interaction.',
@@ -202,10 +202,10 @@ export const bonusQuizQuestions: QuizQuestion[] = [
     id: 'q-bonus-15',
     question: 'Qu\'est-ce que Figma ?',
     options: [
-      'Un CMS',
-      'Un outil de conception d\'interface et de prototypage',
-      'Un langage de programmation',
-      'Un hébergeur web'
+      'Un CMS pour les sites de portfolio',
+      'Un outil de conception d’interface et de prototypage',
+      'Un langage de programmation pour les animations',
+      'Un hébergeur web spécialisé dans les images'
     ],
     correctAnswer: 1,
     explanation: 'Figma est un outil collaboratif de design d\'interface (UI/UX) et de prototypage utilisé par les designers et développeurs.',
@@ -230,10 +230,10 @@ export const bonusQuizQuestions: QuizQuestion[] = [
     id: 'q-bonus-17',
     question: 'Qu\'est-ce que le monitoring ?',
     options: [
-      'Un type d\'écran',
-      'La surveillance continue d\'un système pour détecter les problèmes',
-      'Un outil de design',
-      'Une méthode de développement'
+      'Un type d’écran pour les salles de contrôle',
+      'La surveillance continue d’un système',
+      'Un outil de design pour les tableaux de bord',
+      'Une méthode de développement pilotée par les métriques'
     ],
     correctAnswer: 1,
     explanation: 'Le monitoring est la surveillance en temps réel d\'un site ou application pour détecter rapidement les erreurs et problèmes de performance.',
@@ -244,10 +244,10 @@ export const bonusQuizQuestions: QuizQuestion[] = [
     id: 'q-bonus-18',
     question: 'Quelle différence entre maintenance corrective et évolutive ?',
     options: [
-      'Aucune différence',
+      'Aucune différence, les deux termes sont interchangeables',
       'Corrective = bugs, Évolutive = nouvelles fonctionnalités',
-      'Corrective = ajout features, Évolutive = correction bugs',
-      'Les deux sont identiques'
+      'Corrective = ajout de fonctionnalités, Évolutive = correction de bugs',
+      'Les deux sont identiques mais facturées différemment'
     ],
     correctAnswer: 1,
     explanation: 'La maintenance corrective corrige les bugs et dysfonctionnements. La maintenance évolutive ajoute ou modifie des fonctionnalités.',
@@ -258,10 +258,10 @@ export const bonusQuizQuestions: QuizQuestion[] = [
     id: 'q-bonus-19',
     question: 'Qu\'est-ce qu\'un ticket dans un système de support ?',
     options: [
-      'Un billet de cinéma',
+      'Un billet de cinéma offert aux clients fidèles',
       'Une demande ou un incident enregistré',
-      'Un outil de paiement',
-      'Un type de serveur'
+      'Un outil de paiement pour les prestations',
+      'Un type de serveur dédié au support'
     ],
     correctAnswer: 1,
     explanation: 'Un ticket est une demande d\'assistance ou un incident enregistré dans un système de support pour assurer un suivi.',
@@ -272,10 +272,10 @@ export const bonusQuizQuestions: QuizQuestion[] = [
     id: 'q-bonus-20',
     question: 'Pourquoi réaliser un bilan de projet ?',
     options: [
-      'C\'est une obligation légale',
-      'Pour capitaliser sur l\'expérience et s\'améliorer',
-      'Pour augmenter le budget',
-      'Ce n\'est pas nécessaire'
+      'C’est une obligation légale pour toute agence',
+      'Pour capitaliser sur l’expérience et s’améliorer',
+      'Pour augmenter le budget du projet suivant',
+      'Ce n’est pas nécessaire si le client est content'
     ],
     correctAnswer: 1,
     explanation: 'Le bilan permet de capitaliser sur les réussites et erreurs, d\'identifier les bonnes pratiques et de s\'améliorer pour les projets futurs.',
@@ -286,10 +286,10 @@ export const bonusQuizQuestions: QuizQuestion[] = [
     id: 'q-bonus-21',
     question: 'Qu\'est-ce qu\'une redirection 301 ?',
     options: [
-      'Une erreur serveur',
-      'Une redirection permanente d\'une URL vers une autre',
-      'Un type de paiement',
-      'Un CMS'
+      'Une erreur serveur temporaire sur une page',
+      'Une redirection permanente d’une URL vers une autre',
+      'Un type de paiement en trois fois sans frais',
+      'Un CMS spécialisé dans la gestion des liens'
     ],
     correctAnswer: 1,
     explanation: 'La redirection 301 est une redirection permanente qui indique aux moteurs de recherche qu\'une page a définitivement changé d\'adresse.',
@@ -300,10 +300,10 @@ export const bonusQuizQuestions: QuizQuestion[] = [
     id: 'q-bonus-22',
     question: 'Quel est l\'objectif d\'un kickoff meeting ?',
     options: [
-      'Fermer le projet',
-      'Lancer officiellement le projet avec toutes les parties prenantes',
-      'Tester le site',
-      'Payer les factures'
+      'Fermer le projet et archiver les livrables',
+      'Lancer officiellement le projet avec les parties prenantes',
+      'Tester le site avec les premiers utilisateurs',
+      'Payer les factures de la première phase'
     ],
     correctAnswer: 1,
     explanation: 'Le kickoff meeting est la réunion de lancement officiel qui rassemble toutes les parties prenantes pour démarrer le projet sur de bonnes bases.',
@@ -314,10 +314,10 @@ export const bonusQuizQuestions: QuizQuestion[] = [
     id: 'q-bonus-23',
     question: 'Qu\'est-ce que TypeScript ?',
     options: [
-      'Un traitement de texte',
+      'Un traitement de texte pour les développeurs',
       'JavaScript avec typage statique',
-      'Un CMS',
-      'Un hébergeur'
+      'Un CMS écrit en JavaScript',
+      'Un hébergeur spécialisé dans le JavaScript'
     ],
     correctAnswer: 1,
     explanation: 'TypeScript est un sur-ensemble de JavaScript qui ajoute le typage statique, rendant le code plus fiable et maintenable.',
@@ -328,10 +328,10 @@ export const bonusQuizQuestions: QuizQuestion[] = [
     id: 'q-bonus-24',
     question: 'Quelle est la première phase d\'un projet web ?',
     options: [
-      'Tests',
+      'Tests et recette avec le client',
       'Lancement et cadrage',
-      'Développement',
-      'Maintenance'
+      'Développement et intégration',
+      'Maintenance et évolutions'
     ],
     correctAnswer: 1,
     explanation: 'La phase de lancement et cadrage est la première étape où l\'on définit le cahier des charges, les objectifs et l\'équipe.',

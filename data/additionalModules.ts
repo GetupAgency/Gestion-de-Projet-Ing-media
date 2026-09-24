@@ -475,9 +475,9 @@ export const additionalModules: Module[] = [
             id: 'q-planning-1',
             question: 'Qu\'est-ce qu\'un jalon (milestone) dans un projet ?',
             options: [
-              'Un outil de gestion',
-              'Une tâche quotidienne',
-              'Une réunion d\'équipe',
+              'Un outil de gestion partagé avec le client',
+              'Une tâche quotidienne de l’équipe technique',
+              'Une réunion d’équipe hebdomadaire de 30 minutes',
               'Un événement clé marquant une étape importante'
             ],
             correctAnswer: 3,
@@ -489,10 +489,10 @@ export const additionalModules: Module[] = [
             id: 'q-planning-2',
             question: 'Dans la méthode Scrum, quelle est la durée typique d\'un sprint ?',
             options: [
-              '6 mois',
-              '3 mois',
+              '6 mois, comme une phase de cycle en V',
+              '3 mois, soit un trimestre',
               '2 à 4 semaines',
-              '1 journée'
+              '1 journée, comme un daily'
             ],
             correctAnswer: 2,
             explanation: 'Un sprint Scrum dure généralement entre 2 et 4 semaines, permettant une itération rapide.',
@@ -503,10 +503,10 @@ export const additionalModules: Module[] = [
             id: 'q-planning-3',
             question: 'Qu\'est-ce qu\'un diagramme de Gantt ?',
             options: [
-              'Un framework de développement',
-              'Un type de base de données',
-              'Un outil de communication',
-              'Un graphique montrant le planning des tâches dans le temps'
+              'Un framework de développement côté serveur',
+              'Un type de base de données relationnelle',
+              'Un outil de communication avec le client',
+              'Un graphique des tâches dans le temps'
             ],
             correctAnswer: 3,
             explanation: 'Le diagramme de Gantt est un outil de planification qui représente visuellement les tâches, leur durée et leurs dépendances dans le temps.',
@@ -545,10 +545,10 @@ export const additionalModules: Module[] = [
             id: 'q-planning-6',
             question: 'Qu\'est-ce que le "scope creep" ?',
             options: [
-              'Une méthodologie de développement',
-              'Un type de bug',
-              'Une dérive du périmètre du projet (ajout de fonctionnalités)',
-              'Un outil de gestion'
+              'Une méthodologie de développement par petits incréments',
+              'Un type de bug qui apparaît progressivement',
+              'Une dérive du périmètre par ajouts successifs',
+              'Un outil de gestion des demandes de changement'
             ],
             correctAnswer: 2,
             explanation: 'Le scope creep est la dérive du périmètre initial, souvent causée par l\'ajout de nouvelles demandes non prévues dans le CDC.',

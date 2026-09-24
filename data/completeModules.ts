@@ -424,10 +424,10 @@ export const completeModules: Module[] = [
             id: 'q-intro-1',
             question: 'Quelle est la principale différence entre un site vitrine et une application métier ?',
             options: [
-              'Le nombre de pages',
-              'La technologie utilisée',
-              'Le niveau de personnalisation et les fonctionnalités spécifiques',
-              'Le budget'
+              'Le nombre de pages et de gabarits différents',
+              'La technologie et l’hébergement retenus',
+              'Le degré de personnalisation des fonctionnalités',
+              'Le budget et le délai de réalisation'
             ],
             correctAnswer: 2,
             explanation: 'Une application métier est développée sur mesure pour répondre à des besoins spécifiques d\'une organisation, contrairement à un site vitrine qui présente principalement de l\'information.',
@@ -438,10 +438,10 @@ export const completeModules: Module[] = [
             id: 'q-intro-2',
             question: 'Qu\'est-ce que le "taux de conversion" ?',
             options: [
-              'Le nombre total de visiteurs',
-              'Le temps passé sur le site',
-              'Le pourcentage de visiteurs qui quittent le site',
-              'Le pourcentage de visiteurs qui effectuent l\'action souhaitée'
+              'Le nombre total de visiteurs uniques sur une période',
+              'Le temps moyen passé sur le site par visite',
+              'Le pourcentage de visiteurs qui quittent le site sans interagir',
+              'La part des visiteurs qui font l’action attendue'
             ],
             correctAnswer: 3,
             explanation: 'Le taux de conversion mesure le pourcentage de visiteurs qui accomplissent l\'objectif défini (achat, inscription, contact, etc.).',
@@ -452,10 +452,10 @@ export const completeModules: Module[] = [
             id: 'q-intro-3',
             question: 'Parmi ces éléments, lequel N\'EST PAS un livrable typique d\'un projet web ?',
             options: [
-              'Plan de test',
+              'Plan de test et scénarios de recette',
               'Facture EDF du serveur',
-              'Maquettes graphiques',
-              'Cahier des charges'
+              'Maquettes graphiques validées',
+              'Cahier des charges signé'
             ],
             correctAnswer: 1,
             explanation: 'Les factures d\'électricité ne sont pas des livrables de projet. Les livrables sont des documents ou produits créés spécifiquement pour le projet.',
@@ -480,10 +480,10 @@ export const completeModules: Module[] = [
             id: 'q-intro-5',
             question: 'Quelle métrique mesure la "visibilité" d\'un site web ?',
             options: [
-              'Le nombre de formulaires',
-              'Le temps de chargement',
-              'Le taux de rebond',
-              'Le positionnement SEO et le trafic organique'
+              'Le nombre de formulaires envoyés chaque mois',
+              'Le temps de chargement des pages principales',
+              'Le taux de rebond mesuré dans Analytics',
+              'Les positions SEO et le trafic organique'
             ],
             correctAnswer: 3,
             explanation: 'La visibilité se mesure principalement par le positionnement dans les moteurs de recherche (SEO) et le trafic organique généré.',
@@ -494,10 +494,10 @@ export const completeModules: Module[] = [
             id: 'q-intro-6',
             question: 'Quelle est la durée typique d\'un projet de site vitrine ?',
             options: [
-              '6 mois',
-              '1 an',
-              '4-8 semaines',
-              '1-2 jours'
+              '6 mois, avec un mois de recette',
+              '1 an, réparti en quatre lots',
+              '4 à 8 semaines',
+              '1 à 2 jours avec un thème prêt à l’emploi'
             ],
             correctAnswer: 2,
             explanation: 'Un site vitrine nécessite généralement 4 à 8 semaines pour la conception, le développement et la mise en ligne.',
@@ -508,10 +508,10 @@ export const completeModules: Module[] = [
             id: 'q-intro-7',
             question: 'Qu\'est-ce qu\'un projet ?',
             options: [
-              'Un produit fini',
-              'Un département d\'une entreprise',
-              'Une activité permanente',
-              'Une initiative temporaire avec un début et une fin'
+              'Un produit fini livré à un client',
+              'Un département permanent dans l’organigramme d’une entreprise',
+              'Une activité récurrente sans échéance',
+              'Un effort temporaire, avec un début et une fin'
             ],
             correctAnswer: 3,
             explanation: 'Un projet est par définition temporaire, avec un début et une fin clairement définis, contrairement aux opérations courantes.',

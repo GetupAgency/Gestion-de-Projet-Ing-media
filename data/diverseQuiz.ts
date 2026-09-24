@@ -172,7 +172,12 @@ export const diverseQuizQuestions: QuizQuestion[] = [
   {
     id: 'q-fb-2',
     question: 'Le document qui formalise les besoins et objectifs d\'un projet est le _____.',
-    options: ['Cahier des charges', 'Business plan', 'Rapport d\'activité', 'Plan de test'],
+    options: [
+      'Cahier des charges',
+      'Business plan',
+      'Rapport d’activité annuel',
+      'Plan de test fonctionnel'
+    ],
     correctAnswer: 0,
     explanation: 'Le cahier des charges (CDC) est le document fondamental qui décrit les besoins, objectifs, contraintes et livrables attendus d\'un projet.',
     type: 'fill-blank',
@@ -182,7 +187,12 @@ export const diverseQuizQuestions: QuizQuestion[] = [
   {
     id: 'q-fb-3',
     question: 'Le format de user story est : "En tant que _____, je veux _____ afin de _____".',
-    options: ['[utilisateur], [objectif], [bénéfice]', '[développeur], [code], [livraison]', '[client], [budget], [délai]', '[manager], [tâche], [résultat]'],
+    options: [
+      '[utilisateur], [objectif], [bénéfice]',
+      '[développeur], [code livré], [mise en production]',
+      '[client], [budget], [délai]',
+      '[manager], [tâche assignée], [résultat]'
+    ],
     correctAnswer: 0,
     explanation: 'La user story suit toujours ce format : "En tant que [type d\'utilisateur], je veux [objectif/action] afin de [bénéfice/valeur]". Elle capture le besoin du point de vue de l\'utilisateur.',
     type: 'fill-blank',
@@ -192,7 +202,12 @@ export const diverseQuizQuestions: QuizQuestion[] = [
   {
     id: 'q-fb-4',
     question: 'L\'indicateur _____ mesure la vitesse de consommation du budget d\'un projet.',
-    options: ['Burn rate', 'ROI', 'NPS', 'KPI'],
+    options: [
+      'Burn rate',
+      'Vélocité',
+      'Cycle time',
+      'Marge nette'
+    ],
     correctAnswer: 0,
     explanation: 'Le burn rate (taux de consommation) indique combien d\'argent est dépensé par unité de temps. Il permet de projeter la date à laquelle le budget sera épuisé.',
     type: 'fill-blank',
@@ -202,7 +217,12 @@ export const diverseQuizQuestions: QuizQuestion[] = [
   {
     id: 'q-fb-5',
     question: 'Le protocole _____ garantit que les données échangées entre le navigateur et le serveur sont chiffrées.',
-    options: ['HTTPS', 'FTP', 'SMTP', 'DNS'],
+    options: [
+      'HTTPS',
+      'HTTP/2',
+      'SMTP',
+      'WebSocket'
+    ],
     correctAnswer: 0,
     explanation: 'HTTPS (HyperText Transfer Protocol Secure) utilise le chiffrement SSL/TLS pour sécuriser les communications entre le navigateur et le serveur web.',
     type: 'fill-blank',
@@ -222,7 +242,12 @@ export const diverseQuizQuestions: QuizQuestion[] = [
   {
     id: 'q-fb-7',
     question: 'La technique d\'estimation _____ utilise des cartes pour que chaque membre de l\'équipe estime indépendamment.',
-    options: ['Planning Poker', 'Delphi', 'PERT', 'Bottom-up'],
+    options: [
+      'Planning Poker',
+      'Delphi',
+      'Analogique',
+      'Bottom-up'
+    ],
     correctAnswer: 0,
     explanation: 'Le Planning Poker est une technique d\'estimation Agile où chaque membre révèle simultanément sa carte (valeur en story points) pour éviter le biais d\'ancrage.',
     type: 'fill-blank',
@@ -242,7 +267,12 @@ export const diverseQuizQuestions: QuizQuestion[] = [
   {
     id: 'q-fb-9',
     question: 'Le _____ est un test réalisé par le client pour valider que le produit correspond au cahier des charges.',
-    options: ['UAT (User Acceptance Testing)', 'Test unitaire', 'Test de charge', 'Test de régression'],
+    options: [
+      'UAT (User Acceptance Testing)',
+      'Test unitaire automatisé',
+      'Test de charge (load test)',
+      'Test de non-régression'
+    ],
     correctAnswer: 0,
     explanation: 'Le UAT (User Acceptance Testing), ou recette en français, est la phase de validation par le client ou les utilisateurs finaux avant la mise en production.',
     type: 'fill-blank',
@@ -317,10 +347,10 @@ export const diverseQuizQuestions: QuizQuestion[] = [
     id: 'q-sc-1',
     question: 'Quelle est votre première action en tant que chef de projet ?',
     options: [
-      'Organiser une réunion d\'urgence avec toute l\'équipe pour recadrer le projet',
-      'Envoyer un email au client pour lui dire que c\'est impossible',
-      'Ajouter des développeurs au projet pour rattraper le retard',
-      'Ignorer le problème et espérer que l\'équipe se rattrape'
+      'Organiser une réunion d’urgence avec l’équipe pour recadrer le projet',
+      'Envoyer un e-mail au client pour lui dire que la date est impossible à tenir',
+      'Ajouter des développeurs au projet pour rattraper le retard le plus vite possible',
+      'Ignorer le problème et espérer que l’équipe se rattrape sur la fin'
     ],
     correctAnswer: 0,
     explanation: 'La première action est de comprendre la situation avec l\'équipe : identifier les causes du retard, évaluer l\'impact réel, et définir un plan d\'action. Ajouter des développeurs (loi de Brooks) ralentit souvent le projet. Il faut d\'abord diagnostiquer avant d\'agir.',
@@ -365,10 +395,10 @@ export const diverseQuizQuestions: QuizQuestion[] = [
     id: 'q-sc-4',
     question: 'Comment gérez-vous cette situation ?',
     options: [
-      'Accepter toutes les demandes pour satisfaire le client',
-      'Refuser catégoriquement toute modification non prévue au CDC',
-      'Documenter les demandes, les chiffrer, et proposer un avenant ou un backlog V2',
-      'Demander au développeur d\'intégrer les changements en heures supplémentaires'
+      'Accepter toutes les demandes pour satisfaire le client et préserver la relation',
+      'Refuser catégoriquement toute modification non prévue au cahier des charges',
+      'Documenter et chiffrer les demandes, proposer un avenant ou un lot 2',
+      'Demander au développeur d’intégrer les changements en heures supplémentaires'
     ],
     correctAnswer: 2,
     explanation: 'La bonne approche est de documenter chaque demande, estimer son impact (temps, budget), et proposer au client : soit un avenant (budget supplémentaire), soit un report en V2 avec des priorités. Cela évite le scope creep tout en montrant que vous êtes à l\'écoute.',
@@ -381,10 +411,10 @@ export const diverseQuizQuestions: QuizQuestion[] = [
     id: 'q-sc-5',
     question: 'Quelle est votre recommandation stratégique ?',
     options: [
-      'Tout déployer d\'un coup le jour J pour maximiser l\'impact',
-      'Lancer en beta fermée avec 100 utilisateurs, puis ouvrir progressivement',
-      'Reporter le lancement de 2 mois pour ajouter plus de fonctionnalités',
-      'Lancer uniquement la version mobile car c\'est la tendance'
+      'Tout déployer d’un coup le jour J pour maximiser l’impact de la campagne',
+      'Lancer en bêta fermée avec 100 utilisateurs, puis ouvrir progressivement',
+      'Reporter le lancement de 2 mois pour ajouter davantage de fonctionnalités',
+      'Lancer uniquement la version mobile, puisque c’est là que sont les usages'
     ],
     correctAnswer: 1,
     explanation: 'Le lancement progressif (beta fermée puis ouverture graduelle) permet de détecter les bugs en conditions réelles avec un impact limité, de collecter du feedback utilisateur pour itérer rapidement, et d\'absorber la montée en charge progressivement. Un big bang augmente tous les risques.',
@@ -397,10 +427,10 @@ export const diverseQuizQuestions: QuizQuestion[] = [
     id: 'q-sc-6',
     question: 'Quel outil de maquettage recommandez-vous et pourquoi ?',
     options: [
-      'Photoshop : c\'est l\'outil le plus connu des designers',
-      'Figma : collaboratif, gratuit, prototypage intégré, standard de l\'industrie',
-      'PowerPoint : tout le monde sait l\'utiliser dans l\'entreprise',
-      'Coder directement en HTML/CSS : c\'est plus rapide'
+      'Photoshop : c’est l’outil le plus connu des designers et des imprimeurs',
+      'Figma : collaboratif, gratuit, prototypage intégré, standard du secteur',
+      'PowerPoint : tout le monde sait l’utiliser dans l’entreprise, client compris',
+      'Coder directement en HTML/CSS : c’est plus rapide que de maquetter'
     ],
     correctAnswer: 1,
     explanation: 'Figma est devenu le standard de l\'industrie pour le design web car il est collaboratif en temps réel (comme Google Docs), gratuit pour les petites équipes, intègre le prototypage interactif, et facilite le handoff développeur avec l\'inspection des styles.',
@@ -429,10 +459,10 @@ export const diverseQuizQuestions: QuizQuestion[] = [
     id: 'q-sc-8',
     question: 'Quelle est la meilleure approche de test ?',
     options: [
-      'Tester uniquement le parcours principal (inscription → recherche → réservation → paiement)',
-      'Écrire des tests unitaires pour chaque fonction puis des tests E2E pour les parcours critiques',
-      'Demander au client de tester lui-même, il connaît mieux son produit',
-      'Ne tester que manuellement, les tests automatisés prennent trop de temps'
+      'Tester uniquement le parcours principal (inscription → recherche → réservation → paiement) à la main',
+      'Des tests unitaires par fonction, puis des tests E2E sur les parcours critiques',
+      'Demander au client de tester lui-même, il connaît mieux son produit que l’équipe',
+      'Ne tester que manuellement, les tests automatisés prennent trop de temps à écrire'
     ],
     correctAnswer: 1,
     explanation: 'La stratégie optimale combine les tests unitaires (chaque fonction isolée), les tests d\'intégration (composants ensemble), et les tests E2E (parcours utilisateur complets). Cela suit la pyramide des tests : beaucoup d\'unitaires, moins d\'intégration, encore moins d\'E2E.',
@@ -445,10 +475,10 @@ export const diverseQuizQuestions: QuizQuestion[] = [
     id: 'q-sc-9',
     question: 'Comment priorisez-vous les actions d\'optimisation ?',
     options: [
-      'Refaire le design du site pour le rendre plus attractif',
-      'Optimiser les images, activer le cache, et réduire les scripts tiers',
-      'Changer d\'hébergeur pour un serveur plus puissant',
-      'Ajouter plus de contenu pour améliorer le SEO'
+      'Refaire le design du site pour le rendre plus attractif et plus léger',
+      'Optimiser les images, activer le cache, réduire les scripts tiers',
+      'Changer d’hébergeur pour un serveur plus puissant et mieux situé',
+      'Ajouter plus de contenu pour améliorer le SEO et compenser la lenteur'
     ],
     correctAnswer: 1,
     explanation: 'Les quick wins techniques (images, cache, scripts) ont le meilleur rapport effort/impact. Passer de 6s à 2s de chargement peut réduire le taux de rebond de 30%. Un serveur plus puissant ne résout pas un problème d\'images non optimisées ou de scripts superflus.',
@@ -461,10 +491,10 @@ export const diverseQuizQuestions: QuizQuestion[] = [
     id: 'q-sc-10',
     question: 'Quelle solution proposez-vous pour le budget ?',
     options: [
-      'Réduire les fonctionnalités pour tenir dans le budget initial',
-      'Proposer un paiement échelonné : 30% signature, 30% MVP, 30% livraison, 10% garantie',
-      'Refuser le projet, le budget est trop serré',
-      'Accepter le projet et absorber la perte pour fidéliser le client'
+      'Réduire les fonctionnalités pour tenir dans le budget initial annoncé',
+      'Un paiement échelonné : 30 % signature, 30 % MVP, 30 % livraison, 10 % garantie',
+      'Refuser le projet, le budget est trop serré pour être rentable',
+      'Accepter le projet et absorber la perte pour fidéliser le client sur les prochaines années'
     ],
     correctAnswer: 1,
     explanation: 'Le paiement échelonné protège les deux parties : le client paie au fur et à mesure des livrables validés, et l\'agence sécurise sa trésorerie. Avec 30% à la signature (4 500€), l\'agence peut démarrer sans risque. La phase de 10% en garantie assure un suivi post-livraison.',
@@ -477,10 +507,10 @@ export const diverseQuizQuestions: QuizQuestion[] = [
     id: 'q-sc-11',
     question: 'Que faites-vous en priorité ?',
     options: [
-      'Demander au développeur de corriger directement en production',
-      'Activer le plan de rollback pour revenir à la version précédente, puis investiguer',
-      'Éteindre le serveur pour éviter d\'aggraver la situation',
-      'Envoyer un email au client pour l\'informer du problème'
+      'Demander au développeur de corriger directement en production, sans passer par la recette',
+      'Activer le plan de rollback vers la version précédente, puis investiguer',
+      'Éteindre le serveur pour éviter d’aggraver la situation le temps de comprendre',
+      'Envoyer un e-mail au client pour l’informer du problème avant toute action'
     ],
     correctAnswer: 1,
     explanation: 'Le rollback immédiat est la priorité : rétablir la version précédente qui fonctionnait. Corriger en production directement est risqué (on peut aggraver). Ensuite, on investigue calmement en staging, on corrige, on re-teste, et on redéploie proprement.',
@@ -493,10 +523,10 @@ export const diverseQuizQuestions: QuizQuestion[] = [
     id: 'q-sc-12',
     question: 'Comment abordez-vous la migration ?',
     options: [
-      'Copier-coller le contenu de l\'ancien site vers le nouveau',
-      'Faire un audit SEO complet, mapper toutes les URLs, planifier les redirections 301',
-      'Supprimer l\'ancien site et mettre le nouveau en ligne directement',
-      'Demander au client de réécrire tout son contenu'
+      'Copier-coller le contenu de l’ancien site vers le nouveau, page par page',
+      'Audit SEO complet, mapping de toutes les URL, redirections 301 planifiées',
+      'Supprimer l’ancien site et mettre le nouveau en ligne directement le même jour',
+      'Demander au client de réécrire tout son contenu pour repartir de zéro'
     ],
     correctAnswer: 1,
     explanation: 'Une migration SEO nécessite : un audit complet de l\'existant (pages, URLs, backlinks, ranking), un mapping ancien→nouveau pour chaque URL, des redirections 301 systématiques, et un monitoring intensif post-migration. Sans cela, le client peut perdre 50% de son trafic organique.',
@@ -509,10 +539,10 @@ export const diverseQuizQuestions: QuizQuestion[] = [
     id: 'q-sc-13',
     question: 'Quelle est la meilleure façon de gérer cette rétrospective ?',
     options: [
-      'Pointer les responsables des retards pour qu\'ils se sentent redevables',
-      'Utiliser le format "Start/Stop/Continue" pour identifier les améliorations sans blâmer',
-      'Annuler la rétrospective, l\'équipe est démotivée',
-      'Demander au manager de sanctionner les retardataires'
+      'Pointer les responsables des retards pour qu’ils se sentent redevables envers l’équipe',
+      'Utiliser le format « Start / Stop / Continue » pour améliorer sans blâmer',
+      'Annuler la rétrospective, l’équipe est trop démotivée pour en tirer quelque chose',
+      'Demander au manager de sanctionner les retardataires avant la prochaine itération'
     ],
     correctAnswer: 1,
     explanation: 'Le format Start/Stop/Continue est constructif : "Que doit-on commencer à faire ? Que doit-on arrêter ? Que doit-on continuer ?" Il se concentre sur les processus plutôt que sur les personnes, favorise le dialogue et l\'amélioration continue sans créer de culpabilité.',
@@ -525,10 +555,10 @@ export const diverseQuizQuestions: QuizQuestion[] = [
     id: 'q-sc-14',
     question: 'Quelle stratégie d\'hébergement recommandez-vous ?',
     options: [
-      'Un serveur mutualisé OVH à 5€/mois, c\'est largement suffisant',
+      'Un serveur mutualisé OVH à 5 €/mois, c’est largement suffisant pour démarrer',
       'Une architecture cloud scalable (Vercel/AWS) avec CDN et autoscaling',
-      'Un serveur dédié à 200€/mois chez un hébergeur local',
-      'Héberger le site sur son propre serveur au bureau'
+      'Un serveur dédié à 200 €/mois chez un hébergeur local, plus simple à gérer',
+      'Héberger le site sur son propre serveur au bureau pour garder le contrôle'
     ],
     correctAnswer: 1,
     explanation: 'Pour un site avec des pics de trafic prévisibles, une architecture cloud avec autoscaling est essentielle. Vercel/AWS gèrent les pics automatiquement. Un mutualisé à 5€/mois crasherait sous la charge. Le CDN distribue le contenu géographiquement pour une latence minimale.',
@@ -541,10 +571,10 @@ export const diverseQuizQuestions: QuizQuestion[] = [
     id: 'q-sc-15',
     question: 'Quel est le principal risque de cette approche et comment le mitigez-vous ?',
     options: [
-      'Le risque technique : tester avec un prototype avant de coder',
+      'Le risque technique : tester avec un prototype avant de coder pour de bon',
       'Le risque budget : le client va demander plus que prévu, prévoir un avenant',
-      'Le risque d\'adoption : les utilisateurs internes ne vont pas utiliser l\'outil, prévoir de la formation',
-      'Le risque de sécurité : les données RH sont sensibles, auditer la sécurité en priorité'
+      'Le risque d’adoption : les utilisateurs internes n’utiliseront pas l’outil, prévoir de la formation',
+      'Le risque de sécurité : les données RH sont sensibles, auditer la sécurité en priorité avec un prestataire spécialisé'
     ],
     correctAnswer: 2,
     explanation: 'Le principal risque d\'un outil interne est l\'adoption. Si les utilisateurs ne l\'utilisent pas, tout le projet est un échec. La mitigation : impliquer les utilisateurs dès la conception (ateliers), former les utilisateurs, prévoir des "champions" internes, et mesurer l\'adoption.',
@@ -557,10 +587,10 @@ export const diverseQuizQuestions: QuizQuestion[] = [
     id: 'q-sc-16',
     question: 'Comment gérez-vous cette situation avec le designer ?',
     options: [
-      'Imposer les maquettes telles quelles, le design est validé par le client',
-      'Organiser un atelier technique design+dev pour trouver des compromis réalistes',
+      'Imposer les maquettes telles quelles, le design a été validé par le client',
+      'Organiser un atelier design + dev pour trouver des compromis réalistes',
       'Demander au designer de tout refaire en respectant les contraintes techniques',
-      'Coder les maquettes telles quelles même si c\'est techniquement complexe'
+      'Coder les maquettes telles quelles même si c’est techniquement complexe et long'
     ],
     correctAnswer: 1,
     explanation: 'L\'atelier collaboratif est la meilleure approche : le designer explique ses choix UX, le développeur explique les contraintes techniques, et ensemble ils trouvent des solutions qui préservent l\'expérience utilisateur tout en restant réalisables. C\'est la base du Design System.',
@@ -589,10 +619,10 @@ export const diverseQuizQuestions: QuizQuestion[] = [
     id: 'q-sc-18',
     question: 'Quelle approche de test d\'accessibilité recommandez-vous ?',
     options: [
-      'Utiliser uniquement un outil automatisé (axe DevTools) et corriger ce qu\'il trouve',
-      'Combiner tests automatisés (axe) + tests manuels clavier + tests avec lecteur d\'écran',
-      'Demander à un utilisateur malvoyant de tester le site',
-      'Vérifier uniquement le contraste des couleurs et les alt des images'
+      'Utiliser uniquement un outil automatisé (axe DevTools) et corriger ce qu’il trouve',
+      'Combiner tests automatisés (axe), tests clavier et tests avec lecteur d’écran',
+      'Demander à un utilisateur malvoyant de tester le site et corriger ses retours',
+      'Vérifier uniquement le contraste des couleurs et les attributs alt des images'
     ],
     correctAnswer: 1,
     explanation: 'Les outils automatisés ne détectent que 30-40% des problèmes d\'accessibilité. Il faut compléter avec des tests manuels (navigation clavier, ordre de lecture) et des tests avec lecteur d\'écran (VoiceOver, NVDA). C\'est cette combinaison qui assure la conformité WCAG.',
@@ -605,9 +635,9 @@ export const diverseQuizQuestions: QuizQuestion[] = [
     id: 'q-sc-19',
     question: 'Comment réduisez-vous l\'impact environnemental du site ?',
     options: [
-      'Supprimer toutes les images et vidéos du site',
-      'Optimiser les médias (WebP, lazy loading), réduire les scripts, choisir un hébergeur vert',
-      'Limiter le nombre de pages à 5 maximum',
+      'Supprimer toutes les images et vidéos du site pour alléger chaque page',
+      'Optimiser les médias (WebP, lazy loading), réduire les scripts, hébergeur vert',
+      'Limiter le nombre de pages à 5 maximum et retirer les fonctionnalités annexes',
       'Afficher un message demandant aux utilisateurs de limiter leur navigation'
     ],
     correctAnswer: 1,

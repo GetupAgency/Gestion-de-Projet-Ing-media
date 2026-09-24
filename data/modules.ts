@@ -564,10 +564,10 @@ Un projet web est une initiative temporaire visant à créer un produit, service
             id: 'q3',
             question: 'Quel est l\'objectif principal d\'un cahier des charges ?',
             options: [
-              'Augmenter le budget du projet',
-              'Formaliser les besoins et établir un référentiel commun',
-              'Impressionner le client',
-              'Remplacer les réunions'
+              'Augmenter le budget du projet et la marge de l’agence',
+              'Formaliser les besoins et fixer un référentiel commun',
+              'Impressionner le client par le volume du document',
+              'Remplacer les réunions de suivi par un document unique'
             ],
             correctAnswer: 1,
             explanation: 'Le CDC sert à formaliser précisément les besoins et créer une base de compréhension commune entre toutes les parties prenantes.',
@@ -592,10 +592,10 @@ Un projet web est une initiative temporaire visant à créer un produit, service
             id: 'q-cdc-3',
             question: 'Pourquoi est-il important de cartographier l\'existant avant un projet ?',
             options: [
-              'Ce n\'est pas important',
-              'Pour augmenter le budget',
-              'Pour identifier ce qui peut être réutilisé et mesurer l\'ampleur des changements',
-              'Pour impressionner le client'
+              'Ce n’est pas important, on repart toujours de zéro',
+              'Pour augmenter le budget en montrant tout ce qu’il y a à refaire',
+              'Pour repérer ce qui est réutilisable et mesurer l’ampleur du chantier',
+              'Pour impressionner le client avec un audit complet et illustré'
             ],
             correctAnswer: 2,
             explanation: 'La cartographie permet d\'identifier les forces/faiblesses, comprendre l\'environnement technique et évaluer ce qui peut être conservé.',
@@ -606,9 +606,9 @@ Un projet web est une initiative temporaire visant à créer un produit, service
             id: 'q-cdc-4',
             question: 'Qu\'est-ce qu\'un persona ?',
             options: [
-              'Un concurrent',
-              'Un outil de gestion',
-              'Un employé de l\'entreprise',
+              'Un concurrent direct analysé dans le benchmark',
+              'Un outil de gestion des tâches par colonnes',
+              'Un employé de l’entreprise interrogé pendant le cadrage',
               'Un profil utilisateur fictif représentant une cible'
             ],
             correctAnswer: 3,
@@ -620,9 +620,9 @@ Un projet web est une initiative temporaire visant à créer un produit, service
             id: 'q-cdc-5',
             question: 'Quelle est la structure d\'une user story ?',
             options: [
-              'Début + Milieu + Fin',
-              'Problème + Solution',
-              'Titre + Description',
+              'Début + Milieu + Fin, comme un scénario',
+              'Contexte + Problème + Solution proposée + Résultat attendu + Responsable',
+              'Titre + Description + Estimation en points',
               'En tant que [utilisateur], je veux [objectif] afin de [bénéfice]'
             ],
             correctAnswer: 3,

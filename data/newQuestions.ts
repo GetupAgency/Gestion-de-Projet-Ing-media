@@ -11,10 +11,10 @@ export const newQuestions: QuizQuestion[] = [
     id: 'nq-cdc-1',
     question: 'Que répondez-vous ?',
     options: [
-      'Pas de problème, je vous envoie un devis vendredi en m\'inspirant d\'Airbnb',
-      'Je ne peux rien chiffrer sans un cahier des charges complet de votre part',
-      'Je vous propose un atelier de cadrage de 2 h cette semaine, puis une fourchette budgétaire par lot',
-      'Je vous envoie un devis pour un MVP au prix du marché, on ajustera après signature'
+      'Pas de problème, je vous envoie un devis vendredi en m’inspirant d’Airbnb et de Booking',
+      'Je ne peux rien chiffrer sans un cahier des charges complet rédigé par vos soins',
+      'Un atelier de cadrage de 2 h cette semaine, puis une fourchette budgétaire par lot',
+      'Je vous envoie un devis pour un MVP au prix du marché, on ajustera après la signature'
     ],
     correctAnswer: 2,
     explanation: 'Un devis sans cadrage engage l\'agence sur un périmètre qu\'elle ne connaît pas : c\'est la source n°1 des dépassements. Refuser sèchement (option B) perd le client ; le « prix du marché » (D) n\'existe pas. L\'atelier de cadrage transforme une idée en besoins, puis en lots chiffrables.',
@@ -37,10 +37,10 @@ export const newQuestions: QuizQuestion[] = [
     id: 'nq-cdc-3',
     question: 'Que faites-vous de cette phrase dans le cahier des charges ?',
     options: [
-      'La garder telle quelle : c\'est l\'intention du client, on la respectera',
-      'La remplacer par des critères vérifiables : score Lighthouse mobile > 90, réservation en 3 écrans maximum, test avec 5 utilisateurs',
-      'La supprimer : ce n\'est pas une exigence technique',
-      'Ajouter « et responsive » pour la préciser'
+      'La garder telle quelle : c’est l’intention du client, on la respectera dans le design',
+      'La remplacer par des critères vérifiables : Lighthouse mobile > 90, réservation en 3 écrans',
+      'La supprimer : ce n’est pas une exigence technique, elle n’a pas sa place dans un CDC',
+      'Ajouter « et responsive, avec un design moderne » pour la préciser sans la contredire'
     ],
     correctAnswer: 1,
     explanation: '« Moderne et ergonomique » n\'est pas vérifiable : à la recette, le client pourra refuser le site sur un ressenti. Un CDC transforme les intentions en critères mesurables, qui protègent les deux parties.',
@@ -55,10 +55,10 @@ export const newQuestions: QuizQuestion[] = [
     id: 'nq-carto-1',
     question: 'Comment orientez-vous la discussion ?',
     options: [
-      'Montrer les chiffres (75 % de rebond, 60 % de trafic mobile, 8 s de chargement) et proposer la performance mobile en lot 1, le logo en lot 2',
-      'Refaire le logo d\'abord : c\'est ce que le client demande et ça se voit',
-      'Expliquer que le logo n\'a aucun intérêt et refuser de le traiter',
-      'Faire les deux en même temps sans changer le budget'
+      'Montrer les chiffres (75 % de rebond, 60 % de mobile, 8 s) : performance en lot 1, logo en lot 2',
+      'Refaire le logo d’abord : c’est ce que le client demande, ça se voit, et ça rassure la direction',
+      'Expliquer que le logo n’a aucun intérêt et refuser de le traiter tant que le site est lent',
+      'Faire les deux en même temps sans changer le budget, en rognant sur la recette'
     ],
     correctAnswer: 0,
     explanation: 'L\'audit sert à objectiver les priorités. On ne dit pas « non » au logo, on le repositionne derrière ce qui fait perdre des clients tous les jours. Les chiffres remplacent l\'opinion.',
@@ -85,10 +85,10 @@ export const newQuestions: QuizQuestion[] = [
     id: 'nq-plan-1',
     question: 'Le client veut ajouter 2 semaines d\'ateliers avant la conception. Est-ce faisable ?',
     options: [
-      'Oui, l\'équipe rattrapera pendant le développement',
-      'Non : le rétroplanning est déjà à 13 semaines sur 13 disponibles, il faut arbitrer (réduire le périmètre ou décaler la date)',
-      'Oui, avec des heures supplémentaires sur la recette',
-      'Non, sauf si on supprime la phase de recette'
+      'Oui, l’équipe rattrapera pendant le développement en travaillant sur deux lots en parallèle',
+      'Non : le rétroplanning est déjà à 13 semaines sur 13, il faut arbitrer périmètre ou date',
+      'Oui, avec des heures supplémentaires sur la recette et une mise en ligne un vendredi soir',
+      'Non, sauf si on supprime la phase de recette et qu’on teste directement en production'
     ],
     correctAnswer: 1,
     explanation: 'Du 1er septembre au 1er décembre il y a 13 semaines. Conception 3 + développement 8 + recette 2 = 13. Chaque semaine ajoutée doit être retirée ailleurs ou repousser la date. Supprimer la recette ou « rattraper » en dev sont des dettes déguisées.',
@@ -100,7 +100,12 @@ export const newQuestions: QuizQuestion[] = [
   {
     id: 'nq-plan-2',
     question: 'Dans un diagramme de Gantt, la suite de tâches dont le moindre retard décale la date de fin s\'appelle le _____.',
-    options: ['chemin critique', 'jalon', 'sprint', 'backlog'],
+    options: [
+      'chemin critique',
+      'jalon de fin',
+      'sprint zéro',
+      'chemin de fer'
+    ],
     correctAnswer: 0,
     explanation: 'Le chemin critique est la chaîne de tâches sans marge. Un jalon est une date clé, un sprint une itération, un backlog une liste priorisée. Surveiller le chemin critique, c\'est surveiller la date de livraison.',
     type: 'fill-blank',
@@ -111,10 +116,10 @@ export const newQuestions: QuizQuestion[] = [
     id: 'nq-plan-3',
     question: 'Que faites-vous ?',
     options: [
-      'Attendre : « presque fini » veut dire que ça arrive',
-      'Réassigner la tâche à un autre développeur',
-      'Décomposer avec lui le reste à faire en sous-tâches d\'une demi-journée et identifier ce qui bloque',
-      'Prévenir le client que le sprint sera en retard'
+      'Attendre : « presque fini » veut dire que ça arrive, inutile de mettre la pression',
+      'Réassigner la tâche à un autre développeur pour débloquer le sprint en cours',
+      'Décomposer avec lui le reste à faire en demi-journées et identifier ce qui bloque',
+      'Prévenir le client que le sprint sera en retard et proposer une nouvelle date de démo'
     ],
     correctAnswer: 2,
     explanation: 'Trois « encore 2 jours » d\'affilée signalent un blocage caché (dépendance, doute technique, tâche mal comprise). Décomposer rend le reste visible et mesurable ; réassigner ou alerter le client sans diagnostic est prématuré.',
@@ -149,10 +154,10 @@ export const newQuestions: QuizQuestion[] = [
     id: 'nq-budget-2',
     question: 'Votre chiffrage sort à 27 060 € marge comprise. Le client a 25 000 € HT. Que faites-vous ?',
     options: [
-      'Je retire la marge de 10 % pour rentrer dans le budget',
-      'Je baisse les TJM de tous les profils',
-      'Je propose de passer une fonctionnalité d\'environ 2 000 € en option ou en lot 2, en gardant la marge',
-      'Je signe à 25 000 € : on se rattrapera sur les avenants'
+      'Je retire la marge de 10 % pour rentrer dans le budget, on se rattrapera sur la suite',
+      'Je baisse les TJM de tous les profils de 8 % pour atterrir juste sous 25 000 €',
+      'Je passe une fonctionnalité d’environ 2 000 € en option ou en lot 2, marge conservée',
+      'Je signe à 25 000 € sans rien changer : on se rattrapera sur les avenants'
     ],
     correctAnswer: 2,
     explanation: 'Détail : 30 j dev × 500 + 8 j design × 450 + 10 j CP × 600 = 24 600 €, +10 % = 27 060 €. La marge couvre les imprévus : la supprimer, c\'est démarrer en dépassement. On ajuste le périmètre, pas la sécurité du projet.',
@@ -177,10 +182,10 @@ export const newQuestions: QuizQuestion[] = [
     id: 'nq-outils-1',
     question: 'Que mettez-vous en place ?',
     options: [
-      'Un mail récapitulatif chaque soir',
-      'Un tableau Kanban partagé en lecture (Trello, Notion…) et un point hebdomadaire de 30 minutes',
-      'Un accès au dépôt GitHub pour qu\'il voie les commits',
-      'Une réunion quotidienne avec le client'
+      'Un e-mail récapitulatif chaque soir avec la liste des tâches faites et à faire',
+      'Un Kanban partagé en lecture (Trello, Notion…) et un point hebdo de 30 minutes',
+      'Un accès au dépôt GitHub pour qu’il voie les commits et les branches en cours',
+      'Une réunion quotidienne de 15 minutes avec le client, comme un daily'
     ],
     correctAnswer: 1,
     explanation: 'Le client veut de la visibilité, pas du bruit. Un tableau visuel répond à « où en est-on ? » sans solliciter l\'équipe ; le point hebdo cadre les décisions. GitHub est illisible pour un non-technicien, le mail quotidien et la réunion quotidienne coûtent du temps sans rassurer.',
@@ -195,10 +200,10 @@ export const newQuestions: QuizQuestion[] = [
     id: 'nq-spec-1',
     question: 'Quelle user story est la mieux écrite ?',
     options: [
-      'En tant qu\'utilisateur, je veux un bouton « Réserver »',
-      'Le développeur doit coder un formulaire de réservation avec un calendrier',
-      'En tant que client, je veux réserver',
-      'En tant que client pressé, je veux réserver une table en moins de 3 écrans afin de ne pas abandonner en cours de route'
+      'En tant qu’utilisateur, je veux un bouton « Réserver » bien visible en haut de la page d’accueil',
+      'Le développeur doit coder un formulaire de réservation avec un calendrier et un sélecteur d’horaires',
+      'En tant que client, je veux réserver une table facilement et rapidement depuis mon téléphone',
+      'En tant que client pressé, je veux réserver en moins de 3 écrans afin de ne pas abandonner'
     ],
     correctAnswer: 3,
     explanation: 'Une bonne user story nomme un utilisateur précis, un objectif et un bénéfice qui guide les choix d\'interface. « Un bouton » décrit une solution, pas un besoin ; « je veux réserver » est trop vague pour être testé.',
@@ -209,7 +214,12 @@ export const newQuestions: QuizQuestion[] = [
   {
     id: 'nq-spec-2',
     question: 'Les _____ d\'une user story décrivent les conditions vérifiables qui permettent de dire qu\'elle est terminée.',
-    options: ['critères d\'acceptation', 'story points', 'dépendances', 'wireframes'],
+    options: [
+      'critères d’acceptation',
+      'story points',
+      'dépendances techniques',
+      'wireframes annotés'
+    ],
     correctAnswer: 0,
     explanation: 'Sans critères d\'acceptation (« étant donné… quand… alors… »), le développeur et le client ont chacun leur idée de « fini ». Les story points estiment l\'effort, les dépendances l\'ordre, les wireframes l\'écran.',
     type: 'fill-blank',
@@ -222,10 +232,10 @@ export const newQuestions: QuizQuestion[] = [
     id: 'nq-tech-1',
     question: 'Quelle réponse est la plus honnête ?',
     options: [
-      'Un développement sur mesure React + Node pour ne dépendre de personne',
-      'Shopify ou WooCommerce : les deux tiennent le budget et le délai ; le choix dépend de l\'autonomie souhaitée et du coût récurrent',
-      'Une application mobile native, c\'est ce que les clients utilisent',
-      'Un site vitrine avec un numéro de téléphone pour commander'
+      'Un développement sur mesure React + Node pour ne dépendre de personne et tout maîtriser',
+      'Shopify ou WooCommerce : les deux tiennent le budget, le choix dépend de l’autonomie voulue',
+      'Une application mobile native iOS et Android, c’est ce que les clients utilisent au quotidien',
+      'Un site vitrine avec un numéro de téléphone pour commander, le e-commerce viendra ensuite'
     ],
     correctAnswer: 1,
     explanation: 'À 8 000 € et 6 semaines, le sur-mesure est hors budget et le natif hors sujet. Deux solutions éditeur répondent au besoin ; le rôle du chef de projet est d\'expliquer le compromis (abonnement mensuel vs hébergement à gérer) plutôt que d\'imposer une marque.',
@@ -250,10 +260,10 @@ export const newQuestions: QuizQuestion[] = [
     id: 'nq-test-1',
     question: 'Que demandez-vous avant de passer le ticket en « validé » ?',
     options: [
-      'Rien : il est senior, je lui fais confiance',
-      'Sur quels navigateurs, avec quelles données, et quel est le cas limite le plus risqué ?',
-      'Qu\'il rejoue tous les tests du projet depuis le début',
-      'Que le client teste lui-même dès ce soir'
+      'Rien : il est senior, je lui fais confiance et je passe le ticket en validé',
+      'Sur quels navigateurs, avec quelles données, et quel cas limite est le plus risqué ?',
+      'Qu’il rejoue tous les tests du projet depuis le début pour être sûr de la non-régression',
+      'Que le client teste lui-même dès ce soir et valide le ticket de son côté'
     ],
     correctAnswer: 1,
     explanation: '« Ça marche » sans contexte ne dit rien. Trois questions suffisent pour vérifier que le test couvre le réel (Safari mobile, panier vide, double clic sur payer). Rejouer tous les tests est disproportionné ; envoyer au client un ticket non vérifié abîme la confiance.',
@@ -278,10 +288,10 @@ export const newQuestions: QuizQuestion[] = [
     id: 'nq-recette-1',
     question: 'Quelle est votre première action ?',
     options: [
-      'Tout corriger cette nuit pour tenir la date',
-      'Reporter la mise en production d\'une semaine',
-      'Trier les 47 retours en bloquant / majeur / mineur / hors périmètre, ne traiter que les bloquants avant la mise en prod et planifier le reste dans un lot correctif',
-      'Répondre au client que la recette est terminée depuis hier'
+      'Tout corriger cette nuit pour tenir la date, avec toute l’équipe mobilisée',
+      'Reporter la mise en production d’une semaine et traiter les 47 retours un par un',
+      'Trier les 47 retours (bloquant, majeur, mineur, hors périmètre) et ne traiter que les bloquants',
+      'Répondre au client que la recette est terminée depuis hier et que les retours iront en maintenance'
     ],
     correctAnswer: 2,
     explanation: 'Un retour de recette n\'est pas une liste de tâches, c\'est une matière à trier. Le tri révèle souvent 2 bloquants, 10 mineurs, 5 hors périmètre et 30 remarques de goût. Décider go/no-go sur les seuls bloquants protège la date sans sacrifier la qualité.',
@@ -306,10 +316,10 @@ export const newQuestions: QuizQuestion[] = [
     id: 'nq-deploy-1',
     question: 'Le rollback est fait, le site est revenu à la version précédente. Que dites-vous au client ?',
     options: [
-      'Rien : il n\'a rien vu, inutile de l\'inquiéter',
-      'Un message factuel : ce qui s\'est passé, l\'impact (20 minutes, 6 commandes en erreur), ce qui a été fait, la prochaine étape et son heure',
-      'Que le problème vient de l\'hébergeur',
-      'Un rapport technique détaillé de 3 pages sur la cause'
+      'Rien : il n’a rien vu, inutile de l’inquiéter pour 20 minutes d’interruption',
+      'Un message factuel : ce qui s’est passé, l’impact, ce qui a été fait, la prochaine étape',
+      'Que le problème vient de l’hébergeur et que l’agence n’y est pour rien',
+      'Un rapport technique détaillé de 3 pages sur la cause racine, envoyé dans la semaine'
     ],
     correctAnswer: 1,
     explanation: 'Le client découvrira l\'incident tôt ou tard (un acheteur lui écrira). Une communication rapide, courte et factuelle installe la confiance ; le silence ou le rejet de faute la détruit. Le rapport détaillé vient après, dans le post-mortem.',
@@ -334,10 +344,10 @@ export const newQuestions: QuizQuestion[] = [
     id: 'nq-bilan-1',
     question: 'Le client demande : « Pourquoi 5 000 € de plus que prévu ? » Que répondez-vous ?',
     options: [
-      'Que c\'est normal, tous les projets dépassent',
-      'Les trois causes factuelles (contenus livrés avec 3 semaines de retard, bug critique en recette, départ d\'un développeur), ce qui a été absorbé par l\'agence, et une règle pour la prochaine fois : délai contractuel de livraison des contenus',
-      'Que le retard des contenus vient de lui, donc le surcoût aussi',
-      'Que le taux de conversion a augmenté de 25 %, donc le surcoût est rentabilisé'
+      'Que c’est normal, tous les projets dépassent, et que 5 000 € c’est peu sur 40 000 €',
+      'Les trois causes factuelles, ce que l’agence a absorbé, et une règle pour la prochaine fois',
+      'Que le retard des contenus vient de lui, donc le surcoût aussi, chiffres à l’appui',
+      'Que le taux de conversion a augmenté de 25 %, donc le surcoût est déjà rentabilisé'
     ],
     correctAnswer: 1,
     explanation: 'Le bilan n\'est ni une excuse ni un procès. On explique les causes, on assume sa part, on montre ce qu\'on a absorbé, et on propose une règle qui évite la répétition. L\'argument du ROI (D) est vrai mais ne répond pas à la question.',
@@ -362,10 +372,10 @@ export const newQuestions: QuizQuestion[] = [
     id: 'nq-crise-1',
     question: 'Que faites-vous dans l\'heure ?',
     options: [
-      'Rassurer le client, recueillir les faits auprès de l\'équipe, revenir vers lui dans la journée avec un état réel, puis recadrer en interne : un seul canal vers le client, le chef de projet',
-      'Confirmer au client que le projet va planter, par honnêteté',
-      'Recadrer publiquement le développeur junior devant l\'équipe',
-      'Demander au client de ne plus parler à l\'équipe'
+      'Rassurer le client, recueillir les faits, revenir dans la journée, puis recadrer en interne',
+      'Confirmer au client que le projet va planter, par honnêteté, et lui proposer un report immédiat',
+      'Recadrer publiquement le développeur junior devant l’équipe pour que ça ne se reproduise plus',
+      'Demander au client de ne plus parler à l’équipe et de passer uniquement par vous désormais'
     ],
     correctAnswer: 0,
     explanation: 'Deux problèmes : un client inquiet et une fuite de communication non maîtrisée. On traite l\'urgence (le client, avec des faits) puis la cause (règle de communication), sans humilier le junior — il a peut-être vu un vrai risque que vous devez entendre.',
@@ -380,10 +390,10 @@ export const newQuestions: QuizQuestion[] = [
     id: 'nq-mission-1',
     question: 'Votre chiffrage complet sort à 135 000 €. Comment structurez-vous la réponse ?',
     options: [
-      'Réduire les TJM pour atterrir à 120 000 €',
-      'Supprimer la marge et les tests pour tenir 120 000 €',
-      'Répondre à 135 000 € en expliquant que le budget client est irréaliste',
-      'Proposer un MVP à environ 110 000 € couvrant les « must have », et un lot 2 chiffré pour le reste'
+      'Réduire les TJM de tous les profils pour atterrir à 120 000 € sans toucher au périmètre',
+      'Supprimer la marge et les tests pour tenir les 120 000 € annoncés par le client',
+      'Répondre à 135 000 € en expliquant que le budget du client est irréaliste pour ce périmètre',
+      'Un MVP à environ 110 000 € couvrant les « must have », et un lot 2 chiffré pour le reste'
     ],
     correctAnswer: 3,
     explanation: 'Un appel d\'offres se gagne sur la crédibilité du périmètre, pas sur un prix forcé. Le MVP + lot 2 respecte la fourchette, montre la compréhension des priorités (matching, billetterie, mobile) et laisse le client décider. Baisser les TJM ou couper les tests fabrique un projet en crise.',

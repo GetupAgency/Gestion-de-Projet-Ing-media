@@ -407,10 +407,10 @@ export const finalModules: Module[] = [
             id: 'q-tech-2',
             question: 'Quelle est la différence entre frontend et backend ?',
             options: [
-              'Frontend = base de données',
-              'Aucune différence',
+              'Frontend = base de données, Backend = interface',
+              'Aucune différence, ce sont deux synonymes',
               'Frontend = partie visible, Backend = logique serveur',
-              'Frontend = serveur, Backend = client'
+              'Frontend = serveur et API, Backend = navigateur du client'
             ],
             correctAnswer: 2,
             explanation: 'Le frontend est la partie visible avec laquelle l\'utilisateur interagit, le backend gère la logique métier et les données côté serveur.',
@@ -421,9 +421,9 @@ export const finalModules: Module[] = [
             id: 'q-tech-3',
             question: 'Qu\'est-ce qu\'une API ?',
             options: [
-              'Un framework CSS',
-              'Un type de base de données',
-              'Un langage de programmation',
+              'Un framework CSS pour construire des interfaces responsives',
+              'Un type de base de données orientée documents',
+              'Un langage de programmation pour le web',
               'Une interface permettant à deux systèmes de communiquer'
             ],
             correctAnswer: 3,
@@ -437,7 +437,7 @@ export const finalModules: Module[] = [
             options: [
               'Shopify',
               'Drupal',
-              'Joomla',
+              'Squarespace',
               'WordPress'
             ],
             correctAnswer: 3,
@@ -1313,10 +1313,10 @@ export const finalModules: Module[] = [
             id: 'q-test-2',
             question: 'Qu\'est-ce que la recette client (UAT) ?',
             options: [
-              'Un repas de fin de projet',
+              'Un repas de fin de projet offert par l’agence',
               'La validation formelle du projet par le client',
-              'Un outil de test',
-              'Une phase de développement'
+              'Un outil de test automatisé de bout en bout',
+              'Une phase de développement des dernières fonctionnalités'
             ],
             correctAnswer: 1,
             explanation: 'La recette (User Acceptance Testing) est la validation formelle où le client teste et approuve le projet avant la mise en production.',
@@ -1327,10 +1327,10 @@ export const finalModules: Module[] = [
             id: 'q-test-3',
             question: 'Comment classe-t-on généralement les bugs ?',
             options: [
-              'Par couleur',
-              'Par développeur',
+              'Par couleur, du vert au rouge selon l’humeur',
+              'Par développeur responsable de la correction',
               'Par sévérité (bloquant, majeur, mineur)',
-              'Par date'
+              'Par date de découverte pendant la recette'
             ],
             correctAnswer: 2,
             explanation: 'Les bugs sont classés par sévérité : bloquant (empêche l\'utilisation), majeur (impact important), mineur (esthétique ou faible impact).',
@@ -1343,7 +1343,7 @@ export const finalModules: Module[] = [
             options: [
               'Photoshop',
               'Lighthouse',
-              'Slack',
+              'Google Tag Manager',
               'Trello'
             ],
             correctAnswer: 1,
@@ -1355,10 +1355,10 @@ export const finalModules: Module[] = [
             id: 'q-test-5',
             question: 'Qu\'est-ce qu\'un PV de recette ?',
             options: [
-              'Un planning de vente',
+              'Un planning de vente des lots du projet',
               'Un procès-verbal attestant la validation du projet',
-              'Un outil de versioning',
-              'Une base de données'
+              'Un outil de versioning des fichiers de recette',
+              'Une base de données des tickets de recette'
             ],
             correctAnswer: 1,
             explanation: 'Le PV (Procès-Verbal) de recette est un document signé par le client qui atteste de la validation du projet et autorise la mise en production.',
@@ -2074,10 +2074,10 @@ export const finalModules: Module[] = [
             id: 'q-deploy-1',
             question: 'Qu\'est-ce qu\'un Blue-Green Deployment ?',
             options: [
-              'Une méthode de test',
+              'Une méthode de test sur deux navigateurs différents',
               'Deux environnements permettant un basculement rapide',
-              'Un outil de déploiement',
-              'Une technique de design'
+              'Un outil de déploiement continu open source',
+              'Une technique de design avec deux palettes'
             ],
             correctAnswer: 1,
             explanation: 'Le Blue-Green Deployment utilise deux environnements identiques pour permettre un basculement rapide et un rollback instantané.',
@@ -2088,10 +2088,10 @@ export const finalModules: Module[] = [
             id: 'q-deploy-2',
             question: 'Quel est le meilleur moment pour déployer un site e-commerce à fort trafic ?',
             options: [
-              'Vendredi soir 20h',
-              'Lundi matin 9h',
-              'Mardi ou Mercredi 2h-6h du matin',
-              'Dimanche après-midi'
+              'Vendredi soir 20 h, après le départ de l’équipe',
+              'Lundi matin 9 h, quand tout le monde est là',
+              'Mardi ou mercredi, entre 2 h et 6 h',
+              'Dimanche après-midi, quand le trafic est faible'
             ],
             correctAnswer: 2,
             explanation: 'Milieu de semaine (mardi/mercredi) très tôt le matin (2h-6h) = trafic minimal + équipe disponible en journée si problème + pas de weekend à gérer.',
@@ -2102,10 +2102,10 @@ export const finalModules: Module[] = [
             id: 'q-deploy-3',
             question: 'Qu\'est-ce qu\'un certificat SSL ?',
             options: [
-              'Un diplôme de développeur',
+              'Un diplôme de développeur reconnu par l’État',
               'Un fichier qui sécurise les échanges HTTPS',
-              'Un outil de déploiement',
-              'Un type de base de données'
+              'Un outil de déploiement automatisé des mises à jour',
+              'Un type de base de données chiffrée'
             ],
             correctAnswer: 1,
             explanation: 'Le certificat SSL permet d\'activer le HTTPS et de sécuriser les échanges entre le navigateur et le serveur.',
@@ -2117,9 +2117,9 @@ export const finalModules: Module[] = [
             question: 'Qu\'est-ce qu\'un rollback ?',
             options: [
               'Un retour à la version précédente en cas de problème',
-              'Une technique de design',
-              'Un outil de communication',
-              'Un type de test'
+              'Une technique de design avec effet de défilement',
+              'Un outil de communication interne entre développeurs',
+              'Un type de test rejoué après chaque mise en production'
             ],
             correctAnswer: 0,
             explanation: 'Le rollback est le retour à une version antérieure stable en cas de problème critique après un déploiement.',
@@ -3062,7 +3062,12 @@ export const finalModules: Module[] = [
           {
             id: 'q-eco-1',
             question: 'Quel format d\'image est le plus léger pour le web ?',
-            options: ['PNG', 'JPG', 'WebP', 'GIF'],
+            options: [
+              'PNG 24 bits',
+              'JPG',
+              'WebP',
+              'GIF animé'
+            ],
             correctAnswer: 2,
             explanation: 'WebP est un format moderne qui offre une meilleure compression que JPG et PNG, réduisant ainsi le poids des images.',
             difficulty: 'facile',
@@ -3081,10 +3086,10 @@ export const finalModules: Module[] = [
             id: 'q-eco-3',
             question: 'Qu\'est-ce que le "lazy loading" ?',
             options: [
-              'Un développeur paresseux',
+              'Un développeur qui repousse toutes les tâches',
               'Charger les images et contenus à la demande',
-              'Un bug de performance',
-              'Un framework JavaScript'
+              'Un bug de performance sur les pages longues',
+              'Un framework JavaScript pour les animations'
             ],
             correctAnswer: 1,
             explanation: 'Le lazy loading consiste à charger les images et contenus uniquement quand l\'utilisateur en a besoin (scroll), réduisant ainsi le temps de chargement initial.',
@@ -3095,10 +3100,10 @@ export const finalModules: Module[] = [
             id: 'q-eco-4',
             question: 'Pourquoi un site éco-conçu est-il généralement plus rapide ?',
             options: [
-              'Il utilise des serveurs plus puissants',
-              'Il a moins de fonctionnalités et moins de ressources à charger',
-              'Il coûte plus cher',
-              'Il n\'est pas plus rapide'
+              'Il utilise des serveurs plus puissants et mieux refroidis',
+              'Il a moins de fonctionnalités et de ressources à charger',
+              'Il coûte plus cher, donc il est mieux optimisé',
+              'Il n’est pas plus rapide, seulement moins énergivore'
             ],
             correctAnswer: 1,
             explanation: 'Un site éco-conçu optimise les ressources (images légères, code minimal, moins de requêtes), ce qui le rend naturellement plus rapide.',
@@ -3372,7 +3377,12 @@ export const finalModules: Module[] = [
           {
             id: 'q-a11y-1',
             question: 'Quel est le ratio de contraste minimum pour du texte normal (niveau AA) ?',
-            options: ['3:1', '4.5:1', '7:1', '21:1'],
+            options: [
+              '3:1 minimum',
+              '4.5:1',
+              '7:1 minimum',
+              '21:1'
+            ],
             correctAnswer: 1,
             explanation: 'Le niveau AA du WCAG requiert un ratio de contraste minimum de 4.5:1 pour le texte normal.',
             difficulty: 'moyen',
@@ -3391,10 +3401,10 @@ export const finalModules: Module[] = [
             id: 'q-a11y-3',
             question: 'Combien de personnes sont en situation de handicap en France ?',
             options: [
-              '1 million',
-              '5 millions',
+              'Près de 1 million',
+              'Environ 5 millions',
               '12 millions',
-              '20 millions'
+              'Plus de 20 millions'
             ],
             correctAnswer: 2,
             explanation: 'Environ 12 millions de personnes sont en situation de handicap en France, soit près de 20% de la population.',
@@ -3405,10 +3415,10 @@ export const finalModules: Module[] = [
             id: 'q-a11y-4',
             question: 'Que signifie RGAA ?',
             options: [
-              'Référentiel Général d\'Amélioration de l\'Accessibilité',
-              'Règles Générales d\'Apprentissage Avancé',
-              'Réseau Global d\'Applications Autonomes',
-              'Rien de tout cela'
+              'Référentiel Général d’Amélioration de l’Accessibilité',
+              'Règles Générales d’Apprentissage Avancé et Adapté',
+              'Réseau Global d’Applications Autonomes et Accessibles',
+              'Régime Général d’Aide à l’Adaptation des sites publics'
             ],
             correctAnswer: 0,
             explanation: 'RGAA signifie Référentiel Général d\'Amélioration de l\'Accessibilité. C\'est le standard français pour l\'accessibilité numérique.',
@@ -3433,10 +3443,10 @@ export const finalModules: Module[] = [
             id: 'q-a11y-6',
             question: 'Pourquoi l\'accessibilité améliore-t-elle le SEO ?',
             options: [
-              'Elle n\'améliore pas le SEO',
+              'Elle n’améliore pas le SEO, ce sont deux sujets distincts',
               'Une bonne structure sémantique aide les moteurs de recherche',
-              'Google vérifie les contrastes',
-              'Les lecteurs d\'écran sont des robots'
+              'Google vérifie les contrastes et pénalise les sites illisibles',
+              'Les lecteurs d’écran sont des robots indexés par Google'
             ],
             correctAnswer: 1,
             explanation: 'Une bonne accessibilité implique une structure HTML sémantique claire que les moteurs de recherche comprennent mieux, améliorant ainsi le SEO.',

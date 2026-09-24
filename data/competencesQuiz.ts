@@ -6,10 +6,10 @@ export const competencesQuizQuestions: QuizQuestion[] = [
     id: 'q-comp-1',
     question: 'Quelle soft skill est essentielle pour un chef de projet ?',
     options: [
-      'Savoir coder en 10 langages',
+      'Savoir coder dans une dizaine de langages',
       'Communication claire et écoute active',
-      'Être autoritaire',
-      'Travailler seul'
+      'Être autoritaire pour se faire respecter',
+      'Travailler seul pour aller plus vite'
     ],
     correctAnswer: 1,
     explanation: 'La communication claire et l\'écoute active sont parmi les soft skills les plus importantes pour comprendre les besoins et coordonner l\'équipe.',
@@ -20,10 +20,10 @@ export const competencesQuizQuestions: QuizQuestion[] = [
     id: 'q-comp-2',
     question: 'Comment un chef de projet doit-il se positionner face à son équipe ?',
     options: [
-      'Comme un chef autoritaire',
-      'Comme un facilitateur qui aide l\'équipe à avancer',
-      'Comme un simple observateur',
-      'Comme un développeur senior'
+      'Comme un chef autoritaire qui tranche tout',
+      'Comme un facilitateur qui aide l’équipe à avancer',
+      'Comme un simple observateur qui rend compte',
+      'Comme un développeur senior qui code avec eux'
     ],
     correctAnswer: 1,
     explanation: 'Le chef de projet doit être un facilitateur, pas un chef autoritaire. Son rôle est d\'aider l\'équipe à progresser et de créer les conditions de réussite.',
@@ -34,10 +34,10 @@ export const competencesQuizQuestions: QuizQuestion[] = [
     id: 'q-comp-3',
     question: 'Que doit faire un chef de projet face à une mauvaise nouvelle ?',
     options: [
-      'La cacher au client',
-      'Communiquer le plus tôt possible, ne jamais surprendre le client',
-      'Attendre que ça se règle tout seul',
-      'Blâmer l\'équipe'
+      'La cacher au client tant qu’une solution n’est pas trouvée',
+      'La communiquer tôt, sans jamais surprendre le client',
+      'Attendre que ça se règle tout seul avec le temps',
+      'Blâmer l’équipe pour montrer qu’il n’y est pour rien'
     ],
     correctAnswer: 1,
     explanation: 'Un bon chef de projet communique les mauvaises nouvelles le plus tôt possible. Ne jamais surprendre le client est un principe fondamental.',
@@ -48,10 +48,10 @@ export const competencesQuizQuestions: QuizQuestion[] = [
     id: 'q-comp-4',
     question: 'Quelle hard skill est nécessaire pour un chef de projet web ?',
     options: [
-      'Savoir développer toute l\'application seul',
-      'Comprendre les technologies web et savoir créer un planning',
-      'Être graphiste expert',
-      'Connaître tous les langages de programmation'
+      'Savoir développer toute l’application seul si besoin',
+      'Comprendre les technologies web et savoir bâtir un planning',
+      'Être graphiste expert pour juger les maquettes',
+      'Connaître tous les langages de programmation du marché'
     ],
     correctAnswer: 1,
     explanation: 'Le chef de projet doit comprendre les technologies (sans être expert codeur) et maîtriser les outils de gestion : planning, budget, user stories, etc.',
@@ -62,10 +62,10 @@ export const competencesQuizQuestions: QuizQuestion[] = [
     id: 'q-comp-5',
     question: 'Comment un chef de projet doit-il gérer un conflit entre le client et l\'équipe technique ?',
     options: [
-      'Prendre systématiquement le parti du client',
-      'Rester factuel, protéger l\'équipe des dérives et le client des sur-complications',
-      'Laisser l\'équipe et le client se débrouiller',
-      'Abandonner le projet'
+      'Prendre systématiquement le parti du client, c’est lui qui paie',
+      'Rester factuel : protéger l’équipe des dérives, le client des complications',
+      'Laisser l’équipe technique et le client régler le désaccord directement entre eux',
+      'Abandonner le projet si le conflit dure plus d’une semaine'
     ],
     correctAnswer: 1,
     explanation: 'Le chef de projet doit rester factuel, protéger l\'équipe des demandes irréalistes ET protéger le client de la sur-ingénierie technique.',
@@ -76,10 +76,10 @@ export const competencesQuizQuestions: QuizQuestion[] = [
     id: 'q-comp-6',
     question: 'Pourquoi un chef de projet doit-il "anticiper plutôt que réagir" ?',
     options: [
-      'Pour paraître intelligent',
+      'Pour paraître intelligent aux yeux du client',
       'Pour prévoir les risques et préparer des plans B',
-      'Pour augmenter le budget',
-      'Ce n\'est pas important'
+      'Pour augmenter le budget avec une ligne « imprévus »',
+      'Ce n’est pas important : on gère au fil de l’eau'
     ],
     correctAnswer: 1,
     explanation: 'Anticiper permet d\'identifier les risques en avance et de préparer des solutions de contournement, évitant ainsi les situations de crise.',
@@ -90,10 +90,10 @@ export const competencesQuizQuestions: QuizQuestion[] = [
     id: 'q-comp-7',
     question: 'Qu\'est-ce que la "capacité à dire non" pour un chef de projet ?',
     options: [
-      'Refuser tous les projets',
-      'Refuser avec tact les demandes irréalistes ou hors scope',
-      'Être désagréable',
-      'Ne jamais dire non'
+      'Refuser tous les projets qui paraissent compliqués',
+      'Refuser avec tact les demandes irréalistes ou hors périmètre',
+      'Être désagréable pour se faire respecter du client',
+      'Ne jamais dire non, mais faire traîner les demandes gênantes'
     ],
     correctAnswer: 1,
     explanation: 'Savoir dire non avec diplomatie aux demandes irréalistes ou hors périmètre est essentiel pour protéger le projet et l\'équipe.',
@@ -104,10 +104,10 @@ export const competencesQuizQuestions: QuizQuestion[] = [
     id: 'q-comp-8',
     question: 'Que signifie "on dit, on fait" pour un chef de projet ?',
     options: [
-      'Dire et faire n\'importe quoi',
-      'Tenir ses engagements pour maintenir sa crédibilité',
-      'Parler beaucoup',
-      'Faire sans dire'
+      'Dire et faire n’importe quoi tant que le client est content',
+      'Tenir ses engagements pour rester crédible',
+      'Parler beaucoup en réunion pour occuper le terrain',
+      'Faire sans dire, pour éviter les discussions inutiles'
     ],
     correctAnswer: 1,
     explanation: 'Incarner la fiabilité en tenant ses engagements ("on dit, on fait") est crucial pour la crédibilité du chef de projet.',
@@ -118,10 +118,10 @@ export const competencesQuizQuestions: QuizQuestion[] = [
     id: 'q-comp-9',
     question: 'Pourquoi un chef de projet doit-il "expliquer sans jargon" ?',
     options: [
-      'Pour paraître moins intelligent',
-      'Parce que le client n\'est généralement pas technique',
-      'Pour économiser du temps',
-      'Ce n\'est pas nécessaire'
+      'Pour paraître moins intelligent et rassurer le client',
+      'Parce que le client n’est généralement pas technique',
+      'Pour économiser du temps de réunion',
+      'Ce n’est pas nécessaire, le client s’adapte au vocabulaire'
     ],
     correctAnswer: 1,
     explanation: 'Le client n\'est généralement pas technique. Le chef de projet doit adapter son discours et éviter le jargon pour être compris.',
@@ -132,10 +132,10 @@ export const competencesQuizQuestions: QuizQuestion[] = [
     id: 'q-comp-10',
     question: 'Qu\'est-ce que la "gestion du stress" pour un chef de projet ?',
     options: [
-      'Éviter tout projet stressant',
-      'Rester calme sous pression et dans l\'urgence',
-      'Stresser toute l\'équipe',
-      'Abandonner quand c\'est difficile'
+      'Éviter tout projet stressant dès la phase commerciale',
+      'Rester calme sous pression et dans l’urgence',
+      'Stresser toute l’équipe pour qu’elle aille plus vite',
+      'Abandonner quand c’est trop difficile à gérer'
     ],
     correctAnswer: 1,
     explanation: 'La gestion du stress permet au chef de projet de rester calme et structuré même sous pression, rassurant ainsi l\'équipe.',
@@ -146,10 +146,10 @@ export const competencesQuizQuestions: QuizQuestion[] = [
     id: 'q-comp-11',
     question: 'Pourquoi un chef de projet doit-il faire preuve de "curiosité" ?',
     options: [
-      'Pour fouiller dans les affaires des autres',
-      'Pour s\'intéresser aux nouvelles technologies et méthodes',
-      'Pour lire les emails de l\'équipe',
-      'Ce n\'est pas important'
+      'Pour fouiller dans les affaires des autres membres de l’équipe',
+      'Pour s’intéresser aux nouvelles technologies et méthodes',
+      'Pour lire les e-mails de l’équipe et rester informé',
+      'Ce n’est pas important, les compétences techniques suffisent'
     ],
     correctAnswer: 1,
     explanation: 'La curiosité permet au chef de projet de rester à jour sur les nouvelles technologies, outils et méthodes pour mieux conseiller ses clients.',
@@ -160,10 +160,10 @@ export const competencesQuizQuestions: QuizQuestion[] = [
     id: 'q-comp-12',
     question: 'Qu\'est-ce que le "leadership positif" ?',
     options: [
-      'Être toujours de bonne humeur',
-      'Motiver l\'équipe sans autoritarisme',
-      'Ne jamais critiquer',
-      'Laisser tout faire'
+      'Être toujours de bonne humeur, quoi qu’il arrive',
+      'Motiver l’équipe sans autoritarisme',
+      'Ne jamais critiquer le travail de l’équipe',
+      'Laisser tout faire pour préserver l’ambiance'
     ],
     correctAnswer: 1,
     explanation: 'Le leadership positif consiste à motiver et guider l\'équipe de manière collaborative plutôt qu\'autoritaire.',
@@ -174,10 +174,10 @@ export const competencesQuizQuestions: QuizQuestion[] = [
     id: 'q-comp-13',
     question: 'Pourquoi le chef de projet doit-il "être stable, calme et structuré" ?',
     options: [
-      'Pour paraître sérieux',
-      'Parce qu\'il est le roc de l\'équipe, surtout dans la tempête',
-      'Pour économiser de l\'énergie',
-      'Ce n\'est pas nécessaire'
+      'Pour paraître sérieux devant le client et la direction',
+      'Parce qu’il est le roc de l’équipe, surtout dans la tempête',
+      'Pour économiser de l’énergie sur les projets longs',
+      'Ce n’est pas nécessaire, l’équipe se gère toute seule'
     ],
     correctAnswer: 1,
     explanation: 'Le chef de projet doit incarner la stabilité et le calme, surtout dans les moments difficiles, pour rassurer et guider l\'équipe.',
@@ -188,10 +188,10 @@ export const competencesQuizQuestions: QuizQuestion[] = [
     id: 'q-comp-14',
     question: 'Quelle hard skill permet de structurer les besoins utilisateurs ?',
     options: [
-      'Savoir coder',
+      'Savoir coder en JavaScript',
       'Construire des user stories',
-      'Maîtriser Photoshop',
-      'Connaître Excel'
+      'Maîtriser Photoshop et Figma',
+      'Connaître Excel et les tableaux croisés'
     ],
     correctAnswer: 1,
     explanation: 'Savoir construire des user stories permet de structurer et formaliser clairement les besoins des utilisateurs de manière actionnable.',
@@ -202,10 +202,10 @@ export const competencesQuizQuestions: QuizQuestion[] = [
     id: 'q-comp-15',
     question: 'Pourquoi un chef de projet doit-il maîtriser les bases du SEO ?',
     options: [
-      'Pour remplacer un consultant SEO',
-      'Pour conseiller le client et comprendre les enjeux de visibilité',
-      'Ce n\'est pas nécessaire',
-      'Pour coder le site'
+      'Pour remplacer un consultant SEO et économiser son coût',
+      'Pour conseiller le client sur les enjeux de visibilité',
+      'Ce n’est pas nécessaire, un plugin s’en charge',
+      'Pour coder le site avec les bonnes balises dès le départ'
     ],
     correctAnswer: 1,
     explanation: 'Comprendre les bases du SEO permet au chef de projet de conseiller le client sur les enjeux de visibilité et de travailler efficacement avec les experts SEO.',

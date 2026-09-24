@@ -226,10 +226,10 @@ export const crisisModule: Module = {
           id: 'q-crise-1',
           question: 'Quelle est la différence entre un risque et une crise dans un projet ?',
           options: [
-            'Un risque est plus grave qu\'une crise',
-            'Un risque est potentiel, une crise est un risque matérialisé nécessitant une action immédiate',
-            'Une crise peut être anticipée, un risque non',
-            'Il n\'y a pas de différence, ce sont des synonymes'
+            'Un risque est plus grave qu’une crise, car il concerne tout le projet',
+            'Un risque est potentiel, une crise est un risque matérialisé',
+            'Une crise peut être anticipée, un risque non, car il est imprévisible',
+            'Il n’y a pas de différence, ce sont des synonymes en gestion de projet'
           ],
           correctAnswer: 1,
           explanation: 'Un risque est un événement potentiel identifié en amont. Une crise survient quand ce risque se matérialise et exige une réponse immédiate. L\'objectif est de transformer les crises potentielles en risques gérés.',
@@ -264,10 +264,10 @@ export const crisisModule: Module = {
           id: 'q-crise-4',
           question: 'Quelle devrait être votre première action ?',
           options: [
-            'Demander à l\'équipe de faire des heures supplémentaires pour rattraper',
-            'Réaliser un diagnostic factuel précis et informer les parties prenantes',
-            'Cacher le problème et espérer rattraper le retard',
-            'Ajouter des développeurs au projet immédiatement'
+            'Demander à l’équipe de faire des heures supplémentaires pour rattraper',
+            'Réaliser un diagnostic factuel et informer les parties prenantes',
+            'Cacher le problème et espérer rattraper le retard sur les phases suivantes',
+            'Ajouter des développeurs au projet immédiatement pour compenser le retard'
           ],
           correctAnswer: 1,
           explanation: 'La première action est toujours de poser un diagnostic factuel (combien exactement ? pourquoi ? quel impact ?) puis d\'informer les parties prenantes. Cacher le problème ou réagir impulsivement aggrave toujours la situation.',
@@ -280,10 +280,10 @@ export const crisisModule: Module = {
           id: 'q-crise-5',
           question: 'Quel est l\'objectif principal d\'un plan de contingence ?',
           options: [
-            'Remplacer le cahier des charges',
-            'Définir à l\'avance les réponses aux crises potentielles',
-            'Documenter les bugs du projet',
-            'Mesurer la performance de l\'équipe'
+            'Remplacer le cahier des charges quand il est obsolète',
+            'Définir à l’avance les réponses aux crises potentielles',
+            'Documenter les bugs du projet et leur résolution',
+            'Mesurer la performance de l’équipe pendant les crises'
           ],
           correctAnswer: 1,
           explanation: 'Un plan de contingence définit à l\'avance les actions à entreprendre si certains risques se matérialisent. Il permet de réagir rapidement et de manière structurée au lieu d\'improviser dans l\'urgence.',
@@ -538,10 +538,10 @@ export const crisisModule: Module = {
           id: 'q-crise-7',
           question: 'Que recommandez-vous en priorité ?',
           options: [
-            'Demander aux développeurs de travailler le week-end pour rattraper',
-            'Réaliser un diagnostic précis et préparer des scénarios chiffrés pour le client',
-            'Réduire la qualité du code pour aller plus vite',
-            'Embaucher un développeur supplémentaire immédiatement'
+            'Demander aux développeurs de travailler le week-end pour rattraper le retard',
+            'Réaliser un diagnostic précis et préparer des scénarios chiffrés',
+            'Réduire la qualité du code pour aller plus vite et rattraper le budget',
+            'Embaucher un développeur supplémentaire immédiatement pour absorber la charge'
           ],
           correctAnswer: 1,
           explanation: 'Face à une crise budgétaire, la priorité est le diagnostic (quantifier l\'écart exact) puis la préparation de scénarios chiffrés à présenter au client. Les solutions précipitées (heures sup, embauche, qualité réduite) aggravent souvent le problème.',
@@ -578,10 +578,10 @@ export const crisisModule: Module = {
           id: 'q-crise-10',
           question: 'Quelle marge de sécurité est recommandée dans un budget de projet web ?',
           options: [
-            '1-2%',
-            '5-7%',
-            '10-15%',
-            '30-40%'
+            '1 à 2 %',
+            '5 à 7 %',
+            '10 à 15 %',
+            '30 à 40 %'
           ],
           correctAnswer: 2,
           explanation: 'Une marge de 10 à 15% est recommandée pour couvrir les imprévus. En dessous, la marge est insuffisante pour absorber les risques courants. Au-dessus, le devis devient peu compétitif.',
@@ -837,10 +837,10 @@ export const crisisModule: Module = {
           id: 'q-crise-11',
           question: 'Qu\'est-ce que le "bus factor" d\'un projet ?',
           options: [
-            'Le nombre de bus nécessaires pour transporter l\'équipe',
-            'Le nombre minimum de personnes dont l\'absence mettrait le projet en péril',
-            'Le facteur de risque lié au transport des livrables',
-            'Le nombre de compétences différentes dans l\'équipe'
+            'Le nombre de bus nécessaires pour transporter l’équipe complète au séminaire annuel',
+            'Le nombre minimum de personnes dont l’absence mettrait le projet en péril',
+            'Le facteur de risque lié au transport et à la livraison des livrables',
+            'Le nombre de compétences différentes réunies dans l’équipe du projet'
           ],
           correctAnswer: 1,
           explanation: 'Le bus factor est le nombre minimum de personnes dont l\'absence simultanée bloquerait le projet. Un bus factor de 1 signifie qu\'une seule personne détient une compétence critique — c\'est un risque majeur.',
@@ -851,10 +851,10 @@ export const crisisModule: Module = {
           id: 'q-crise-12',
           question: 'Quelle est votre priorité absolue pendant ces 2 semaines ?',
           options: [
-            'Chercher immédiatement un remplaçant sur LinkedIn',
+            'Chercher immédiatement un remplaçant sur LinkedIn et lancer les entretiens',
             'Organiser un transfert de connaissances intensif avec le développeur partant',
-            'Demander au développeur de terminer toutes les fonctionnalités en cours',
-            'Informer immédiatement le client du départ'
+            'Demander au développeur de terminer toutes les fonctionnalités en cours avant son départ',
+            'Informer immédiatement le client du départ et négocier un report'
           ],
           correctAnswer: 1,
           explanation: 'Le transfert de connaissances est la priorité n°1 car c\'est la seule chose qui a une deadline (le départ). Le recrutement peut commencer en parallèle, mais la documentation et le pair programming avec le développeur partant sont irremplaçables.',
@@ -877,10 +877,10 @@ export const crisisModule: Module = {
           id: 'q-crise-14',
           question: 'Quelle est la meilleure prévention contre les silos de connaissance dans une équipe ?',
           options: [
-            'Interdire les congés pendant le projet',
+            'Interdire les congés pendant toute la durée du projet',
             'Le pair programming et la documentation continue',
-            'Embaucher uniquement des seniors',
-            'Externaliser toutes les compétences critiques'
+            'Embaucher uniquement des seniors qui savent tout faire',
+            'Externaliser toutes les compétences critiques à un prestataire'
           ],
           correctAnswer: 1,
           explanation: 'Le pair programming diffuse naturellement les connaissances entre membres de l\'équipe, et la documentation continue garantit que le savoir persiste même après un départ. Ces deux pratiques augmentent le bus factor de manière organique.',
@@ -1144,10 +1144,10 @@ export const crisisModule: Module = {
           id: 'q-crise-15',
           question: 'Qu\'est-ce que le "fast-tracking" en gestion de projet ?',
           options: [
-            'Augmenter la vitesse de codage de l\'équipe',
-            'Exécuter en parallèle des tâches initialement prévues en séquence',
-            'Supprimer les tâches non essentielles',
-            'Ajouter des développeurs au projet'
+            'Augmenter la vitesse de codage de l’équipe avec de meilleurs outils',
+            'Exécuter en parallèle des tâches prévues en séquence',
+            'Supprimer les tâches non essentielles du périmètre du projet',
+            'Ajouter des développeurs au projet pour tenir la date'
           ],
           correctAnswer: 1,
           explanation: 'Le fast-tracking consiste à paralléliser des tâches qui étaient planifiées séquentiellement. Par exemple, commencer les tests pendant que le développement continue. Cela comporte un risque de retravail si les tâches parallélisées ont des dépendances.',
@@ -1158,10 +1158,10 @@ export const crisisModule: Module = {
           id: 'q-crise-16',
           question: 'Que dit la loi de Brooks sur l\'ajout de personnel à un projet en retard ?',
           options: [
-            'Plus on ajoute de monde, plus le projet va vite',
-            'Il faut toujours doubler l\'équipe en cas de retard',
+            'Plus on ajoute de monde, plus le projet va vite, à condition de bien répartir',
+            'Il faut toujours doubler l’équipe en cas de retard supérieur à 20 %',
             'Ajouter des personnes à un projet en retard le retarde davantage',
-            'Le nombre optimal d\'une équipe projet est de 10 personnes'
+            'Le nombre optimal d’une équipe projet est de 10 personnes maximum'
           ],
           correctAnswer: 2,
           explanation: 'La loi de Brooks (The Mythical Man-Month, 1975) : ajouter du personnel à un projet en retard le retarde davantage. Les nouveaux arrivants doivent être formés (consommant du temps des membres existants) et la complexité de communication augmente exponentiellement.',
@@ -1198,9 +1198,9 @@ export const crisisModule: Module = {
           id: 'q-crise-19',
           question: 'Quelle est la formule d\'estimation PERT ?',
           options: [
-            '(Optimiste + Pessimiste) / 2',
+            '(Optimiste + Pessimiste) / 2, pondéré par le risque',
             '(Optimiste + 4×Probable + Pessimiste) / 6',
-            'Optimiste × Pessimiste × Probable',
+            'Optimiste × Pessimiste × Probable, divisé par 3',
             '(Optimiste + Probable + Pessimiste) / 3'
           ],
           correctAnswer: 1,
@@ -1515,10 +1515,10 @@ export const crisisModule: Module = {
           id: 'q-crise-20',
           question: 'Quelle est la première règle de la communication de crise ?',
           options: [
-            'Trouver une solution avant de communiquer',
+            'Trouver une solution complète avant de communiquer',
             'Minimiser le problème pour ne pas inquiéter le client',
-            'Communiquer rapidement, dès que le problème est identifié',
-            'Attendre que le manager valide le message'
+            'Communiquer dès que le problème est identifié',
+            'Attendre que le manager valide le message officiel'
           ],
           correctAnswer: 2,
           explanation: 'La rapidité est la règle n°1. Communiquez dès que le problème est identifié, même sans avoir encore la solution. Le client préfère être informé tôt d\'un risque plutôt que de découvrir tard un problème avéré.',
@@ -1529,10 +1529,10 @@ export const crisisModule: Module = {
           id: 'q-crise-21',
           question: 'Comment priorisez-vous les 3 crises pour le COPIL ?',
           options: [
-            'Nouvelles fonctionnalités d\'abord (satisfaire le CEO), puis sécurité, puis remplacement',
-            'Remplacement du développeur d\'abord, puis sécurité, puis nouvelles fonctionnalités',
-            'Faille de sécurité d\'abord (risque juridique), puis transfert de connaissances, puis nouvelles fonctionnalités en backlog V2',
-            'Tout traiter en parallèle immédiatement'
+            'Nouvelles fonctionnalités d’abord pour satisfaire le CEO, puis la sécurité, puis le remplacement du développeur',
+            'Remplacement du développeur d’abord, puis la faille de sécurité, puis les nouvelles fonctionnalités',
+            'Faille de sécurité d’abord, puis transfert de connaissances, puis fonctionnalités en backlog V2',
+            'Tout traiter en parallèle immédiatement en répartissant les trois sujets dans l’équipe'
           ],
           correctAnswer: 2,
           explanation: 'La faille de sécurité est non-négociable (risque juridique RGPD). Le transfert de connaissances a une deadline naturelle (départ du dev). Les nouvelles fonctionnalités du CEO sont un changement de périmètre qui relève du processus normal de change request, pas de la gestion de crise.',
@@ -1555,10 +1555,10 @@ export const crisisModule: Module = {
           id: 'q-crise-23',
           question: 'Quel est l\'objectif principal d\'un post-mortem après une crise ?',
           options: [
-            'Identifier et sanctionner les responsables de la crise',
-            'Capitaliser sur l\'expérience pour éviter que la même crise se reproduise',
-            'Rédiger un rapport pour la direction',
-            'Évaluer la performance individuelle de chaque membre'
+            'Identifier et sanctionner les responsables de la crise pour éviter la récidive',
+            'Capitaliser sur l’expérience pour éviter que la crise se reproduise',
+            'Rédiger un rapport pour la direction et le classer dans le dossier projet',
+            'Évaluer la performance individuelle de chaque membre pendant la crise'
           ],
           correctAnswer: 1,
           explanation: 'Le post-mortem est un outil d\'apprentissage collectif, pas un tribunal. Son objectif est d\'analyser ce qui s\'est passé, ce qui a bien fonctionné dans la réponse, et ce qu\'on peut améliorer. Le blâme individuel est contre-productif et doit être interdit.',
@@ -1569,10 +1569,10 @@ export const crisisModule: Module = {
           id: 'q-crise-24',
           question: 'Laquelle de ces postures N\'EST PAS adaptée pour un chef de projet en situation de crise ?',
           options: [
-            'Rester calme et factuel face au client',
+            'Rester calme et factuel face au client, même sous pression',
             'Promettre un délai de rattrapage ambitieux pour rassurer le client',
-            'Protéger l\'équipe et assumer collectivement',
-            'Communiquer de manière proactive et régulière'
+            'Protéger l’équipe et assumer collectivement les erreurs commises',
+            'Communiquer de manière proactive et régulière, même sans nouvelle'
           ],
           correctAnswer: 1,
           explanation: 'Promettre un rattrapage miracle sous pression est une posture toxique. Si la promesse n\'est pas tenue (ce qui est probable en situation de crise), la confiance sera doublement entamée : par le problème initial ET par la promesse non tenue. Mieux vaut sous-promettre et sur-délivrer.',
