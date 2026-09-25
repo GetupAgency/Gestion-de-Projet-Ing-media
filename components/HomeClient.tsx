@@ -18,6 +18,7 @@ const annexes = [
   { href: '/mission', title: 'Mission cahier des charges', detail: 'Répondre à un appel d’offres complet, en équipe, avec jeux et scores.' },
   { href: '/evaluation', title: 'Évaluation orale', detail: 'Format de l’entretien, thèmes, critères et conseils de préparation.' },
   { href: '/lexique', title: 'Lexique', detail: 'Les termes du métier, avec recherche et filtre par importance.' },
+  { href: '/times-up', title: 'Time’s Up du lexique', detail: 'La classe en trois équipes, deux indices, dix secondes, quatre réponses. Une série par équipe, score à la fin.' },
   { href: '/competences', title: 'Compétences du chef de projet', detail: 'Soft skills, hard skills et savoir-être attendus.' },
 ]
 

@@ -1,7 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { Search } from 'lucide-react'
+import Link from 'next/link'
+import { ArrowRight, Search } from 'lucide-react'
 import lexiqueData from '@/data/lexique.json'
 import Cartouche from '@/components/Cartouche'
 import Footer from '@/components/Footer'
@@ -41,6 +42,12 @@ export default function LexiquePage() {
           { label: 'Affichés', value: `${shown}` },
           { label: 'Usage', value: 'Recherche plein texte' },
         ]}
+        aside={
+          <Link href="/times-up" className="btn btn--primary">
+            Jouer au Time’s Up
+            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+          </Link>
+        }
       />
 
       <main className="mx-auto max-w-page px-4 py-10 sm:px-6 lg:px-8">
