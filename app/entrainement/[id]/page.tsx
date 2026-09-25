@@ -20,9 +20,10 @@ export function generateMetadata({ params }: { params: { id: string } }): Metada
 export default function AtelierPage({ params }: { params: { id: string } }) {
   const atelier = getPublicAtelier(params.id)
   if (!atelier) notFound()
-  const all = getPublicAteliers()
+  const all = getPublicAteliers().filter((a) => (a.kind === 'jeu') === (atelier.kind === 'jeu'))
   const index = all.findIndex((a) => a.id === atelier.id)
   const next = all[index + 1]
+  const prefix = atelier.kind === 'jeu' ? 'J' : 'G'
 
   return (
     <div className="min-h-screen">
@@ -31,7 +32,7 @@ export default function AtelierPage({ params }: { params: { id: string } }) {
         title={atelier.title}
         lead={atelier.pitch}
         meta={[
-          { label: 'Atelier n°', value: `G${String(index + 1).padStart(2, '0')}` },
+          { label: atelier.kind === 'jeu' ? 'Jeu n°' : 'Atelier n°', value: `${prefix}${String(index + 1).padStart(2, '0')}` },
           { label: 'Secteur', value: atelier.sector },
           { label: 'Durée', value: `${atelier.duration} · ${atelier.format}` },
           { label: 'Réf.', value: `${atelier.skill} · artefact : ${atelier.artefact}` },
@@ -61,7 +62,7 @@ export default function AtelierPage({ params }: { params: { id: string } }) {
             </Link>
             {next && (
               <Link href={`/entrainement/${next.id}`} className="btn btn--primary">
-                Atelier suivant : {next.title}
+                {atelier.kind === 'jeu' ? 'Jeu suivant' : 'Atelier suivant'} : {next.title}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
             )}

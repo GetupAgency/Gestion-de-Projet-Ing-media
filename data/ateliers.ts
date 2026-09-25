@@ -8,6 +8,8 @@ import { newCases } from './newCases'
  */
 export interface Atelier {
   id: string
+  /** « jeu » : la classe est coupée en deux camps (client / agence, data / créa). */
+  kind?: 'atelier' | 'jeu'
   title: string
   pitch: string
   sector: string
@@ -940,6 +942,347 @@ export const ateliers: Atelier[] = [
       <li>Mettre la V1 en production le 15 janvier « pour être au plus près » : personne ne peut valider, et un bug le 18 à 8 h n'a pas de solution.</li>
       <li>Un seul jalon « site en ligne » pour tout : l'arbre du tournoi n'existe pas avant les inscriptions, il n'a aucune raison de bloquer l'ouverture.</li>
       <li>Oublier que le paiement dépend d'un compte que le client n'a pas encore ouvert. C'est la dépendance la plus fréquente et la plus ignorée.</li>
+    </ul>
+  </div>`,
+  },
+
+  // ---------- Jeux en deux camps ----------
+  {
+    id: 'jeu-brief-secret',
+    kind: 'jeu',
+    title: 'Le brief à fiche secrète',
+    pitch: 'Le camp client sait ce qu’il veut vraiment mais écrit un brief de client. Le camp agence doit retrouver la vérité avec cinq questions et un appel de deux minutes.',
+    sector: 'Bar à jeux · LE BOCAL, puis barbier · STUDIO NUANCE',
+    duration: '45 min',
+    format: 'Classe en deux camps, deux manches',
+    skill: 'Questions de cadrage, lecture entre les lignes',
+    artefact: 'Une fiche secrète, un brief de 5 lignes',
+    module: 'lancement',
+    description: 'Un brief est toujours une traduction : le client écrit ce qu’il croit devoir demander, pas ce qui lui manque. Le jeu entraîne à poser les questions qui remontent à la source.',
+    exercice: `<div class="cas-pratique-content">
+    <p><strong>Format :</strong> deux camps, deux manches de 20 minutes, rôles inversés à la seconde manche. L’enseignant tient les fiches secrètes.</p>
+
+    <h4>Règle du jeu</h4>
+    <ol>
+      <li><strong>Le camp client</strong> reçoit une fiche secrète de cinq lignes : le vrai objectif, le vrai budget, la vraie date et pourquoi, la peur cachée, la contrainte non dite. Il écrit un brief de <strong>5 lignes maximum</strong> en langage de client : il ne ment jamais, mais il ne dit rien de la fiche mot pour mot, et il parle de ce qu’il croit vouloir (un site, une appli) plutôt que de son problème. 7 minutes.</li>
+      <li><strong>Le camp agence</strong> lit le brief et envoie <strong>cinq questions écrites</strong>, en une seule fois. Le camp client répond par écrit, honnêtement, mais seulement à ce qui est demandé. 6 minutes.</li>
+      <li><strong>L’appel :</strong> un représentant de chaque camp joue un appel téléphonique de 2 minutes devant la classe. Le client peut hésiter, digresser, se contredire ; il ne peut pas mentir.</li>
+      <li><strong>Reconstitution :</strong> le camp agence écrit sa version de la fiche secrète en cinq lignes. 3 minutes. L’enseignant révèle la fiche.</li>
+    </ol>
+
+    <h4>Barème</h4>
+    <ul>
+      <li>+2 par ligne de la fiche retrouvée précisément, +1 si approximative, −1 par affirmation fausse présentée comme un fait.</li>
+      <li>Bonus +2 si l’agence a trouvé le vrai objectif alors qu’il n’apparaît pas dans le brief.</li>
+      <li>Le camp client marque des points aussi : +1 par ligne que l’agence n’a pas trouvée, à condition que le brief n’ait pas menti (la classe vérifie).</li>
+    </ul>
+
+    <h4>Manche 1 — Le Bocal, bar à jeux de société à Toulon</h4>
+    <p>Ce que le camp agence sait avant de lire le brief : un bar à jeux de 60 places, ouvert depuis trois ans, 6 salariés, très actif sur Instagram. Le reste est dans le brief du camp client.</p>
+
+    <h4>Manche 2 — Studio Nuance, barbier à La Garde</h4>
+    <p>Ce que le camp agence sait : un salon de coiffure-barbier, 3 fauteuils, tenu par Karim et sa mère, clientèle 18-35 ans, concurrent à 200 m avec une belle appli.</p>
+
+    <h4>Débrief (5 min)</h4>
+    <p>Quelle question a fait le plus de dégâts ? Elle est presque toujours de la forme « pourquoi maintenant ? » ou « qu’est-ce que ça vous coûte aujourd’hui ? ». Et à l’inverse : quelle question n’a servi à rien ?</p>
+  </div>`,
+    correction: `<div class="correction-content">
+    <h2 class="correction-title">Fiches secrètes et correction : le brief à fiche secrète</h2>
+
+    <h3 class="correction-subtitle">Fiche secrète 1 — Le Bocal (à montrer au camp client seulement)</h3>
+    <ul class="correction-list">
+      <li><strong>Vrai objectif :</strong> arrêter de perdre deux heures par jour à répondre aux réservations en messages Instagram, et pouvoir refuser les groupes de plus de 8 le samedi sans se fâcher avec personne.</li>
+      <li><strong>Vrai budget :</strong> 4 000 €, mais ils diront « faites-nous une proposition ».</li>
+      <li><strong>Vraie date :</strong> avant la rentrée étudiante, mi-septembre, parce que 40 % du chiffre d’affaires se fait de septembre à décembre.</li>
+      <li><strong>Peur cachée :</strong> un site que personne ne saura mettre à jour quand la stagiaire qui gère Instagram partira en octobre.</li>
+      <li><strong>Contrainte non dite :</strong> le frère du gérant « fait le logo » et doit être associé au projet, sinon ça crée un conflit familial.</li>
+    </ul>
+    <p>Brief typique produit par le camp client : « On voudrait un site moderne à notre image avec la réservation en ligne et nos événements. Le logo est en cours. On aimerait que ce soit prêt assez vite. Faites-nous une proposition. »</p>
+
+    <h3 class="correction-subtitle">Fiche secrète 2 — Studio Nuance</h3>
+    <ul class="correction-list">
+      <li><strong>Vrai objectif :</strong> remplir les mardis et mercredis (40 % de taux d’occupation, contre 95 % le vendredi et le samedi).</li>
+      <li><strong>Vrai budget :</strong> 2 500 €, économisés sur l’année.</li>
+      <li><strong>Vraie date :</strong> aucune vraie urgence, mais Karim veut « quelque chose avant Noël » parce que c’est sa meilleure période et qu’il veut la mesurer.</li>
+      <li><strong>Peur cachée :</strong> avoir l’air cheap à côté du concurrent qui a une appli léchée ; il demande donc « une appli ».</li>
+      <li><strong>Contrainte non dite :</strong> 60 % des clients réservent en appelant, et c’est sa mère qui répond ; elle n’utilisera jamais un back-office.</li>
+    </ul>
+    <p>Brief typique : « On veut une appli de réservation comme celle du salon d’à côté, avec nos prestations, nos tarifs et les photos. Quelque chose de qualitatif. Si possible avant décembre. »</p>
+
+    <h3 class="correction-subtitle">Les questions qui débloquent</h3>
+    <ul class="correction-list">
+      <li>« Pourquoi maintenant ? Qu’est-ce qui a changé ? » (fait sortir la rentrée, Noël, le concurrent).</li>
+      <li>« Qu’est-ce qui vous coûte du temps ou de l’argent aujourd’hui, concrètement, dans une semaine type ? » (les DM Instagram, les mardis vides).</li>
+      <li>« Qui s’en occupera au quotidien, et cette personne sera-t-elle encore là dans six mois ? » (la stagiaire, la mère).</li>
+      <li>« Comment vos clients vous contactent-ils aujourd’hui, en pourcentage ? » (le téléphone à 60 %).</li>
+      <li>« Y a-t-il une date après laquelle le projet ne servirait plus à rien cette année ? » (mi-septembre).</li>
+      <li>« Qui d’autre a son mot à dire sur le projet ? » (le frère et le logo).</li>
+      <li>« Vous avez déjà eu un devis ? Combien ? Pourquoi ne l’avez-vous pas signé ? » (cadre le budget sans le demander frontalement).</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Les questions qui ne servent à rien</h3>
+    <ul class="correction-list">
+      <li>« Quels sont vos objectifs ? » Le client répète le brief.</li>
+      <li>« Quel est votre budget ? » posée seule, elle obtient « faites-nous une proposition ». Elle marche si elle vient après « qu’est-ce que ça vous coûte aujourd’hui ».</li>
+      <li>« Quelles couleurs aimez-vous ? » à ce stade, c’est du temps perdu.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Ce que l’appel révèle</h3>
+    <ul class="correction-list">
+      <li>À l’écrit, le client répond à la question. À l’oral, il répond à côté, et c’est là que la vérité sort : « de toute façon c’est ma mère qui répond au téléphone » arrive rarement dans un mail.</li>
+      <li>Le bon représentant agence pose une question, puis se tait. Le silence fait parler.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Débrief</h3>
+    <ul class="correction-list">
+      <li>Dans les deux fiches, la demande du brief (un site, une appli) n’est pas le vrai objectif (du temps, des mardis). Une agence qui livre ce qui est demandé livre à côté.</li>
+      <li>Pour Studio Nuance, la bonne réponse n’est peut-être même pas une appli : une page de réservation en ligne avec une offre « mardi ‑20 % » et un rappel SMS répond au vrai objectif pour 2 500 €. Le camp agence qui le dit gagne le débrief.</li>
+      <li>Le client n’a pas menti. Il a fait ce que tous les clients font : traduire un problème en solution avant d’en parler.</li>
+    </ul>
+  </div>`,
+  },
+
+  {
+    id: 'jeu-data-instinct',
+    kind: 'jeu',
+    title: 'Data vs Instinct : le drop de Noël',
+    pitch: 'Une marque de sneakers reconditionnées choisit son unique drop de Noël. Un camp décide avec un tableau, l’autre avec un manifeste et des signaux de rue. Puis on révèle ce qui s’est vraiment passé.',
+    sector: 'Sneakers reconditionnées · KICKS REBORN',
+    duration: '75 min',
+    format: 'Classe en deux camps + jury',
+    skill: 'Décision, données, intuition, marge et retours',
+    artefact: 'Un tableau de 5 lignes, un manifeste de 3 lignes',
+    module: 'lancement',
+    description: 'Le modèle Burberry décide ce qui sera désirable ; le modèle Zara produit ce qui se vend déjà. Le jeu fait vivre les deux logiques sur une seule décision, puis montre où chacune se trompe.',
+    exercice: `<div class="cas-pratique-content">
+    <p><strong>Format :</strong> deux camps de taille égale, 75 minutes. Chaque étudiant reçoit 10 jetons de vote.</p>
+
+    <h4>Le brief, commun aux deux camps</h4>
+    <p>Kicks Reborn reconditionne des sneakers et les vend en ligne (Toulon, 4 personnes, 52 k abonnés TikTok). Pour Noël, la marque fait <strong>un seul drop de 300 paires, un seul modèle</strong>. Cinq candidats sont sur la table. Il faut en choisir un et convaincre la direction.</p>
+
+    <h4>Le camp Data reçoit ce tableau</h4>
+    <table>
+      <thead><tr><th>Modèle</th><th>Part des ventes N‑1</th><th>Taux de retour</th><th>Marge / paire</th><th>Google Trends</th><th>Engagement Insta</th></tr></thead>
+      <tbody>
+        <tr><td>Blanche basse classique</td><td>38 %</td><td>28 %</td><td>18 €</td><td>80, stable</td><td>1,2 %</td></tr>
+        <tr><td>Chunky néon</td><td>6 %</td><td>9 %</td><td>35 €</td><td>25, +300 % en 3 mois</td><td>6,8 %</td></tr>
+        <tr><td>Rétro running bordeaux</td><td>21 %</td><td>11 %</td><td>30 €</td><td>55, stable</td><td>3,9 %</td></tr>
+        <tr><td>Skate noire</td><td>24 %</td><td>14 %</td><td>22 €</td><td>60, stable</td><td>2,1 %</td></tr>
+        <tr><td>Collab artiste toulonnais</td><td>nouveau</td><td>inconnu</td><td>40 €</td><td>aucune donnée</td><td>9,5 % sur le teaser</td></tr>
+      </tbody>
+    </table>
+
+    <h4>Le camp Instinct reçoit ceci</h4>
+    <blockquote>
+      <p><strong>Manifeste Kicks Reborn :</strong> « On ne vend pas des chaussures d’occasion. On vend la paire que tu n’as pas pu avoir à l’époque, remise à neuf, avec une histoire. »</p>
+      <p><strong>Trois signaux :</strong> un rappeur marseillais a porté la rétro running bordeaux dans son dernier clip (2 M de vues) · le chunky néon est partout sur TikTok depuis six semaines · l’artiste toulonnais de la collab a 30 k abonnés très locaux et une expo en décembre.</p>
+    </blockquote>
+    <p>Le camp Instinct ne voit pas le tableau ; le camp Data ne voit pas le manifeste ni les signaux. Chaque camp peut poser <strong>une seule question</strong> à l’autre camp, par écrit, à la 15e minute.</p>
+
+    <h4>Déroulé</h4>
+    <ol>
+      <li><strong>25 min</strong> · chaque camp choisit son modèle et prépare un pitch de 4 minutes : le choix, deux raisons, un risque assumé, et le nombre de paires qu’il pense vendre en 10 jours.</li>
+      <li><strong>10 min</strong> · pitchs. Puis chaque étudiant répartit ses 10 jetons entre les deux propositions (on peut voter contre son camp).</li>
+      <li><strong>10 min</strong> · l’enseignant révèle ce qui s’est passé les deux Noëls précédents et ce que valent réellement les cinq candidats.</li>
+      <li><strong>15 min</strong> · chaque camp écrit en cinq lignes ce qu’il change dans sa méthode après la révélation, en empruntant au moins un argument à l’autre camp.</li>
+      <li><strong>15 min</strong> · débat : quand la donnée aide, quand elle empêche.</li>
+    </ol>
+  </div>`,
+    correction: `<div class="correction-content">
+    <h2 class="correction-title">Correction : Data vs Instinct</h2>
+
+    <h3 class="correction-subtitle">Ce que les camps choisissent en général</h3>
+    <ul class="correction-list">
+      <li><strong>Data :</strong> la blanche basse (38 % des ventes, Trends 80) ou la skate noire. Le camp lit la colonne des ventes et ignore la colonne des retours et de la marge.</li>
+      <li><strong>Instinct :</strong> le chunky néon (TikTok) ou la collab (l’histoire, l’expo). Le camp lit le manifeste et ignore que 300 paires d’un modèle sans recherche Google est un pari.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">La révélation (à lire après les votes)</h3>
+    <ul class="correction-list">
+      <li><strong>Noël N‑1, blanche basse :</strong> 300 paires vendues en 9 jours. 84 retours pour des questions de taille et d’usure « pas comme sur la photo ». Marge nette du drop après retours et frais : 410 €. Et surtout, c’est le modèle que tout le monde vend neuf à 20 € de plus chez Courir : aucune raison d’acheter reconditionné.</li>
+      <li><strong>Noël N‑2, collab avec un graffeur :</strong> 200 paires parties en 48 heures, 4 % de retours, marge nette 6 800 €. Aucune donnée n’existait avant : le tableau ne pouvait pas la prévoir.</li>
+      <li><strong>Chunky néon :</strong> la tendance TikTok a duré jusqu’à mi-janvier. 300 paires vendues à 60 % ; le reste soldé en mars. Le Trends à 25 disait quelque chose : on en parle, on n’en cherche pas.</li>
+      <li><strong>Rétro running bordeaux :</strong> le choix « médian » : ventes régulières, 11 % de retours, marge 30 €, et un signal culturel (le clip). C’est le choix que les deux camps auraient pu faire s’ils avaient échangé leurs documents.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Ce qu’il faut faire dire</h3>
+    <ul class="correction-list">
+      <li><strong>La donnée décrit le passé.</strong> Elle est excellente pour éviter une erreur connue (les retours de la blanche basse) et muette sur ce qui n’existe pas encore (la collab). Le modèle « on produit ce qui se vend » converge vers ce que tout le monde vend.</li>
+      <li><strong>L’instinct décide l’avenir, mais doit passer deux contrôles :</strong> la marge et les retours. Un choix créatif qui ignore la colonne « retours » est une perte, pas une audace.</li>
+      <li><strong>Burberry contre Zara :</strong> Burberry décide ce qui sera désirable et assume le stock invendu ; Zara produit en petites séries ce que la donnée confirme et renonce à la surprise. Kicks Reborn, avec 300 paires et une communauté, est du côté Burberry, mais avec un tableur ouvert à côté.</li>
+      <li>La meilleure question de la 15e minute est presque toujours : « qu’est-ce que vous voyez que je ne vois pas ? ». Les camps qui l’ont posée choisissent mieux.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Barème du jeu</h3>
+    <ul class="correction-list">
+      <li><strong>Jetons du jury :</strong> ils désignent le camp le plus convaincant avant la révélation. Ce n’est pas le camp qui a raison.</li>
+      <li><strong>Après révélation (10 points par camp) :</strong> le choix tient compte de la marge et des retours (3), le risque assumé était le vrai risque (2), la prévision de ventes est à moins de 30 % de la réalité (2), les cinq lignes de la méthode révisée empruntent un argument à l’autre camp (3).</li>
+      <li>Le camp qui gagne le débrief est celui qui a le mieux changé d’avis, pas celui qui a eu raison par hasard.</li>
+    </ul>
+  </div>`,
+  },
+
+  {
+    id: 'jeu-enchere-inversee',
+    kind: 'jeu',
+    title: 'L’enchère inversée : trois agences, un client',
+    pitch: 'Même brief pour trois agences, une page d’offre chacune, un comité client qui note avec une grille secrète où le prix compte peu.',
+    sector: 'Padel · PADEL TOULON',
+    duration: '60 min',
+    format: 'Trois agences + un comité client de 5',
+    skill: 'Périmètre, prix, délai, refus assumé',
+    artefact: 'Un brief de 6 lignes, une grille secrète',
+    module: 'planification',
+    description: 'L’agence la moins chère gagne rarement. Le jeu le montre sans discours : le comité note la clarté du périmètre et l’honnêteté du délai, et ne lit le prix qu’à la fin.',
+    exercice: `<div class="cas-pratique-content">
+    <p><strong>Format :</strong> trois agences de taille égale, un comité client de 5 étudiants qui reçoit la grille de notation en secret. 60 minutes.</p>
+
+    <h4>Le brief (lu à voix haute par le comité)</h4>
+    <blockquote>
+      <p>Padel Toulon, club de 6 terrains couverts, 2 salariés à l’accueil, 1 200 joueurs réguliers. Nous voulons un site avec réservation de terrain en ligne, paiement, et des abonnements mensuels. Aujourd’hui on réserve par téléphone et on perd des créneaux le soir quand l’accueil est fermé. Nous voulons un outil moderne, à nous, et facile pour l’accueil. Budget : faites une proposition. Délai : avant la saison d’hiver, c’est-à-dire dans deux mois.</p>
+    </blockquote>
+
+    <h4>Ce que chaque agence remet (25 min)</h4>
+    <p>Une seule page, cinq blocs : <strong>1.</strong> le périmètre proposé, en phrases vérifiables · <strong>2.</strong> le prix HT et ce qu’il ne comprend pas · <strong>3.</strong> le délai, avec les deux jalons principaux · <strong>4.</strong> un refus assumé : une chose que le client demande et que vous ne ferez pas, et pourquoi · <strong>5.</strong> une seule question posée au client, celle dont la réponse changerait votre offre.</p>
+    <p>Chaque agence peut consulter le comité une fois, 2 minutes, pendant la préparation. Le comité répond honnêtement à ce qu’on lui demande.</p>
+
+    <h4>Présentation et notation (25 min)</h4>
+    <ol>
+      <li>Chaque agence présente sa page en 3 minutes, sans dire son prix. Le comité pose une question par agence.</li>
+      <li>Les prix sont révélés en même temps, affichés au tableau.</li>
+      <li>Le comité note avec sa grille secrète, délibère 5 minutes, annonce le classement et lit la grille à voix haute.</li>
+    </ol>
+
+    <h4>Débrief (10 min)</h4>
+    <p>L’agence la moins chère a-t-elle gagné ? Si non, qu’est-ce qui lui a manqué ? Si oui, qu’est-ce qu’elle avait en plus du prix ?</p>
+  </div>`,
+    correction: `<div class="correction-content">
+    <h2 class="correction-title">Correction : l’enchère inversée</h2>
+
+    <h3 class="correction-subtitle">Grille secrète du comité (sur 100)</h3>
+    <ul class="correction-list">
+      <li><strong>Clarté du périmètre (30) :</strong> on sait exactement ce qu’on aura et ce qu’on n’aura pas. Une phrase du type « site moderne et complet » vaut 0.</li>
+      <li><strong>Honnêteté du délai (20) :</strong> deux mois pour réservation + paiement + abonnements sur mesure, c’est faux. L’agence qui le dit, ou qui découpe en deux versions, marque ; celle qui promet tout en huit semaines perd les 20 points.</li>
+      <li><strong>Pertinence du refus (20) :</strong> le bon refus est de ne pas développer un moteur de réservation sur mesure alors que des plateformes de padel existent (Playtomic, Anybuddy) et que les joueurs les ont déjà dans leur téléphone.</li>
+      <li><strong>La question posée (15) :</strong> les bonnes questions : « combien de réservations par semaine et à quelles heures ? », « avez-vous déjà regardé Playtomic ? », « qui gérera les abonnements et les impayés ? ».</li>
+      <li><strong>Prix (15) :</strong> plein score entre 6 000 et 12 000 € HT pour un site + intégration d’une plateforme, ou entre 18 000 et 30 000 € pour du sur mesure assumé. En dessous de 6 000 € : 0, le comité ne croit pas au prix. Le prix ne départage qu’à points égaux.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Ce que le comité sait et ne dit que si on lui demande</h3>
+    <ul class="correction-list">
+      <li>Le budget réel est de 9 000 €, débloqué par le gérant sans le dire aux agences.</li>
+      <li>70 % des réservations se font par téléphone entre 18 h et 21 h, quand l’accueil est fermé une heure sur deux.</li>
+      <li>Le gérant veut des abonnements mais n’en a jamais géré : il ne sait pas ce qu’il ferait d’un impayé.</li>
+      <li>Le club concurrent utilise Playtomic, et la moitié des joueurs de Padel Toulon y ont déjà un compte.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">L’offre qui gagne en général</h3>
+    <ul class="correction-list">
+      <li><strong>Périmètre :</strong> un site vitrine du club (terrains, tarifs, cours, événements) avec un bouton « Réserver » qui ouvre le club sur Playtomic ; la réservation, le paiement et les abonnements sont gérés par la plateforme, qui prend une commission plutôt qu’un développement.</li>
+      <li><strong>Refus :</strong> « Nous ne développons pas de moteur de réservation : vous paieriez 20 000 € pour reconstruire moins bien ce que vos joueurs utilisent déjà. »</li>
+      <li><strong>Délai :</strong> six semaines pour le site et l’intégration, la saison d’hiver est tenue.</li>
+      <li><strong>Prix :</strong> 7 500 à 9 500 € HT, hébergement et maintenance à part.</li>
+      <li><strong>Question :</strong> « Combien de joueurs ont déjà l’application du club concurrent ? »</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Les offres qui perdent, et pourquoi</h3>
+    <ul class="correction-list">
+      <li><strong>La moins chère (3 500 €, « site + module de réservation WordPress ») :</strong> le comité ne comprend pas ce qui est inclus, le paiement et les abonnements sont flous, le délai est promis en un mois. Périmètre 8, délai 5, refus 0, question 5, prix 0.</li>
+      <li><strong>La plus ambitieuse (28 000 €, tout sur mesure) :</strong> périmètre clair, mais délai à deux mois non tenable et aucun refus : elle fait tout ce qu’on lui demande, y compris ce qui ne sert pas. Elle marque sur le périmètre, perd sur le délai et sur le refus.</li>
+      <li>Le comité constate à la lecture de la grille que l’agence la moins chère est dernière, et que l’écart s’est joué sur deux blocs : le délai honnête et le refus utile.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Débrief</h3>
+    <ul class="correction-list">
+      <li>Un client ne compare pas des prix, il compare sa compréhension de ce qu’il achète. L’offre lisible bat l’offre bon marché.</li>
+      <li>Le refus est un argument de vente : il prouve qu’on a réfléchi à sa place.</li>
+      <li>La question posée révèle le niveau de l’agence avant même le prix. « Quelles sont vos couleurs ? » et « Avez-vous regardé Playtomic ? » ne viennent pas de la même agence.</li>
+    </ul>
+  </div>`,
+  },
+
+  {
+    id: 'jeu-crea-perf',
+    kind: 'jeu',
+    title: 'Créa vs Perf : la landing page',
+    pitch: 'Même produit, deux pages. Un camp raconte, l’autre convertit. La classe joue les visiteurs : 30 secondes, un clic ou pas, trois mots.',
+    sector: 'Café en grains pour étudiants · GRAIN D’AMPHI',
+    duration: '90 min',
+    format: 'Classe en deux camps, puis visiteurs',
+    skill: 'Page d’atterrissage, conversion, promesse, preuve',
+    artefact: 'Un brief de 5 lignes, deux maquettes',
+    module: 'developpement',
+    description: 'Une page qui raconte et une page qui convertit ne sont pas ennemies, mais chaque camp doit d’abord pousser sa logique à fond pour voir où elle casse. Le verdict vient des visiteurs, pas du jury.',
+    exercice: `<div class="cas-pratique-content">
+    <p><strong>Format :</strong> deux camps, 90 minutes, papier ou Figma. La classe entière devient les visiteurs à la fin.</p>
+
+    <h4>Le brief, commun aux deux camps</h4>
+    <blockquote>
+      <p>Grain d’Amphi : un abonnement de café en grains torréfié à Toulon, 250 g par mois livré en casier sur le campus, 12 € par mois sans engagement. Cible : étudiants qui ont une machine à grains ou une cafetière italienne et qui en ont marre du café de la cafétéria. La marque a 3 mois d’existence, 140 abonnés, et des avis plutôt bons. Objectif de la page : que le visiteur clique sur « Je m’abonne ».</p>
+    </blockquote>
+
+    <h4>Consignes par camp (40 min)</h4>
+    <ul>
+      <li><strong>Camp Créa :</strong> une page qui donne envie. Vous choisissez un angle (le rituel du matin, le torréfacteur, le campus), un titre, une image décrite en une phrase, un texte de 80 mots maximum, un bouton. Interdit : les chiffres, les avis clients, les mots « offre » et « gratuit ».</li>
+      <li><strong>Camp Perf :</strong> une page qui convertit. Titre avec la promesse et le prix, trois preuves (avis, chiffre, garantie), une réponse aux trois objections (le prix, la livraison, l’engagement), un bouton, une urgence honnête. Interdit : plus de 120 mots, une image sans fonction, un texte sur l’histoire de la marque.</li>
+    </ul>
+    <p>Livrable : une maquette d’un écran (format téléphone), présentée 2 minutes par camp, sans argumenter : on montre, on lit le titre, on lit le bouton, on s’assoit.</p>
+
+    <h4>Le test visiteurs (20 min)</h4>
+    <ol>
+      <li>Chaque page est projetée <strong>30 secondes</strong>, l’autre camp la regarde en silence.</li>
+      <li>Chaque visiteur écrit sur un papier : clic ou pas clic, et <strong>trois mots</strong> qui décrivent ce qu’il a ressenti.</li>
+      <li>On compte les clics au tableau, puis on lit les mots à voix haute et on les classe en trois familles : envie, confiance, pression.</li>
+    </ol>
+
+    <h4>La synthèse (20 min)</h4>
+    <p>Les deux camps fusionnent et construisent en 15 minutes la page hybride : quel bloc de la créa garde-t-on, quel bloc de la perf, dans quel ordre ? Dernière question au tableau : à 12 € par mois sans engagement, qu’est-ce qui fait gagner de l’argent, le clic ou le troisième mois ?</p>
+  </div>`,
+    correction: `<div class="correction-content">
+    <h2 class="correction-title">Correction : Créa vs Perf</h2>
+
+    <h3 class="correction-subtitle">Ce qui se passe presque toujours</h3>
+    <ul class="correction-list">
+      <li>La page Perf obtient plus de clics : 60 à 70 % contre 35 à 50 %. Le prix visible, les avis et la garantie « sans engagement » lèvent les freins en 30 secondes.</li>
+      <li>La page Créa obtient les mots « envie », « chaleur », « joli », « je m’en souviens ». La page Perf obtient « clair », « rassurant », mais aussi « pub », « pression », « vu mille fois ».</li>
+      <li>Si la Créa gagne les clics, c’est en général que la Perf a abusé de l’urgence (« plus que 12 places ») et que la classe l’a sanctionnée. À noter au tableau : une urgence fausse coûte plus qu’elle ne rapporte.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Ce qu’une bonne page Créa contient</h3>
+    <ul class="correction-list">
+      <li>Un angle, un seul : le café du matin avant le cours de 8 h, pas « le café, la torréfaction et le campus ».</li>
+      <li>Un titre qui parle au visiteur et pas de la marque : « Le café de 8 h, sans faire la queue » plutôt que « Grain d’Amphi, torréfacteur toulonnais ».</li>
+      <li>Une image qui montre le produit dans la vie du visiteur, pas un sac de grains sur fond blanc.</li>
+      <li>Un bouton qui continue la phrase : « Je prends mon abonnement » plutôt que « Valider ».</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Ce qu’une bonne page Perf contient</h3>
+    <ul class="correction-list">
+      <li>La promesse et le prix dans le titre : « 250 g de café frais, livré sur le campus, 12 €/mois, sans engagement ».</li>
+      <li>Trois preuves vraies : « 140 étudiants abonnés », un avis nominatif, « résiliable en un clic ».</li>
+      <li>Les trois objections traitées avant qu’on les formule : le prix (« moins qu’un café par jour à la cafét »), la livraison (le casier, les horaires), l’engagement (aucun).</li>
+      <li>Une urgence honnête ou rien : « les casiers sont limités à 200 abonnés » est vrai et suffisant ; « offre valable 2 h » est faux et se voit.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">La page hybride attendue</h3>
+    <ul class="correction-list">
+      <li>Haut de page : le titre créa (l’angle) avec le prix en sous-titre.</li>
+      <li>Puis les preuves perf, courtes, puis une phrase de la marque (le torréfacteur, en deux lignes), puis les objections, puis le bouton.</li>
+      <li>La règle : la créa fait s’arrêter, la perf fait cliquer, la créa fait revenir.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">La question finale</h3>
+    <ul class="correction-list">
+      <li>À 12 € par mois sans engagement, le clic ne fait pas gagner d’argent : la première box coûte plus cher qu’elle ne rapporte (torréfaction, casier, acquisition). L’argent arrive au troisième mois. Ce qui fait tenir trois mois, c’est ce que la page Créa a mis dans la tête du visiteur : un rituel, une marque qu’on a envie de raconter.</li>
+      <li>Donc les deux camps ont raison, mais pas sur la même métrique : la Perf sur le taux de conversion, la Créa sur la rétention. Une agence qui ne suit que les clics optimise la mauvaise moitié du modèle.</li>
+    </ul>
+
+    <h3 class="correction-subtitle">Barème</h3>
+    <ul class="correction-list">
+      <li><strong>Clics (5) :</strong> proportionnels au résultat du test.</li>
+      <li><strong>Mots (5) :</strong> un point par famille de mots obtenue, et −1 par mot de la famille « pression ».</li>
+      <li><strong>Respect des interdits (3) :</strong> un camp qui triche sur sa consigne perd le droit de critiquer l’autre.</li>
+      <li><strong>Page hybride (7) :</strong> l’ordre des blocs est justifié par le parcours du visiteur, pas par un compromis « chacun sa moitié ».</li>
     </ul>
   </div>`,
   },

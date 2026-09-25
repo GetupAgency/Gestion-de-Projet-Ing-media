@@ -15,7 +15,9 @@ const levelLabel: Record<number, string> = { 1: 'Niveau 1 · Lire et trier', 2: 
  * Terrain d'entraînement : en tête, les ateliers en groupe (30 min à 1 h, un livrable, une correction enseignant) ;
  * en bas, une sélection courte d'exercices en solo (2 à 5 min, verdict immédiat).
  */
-export default function EntrainementClient({ ateliers }: { ateliers: PublicAtelier[] }) {
+export default function EntrainementClient({ ateliers: all }: { ateliers: PublicAtelier[] }) {
+  const ateliers = all.filter((a) => a.kind !== 'jeu')
+  const jeux = all.filter((a) => a.kind === 'jeu')
   const [current, setCurrent] = useState<string>(soloCatalog[0].id)
   const [done, setDone] = useState<string[]>([])
   const [mounted, setMounted] = useState(false)
@@ -65,7 +67,7 @@ export default function EntrainementClient({ ateliers }: { ateliers: PublicAteli
         title="Terrain d’entraînement"
         lead="Des ateliers en groupe construits sur de vrais artefacts : un mail de dirigeant, une page Notion, un devis, un backlog, un calendrier. Trente minutes à une heure, un livrable par groupe, une correction commentée en cours. Et en bas de page, des exercices courts à faire seul."
         meta={[
-          { label: 'Réf.', value: `Annexe A6 · ${ateliers.length} ateliers en groupe · ${soloCatalog.length} exercices en solo` },
+          { label: 'Réf.', value: `Annexe A6 · ${ateliers.length} ateliers en groupe · ${jeux.length} jeux en deux camps · ${soloCatalog.length} exercices en solo` },
           { label: 'Format', value: 'Groupes de 3-4 · 30 min à 1 h' },
           { label: 'Secteurs', value: 'Streetwear, matcha, rap, covoiturage, bubble tea, tatouage, sneakers, créateurs, e-sport' },
           { label: 'Solo joués', value: mounted ? `${soloDone} / ${soloCatalog.length}` : '—' },
@@ -92,6 +94,50 @@ export default function EntrainementClient({ ateliers }: { ateliers: PublicAteli
               {ateliers.map((a, i) => (
                 <tr key={a.id}>
                   <td className="num text-sm font-semibold text-ink-3">G{String(i + 1).padStart(2, '0')}</td>
+                  <td>
+                    <Link href={`/entrainement/${a.id}`} className="font-semibold no-underline hover:underline">
+                      {a.title}
+                    </Link>
+                    <p className="mt-0.5 text-sm text-ink-2">{a.pitch}</p>
+                    <p className="mt-1 text-xs text-ink-3">{a.skill}</p>
+                  </td>
+                  <td className="text-sm c-hide">{a.sector}</td>
+                  <td className="text-sm c-hide">
+                    <span className="num">{a.duration}</span>
+                    <br />
+                    <span className="text-ink-2">{a.format}</span>
+                  </td>
+                  <td className="text-right c-action">
+                    <Link href={`/entrainement/${a.id}`} className="btn btn--sm whitespace-nowrap">
+                      Ouvrir
+                      <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+                    </Link>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </section>
+
+        <section className="mt-20" aria-labelledby="jeux">
+          <div className="mb-4 flex flex-wrap items-baseline justify-between gap-2">
+            <h2 id="jeux" className="display-narrow text-2xl">Jeux en deux camps</h2>
+            <p className="label">La classe coupée en deux : client contre agence, data contre créa</p>
+          </div>
+          <table className="ledger ledger--stack">
+            <thead>
+              <tr>
+                <th className="w-12">N°</th>
+                <th>Jeu</th>
+                <th className="w-44 c-hide">Secteur</th>
+                <th className="w-40 c-hide">Durée · format</th>
+                <th className="w-40 text-right">Accès</th>
+              </tr>
+            </thead>
+            <tbody>
+              {jeux.map((a, i) => (
+                <tr key={a.id}>
+                  <td className="num text-sm font-semibold text-ink-3">J{String(i + 1).padStart(2, '0')}</td>
                   <td>
                     <Link href={`/entrainement/${a.id}`} className="font-semibold no-underline hover:underline">
                       {a.title}
