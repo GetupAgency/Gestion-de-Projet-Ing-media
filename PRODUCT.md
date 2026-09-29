@@ -16,6 +16,10 @@ Support de cours interactif : 11 modules (cadrage, cahier des charges, planning,
 
 ## Positioning
 
+La mission actuelle est **Perdu de vue** : une expression de besoin fictive de métropole pour un service d’objets trouvés. Elle réunit l’ancienne mission et le sprint d’agence en une journée de 7 h pour des Master 1, avec cinq livrables : analyse et entretien, note d’intention, prototype, rétroplanning et budget détaillé. Le brief laisse volontairement des questions ouvertes, une envie de visibilité et une possible extension du périmètre. Les consignes étudiantes ne nomment pas Antigravity. Le brief et le déroulé sont rédigés dans `docs/mission-perdu-de-vue/` et rendus sur `/mission`.
+
+La correction complète est sur `/mission/correction`, autorisée côté serveur par le jeton enseignant existant. Elle comprend les réponses du client, une note de référence, un prototype interactif habitant/agent, un planning recalculé selon les dépendances, un budget modifiable et exportable, les risques, les structures de prompts (dont Antigravity) et une grille sur 20. Le mode « Une partie à projeter » permet de dévoiler une étape à la fois sans publier la correction aux étudiants. Les montants sont des hypothèses pédagogiques. Les données de référence restent dans un module `server-only`.
+
 Pas un LMS générique : un cours d'agence web incarné, écrit par un praticien, avec des situations réalistes (client qui change d'avis, budget coupé, dev qui démissionne), des jeux d'équipe en salle et une progression visible. La valeur est dans le réalisme métier et l'interactivité en classe.
 
 ## Operating Context

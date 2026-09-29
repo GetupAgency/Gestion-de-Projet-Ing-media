@@ -13,9 +13,8 @@ type Status = 'not-started' | 'in-progress' | 'completed'
 
 const annexes = [
   { href: '/quiz', title: 'Quiz global', detail: 'Toutes les questions du cours, filtrables par thème, difficulté et format.' },
-  { href: '/sprint-agence', title: 'Sprint Agence : RoadTrip Squad', detail: 'Journée immersive avec Gaspard Vasseur : brief, cadrage, équipe, périmètre, planning, et un Gantt défendable le soir.' },
+  { href: '/mission', title: 'Perdu de vue · La mission', detail: 'Une journée en agence : entretien client, note d’intention, prototype, rétroplanning et budget pour le bureau des objets trouvés.' },
   { href: '/entrainement', title: 'Terrain d’entraînement', detail: 'Dix ateliers en groupe, quatre jeux en deux camps (client contre agence, data contre créa) et treize exercices en solo.' },
-  { href: '/mission', title: 'Mission cahier des charges', detail: 'Répondre à un appel d’offres complet, en équipe, avec jeux et scores.' },
   { href: '/evaluation', title: 'Évaluation orale', detail: 'Format de l’entretien, thèmes, critères et conseils de préparation.' },
   { href: '/lexique', title: 'Lexique', detail: 'Les termes du métier, avec recherche et filtre par importance.' },
   { href: '/times-up', title: 'Time’s Up du lexique', detail: 'La classe en trois équipes, deux indices, dix secondes, quatre réponses. Une série par équipe, score à la fin.' },

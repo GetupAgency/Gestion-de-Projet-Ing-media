@@ -2,154 +2,28 @@ import { Module } from './modules'
 
 export const missionModule: Module = {
   id: 'mission-individuelle',
-  title: 'Mission Individuelle',
-  description: 'Répondez à un appel d\'offres complet et élaborez un cahier des charges professionnel',
+  title: 'Mission · Perdu de vue',
+  description: 'Une journée en agence : entretien client, note d’intention, prototype, rétroplanning et budget pour le bureau des objets trouvés',
   sections: [
     {
       id: 'intro-mission',
       title: 'Présentation de la mission',
       content: `<div class="section-content">
-  <h1 class="section-title">Mission Individuelle : Répondre à un Appel d'Offres</h1>
-
-  <h2 class="section-subtitle">🎯 Objectif de la mission</h2>
-
-  <p class="section-text">
-    Cette mission vous met en situation professionnelle réelle : vous allez répondre à un appel d'offres 
-    pour un projet SaaS complexe, comme le ferait une agence web ou un freelance.
-  </p>
-
-  <div class="value-type">
-    <h3 class="value-title">Vous devrez démontrer votre capacité à :</h3>
-    <ul class="feature-list">
-      <li>Analyser un besoin client complexe</li>
-      <li>Poser les bonnes questions complémentaires</li>
-      <li>Concevoir une solution technique adaptée</li>
-      <li>Créer des wireframes pertinents</li>
-      <li>Établir un planning réaliste</li>
-      <li>Chiffrer précisément un projet</li>
-      <li>Présenter votre agence et votre équipe de manière convaincante</li>
-    </ul>
-  </div>
-
-  <h2 class="section-subtitle mt-8">📦 Les livrables attendus</h2>
-
-  <div class="deliverables-grid">
-    <div class="deliverable-phase">
-      <h4 class="phase-title">1. Analyse du brief</h4>
-      <ul class="deliverable-list">
-        <li>Compréhension du contexte</li>
-        <li>Identification des enjeux</li>
-        <li>Questions au client (15-20 questions)</li>
-        <li>Analyse des risques</li>
-      </ul>
-    </div>
-
-    <div class="deliverable-phase">
-      <h4 class="phase-title">2. Wireframes</h4>
-      <ul class="deliverable-list">
-        <li>10-20 écrans clés minimum</li>
-        <li>Parcours utilisateurs</li>
-        <li>Ergonomie réfléchie</li>
-        <li>Annotations pertinentes</li>
-      </ul>
-    </div>
-
-    <div class="deliverable-phase">
-      <h4 class="phase-title">3. Architecture technique</h4>
-      <ul class="deliverable-list">
-        <li>Stack technologique</li>
-        <li>Schéma d'architecture</li>
-        <li>Choix justifiés</li>
-        <li>Sécurité et scalabilité</li>
-      </ul>
-    </div>
-
-    <div class="deliverable-phase">
-      <h4 class="phase-title">4. Planning</h4>
-      <ul class="deliverable-list">
-        <li>Découpage en phases</li>
-        <li>Sprints détaillés</li>
-        <li>Jalons et livrables</li>
-        <li>Diagramme de Gantt</li>
-      </ul>
-    </div>
-
-    <div class="deliverable-phase">
-      <h4 class="phase-title">5. Budget</h4>
-      <ul class="deliverable-list">
-        <li>Chiffrage détaillé par phase</li>
-        <li>Répartition par métier</li>
-        <li>Jours/homme estimés</li>
-        <li>Transparence des coûts</li>
-      </ul>
-    </div>
-
-    <div class="deliverable-phase">
-      <h4 class="phase-title">6. Présentation agence</h4>
-      <ul class="deliverable-list">
-        <li>Votre agence (fictive)</li>
-        <li>Composition de l'équipe</li>
-        <li>Références et expertises</li>
-        <li>Valeur ajoutée</li>
-      </ul>
-    </div>
-  </div>
-
-  <h2 class="section-subtitle mt-8">📊 Grille d'évaluation</h2>
-
-  <p class="section-text">
-    Chaque projet d'appel d'offres possède sa propre grille d'évaluation avec des critères pondérés.
-    Vous devrez auto-évaluer votre réponse selon cette grille à la fin de votre travail.
-  </p>
-
-  <div class="project-type">
-    <h3 class="project-type-title">Critères généraux d'évaluation</h3>
-    <div class="project-detail">
-      <strong>Les critères incluent généralement :</strong>
-      <ul class="feature-list">
-        <li><strong>Compréhension du besoin</strong> (20-25%) : Avez-vous bien saisi les enjeux ?</li>
-        <li><strong>Proposition technique</strong> (20-25%) : Votre solution est-elle pertinente ?</li>
-        <li><strong>UX/Wireframes</strong> (15%) : Vos wireframes sont-ils de qualité ?</li>
-        <li><strong>Planning</strong> (15%) : Votre planification est-elle réaliste ?</li>
-        <li><strong>Budget</strong> (10%) : Votre chiffrage est-il cohérent ?</li>
-        <li><strong>Équipe/Agence</strong> (10%) : Êtes-vous crédible ?</li>
-        <li><strong>Qualité du document</strong> (5%) : Votre réponse est-elle professionnelle ?</li>
-      </ul>
-    </div>
-  </div>
-
-  <h2 class="section-subtitle mt-8">⏱️ Durée et modalités</h2>
-
-  <div class="example-box">
-    <strong>Temps recommandé :</strong> 2-3 jours de travail intensif
-    <br><br>
-    <strong>Format de rendu :</strong> Document PDF professionnel (40-60 pages) + fichiers wireframes
-    <br><br>
-    <strong>Présentation orale :</strong> 15-20 minutes de présentation + 10 minutes de questions
-    <br><br>
-    <strong>Travail :</strong> Individuel (simule une situation réelle où vous seriez chef de projet)
-  </div>
-
-  <h2 class="section-subtitle mt-8">💡 Conseils pour réussir</h2>
-
-  <div class="value-type">
-    <ul class="feature-list">
-      <li><strong>Lisez attentivement le brief</strong> : Ne ratez aucun détail important</li>
-      <li><strong>Projetez-vous en professionnel</strong> : Vous êtes une vraie agence qui veut gagner ce projet</li>
-      <li><strong>Soyez créatif mais réaliste</strong> : Proposez des solutions innovantes mais faisables</li>
-      <li><strong>Justifiez vos choix</strong> : Chaque décision technique doit être argumentée</li>
-      <li><strong>Soignez la forme</strong> : Un document professionnel fait la différence</li>
-      <li><strong>Gérez les risques</strong> : Identifiez les points d'attention et proposez des solutions</li>
-      <li><strong>Pensez ROI client</strong> : Montrez comment votre solution apporte de la valeur</li>
-    </ul>
-  </div>
-
-  <div class="bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg p-6 mt-8 text-white">
-    <h3 class="text-2xl font-bold mb-3">🚀 Prêt à démarrer ?</h3>
-    <p class="text-lg">
-      Cliquez sur "Suivant" pour choisir votre projet d'appel d'offres et commencer votre mission !
-    </p>
-  </div>
+  <h1>Perdu de vue : répondre à une commande publique fictive</h1>
+  <p>La Métropole souhaite aider ses habitants à retrouver leurs objets perdus et simplifier le travail de ses agents. Votre agence dispose d’une journée de 7 h pour lui proposer un service réalisable, avec un usage pertinent de l’IA.</p>
+  <h2>Une mission, cinq livrables</h2>
+  <ul>
+    <li><strong>Une analyse du brief et un entretien :</strong> questions utiles, réponses du client et décisions à prendre.</li>
+    <li><strong>Une note d’intention :</strong> problème, proposition, périmètre et engagements à valider.</li>
+    <li><strong>Un prototype navigable :</strong> le parcours d’un habitant, son traitement côté agent et une situation difficile.</li>
+    <li><strong>Un rétroplanning :</strong> étapes, responsables, charges, dépendances, validations et marge avant l’ouverture.</li>
+    <li><strong>Une enveloppe budgétaire détaillée :</strong> réalisation, trois mois de fonctionnement, réserve et options séparées.</li>
+  </ul>
+  <h2>Travaillez comme une agence</h2>
+  <p>Constituez des équipes de 3 à 4. L’enseignant joue le commanditaire. Posez vos questions, choisissez votre première version, faites évoluer le prototype, le planning et le budget ensemble. Le déroulé reste souple ; la restitution est adaptée au nombre d’équipes.</p>
+  <p>Les données sont fictives et les réponses de l’IA peuvent être simulées. Le budget porte sur le service réel à réaliser après la journée. Vous devez pouvoir défendre vos choix.</p>
+  <p><a href="/mission" class="btn btn--primary">Ouvrir la mission Perdu de vue</a></p>
+  <p>Le contrôle ci-dessous permet de revoir les principes d’une réponse client avant de commencer.</p>
 </div>`,
       quiz: [
         {

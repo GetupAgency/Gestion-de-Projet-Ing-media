@@ -1,6 +1,6 @@
 # Mode enseignant
 
-Le mode enseignant donne accès aux corrections des cas pratiques (feuillets roses), au guide de correction de la mission (`/prof-guide`), aux oraux, au tableau de scores live et à l'import des scores.
+Le mode enseignant donne accès aux corrections des cas pratiques (feuillets roses), à la correction Perdu de vue (`/mission/correction`), à l’ancien guide (`/prof-guide`), aux oraux, au tableau de scores live et à l'import des scores.
 
 ## Fonctionnement (depuis la refonte)
 
@@ -10,7 +10,10 @@ Le mode enseignant donne accès aux corrections des cas pratiques (feuillets ros
    - `teacher_token` : jeton signé (HMAC), `httpOnly`, 30 jours. C'est lui qui autorise l'accès aux corrections.
    - `teacher_ui` : simple drapeau lisible par le navigateur, pour afficher l'interface enseignant.
 4. Les corrections sont servies par `GET /api/correction?module=…&section=…&case=…` uniquement si le jeton est valide. **Elles ne sont jamais présentes dans le bundle JavaScript envoyé aux étudiants** (`lib/content.ts` les retire avant l'envoi).
-5. Le guide de correction (`/prof-guide`) est rendu côté serveur uniquement pour un enseignant authentifié.
+5. La correction `/mission/correction` et l’ancien guide `/prof-guide` vérifient le jeton côté serveur. Les réponses de Perdu de vue sont dans `lib/perduDeVue/server.ts` (`server-only`) et ne sont transmises qu’après cette vérification. La page de correction propose aussi son propre formulaire de connexion.
+6. Sur la correction, **Une partie à projeter** affiche une des cinq étapes et masque les notes de jeu, les prompts et la grille d’évaluation. Cela ne donne aucun accès aux appareils étudiants. **Dossier complet** rétablit tout le contenu. Le planning et le budget conservent les modifications lors du changement de partie.
+
+En local, renseigner `TEACHER_PASSWORD` et `TEACHER_SECRET` dans `.env.local` (ignoré par Git). Sur Dokploy, utiliser les variables du service : les valeurs locales ne sont pas déployées.
 
 Quitter le mode : bouton **Quitter** → `POST /api/teacher/logout` efface les cookies.
 

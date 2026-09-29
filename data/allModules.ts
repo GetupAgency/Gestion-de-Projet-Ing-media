@@ -17,9 +17,8 @@ export const allModules = [
   ...additionalModules,
   ...finalModules,
   crisisModule,
-  missionModule // Mission finale individuelle
+  missionModule // Mission finale en équipe : Perdu de vue
 ]
 
 // Export toutes les questions bonus pour le quiz global
 export { bonusQuizQuestions, lexiqueQuizQuestions, extendedLexiqueQuizQuestions, competencesQuizQuestions, diverseQuizQuestions }
-

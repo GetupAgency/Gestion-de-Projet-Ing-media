@@ -1,0 +1,261 @@
+.pdv-page {
+  --pdv-measure: 72ch;
+}
+
+.pdv-navigation {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+}
+
+.pdv-navigation a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.pdv-navigation a:hover {
+  text-decoration: underline;
+}
+
+.pdv-main {
+  max-width: 80rem;
+  margin-inline: auto;
+  padding: 3.5rem 2rem 0;
+}
+
+.pdv-section {
+  display: grid;
+  grid-template-columns: minmax(12rem, 1fr) minmax(0, 3fr);
+  gap: 3rem;
+  scroll-margin-top: 2rem;
+}
+
+.pdv-section + .pdv-section {
+  margin-top: 4rem;
+  border-top: 2px solid var(--ink);
+  padding-top: 3.5rem;
+}
+
+.pdv-section-heading h2 {
+  font-size: 1.65rem;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.pdv-section-heading p {
+  margin-top: 1rem;
+  font-size: 0.875rem;
+  color: var(--ink-2);
+  max-width: 28ch;
+}
+
+.pdv-section-heading a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 1rem;
+  font-size: 0.875rem;
+}
+
+.pdv-document {
+  min-width: 0;
+  max-width: var(--pdv-measure);
+}
+
+.pdv-document h3 {
+  margin: 2rem 0 0.75rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.25;
+  font-variation-settings: 'wdth' 88;
+  text-wrap: balance;
+}
+
+.pdv-document h4 {
+  margin: 1.5rem 0 0.6rem;
+  font-size: 1.08rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+.pdv-document p {
+  margin-block: 0.75rem;
+  line-height: 1.65;
+  text-wrap: pretty;
+}
+
+.pdv-document ul {
+  padding-left: 1.2rem;
+  list-style: disc;
+  margin-block: 1rem;
+}
+
+.pdv-document li {
+  padding-left: 0.2rem;
+  margin-block: 0.65rem;
+  line-height: 1.6;
+}
+
+.pdv-document strong {
+  font-weight: 650;
+}
+
+.pdv-client-signature {
+  padding-bottom: 1.25rem;
+  border-bottom: 2px solid var(--ink);
+}
+
+.pdv-client-signature p {
+  margin: 0;
+  font-weight: 650;
+}
+
+.pdv-client-signature small {
+  display: block;
+  margin-top: 0.7rem;
+  color: var(--ink-2);
+  font-size: 0.8125rem;
+}
+
+.pdv-hand-in {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--ink);
+}
+
+.pdv-hand-in p {
+  max-width: 50ch;
+  color: var(--ink-2);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 767px) {
+  .pdv-main {
+    padding: 2rem 1rem 0;
+  }
+
+  .pdv-section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  .pdv-section-heading p {
+    max-width: none;
+    margin-top: 0.6rem;
+  }
+
+  .pdv-section + .pdv-section {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+  }
+}
+
+@media print {
+  body:has(.pdv-page) > header,
+  body:has(.pdv-page) > a,
+  body:has(.pdv-page) > .fixed,
+  .pdv-page footer,
+  .pdv-navigation,
+  .pdv-print-button,
+  .pdv-section-heading a,
+  .pdv-page a[href='/'] {
+    display: none !important;
+  }
+
+  .pdv-page {
+    font-size: 10.5pt;
+    background: white;
+    color: black;
+  }
+
+  .pdv-page > section {
+    border-bottom: 1px solid black;
+    background: white;
+  }
+
+  .pdv-page > section > div {
+    display: block;
+  }
+
+  .pdv-page > section > div > div {
+    padding: 0 0 1rem;
+  }
+
+  .pdv-page > section dl {
+    display: none;
+  }
+
+  .pdv-page h1 {
+    font-size: 26pt;
+  }
+
+  .pdv-main {
+    max-width: none;
+    padding: 1.25rem 0 0;
+  }
+
+  .pdv-section {
+    display: block;
+  }
+
+  .pdv-section-heading {
+    margin-bottom: 1rem;
+  }
+
+  .pdv-section-heading h2 {
+    font-size: 17pt;
+  }
+
+  .pdv-section-heading p {
+    max-width: none;
+    margin-top: 0.4rem;
+  }
+
+  .pdv-document {
+    max-width: none;
+  }
+
+  .pdv-document h3 {
+    margin-top: 1.25rem;
+    font-size: 12pt;
+  }
+
+  .pdv-document h4 {
+    font-size: 11pt;
+  }
+
+  .pdv-document h3,
+  .pdv-document h4,
+  .pdv-client-signature {
+    break-after: avoid;
+  }
+
+  .pdv-document p,
+  .pdv-document li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  .pdv-section + .pdv-section {
+    break-before: page;
+    border: 0;
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .pdv-hand-in {
+    display: none;
+  }
+}

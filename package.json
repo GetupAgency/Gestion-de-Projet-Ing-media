@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:mission": "node --conditions=react-server --experimental-strip-types --test scripts/tests/perdu-de-vue.mjs"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

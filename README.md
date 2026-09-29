@@ -12,11 +12,15 @@ Application web interactive pour l'enseignement de la gestion de projet web, dé
 - Contrôle de poste à chaque section, quiz global filtrable
 
 ### 🎯 Mission Projet
-- Élaboration d'un cahier des charges complet
-- Formulaire guidé avec 12 sections
-- Sauvegarde automatique du travail
-- Export en format Markdown
-- Durée estimée : 1 journée
+- **Perdu de vue** : concevoir le service numérique des objets trouvés d'une métropole fictive
+- Expression de besoin et déroulé étudiant réunis sur `/mission`, avec impression du dossier
+- Cinq livrables : analyse et entretien client, note d’intention, prototype, rétroplanning et budget détaillé
+- Master 1, équipes de 3–4, journée de 7 h sans horaires imposés par étape
+- Sources éditoriales dans `docs/mission-perdu-de-vue/`, rendues au build ; reconstruire pour publier une modification
+- L'entrée `/sprint-agence` redirige vers la nouvelle mission ; les anciens ateliers accessibles par lien direct portent un bandeau d'archive
+- Correction pleine page sur `/mission/correction`, protégée côté serveur : entretien et réponses, note, prototype habitant/agent interactif, planning et budget liés, prompts, grille sur 20
+- Mode « Une partie à projeter », impression de la vue et export du budget en CSV
+- Tests des calculs : `npm run test:mission` (Node 23.6+, ou Node 22.13+ avec prise en charge expérimentale des types)
 
 ### 🎤 Évaluation
 - Guide complet pour préparer l'oral (10-15 minutes)
@@ -62,7 +66,7 @@ management-projet/
 │   ├── page.tsx               # Accueil : le « dossier » (composant serveur)
 │   ├── module/[id]/           # Pages module (serveur, SSG) → components/ModuleClient
 │   ├── quiz/                  # Quiz global (serveur) → components/QuizClient
-│   ├── mission/               # Mission cahier des charges + jeux d'équipe
+│   ├── mission/               # Perdu de vue : expression de besoin + mission étudiant
 │   ├── evaluation/ lexique/ competences/
 │   ├── prof-guide/            # Guide enseignant, rendu uniquement si authentifié
 │   └── api/
@@ -203,7 +207,7 @@ Le projet est optimisé pour Vercel :
 1. Suivre les modules dans l'ordre recommandé
 2. Réaliser les cas pratiques
 3. Valider les connaissances avec les quiz
-4. Compléter la mission cahier des charges
+4. Réaliser la mission Perdu de vue en équipe
 5. Préparer l'oral de 10-15 minutes
 
 ## 🔧 Personnalisation
@@ -267,4 +271,3 @@ Pour toute question ou problème, ouvrez une issue sur GitHub.
 ---
 
 **Bonne formation ! 🚀**
-

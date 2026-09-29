@@ -54,7 +54,7 @@ export async function verifyToken(token: string | undefined): Promise<boolean> {
   if (parts.length !== 3) return false
   const [role, exp, sig] = parts
   if (role !== 'teacher') return false
-  if (Number(exp) < Date.now()) return false
+  if (!/^\d+$/.test(exp) || !Number.isSafeInteger(Number(exp)) || Number(exp) <= Date.now()) return false
   const expected = sign(`${role}.${exp}`, await secret())
   return safeEqual(sig, expected)
 }
