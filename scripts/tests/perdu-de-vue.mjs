@@ -6,16 +6,18 @@ import { buildScenario, projectBudget, scheduleProject, workdayDate } from '../.
 const scenario = (durations = {}, shipping = false) => buildScenario(data.tasks, data.option, durations, shipping)
 const budget = (tasks = data.tasks, expenses = data.expenses) => projectBudget(tasks, data.rates, expenses, data.reserve)
 
-test('La référence relie 37 jours de charge à 32 jours de calendrier et au devis', () => {
-  const schedule = scheduleProject(scenario(), 40)
+test('La référence relie les huit étapes, la publication, le suivi et le devis', () => {
+  const schedule = scheduleProject(scenario(), 40, 'publication')
   const total = budget()
-  assert.equal(schedule.ready, 32)
-  assert.equal(schedule.margin, 8)
-  assert.equal(total.totalDays, 37)
-  assert.equal(total.labor, 21150)
+  assert.equal(schedule.ready, 33)
+  assert.equal(schedule.publication, 40)
+  assert.equal(schedule.finish, 46)
+  assert.equal(schedule.margin, 7)
+  assert.equal(total.totalDays, 38.5)
+  assert.equal(total.labor, 21987.5)
   assert.equal(total.external, 428)
-  assert.equal(total.reserve, 3236.7)
-  assert.equal(total.total, 24814.7)
+  assert.equal(total.reserve, 3362.33)
+  assert.equal(total.total, 25777.83)
   for (const task of schedule.tasks) for (const dependency of task.after) {
     assert.ok(task.start >= schedule.tasks.find(t => t.id === dependency).end)
   }
@@ -23,16 +25,45 @@ test('La référence relie 37 jours de charge à 32 jours de calendrier et au de
 
 test('Une attente client décale les dépendances sans ajouter de prestation', () => {
   const tasks = scenario({ validation: 5 })
-  assert.equal(scheduleProject(tasks, 40).ready, 35)
+  assert.equal(scheduleProject(tasks, 40, 'publication').ready, 36)
   assert.equal(budget(tasks).total, budget().total)
 })
 
 test('L’envoi ajoute du travail, des frais et consomme la marge', () => {
   const tasks = scenario({}, true)
-  assert.equal(scheduleProject(tasks, 40).ready, 39)
-  assert.equal(budget(tasks, [...data.expenses, data.optionExpense]).total, 29730.95)
-  assert.equal(scheduleProject(scenario({ validation: 5 }, true), 40).margin, -2)
-  assert.equal(scheduleProject(scenario(), 30).margin, -2)
+  assert.equal(scheduleProject(tasks, 40, 'publication').ready, 40)
+  assert.equal(budget(tasks, [...data.expenses, data.optionExpense]).total, 30694.08)
+  assert.equal(scheduleProject(scenario({ validation: 5 }, true), 40, 'publication').margin, -3)
+  assert.equal(scheduleProject(scenario(), 30, 'publication').margin, -3)
+})
+
+test('Les jalons couvrent toutes les étapes et arrivent après leurs grandes tâches', () => {
+  const schedule = scheduleProject(scenario(), 40, 'publication')
+  assert.deepEqual(data.phases.map(phase => phase.id), ['kickoff', 'prototype', 'maquettes', 'developpement', 'tests-v1', 'preprod', 'publication', 'suivi'])
+  for (const phase of data.phases) {
+    const tasks = schedule.tasks.filter(task => task.phase === phase.id)
+    assert.ok(tasks.length > 0)
+    const milestone = Math.max(...phase.milestone.after.map(id => schedule.tasks.find(task => task.id === id).end))
+    assert.ok(tasks.every(task => task.end <= milestone))
+    assert.ok(phase.milestone.criteria && phase.milestone.validator)
+  }
+  assert.ok(data.tasks.every(task => data.phases.some(phase => phase.id === task.phase)))
+})
+
+test('La date cible garde la marge avant publication et le suivi suit la date réelle', () => {
+  const normal = scheduleProject(scenario(), 40, 'publication')
+  const delayed = scheduleProject(scenario({ validation: 5 }, true), 40, 'publication')
+  assert.equal(normal.tasks.find(task => task.id === 'publication').start, 39)
+  assert.equal(normal.tasks.find(task => task.id === 'suivi').start, 40)
+  assert.equal(delayed.publication, 43)
+  assert.equal(delayed.finish, 49)
+  assert.equal(delayed.tasks.find(task => task.id === 'suivi').start, 43)
+  const short = scheduleProject(scenario(), 30, 'publication')
+  assert.equal(short.publication, 33)
+  const later = scheduleProject(scenario(), 50, 'publication')
+  assert.equal(later.margin, 17)
+  assert.equal(later.finish, 56)
+  assert.throws(() => scheduleProject(scenario(), 40, 'absente'), /publication manquante/)
 })
 
 test('Les scénarios ne modifient pas les données de référence', () => {

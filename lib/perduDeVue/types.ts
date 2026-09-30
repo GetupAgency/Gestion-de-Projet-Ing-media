@@ -1,8 +1,17 @@
 export type RoleId = 'cp' | 'design' | 'dev' | 'ia' | 'qa'
 export type Rates = Record<RoleId, number>
 export type Charges = Partial<Record<RoleId, number>>
+export type PhaseId = 'kickoff' | 'prototype' | 'maquettes' | 'developpement' | 'tests-v1' | 'preprod' | 'publication' | 'suivi'
+export interface ProjectPhase {
+  id: PhaseId
+  title: string
+  color: 'cadrage' | 'conception' | 'realisation' | 'verification' | 'service'
+  question: string
+  milestone: { title: string; after: string[]; criteria: string; validator: string }
+}
 export interface ProjectTask {
   id: string
+  phase: PhaseId
   title: string
   owner: string
   duration: number
@@ -45,6 +54,7 @@ export interface CorrectionDossier {
   intention: string
   scope: { feature: string; choice: string; reason: string }[]
   tasks: ProjectTask[]
+  phases: ProjectPhase[]
   copy: Record<'outcome' | 'planning' | 'coverage' | 'aftercare' | 'clientWork' | 'shipping', string>
   optionExpense: Expense
   option: ProjectTask

@@ -8,13 +8,14 @@ export const euros = (amount: number) => new Intl.NumberFormat('fr-FR', { style:
 export const decimal = (amount: number) => new Intl.NumberFormat('fr-FR', { maximumFractionDigits: 2 }).format(amount)
 const money = (amount: number) => Math.round((amount + Number.EPSILON) * 100) / 100
 
-export function scheduleProject(tasks: ProjectTask[], deadline: number): { tasks: ScheduledTask[]; ready: number; margin: number } {
+export function scheduleProject(tasks: ProjectTask[], deadline: number, publicationId?: string): { tasks: ScheduledTask[]; ready: number; margin: number; finish: number; publication: number } {
   if (!Number.isFinite(deadline) || deadline <= 0) throw new Error('Date cible invalide')
   const byId = new Map(tasks.map(task => [task.id, task]))
   if (byId.size !== tasks.length) throw new Error('Identifiants de tâches dupliqués')
   const planned = new Map<string, ScheduledTask>()
   const visiting = new Set<string>()
   const ordered: ScheduledTask[] = []
+  let anchorPublication = false
   function visit(id: string): ScheduledTask {
     if (visiting.has(id)) throw new Error('Dépendance circulaire')
     const existing = planned.get(id)
@@ -23,7 +24,7 @@ export function scheduleProject(tasks: ProjectTask[], deadline: number): { tasks
     if (!task) throw new Error(`Tâche manquante : ${id}`)
     if (!Number.isFinite(task.duration) || task.duration <= 0) throw new Error('Durée invalide')
     visiting.add(id)
-    const start = Math.max(0, ...task.after.map(parent => visit(parent).end))
+    const start = Math.max(0, ...task.after.map(parent => visit(parent).end), anchorPublication && id === publicationId ? deadline - task.duration : 0)
     const result = { ...task, start, end: start + task.duration, latestStart: 0, slack: 0, driving: false }
     visiting.delete(id)
     planned.set(id, result)
@@ -31,16 +32,26 @@ export function scheduleProject(tasks: ProjectTask[], deadline: number): { tasks
     return result
   }
   tasks.forEach(task => visit(task.id))
+  if (publicationId && !planned.has(publicationId)) throw new Error('Tâche de publication manquante')
+  // La marge porte sur l’ouverture, pas sur le suivi qui vient ensuite.
+  const ready = publicationId ? planned.get(publicationId)!.end : Math.max(0, ...ordered.map(task => task.end))
+  const margin = deadline - ready
+  if (publicationId) {
+    anchorPublication = true
+    planned.clear(); ordered.length = 0
+    tasks.forEach(task => visit(task.id))
+  }
+  const finish = Math.max(0, ...ordered.map(task => task.end))
+  const publication = publicationId ? planned.get(publicationId)!.end : ready
+  const horizon = publicationId ? deadline + finish - publication : deadline
   for (const task of [...ordered].reverse()) {
     const successors = ordered.filter(next => next.after.includes(task.id))
-    const latestEnd = successors.length ? Math.min(...successors.map(next => next.latestStart)) : deadline
+    const latestEnd = task.id === publicationId ? deadline : successors.length ? Math.min(...successors.map(next => next.latestStart)) : horizon
     task.latestStart = latestEnd - task.duration
     task.slack = task.latestStart - task.start
   }
-  const ready = Math.max(0, ...ordered.map(task => task.end))
-  const margin = deadline - ready
   ordered.forEach(task => { task.driving = task.slack === margin })
-  return { tasks: tasks.map(task => planned.get(task.id)!), ready, margin }
+  return { tasks: tasks.map(task => planned.get(task.id)!), ready, margin, finish, publication }
 }
 
 export function projectBudget(tasks: ProjectTask[], rates: Rates, expenses: Expense[], reservePercent: number) {

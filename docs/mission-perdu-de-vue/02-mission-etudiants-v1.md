@@ -33,11 +33,13 @@ Prévoyez aussi une situation où tout ne se passe pas comme prévu : aucun obje
 
 ## 4. Rétroplanning
 
-Reprenez les fonctions de votre prototype et identifiez le travail nécessaire pour les rendre réellement utilisables. Placez les tâches en remontant depuis la date de mise en service retenue avec le client.
+Avant de dessiner le planning, échangeons ensemble : **quelles sont les grandes étapes du projet, que fait-on dans chacune et qu’est-ce qu’on doit valider pour avancer ?** Proposez des tâches concrètes à partir de votre prototype. Repérez ce qui doit attendre et ce qui peut se faire en parallèle.
 
-Indiquez **les responsables, les jours de travail estimés, les dates, les tâches qui dépendent d’autres tâches et les validations du client**. Prévoyez les contenus et données à préparer, les tests, la formation des agents et une marge pour les retards.
+Construisez ensuite **un seul Gantt**, du lancement du projet au suivi après publication. Regroupez les grandes tâches par étape. Marquez les jalons de validation, nommez la personne qui donne l’accord et précisez ce qui doit être prêt.
 
-**À remettre :** un planning visuel lisible, accompagné des charges qui serviront au budget. Distinguez la durée d’une tâche et le nombre de jours réellement travaillés.
+Placez les tâches en remontant depuis la date de publication retenue avec le client. Indiquez les responsables, les durées, les dépendances et une marge avant l’ouverture. Ajoutez des codes couleurs et une légende pour rendre le Gantt lisible.
+
+**À remettre :** le Gantt et les charges qui serviront au budget. Distinguez la durée d’une tâche et le nombre de jours réellement travaillés. Un jalon est une validation à une date donnée ; le travail qui permet de l’atteindre se trouve dans les tâches.
 
 ## 5. Enveloppe budgétaire détaillée
 
