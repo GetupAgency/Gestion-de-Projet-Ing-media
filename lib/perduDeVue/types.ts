@@ -7,6 +7,7 @@ export interface ProjectPhase {
   title: string
   color: 'cadrage' | 'conception' | 'realisation' | 'verification' | 'service'
   question: string
+  participants?: string[]
   milestone: { title: string; after: string[]; criteria: string; validator: string }
 }
 export interface ProjectTask {
