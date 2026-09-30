@@ -31,6 +31,8 @@ export interface DemoObject {
   title: string
   place: string
   date: string
+  foundOn: string
+  transport: 'bus' | 'tram' | 'central'
   publicDescription: string
   privateDescription: string
   storage: string
@@ -51,6 +53,7 @@ export interface CorrectionDossier {
   ceiling: number
   reserve: number
   objects: DemoObject[]
+  screenFlows: { title: string; description: string; source: string }[]
   demoGuide: string
   tests: { action: string; expected: string }[]
   risks: { risk: string; action: string; owner: string }[]

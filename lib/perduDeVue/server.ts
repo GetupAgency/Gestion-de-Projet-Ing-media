@@ -103,14 +103,72 @@ Nous demandons au client de valider ce périmètre, de désigner l’interlocutr
     { id: 'search', title: 'IA · demandes de recherche', quantity: 1500, unit: 'recherche', price: 0.02, note: '500 recherches par mois pendant trois mois. Coût unitaire fictif, à vérifier avec la solution retenue.' },
   ],
   objects: [
-    { id: 'PDV-0431', category: 'audio', title: 'Écouteurs sans fil blancs', place: 'Tram · secteur centre', date: 'Mardi 6 octobre', publicDescription: 'Une paire d’écouteurs et son boîtier blanc.', privateDescription: 'Petite étoile bleue dessinée à l’intérieur du couvercle. Numéro se terminant par 4821.', storage: 'Armoire A · bac 12' },
-    { id: 'PDV-0438', category: 'audio', title: 'Écouteurs sans fil blancs', place: 'Bus · secteur gare', date: 'Mercredi 7 octobre', publicDescription: 'Écouteurs blancs dans un boîtier de charge.', privateDescription: 'Boîtier gravé « NORA ». Numéro se terminant par 9063.', storage: 'Armoire A · bac 13' },
-    { id: 'PDV-0440', category: 'bag', title: 'Sac à dos bleu', place: 'Bus · secteur centre', date: 'Mercredi 7 octobre', publicDescription: 'Sac à dos bleu de taille moyenne.', privateDescription: 'Carnet rouge et porte-clés en forme de lune à l’intérieur.', storage: 'Étagère B · case 4' },
-    { id: 'PDV-0442', category: 'sensitive', title: 'Document d’identité', place: 'Bureau central', date: 'Mercredi 7 octobre', publicDescription: '', privateDescription: 'Circuit interne. Aucune identité réelle dans cette démonstration.', storage: 'Armoire sécurisée' },
+    { id: 'PDV-0431', category: 'audio', title: 'Écouteurs sans fil blancs', place: 'Tram · secteur centre', transport: 'tram', foundOn: '2026-10-06', date: 'Mardi 6 octobre', publicDescription: 'Une paire d’écouteurs et son boîtier blanc.', privateDescription: 'Petite étoile bleue dessinée à l’intérieur du couvercle. Numéro se terminant par 4821.', storage: 'Armoire A · bac 12' },
+    { id: 'PDV-0438', category: 'audio', title: 'Écouteurs sans fil blancs', place: 'Bus · secteur gare', transport: 'bus', foundOn: '2026-10-07', date: 'Mercredi 7 octobre', publicDescription: 'Écouteurs blancs dans un boîtier de charge.', privateDescription: 'Boîtier gravé « NORA ». Numéro se terminant par 9063.', storage: 'Armoire A · bac 13' },
+    { id: 'PDV-0440', category: 'bag', title: 'Sac à dos bleu', place: 'Bus · secteur centre', transport: 'bus', foundOn: '2026-10-07', date: 'Mercredi 7 octobre', publicDescription: 'Sac à dos bleu de taille moyenne.', privateDescription: 'Carnet rouge et porte-clés en forme de lune à l’intérieur.', storage: 'Étagère B · case 4' },
+    { id: 'PDV-0442', category: 'sensitive', title: 'Document d’identité', place: 'Bureau central', transport: 'central', foundOn: '2026-10-07', date: 'Mercredi 7 octobre', publicDescription: '', privateDescription: 'Circuit interne. Aucune identité réelle dans cette démonstration.', storage: 'Armoire sécurisée' },
   ],
-  demoGuide: `**Scénario à jouer :** cherchez des écouteurs blancs perdus dans le tram. Deux objets se ressemblent. Pour le premier, déposez une demande avec « une étoile bleue à l’intérieur du couvercle » et une adresse fictive. Passez côté agent : le détail privé permet une comparaison, pas une remise automatique. Demandez une précision, puis autorisez le retrait et simulez le contrôle au guichet.
+  screenFlows: [
+    { title: 'Parcours principal', description: 'Les repères correspondent aux vues du prototype. H5 est le même écran de suivi : son contenu change selon la réponse de l’agent.', source: `flowchart TD
+    accTitle: De la recherche à la remise de l’objet
+    accDescr: Recherche, résultats, fiche objet, demande, suivi habitant puis examen agent. Un retrait autorisé est suivi d’un contrôle au guichet et d’une remise enregistrée.
+    H1["H1 · Recherche"] -->|Chercher| H2["H2 · Résultats"]
+    H2 -->|Voir la fiche| H3["H3 · Fiche objet"]
+    H3 -->|Demander la restitution| H4["H4 · Demande"]
+    H4 -->|Transmettre| H5["H5 · Suivi : demande reçue"]
+    H4 -->|Reçue au bureau| A1["A1 · Demandes reçues"]
+    A1 -->|Ouvrir| A2["A2 · Examen des indices"]
+    A2 -->|Indices suffisants| A3["A3 · Retrait autorisé"]
+    A3 -->|Informer| H5B["H5 · Suivi : préparer sa venue"]
+    A3 -->|Contrôle au guichet| A4["A4 · Remise enregistrée"]
+    A4 -->|Confirmer| H5C["H5 · Suivi : objet remis"]
+    classDef citizen fill:#eaf2ef,stroke:#173e39,color:#173e39
+    classDef agent fill:#f0f1f5,stroke:#404661,color:#232638
+    classDef alternate fill:#fff5d7,stroke:#866514,color:#594309
+    class H1,H2,H3,H4,H5,H5B,H5C citizen
+    class A1,A2,A3,A4 agent` },
+    { title: 'Cas particuliers', description: 'Une recherche sans résultat et une erreur de l’IA ont une issue. Une demande de précision revient à l’habitant, puis à l’agent pour un nouvel examen.', source: `flowchart TD
+    accTitle: Les cas particuliers du parcours
+    accDescr: La recherche peut être indisponible, sans résultat ou concerner un document sensible. L’agent peut demander une précision ou refuser en expliquant.
+    H1["H1 · Recherche"] -->|IA indisponible| SIMPLE["Rechercher avec les filtres"]
+    SIMPLE --> H2["H2 · Résultats"]
+    H1 -->|Objet sensible| CONTACT["Orientation vers le bureau"]
+    H2 -->|Aucun objet correspondant| H4["H4 · Déclaration sans objet associé"]
+    H2 -->|Modifier la recherche| H1
+    H4 --> A1["A1 · Demandes reçues"]
+    A1 -->|Associer une fiche disponible| A2["A2 · Examen des indices"]
+    A2 -->|Indice manquant| H5["H5 · Précision demandée"]
+    H5 -->|Répondre à l’agent| A2
+    A2 -->|Refuser et expliquer| H5B["H5 · Demande non confirmée"]
+    H5B -->|Reprendre la recherche| H1
+    classDef citizen fill:#eaf2ef,stroke:#173e39,color:#173e39
+    classDef agent fill:#f0f1f5,stroke:#404661,color:#232638
+    classDef alternate fill:#fff5d7,stroke:#866514,color:#594309
+    class H1,H2,H4,H5,H5B citizen
+    class A1,A2 agent
+    class SIMPLE,CONTACT alternate` },
+    { title: 'Inventaire', description: 'La fiche publique aide à chercher. Les indices, les documents sensibles et le rangement restent côté agent. Un objet réservé ou remis ne figure plus dans les résultats.', source: `flowchart TD
+    accTitle: De l’inventaire à la recherche
+    accDescr: Un agent enregistre un objet. Les objets sensibles restent internes. Les objets ordinaires disponibles alimentent la recherche ; ils en sortent après autorisation du retrait.
+    A5["A5 · Inventaire"] -->|Enregistrer un objet| A6["A6 · Nouvelle fiche"]
+    A6 -->|Objet ordinaire| PUBLIC["Description publique + indices privés"]
+    A6 -->|Document sensible| INTERNE["Fiche interne uniquement"]
+    PUBLIC -->|Enregistrer| STOCK["A5 · Objet disponible"]
+    INTERNE -->|Enregistrer| STOCKI["A5 · Circuit interne"]
+    STOCK -->|Description publique| H2["H2 · Résultats de recherche"]
+    STOCK -->|Indices privés| A2["A2 · Examen des indices"]
+    A2 -->|Autoriser le retrait| RESERVE["A5 · Objet réservé"]
+    RESERVE -->|Remise au guichet| REMIS["A5 · Historique des objets remis"]
+    classDef citizen fill:#eaf2ef,stroke:#173e39,color:#173e39
+    classDef agent fill:#f0f1f5,stroke:#404661,color:#232638
+    classDef alternate fill:#fff5d7,stroke:#866514,color:#594309
+    class H2 citizen
+    class A5,A6,STOCK,A2,RESERVE,REMIS agent
+    class PUBLIC,INTERNE,STOCKI alternate` },
+  ],
+  demoGuide: `**Scénario à jouer :** cherchez des écouteurs blancs perdus dans le tram. Deux objets se ressemblent. Ouvrez la fiche du premier objet, puis déposez une demande avec « une étoile bleue à l’intérieur du couvercle » et une adresse fictive. Passez côté agent : le détail privé permet une comparaison, pas une remise automatique. Demandez une précision, puis autorisez le retrait et simulez le contrôle au guichet.
 
-Essayez ensuite un résultat absent, une IA indisponible et un document sensible. Côté inventaire, ajoutez un objet ordinaire puis un document sensible : ce dernier doit rester interne.
+Essayez ensuite un résultat absent, une IA indisponible et un document sensible. Testez aussi les filtres de lieu et de date (jeu de données du 6 au 7 octobre 2026). Le bouton « Charger un exemple » crée une demande pour démarrer directement côté agent. Côté inventaire, ajoutez un objet ordinaire puis un document sensible : ce dernier doit rester interne.
 
 Le prototype simule le produit dans cette page. Il n’envoie aucun courriel et n’effectue aucune identification réelle. L’accès agent de la future application, les liens individuels, la concurrence entre demandes et la sécurité du stockage restent du travail de production chiffré dans le budget.`,
   tests: [

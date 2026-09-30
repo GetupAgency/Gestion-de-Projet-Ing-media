@@ -6,6 +6,7 @@ import ReactMarkdown from 'react-markdown'
 import { ArrowLeft, Copy, Eye, FileText, Printer, RotateCcw } from 'lucide-react'
 import type { CorrectionDossier } from '@/lib/perduDeVue/types'
 import ServicePrototype from './ServicePrototype'
+import ScreenFlow from './ScreenFlow'
 import PlanningBudget from './PlanningBudget'
 
 const sections = [
@@ -63,6 +64,7 @@ export default function CorrectionClient({ data }: { data: CorrectionDossier }) 
         <div className="pdvc-section-title"><span className="num">03</span><div><h2 id="prototype-title">Le prototype du service</h2><p>Chercher un objet, demander sa restitution, puis examiner la demande côté agent.</p></div><button type="button" className="btn pdvc-no-print" onClick={() => setPrototypeVersion(value => value + 1)}><RotateCcw size={16} aria-hidden="true" />Réinitialiser la démo</button></div>
         {!projection && <details className="pdvc-details pdvc-private"><summary>Scénario de démonstration et limites</summary><div className="pdvc-details-body"><Markdown>{data.demoGuide}</Markdown></div></details>}
         <ServicePrototype key={prototypeVersion} initialObjects={data.objects} />
+        <ScreenFlow flows={data.screenFlows} />
         <div className="pdvc-table-scroll mt-8"><table className="pdvc-table"><caption>Ce que nous devons vérifier</caption><thead><tr><th>Action</th><th>Résultat attendu</th></tr></thead><tbody>{data.tests.map(row => <tr key={row.action}><th scope="row">{row.action}</th><td>{row.expected}</td></tr>)}</tbody></table></div>
         <p className="pdvc-note">Le prototype montre le parcours. Il ne prouve ni la qualité d’un vrai rapprochement IA, ni la sécurité d’un service en production. Ces points nécessitent les travaux et les tests prévus au planning.</p>
       </section>

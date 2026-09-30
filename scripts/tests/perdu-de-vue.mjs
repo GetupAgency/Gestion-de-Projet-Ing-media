@@ -62,3 +62,56 @@ test('Les graphes et budgets incohérents sont refusés', () => {
   assert.throws(() => projectBudget(tasks, data.rates, [], -1), /Réserve/)
   assert.throws(() => projectBudget(tasks, data.rates, [{ ...data.expenses[0], price: -1 }], 15), /Frais/)
 })
+
+// Les contrôles métier de la démonstration sont indépendants de son habillage.
+const { changeClaim, findDemoObjects, isSensitiveSearch, objectUnavailable } = await import('../../lib/perduDeVue/prototype.ts')
+const search = { description: 'Mes écouteurs blancs', category: 'all', place: 'all', from: '', to: '' }
+const claim = (id = 'D-001', objectId = data.objects[0].id) => ({ id, objectId, description: search.description, proof: 'Une étoile bleue', email: 'test@example.test', status: 'pending', message: '', history: [] })
+
+test('Les filtres de type, de lieu et de date se combinent sans publier les objets sensibles', () => {
+  assert.equal(findDemoObjects(data.objects, [], search, false).length, 2)
+  assert.equal(findDemoObjects(data.objects, [], { ...search, place: 'tram' }, false).length, 1)
+  assert.equal(findDemoObjects(data.objects, [], { ...search, from: '2026-10-07' }, false).length, 1)
+  assert.equal(findDemoObjects(data.objects, [], { ...search, to: '2026-10-05' }, false).length, 0)
+  assert.equal(findDemoObjects(data.objects, [], { ...search, description: 'Un chapeau vert' }, false).length, 0)
+  const manual = findDemoObjects(data.objects, [], { ...search, description: '' }, true)
+  assert.equal(manual.length, 3)
+  assert.ok(manual.every(object => object.category !== 'sensitive'))
+  assert.equal(isSensitiveSearch({ ...search, description: 'Mon passeport' }), true)
+  assert.equal(findDemoObjects(data.objects, [], { ...search, category: 'sensitive' }, true).length, 0)
+})
+
+test('Une précision complète les indices, garde l’historique et revient à l’examen', () => {
+  const initial = [claim()]
+  assert.throws(() => changeClaim(initial, data.objects, 'D-001', 'information', ''))
+  const requested = changeClaim(initial, data.objects, 'D-001', 'information', 'Quel dessin se trouve dans le couvercle ?')
+  const answered = changeClaim(requested, data.objects, 'D-001', 'pending', 'Une étoile bleue dans le couvercle.')
+  assert.equal(answered[0].status, 'pending')
+  assert.match(answered[0].proof, /Précision : Une étoile bleue/)
+  assert.equal(answered[0].history.length, 2)
+  assert.equal(initial[0].history.length, 0)
+  assert.throws(() => changeClaim(initial, data.objects, 'D-001', 'pending', 'Précision hors étape'))
+})
+
+test('Autorisation et remise exigent deux contrôles ; un objet ne peut être attribué deux fois', () => {
+  const initial = [claim(), claim('D-002')]
+  assert.throws(() => changeClaim(initial, data.objects, 'D-001', 'approved', '', false))
+  assert.throws(() => changeClaim(initial, data.objects, 'D-001', 'returned', '', true))
+  const approved = changeClaim(initial, data.objects, 'D-001', 'approved', '', true)
+  assert.equal(objectUnavailable(approved, data.objects[0].id), true)
+  assert.equal(findDemoObjects(data.objects, approved, search, false).length, 1)
+  assert.throws(() => changeClaim(approved, data.objects, 'D-002', 'approved', '', true))
+  assert.throws(() => changeClaim(approved, data.objects, 'D-001', 'returned', '', false))
+  const returned = changeClaim(approved, data.objects, 'D-001', 'returned', '', true)
+  assert.equal(returned[0].status, 'returned')
+  assert.throws(() => changeClaim(returned, data.objects, 'D-001', 'returned', '', true))
+  assert.throws(() => changeClaim([claim('D-003', null)], data.objects, 'D-003', 'approved', '', true))
+  assert.throws(() => changeClaim([claim('D-004', data.objects.find(object => object.category === 'sensitive').id)], data.objects, 'D-004', 'approved', '', true))
+})
+
+test('Un refus expliqué clôt la demande en laissant l’objet disponible', () => {
+  const refused = changeClaim([claim()], data.objects, 'D-001', 'rejected', 'Les indices ne correspondent pas à cette fiche.')
+  assert.equal(refused[0].status, 'rejected')
+  assert.equal(objectUnavailable(refused, data.objects[0].id), false)
+  assert.throws(() => changeClaim(refused, data.objects, 'D-001', 'approved', '', true))
+})

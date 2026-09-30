@@ -19,6 +19,8 @@ Application web interactive pour l'enseignement de la gestion de projet web, dé
 - Sources éditoriales dans `docs/mission-perdu-de-vue/`, rendues au build ; reconstruire pour publier une modification
 - L'entrée `/sprint-agence` redirige vers la nouvelle mission ; les anciens ateliers accessibles par lien direct portent un bandeau d'archive
 - Correction pleine page sur `/mission/correction`, protégée côté serveur : entretien et réponses, note, prototype habitant/agent interactif, planning et budget liés, prompts, grille sur 20
+- Prototype : filtres, fiche objet, demande, historique, échanges avec l’agent, réservation et remise ; inventaire public/privé
+- Schémas Mermaid sous le prototype : parcours principal, cas particuliers et inventaire, zoom, copie du code et export SVG
 - Mode « Une partie à projeter », impression de la vue et export du budget en CSV
 - Tests des calculs : `npm run test:mission` (Node 23.6+, ou Node 22.13+ avec prise en charge expérimentale des types)
 

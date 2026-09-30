@@ -1,0 +1,33 @@
+.pdvf-flow { margin: 3rem 0 2rem; border-top: 2px solid var(--ink); padding-top: 1.75rem; }
+.pdvf-heading { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 1.25rem; }
+.pdvf-heading > div { flex: 1; min-width: min(100%, 300px); }
+.pdvc-page .pdvf-heading h3 { font-size: 1.5rem; }
+.pdvf-heading p { max-width: 72ch; margin-top: .65rem; line-height: 1.65; color: var(--ink-2); font-size: .93rem; }
+.pdvf-toolbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .75rem; padding: 1rem 0; }
+.pdvf-legend { display: flex; flex-wrap: wrap; gap: 1rem; font-size: .82rem; }
+.pdvf-legend span { display: flex; align-items: center; gap: .5rem; }
+.pdvf-legend i { width: 16px; height: 16px; border: 1px solid; }
+.pdvf-legend .citizen { color: #173e39; background: #eaf2ef; }
+.pdvf-legend .agent { color: #404661; background: #f0f1f5; }
+.pdvf-legend .alternate { color: #866514; background: #fff5d7; }
+.pdvf-zoom { display: flex; align-items: center; border: 1px solid var(--rule); }
+.pdvf-zoom button { display: grid; place-items: center; width: 44px; height: 44px; }
+.pdvf-zoom button:hover:not(:disabled) { background: var(--paper-2); }
+.pdvf-zoom button:disabled { opacity: .4; cursor: not-allowed; }
+.pdvf-zoom output { font-family: var(--font-mono); font-size: .8rem; min-width: 60px; text-align: center; }
+.pdvf-canvas { overflow: auto; border: 1px solid var(--rule); background: #fff; padding: 1.25rem; }
+.pdvf-svg { min-width: 640px; margin-inline: auto; }
+.pdvf-svg > svg { width: 100%; height: auto; max-width: none !important; display: block; }
+.pdvf-loading { padding: 3rem 1rem; color: var(--ink-2); font-size: .9rem; }
+.pdvf-loading .btn { margin-top: 1rem; }
+.pdvf-caption { margin: 1rem 0 1.5rem; font-size: .86rem; color: var(--ink-2); line-height: 1.65; max-width: 80ch; }
+@media (max-width: 640px) { .pdvf-canvas { padding: .75rem; } }
+@media print { .pdvf-canvas { overflow: visible; padding: 0; border: 0; } .pdvf-svg { min-width: 0; width: 100% !important; } .pdvf-flow { break-before: page; } .pdvf-svg > svg { max-height: 22cm; } .pdvf-legend i { print-color-adjust: exact; -webkit-print-color-adjust: exact; } }
+
+.pdvf-views { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem; }
+.pdvf-views button { min-height: 44px; padding: .6rem 1rem; border: 1px solid var(--rule); font-size: .86rem; }
+.pdvf-views button[aria-pressed=true] { background: var(--ink); color: white; border-color: var(--ink); }
+.pdvf-views button:hover:not([aria-pressed=true]) { background: var(--paper-2); }
+/* Mermaid emploie aussi « label » : ne pas hériter des étiquettes du dossier. */
+.pdvf-svg .label, .pdvf-svg .nodeLabel, .pdvf-svg .edgeLabel, .pdvf-svg text { font-family: Arial, sans-serif !important; font-size: 15px !important; letter-spacing: 0 !important; text-transform: none !important; font-weight: 400 !important; }
+.pdvf-svg p { font-size: inherit !important; letter-spacing: 0 !important; text-transform: none !important; }
